@@ -1,0 +1,70 @@
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\CarsApp.UI.exe.config
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\CarsApp.UI.exe
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\CarsApp.UI.pdb
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\CarsApp.Common.dll
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\CarsApp.Data.dll
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\CarsApp.Services.dll
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\LGBS.MVPFramework.Controls.dll
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\LGBS.MVPFramework.Data.dll
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\LGBS.MVPFramework.Services.dll
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\LGBS.MVPFramework.UI.dll
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\Telerik.WinControls.dll
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\Telerik.WinControls.GridView.dll
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\Telerik.WinControls.RadDock.dll
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\Telerik.WinControls.UI.dll
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\TelerikCommon.dll
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\LinqKit.dll
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\Telerik.WinControls.RadMarkupEditor.dll
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\Telerik.WinControls.Scheduler.dll
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\TelerikData.dll
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\Microsoft.mshtml.dll
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\CarsApp.Common.pdb
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\CarsApp.Data.pdb
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\CarsApp.Data.dll.config
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\CarsApp.Services.pdb
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\Telerik.WinControls.RadMarkupEditor.xml
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.csprojAssemblyReference.cache
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.Properties.Resources.resources
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.CountryDetails.resources
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.CountryList.resources
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.MainForm.resources
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.csproj.GenerateResource.cache
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.csproj.CoreCompileInputs.cache
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.csproj.CopyComplete
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.exe
+C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.pdb
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\CarsApp.UI.exe.config
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\CarsApp.UI.exe
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\CarsApp.UI.pdb
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\CarsApp.Common.dll
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\CarsApp.Data.dll
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\CarsApp.Services.dll
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\LGBS.MVPFramework.Controls.dll
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\LGBS.MVPFramework.Data.dll
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\LGBS.MVPFramework.Services.dll
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\LGBS.MVPFramework.UI.dll
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\Telerik.WinControls.dll
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\Telerik.WinControls.GridView.dll
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\Telerik.WinControls.RadDock.dll
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\Telerik.WinControls.UI.dll
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\TelerikCommon.dll
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\LinqKit.dll
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\Telerik.WinControls.RadMarkupEditor.dll
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\Telerik.WinControls.Scheduler.dll
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\TelerikData.dll
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\Microsoft.mshtml.dll
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\CarsApp.Common.pdb
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\CarsApp.Data.pdb
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\CarsApp.Data.dll.config
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\CarsApp.Services.pdb
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\Telerik.WinControls.RadMarkupEditor.xml
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.csprojAssemblyReference.cache
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.Properties.Resources.resources
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.CountryDetails.resources
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.CountryList.resources
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.MainForm.resources
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.csproj.GenerateResource.cache
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.csproj.CoreCompileInputs.cache
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.csproj.CopyComplete
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.exe
+D:\Program Files\GitHub\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.pdb

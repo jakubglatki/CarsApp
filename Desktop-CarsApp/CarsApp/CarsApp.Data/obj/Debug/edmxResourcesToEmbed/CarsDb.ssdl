@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CarsDb.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="CarsDbStoreContainer">
+    <EntitySet Name="Countries" EntityType="CarsDb.Store.Countries" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cities" EntityType="CarsDb.Store.Cities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Factories" EntityType="CarsDb.Store.Factories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CarModels" EntityType="CarsDb.Store.CarModels" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CarProducts" EntityType="CarsDb.Store.CarProducts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CarFeatures" EntityType="CarsDb.Store.CarFeatures" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Manufactures" EntityType="CarsDb.Store.Manufactures" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CarProductCarFeature" EntityType="CarsDb.Store.CarProductCarFeature" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CarFeatureCarModel" EntityType="CarsDb.Store.CarFeatureCarModel" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="CityCountry" Association="CarsDb.Store.CityCountry">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Country" EntitySet="Countries" />
+    </AssociationSet>
+    <AssociationSet Name="FactoryCity" Association="CarsDb.Store.FactoryCity">
+      <End Role="Factory" EntitySet="Factories" />
+      <End Role="City" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="CarProductCarModel" Association="CarsDb.Store.CarProductCarModel">
+      <End Role="CarProduct" EntitySet="CarProducts" />
+      <End Role="CarModel" EntitySet="CarModels" />
+    </AssociationSet>
+    <AssociationSet Name="CarProductFactory" Association="CarsDb.Store.CarProductFactory">
+      <End Role="CarProduct" EntitySet="CarProducts" />
+      <End Role="Factory" EntitySet="Factories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CarProductCarFeature_CarProduct" Association="CarsDb.Store.FK_CarProductCarFeature_CarProduct">
+      <End Role="CarProduct" EntitySet="CarProducts" />
+      <End Role="CarProductCarFeature" EntitySet="CarProductCarFeature" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CarProductCarFeature_CarFeature" Association="CarsDb.Store.FK_CarProductCarFeature_CarFeature">
+      <End Role="CarFeature" EntitySet="CarFeatures" />
+      <End Role="CarProductCarFeature" EntitySet="CarProductCarFeature" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CarFeatureCarModel_CarFeature" Association="CarsDb.Store.FK_CarFeatureCarModel_CarFeature">
+      <End Role="CarFeature" EntitySet="CarFeatures" />
+      <End Role="CarFeatureCarModel" EntitySet="CarFeatureCarModel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CarFeatureCarModel_CarModel" Association="CarsDb.Store.FK_CarFeatureCarModel_CarModel">
+      <End Role="CarModel" EntitySet="CarModels" />
+      <End Role="CarFeatureCarModel" EntitySet="CarFeatureCarModel" />
+    </AssociationSet>
+    <AssociationSet Name="ManufactureCountry" Association="CarsDb.Store.ManufactureCountry">
+      <End Role="Manufacture" EntitySet="Manufactures" />
+      <End Role="Country" EntitySet="Countries" />
+    </AssociationSet>
+    <AssociationSet Name="FactoryManufacture" Association="CarsDb.Store.FactoryManufacture">
+      <End Role="Factory" EntitySet="Factories" />
+      <End Role="Manufacture" EntitySet="Manufactures" />
+    </AssociationSet>
+    <AssociationSet Name="CarModelManufacture" Association="CarsDb.Store.CarModelManufacture">
+      <End Role="CarModel" EntitySet="CarModels" />
+      <End Role="Manufacture" EntitySet="Manufactures" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CountryId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Factories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CityId" Type="bigint" Nullable="false" />
+    <Property Name="ManufactureId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CarModels">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="ManufactureId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CarProducts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Year" Type="smallint" Nullable="false" />
+    <Property Name="VIN" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CarModelId" Type="bigint" Nullable="false" />
+    <Property Name="FactoryId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CarFeatures">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="3" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Manufactures">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CountryId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CarProductCarFeature">
+    <Key>
+      <PropertyRef Name="CarProducts_Id" />
+      <PropertyRef Name="CarFeatures_Id" />
+    </Key>
+    <Property Name="CarProducts_Id" Type="bigint" Nullable="false" />
+    <Property Name="CarFeatures_Id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CarFeatureCarModel">
+    <Key>
+      <PropertyRef Name="CarFeatures_Id" />
+      <PropertyRef Name="CarModels_Id" />
+    </Key>
+    <Property Name="CarFeatures_Id" Type="bigint" Nullable="false" />
+    <Property Name="CarModels_Id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <Association Name="CityCountry">
+    <End Role="City" Type="CarsDb.Store.Cities" Multiplicity="*" />
+    <End Role="Country" Type="CarsDb.Store.Countries" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FactoryCity">
+    <End Role="Factory" Type="CarsDb.Store.Factories" Multiplicity="*" />
+    <End Role="City" Type="CarsDb.Store.Cities" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Factory">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CarProductCarModel">
+    <End Role="CarProduct" Type="CarsDb.Store.CarProducts" Multiplicity="*" />
+    <End Role="CarModel" Type="CarsDb.Store.CarModels" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="CarModel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CarProduct">
+        <PropertyRef Name="CarModelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CarProductFactory">
+    <End Role="CarProduct" Type="CarsDb.Store.CarProducts" Multiplicity="*" />
+    <End Role="Factory" Type="CarsDb.Store.Factories" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Factory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CarProduct">
+        <PropertyRef Name="FactoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ManufactureCountry">
+    <End Role="Manufacture" Type="CarsDb.Store.Manufactures" Multiplicity="*" />
+    <End Role="Country" Type="CarsDb.Store.Countries" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Manufacture">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FactoryManufacture">
+    <End Role="Factory" Type="CarsDb.Store.Factories" Multiplicity="*" />
+    <End Role="Manufacture" Type="CarsDb.Store.Manufactures" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacture">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Factory">
+        <PropertyRef Name="ManufactureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CarModelManufacture">
+    <End Role="CarModel" Type="CarsDb.Store.CarModels" Multiplicity="*" />
+    <End Role="Manufacture" Type="CarsDb.Store.Manufactures" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacture">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CarModel">
+        <PropertyRef Name="ManufactureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CarProductCarFeature_CarProduct">
+    <End Role="CarProduct" Type="CarsDb.Store.CarProducts" Multiplicity="1" />
+    <End Role="CarProductCarFeature" Type="CarsDb.Store.CarProductCarFeature" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarProduct">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CarProductCarFeature">
+        <PropertyRef Name="CarProducts_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CarProductCarFeature_CarFeature">
+    <End Role="CarProductCarFeature" Type="CarsDb.Store.CarProductCarFeature" Multiplicity="*" />
+    <End Role="CarFeature" Type="CarsDb.Store.CarFeatures" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="CarFeature">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CarProductCarFeature">
+        <PropertyRef Name="CarFeatures_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CarFeatureCarModel_CarFeature">
+    <End Role="CarFeature" Type="CarsDb.Store.CarFeatures" Multiplicity="1" />
+    <End Role="CarFeatureCarModel" Type="CarsDb.Store.CarFeatureCarModel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarFeature">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CarFeatureCarModel">
+        <PropertyRef Name="CarFeatures_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CarFeatureCarModel_CarModel">
+    <End Role="CarFeatureCarModel" Type="CarsDb.Store.CarFeatureCarModel" Multiplicity="*" />
+    <End Role="CarModel" Type="CarsDb.Store.CarModels" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="CarModel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CarFeatureCarModel">
+        <PropertyRef Name="CarModels_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

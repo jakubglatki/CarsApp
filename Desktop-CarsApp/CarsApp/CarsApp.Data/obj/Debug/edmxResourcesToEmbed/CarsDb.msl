@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CarsDbStoreContainer" CdmEntityContainer="CarsDb">
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="IsTypeOf(CarsDb.Data.Country)">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="IsTypeOf(CarsDb.Data.City)">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Factories">
+      <EntityTypeMapping TypeName="IsTypeOf(CarsDb.Data.Factory)">
+        <MappingFragment StoreEntitySet="Factories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="ManufactureId" ColumnName="ManufactureId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarModels">
+      <EntityTypeMapping TypeName="IsTypeOf(CarsDb.Data.CarModel)">
+        <MappingFragment StoreEntitySet="CarModels">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ManufactureId" ColumnName="ManufactureId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarProducts">
+      <EntityTypeMapping TypeName="IsTypeOf(CarsDb.Data.CarProduct)">
+        <MappingFragment StoreEntitySet="CarProducts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="VIN" ColumnName="VIN" />
+          <ScalarProperty Name="CarModelId" ColumnName="CarModelId" />
+          <ScalarProperty Name="FactoryId" ColumnName="FactoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarFeatures">
+      <EntityTypeMapping TypeName="IsTypeOf(CarsDb.Data.CarFeature)">
+        <MappingFragment StoreEntitySet="CarFeatures">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Manufactures">
+      <EntityTypeMapping TypeName="IsTypeOf(CarsDb.Data.Manufacture)">
+        <MappingFragment StoreEntitySet="Manufactures">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CarProductCarFeature" TypeName="CarsDb.Data.CarProductCarFeature" StoreEntitySet="CarProductCarFeature">
+      <EndProperty Name="CarProduct">
+        <ScalarProperty Name="Id" ColumnName="CarProducts_Id" />
+      </EndProperty>
+      <EndProperty Name="CarFeature">
+        <ScalarProperty Name="Id" ColumnName="CarFeatures_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CarFeatureCarModel" TypeName="CarsDb.Data.CarFeatureCarModel" StoreEntitySet="CarFeatureCarModel">
+      <EndProperty Name="CarFeature">
+        <ScalarProperty Name="Id" ColumnName="CarFeatures_Id" />
+      </EndProperty>
+      <EndProperty Name="CarModel">
+        <ScalarProperty Name="Id" ColumnName="CarModels_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

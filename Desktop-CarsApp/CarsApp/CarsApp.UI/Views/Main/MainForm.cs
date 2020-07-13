@@ -204,8 +204,12 @@ namespace CarsApp.UI
 		{
 		}
 
+
         #endregion Event handlers
 
-       
+        private void radRibbonBarButtonGroup1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CityService.cs" />
+    <Compile Include="CityService.OrderByExpression.cs" />
+    <Compile Include="CityService.SearchCriteria.cs" />
     <Compile Include="CountryService.cs" />
     <Compile Include="CountryService.OrderByExpression.cs">
       <DependentUpon>CountryService.cs</DependentUpon>

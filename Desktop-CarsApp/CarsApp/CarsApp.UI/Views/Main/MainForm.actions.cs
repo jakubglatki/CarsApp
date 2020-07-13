@@ -112,7 +112,12 @@ namespace CarsApp.UI
 			ICountryList view = CarsViewFactory.Factory.CreateViewInstance<ICountryList>();
 			view.Show(ViewMode.ReadOnly);
 		}
+		private void citiesButtonElement_Click(object sender, EventArgs e)
+		{
+			ICityList view = CarsViewFactory.Factory.CreateViewInstance<ICityList>();
+			view.Show(ViewMode.ReadOnly);
+		}
 
-        #endregion Okna
-    }
+		#endregion Okna
+	}
 }

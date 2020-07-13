@@ -35,6 +35,7 @@
             this.mainWindowsRibbonTab = new Telerik.WinControls.UI.RibbonTab();
             this.windowsRibbonBarGroup = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.countriesButtonElement = new Telerik.WinControls.UI.RadButtonElement();
+            this.citiesButtonElement = new Telerik.WinControls.UI.RadButtonElement();
             this.managementRibbonTab = new Telerik.WinControls.UI.RibbonTab();
             this.actionsRibbonBarGroup = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.addButtonElement = new Telerik.WinControls.UI.RadButtonElement();
@@ -61,12 +62,12 @@
             this.mainDock.Location = new System.Drawing.Point(0, 157);
             this.mainDock.MainDocumentContainer = this.mainDocumentContainer;
             this.mainDock.Name = "mainDock";
-            this.mainDock.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.mainDock.Padding = new System.Windows.Forms.Padding(5);
             // 
             // 
             // 
-            this.mainDock.RootElement.MinSize = new System.Drawing.Size(19, 20);
-            this.mainDock.RootElement.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.mainDock.RootElement.MinSize = new System.Drawing.Size(25, 25);
+            this.mainDock.RootElement.Padding = new System.Windows.Forms.Padding(5);
             this.mainDock.ShowDocumentCloseButton = true;
             this.mainDock.ShowToolCloseButton = true;
             this.mainDock.Size = new System.Drawing.Size(849, 312);
@@ -151,7 +152,7 @@
             this.windowsRibbonBarGroup.AccessibleDescription = "Okna";
             this.windowsRibbonBarGroup.AccessibleName = "Okna";
             this.windowsRibbonBarGroup.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.countriesButtonElement});
+            this.countriesButtonElement, this.citiesButtonElement});
             this.windowsRibbonBarGroup.Name = "windowsRibbonBarGroup";
             this.windowsRibbonBarGroup.Text = "Okna";
             this.windowsRibbonBarGroup.Visibility = Telerik.WinControls.ElementVisibility.Visible;
@@ -169,6 +170,20 @@
             this.countriesButtonElement.ToolTipText = "Kraje";
             this.countriesButtonElement.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             this.countriesButtonElement.Click += new System.EventHandler(this.countriesButtonElement_Click);
+            // 
+            // citiesButtonElement
+            // 
+            this.citiesButtonElement.AccessibleDescription = "Firmy";
+            this.citiesButtonElement.AccessibleName = "Firmy";
+            this.citiesButtonElement.Class = "RibbonBarButtonElement";
+            this.citiesButtonElement.Image = global::CarsApp.UI.Properties.Resources.ImgCompany;
+            this.citiesButtonElement.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.citiesButtonElement.Name = "citiesButtonElement";
+            this.citiesButtonElement.Text = "Kraje";
+            this.citiesButtonElement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.citiesButtonElement.ToolTipText = "Kraje";
+            this.citiesButtonElement.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.citiesButtonElement.Click += new System.EventHandler(this.citiesButtonElement_Click);
             // 
             // managementRibbonTab
             // 
@@ -340,6 +355,7 @@
 		private Telerik.WinControls.UI.RibbonTab mainWindowsRibbonTab;
 		private Telerik.WinControls.UI.RadRibbonBarGroup windowsRibbonBarGroup;
 		private Telerik.WinControls.UI.RadButtonElement countriesButtonElement;
-		private Telerik.WinControls.UI.ContextualTabGroup managementContextualTabGroup;
+        private Telerik.WinControls.UI.RadButtonElement citiesButtonElement;
+        private Telerik.WinControls.UI.ContextualTabGroup managementContextualTabGroup;
     }
 }

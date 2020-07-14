@@ -21,7 +21,7 @@ namespace CarsApp.Services
 		/// <summary>
 		/// Kod.
 		/// </summary>
-		public long CountryId { get; set; }
+		//public long CountryId { get; set; }
 
 		#endregion Properties
 
@@ -38,8 +38,8 @@ namespace CarsApp.Services
 			if (!string.IsNullOrEmpty(Name))
 				filter = filter.And(x => x.Name.Contains(this.Name));
 
-			if (!this.CountryId.Equals(null))
-				filter = filter.And(x => x.CountryId.Equals(this.CountryId));
+			//if (!this.CountryId.Equals(null))
+			//	filter = filter.And(x => x.CountryId.Equals(this.CountryId));
 
 			return filter;
 		}

@@ -12,11 +12,6 @@
 		/// </summary>
 		string FilterName { get; set; }
 
-		/// <summary>
-		/// Kod.
-		/// </summary>
-		long FilterCountryId { get; set; }
-
 		#endregion Properties
 	}
 }

@@ -179,9 +179,9 @@
             this.citiesButtonElement.Image = global::CarsApp.UI.Properties.Resources.ImgCompany;
             this.citiesButtonElement.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.citiesButtonElement.Name = "citiesButtonElement";
-            this.citiesButtonElement.Text = "Kraje";
+            this.citiesButtonElement.Text = "Miasta";
             this.citiesButtonElement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.citiesButtonElement.ToolTipText = "Kraje";
+            this.citiesButtonElement.ToolTipText = "Miasta";
             this.citiesButtonElement.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             this.citiesButtonElement.Click += new System.EventHandler(this.citiesButtonElement_Click);
             // 

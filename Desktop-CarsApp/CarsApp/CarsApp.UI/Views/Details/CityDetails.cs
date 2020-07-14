@@ -99,7 +99,6 @@ namespace CarsApp.UI
 		private void InitializeValidators()
 		{
 			nameTextBox.InitializeValidator(errorProvider);
-			codeTextBox.InitializeValidator(errorProvider);
 		}
 
 		/// <summary>
@@ -201,7 +200,6 @@ namespace CarsApp.UI
 		private void EnableControls(bool enable)
 		{
 			nameTextBox.ReadOnly = !enable;
-			codeTextBox.ReadOnly = !enable;
 		}
 
 		#endregion Private methods

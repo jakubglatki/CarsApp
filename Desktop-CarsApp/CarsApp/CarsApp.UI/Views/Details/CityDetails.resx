@@ -117,80 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CaptionAddCountry" xml:space="preserve">
-    <value>Dodawanie nowego kraju</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="cutRadButtonElement.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuN6eEncwAAAI3SURBVDhPY8AH
+        HHzCWLbsO5p24PTlu0cv3eGFChMG/LKqjM19kyKvPX71+erjNz+gwsQBbVMb3jnL1219+OHn/8OX71yC
+        ChMHHL0CxOev3nzjzqsv//ecvjYPKkwccPIOUlywevObq4/e/N974mIOVBg7kAhbx6SdvJ4DymWw8wo0
+        XbZp16czt5/+WLhuR+qs5Zuc9hw/H7/vzPUJRy7fubr96Nk3DHJGxawKYcsD1XN37zWo2HvAounYNtfe
+        Mx7pJTUpq7bt+3X08t0/2w+fuXP54Zs3N59//PPg7ff/t168/7Vh75EWBlnbRnet3O1PlXLXrRK3LezV
+        iJxxK2bRrf99i7f875k25/+aHQf+H7t85/+xK3f+7zp29tuqrbvuT5m3rDklv0KYQdq6osmq/sgrk+aD
+        JjwyZrwSpsXT3Gdc/V7Ys+Dt3C2H/09avP5eSHxapVtwdIRnWKy1b2i0jI6FIxvYb0LK/hnaWZve69Yd
+        OqBZfGCxftWhF7pFa/eb1W277r/gzv/Y+VdPW/RdEQMrRgeMjAwigmqBtQrhc44pp6zcJhk8OV09Y/k2
+        tYxNl4U0k5cYlW7/ZNFyLA2qHBMwMzFws7FxS3Jy8guyMTIoqhXs/6matiGEjY1JUjao/5x+9aEuqFL8
+        gI2Z0VI1Z9cfnZoDdVrlm/VUstfdUs/dWQmVxg9Y2JjFJe0rDxmW7Hpv3XD4lUrGlrOKoSsNodKEAQef
+        vJGobny5vEN9jbRlIw6NDAwAyzP1dpf7faQAAAAASUVORK5CYII=
+</value>
   </data>
-  <data name="CaptionCityAdd" xml:space="preserve">
-    <value>Dodawanie nowego miasta</value>
-  </data>
-  <data name="CaptionCityCountryMode" xml:space="preserve">
-    <value>Miasta kraju:</value>
-  </data>
-  <data name="CaptionCityDetails" xml:space="preserve">
-    <value>Dane szczegółowe miasta</value>
-  </data>
-  <data name="CaptionCityEdit" xml:space="preserve">
-    <value>Edycja miasta</value>
-  </data>
-  <data name="CaptionCityList" xml:space="preserve">
-    <value>Miasta</value>
-  </data>
-  <data name="CaptionCountryDetails" xml:space="preserve">
-    <value>Dane szczegółowe kraju</value>
-  </data>
-  <data name="CaptionCountryList" xml:space="preserve">
-    <value>Kraje</value>
-  </data>
-  <data name="CaptionEditCountry" xml:space="preserve">
-    <value>Edycja kraju</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ImgAdd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ImgCancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ImgClear" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ImgClear16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clear16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ImgCompany" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\company.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ImgCopy15x15" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\copy15x15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ImgCut15x15" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cut15x15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ImgDelete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ImgDetails" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\details.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ImgEdit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ImgFormat" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\format.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ImgPaste" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\paste.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ImgSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ImgSearch" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ImgSearch16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ImgViewText" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\viewText.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mainRadRibbonBar.StartButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACEAAAAhCAYAAABX5MJvAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAsMAAALDAE/QCLIAAACcklE
+        QVRYR8WVwWpTQRSG8wRa0tymyW1yW69JTLRJ00BtTbGtooJicdON7qUbH8GHcC24ceFKVMSCENCVIFJE
+        oaAILgVBRARBEDzef+wZJpO/cTcuPki+uXP+w+SeSU5E/jtUhobK0FAZGipDQ2VoqATPPvy2rF/ckqTW
+        lPsvPg35cXRX1iVtdWTw7pd1LAdQCXTjxqUtOZTPG6biiuy8/W7XDqJ7asPuma03RT3LAVQCbGq0e6ZQ
+        oVSWZvekbeTx7tehUBecAJ4rJ3My22iZz6Xs88NXX2gOoBKkrbYtpqELK2t/GynP0J9GGyjOVOXBy8/G
+        rZ6/Yly+WMzK8iwqAd6BeC4dOf720qopGmWNuGu9/tmRBpSltQvG+xkKlcAt4tNZPm1P5M6TN7nF/hnz
+        fbqayM7rb3QPYDmASsCKuOjRTxQK9gT+NT0sB1AJWBGfqBSbBsC95x/pMy4sB1AJWBEXHUM9ielKMnZq
+        AMsBVAJWRLFTsB98pDlvvlfSur0TGCwHUAlYEaAn4E7B070fOTQAf/R458BGWA6gEvgFcP3qVODo2RRU
+        04ZZx3WNxvx1lgOoBH6B/rlNExCVY3P7+etKUjtmnsNt698xLAdQCdzN4PLV66b4RBTJ7Ue7I+uKnkZ9
+        flEGez+H1lgOoBK4mxVtZCrObkvyc+h7UTuxQN8LlgOoBKwIsI1kt6U7kq3esvGYFPd5F5YDqASsiOKe
+        CF5AnRj3b5vBcgCVgBVx0UYOT07uN1ShE+HCcgCVgBXx2by2bRrAP+q4iVFYDqASsCKMGzdvyd3Be7rm
+        w3IAlaGhMjRUhobK0FAZGipDQ2VYJPcHJzR6XYyZflMAAAAASUVORK5CYII=
+</value>
   </data>
 </root>

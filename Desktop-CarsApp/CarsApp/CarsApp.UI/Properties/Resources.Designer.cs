@@ -19,7 +19,7 @@ namespace CarsApp.UI.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -70,11 +70,12 @@ namespace CarsApp.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dodaj miasto.
+        ///   Looks up a localized string similar to Dodawanie nowego miasta.
         /// </summary>
-        internal static string CaptionCityAdd {
+        internal static string CaptionAddCity
+        {
             get {
-                return ResourceManager.GetString("CaptionCityAdd", resourceCulture);
+                return ResourceManager.GetString("CaptionAddCity", resourceCulture);
             }
         }
         
@@ -97,16 +98,17 @@ namespace CarsApp.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Miasto edycja.
+        ///   Looks up a localized string similar to Edycja miasta.
         /// </summary>
-        internal static string CaptionCityEdit {
+        internal static string CaptionEditCity
+        {
             get {
-                return ResourceManager.GetString("CaptionCityEdit", resourceCulture);
+                return ResourceManager.GetString("CaptionEditCity", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lista miast.
+        ///   Looks up a localized string similar to Miasta.
         /// </summary>
         internal static string CaptionCityList {
             get {

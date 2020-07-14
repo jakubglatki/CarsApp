@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace CarsApp.UI.Views.Details
+namespace CarsApp.UI
 {
     partial class CityDetails
     {
@@ -35,7 +35,6 @@ namespace CarsApp.UI.Views.Details
             this.CityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainGroupBox = new LGBS.MVPFramework.Controls.LGBSGroupBox();
             this.codeLabel = new LGBS.MVPFramework.Controls.LGBSLabel();
-            this.codeTextBox = new LGBS.MVPFramework.Controls.LGBSTextBox();
             this.nameLabel = new LGBS.MVPFramework.Controls.LGBSLabel();
             this.nameTextBox = new LGBS.MVPFramework.Controls.LGBSTextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
@@ -62,7 +61,6 @@ namespace CarsApp.UI.Views.Details
             ((System.ComponentModel.ISupportInitialize)(this.mainGroupBox)).BeginInit();
             this.mainGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.codeLabel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeTextBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameTextBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -80,7 +78,6 @@ namespace CarsApp.UI.Views.Details
             // 
             this.mainGroupBox.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
             this.mainGroupBox.Controls.Add(this.codeLabel);
-            this.mainGroupBox.Controls.Add(this.codeTextBox);
             this.mainGroupBox.Controls.Add(this.nameLabel);
             this.mainGroupBox.Controls.Add(this.nameTextBox);
             this.mainGroupBox.FooterImageIndex = -1;
@@ -109,18 +106,6 @@ namespace CarsApp.UI.Views.Details
             this.codeLabel.TabIndex = 2;
             this.codeLabel.Text = "Kod:";
             // 
-            // codeTextBox
-            // 
-            this.codeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.CityBindingSource, "Code", true));
-            this.codeTextBox.Location = new System.Drawing.Point(87, 49);
-            this.codeTextBox.Message = "Kod nie może być pusty";
-            this.codeTextBox.Name = "codeTextBox";
-            this.codeTextBox.RegularExpressionString = null;
-            this.codeTextBox.Size = new System.Drawing.Size(127, 20);
-            this.codeTextBox.TabIndex = 3;
-            this.codeTextBox.TabStop = false;
-            this.codeTextBox.ValidationType = LGBS.MVPFramework.Controls.TextBoxDataValidator.TextBoxValidationType.NotNullValidation;
-            // 
             // nameLabel
             // 
             this.nameLabel.BackColor = System.Drawing.Color.Transparent;
@@ -134,7 +119,7 @@ namespace CarsApp.UI.Views.Details
             // 
             this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.CityBindingSource, "Name", true));
             this.nameTextBox.Location = new System.Drawing.Point(87, 23);
-            this.nameTextBox.Message = "Nazwa kraju nie może być pusta";
+            this.nameTextBox.Message = "Nazwa miasta nie może być pusta";
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.RegularExpressionString = null;
             this.nameTextBox.Size = new System.Drawing.Size(343, 20);
@@ -427,7 +412,6 @@ namespace CarsApp.UI.Views.Details
             this.mainGroupBox.ResumeLayout(false);
             this.mainGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.codeLabel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeTextBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameTextBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
@@ -465,7 +449,6 @@ namespace CarsApp.UI.Views.Details
         private Telerik.WinControls.UI.RadRibbonBarGroup objectDetailsActionsRadRibbonBarGroup;
         private Telerik.WinControls.UI.RadButtonElement deleteObjectRadButtonElement;
         private LGBS.MVPFramework.Controls.LGBSLabel codeLabel;
-        private LGBS.MVPFramework.Controls.LGBSTextBox codeTextBox;
         private LGBS.MVPFramework.Controls.LGBSLabel nameLabel;
         private LGBS.MVPFramework.Controls.LGBSTextBox nameTextBox;
 

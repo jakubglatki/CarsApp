@@ -190,7 +190,7 @@
             this.Controls.Add(this.mainDataPager);
             this.Controls.Add(this.CityCollectionGrid);
             this.Name = "CityList";
-            this.Text = "Lista TODO: ustawić tytuł";
+            this.Text = "Miasta";
             ((System.ComponentModel.ISupportInitialize)(this.CityCollectionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CityCollectionGrid.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CityCollectionGrid)).EndInit();

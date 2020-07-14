@@ -357,7 +357,7 @@ namespace CarsApp.UI
 		}
 
 
-		#endregion Handlers
+        #endregion Handlers
 
-	}
+    }
 }

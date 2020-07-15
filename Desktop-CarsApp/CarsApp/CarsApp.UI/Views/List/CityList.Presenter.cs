@@ -80,6 +80,7 @@ namespace CarsApp.UI
 		protected override void SetSearchCriteria()
 		{
 			SearchCriteria.Name = View.Filter.FilterName;
+			SearchCriteria.CountryName = View.Filter.FilterCountryName;
 			// wyczyszczenie wbudowanych filtrów
 			View.ClearGridFilters();
 		}
@@ -98,6 +99,7 @@ namespace CarsApp.UI
 		public override void ClearSearchCriteria()
 		{
 			View.Filter.FilterName = string.Empty;
+			View.Filter.FilterCountryName = "Nazwa kraju";
 
 			// wyczyszczenie wbudowanych filtrów
 			View.ClearGridFilters();

@@ -12,6 +12,10 @@
 		/// </summary>
 		string FilterName { get; set; }
 
+		/// <summary>
+		/// Nazwa kraju
+		/// </summary>
+		string FilterCountryName { get; set; }
 		#endregion Properties
 	}
 }

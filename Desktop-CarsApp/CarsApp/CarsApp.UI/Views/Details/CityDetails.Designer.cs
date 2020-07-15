@@ -85,7 +85,7 @@
             this.mainGroupBox.HeaderImageIndex = -1;
             this.mainGroupBox.HeaderImageKey = "";
             this.mainGroupBox.HeaderMargin = new System.Windows.Forms.Padding(0);
-            this.mainGroupBox.HeaderText = "Kraj";
+            this.mainGroupBox.HeaderText = "Miasto";
             this.mainGroupBox.Location = new System.Drawing.Point(3, 3);
             this.mainGroupBox.Name = "mainGroupBox";
             this.mainGroupBox.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
@@ -95,7 +95,7 @@
             this.mainGroupBox.RootElement.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
             this.mainGroupBox.Size = new System.Drawing.Size(514, 89);
             this.mainGroupBox.TabIndex = 0;
-            this.mainGroupBox.Text = "Kraj";
+            this.mainGroupBox.Text = "Miasto";
             // 
             // countryLabel
             // 
@@ -131,7 +131,7 @@
             // 
             this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.CityBindingSource, "Name", true));
             this.nameTextBox.Location = new System.Drawing.Point(87, 23);
-            this.nameTextBox.Message = "Nazwa kraju nie może być pusta";
+            this.nameTextBox.Message = "Nazwa miasta nie może być pusta";
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.RegularExpressionString = null;
             this.nameTextBox.Size = new System.Drawing.Size(343, 20);

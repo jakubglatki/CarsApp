@@ -91,6 +91,11 @@ namespace CarsApp.UI
 			set { nameTextBox.Text = value; }
 		}
 
+		public string FilterCountryName
+		{
+			get { return countryComboBox.Text; }
+			set { countryComboBox.Text = value; }
+		}
 
 
 		/// <summary>

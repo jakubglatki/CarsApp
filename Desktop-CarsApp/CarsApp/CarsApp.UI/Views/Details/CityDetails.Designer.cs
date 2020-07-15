@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace CarsApp.UI
+﻿namespace CarsApp.UI
 {
     partial class CityDetails
     {
@@ -12,7 +10,7 @@ namespace CarsApp.UI
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">True if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -28,13 +26,13 @@ namespace CarsApp.UI
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-		private void InitializeComponent()
+        private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CityDetails));
             this.CityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainGroupBox = new LGBS.MVPFramework.Controls.LGBSGroupBox();
-            this.codeLabel = new LGBS.MVPFramework.Controls.LGBSLabel();
+            this.countryLabel = new LGBS.MVPFramework.Controls.LGBSLabel();
+            this.countryTextBox = new LGBS.MVPFramework.Controls.LGBSTextBox();
             this.nameLabel = new LGBS.MVPFramework.Controls.LGBSLabel();
             this.nameTextBox = new LGBS.MVPFramework.Controls.LGBSTextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
@@ -60,7 +58,8 @@ namespace CarsApp.UI
             ((System.ComponentModel.ISupportInitialize)(this.CityBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainGroupBox)).BeginInit();
             this.mainGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.codeLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryTextBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameTextBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -77,7 +76,8 @@ namespace CarsApp.UI
             // mainGroupBox
             // 
             this.mainGroupBox.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-            this.mainGroupBox.Controls.Add(this.codeLabel);
+            this.mainGroupBox.Controls.Add(this.countryLabel);
+            this.mainGroupBox.Controls.Add(this.countryTextBox);
             this.mainGroupBox.Controls.Add(this.nameLabel);
             this.mainGroupBox.Controls.Add(this.nameTextBox);
             this.mainGroupBox.FooterImageIndex = -1;
@@ -97,14 +97,26 @@ namespace CarsApp.UI
             this.mainGroupBox.TabIndex = 0;
             this.mainGroupBox.Text = "Kraj";
             // 
-            // codeLabel
+            // countryLabel
             // 
-            this.codeLabel.BackColor = System.Drawing.Color.Transparent;
-            this.codeLabel.Location = new System.Drawing.Point(13, 49);
-            this.codeLabel.Name = "codeLabel";
-            this.codeLabel.Size = new System.Drawing.Size(29, 18);
-            this.codeLabel.TabIndex = 2;
-            this.codeLabel.Text = "Kod:";
+            this.countryLabel.BackColor = System.Drawing.Color.Transparent;
+            this.countryLabel.Location = new System.Drawing.Point(13, 49);
+            this.countryLabel.Name = "countryLabel";
+            this.countryLabel.Size = new System.Drawing.Size(28, 18);
+            this.countryLabel.TabIndex = 2;
+            this.countryLabel.Text = "Kraj:";
+            // 
+            // countryTextBox
+            // 
+            this.countryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.CityBindingSource, "Country", true));
+            this.countryTextBox.Location = new System.Drawing.Point(87, 49);
+            this.countryTextBox.Message = "Kod nie może być pusty";
+            this.countryTextBox.Name = "countryTextBox";
+            this.countryTextBox.RegularExpressionString = null;
+            this.countryTextBox.Size = new System.Drawing.Size(127, 20);
+            this.countryTextBox.TabIndex = 3;
+            this.countryTextBox.TabStop = false;
+            this.countryTextBox.ValidationType = LGBS.MVPFramework.Controls.TextBoxDataValidator.TextBoxValidationType.NotNullValidation;
             // 
             // nameLabel
             // 
@@ -119,7 +131,7 @@ namespace CarsApp.UI
             // 
             this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.CityBindingSource, "Name", true));
             this.nameTextBox.Location = new System.Drawing.Point(87, 23);
-            this.nameTextBox.Message = "Nazwa miasta nie może być pusta";
+            this.nameTextBox.Message = "Nazwa kraju nie może być pusta";
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.RegularExpressionString = null;
             this.nameTextBox.Size = new System.Drawing.Size(343, 20);
@@ -193,7 +205,7 @@ namespace CarsApp.UI
             this.mainRadRibbonBar.QuickAccessToolBarHeight = 0;
             this.mainRadRibbonBar.ShowExpandButton = false;
             this.mainRadRibbonBar.Size = new System.Drawing.Size(520, 124);
-            this.mainRadRibbonBar.StartButtonImage = ((System.Drawing.Image)(resources.GetObject("mainRadRibbonBar.StartButtonImage")));
+            this.mainRadRibbonBar.StartButtonImage = null;
             this.mainRadRibbonBar.TabIndex = 0;
             ((Telerik.WinControls.UI.RadRibbonBarElement)(this.mainRadRibbonBar.GetChildAt(0))).QuickAccessMenuHeight = 0;
             ((Telerik.WinControls.UI.RadRibbonBarElement)(this.mainRadRibbonBar.GetChildAt(0))).Text = "";
@@ -210,7 +222,7 @@ namespace CarsApp.UI
             this.managementRibbonTab.AccessibleName = "Zarządzanie";
             this.managementRibbonTab.Alignment = System.Drawing.ContentAlignment.BottomLeft;
             this.managementRibbonTab.Class = "RibbonTab";
-            this.managementRibbonTab.IsSelected = false;
+            this.managementRibbonTab.IsSelected = true;
             this.managementRibbonTab.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.actionsRadRibbonBarGroup});
             this.managementRibbonTab.Name = "managementRibbonTab";
@@ -261,7 +273,7 @@ namespace CarsApp.UI
             this.editRibbonTab.AccessibleName = "Edycja";
             this.editRibbonTab.Alignment = System.Drawing.ContentAlignment.BottomLeft;
             this.editRibbonTab.Class = "RibbonTab";
-            this.editRibbonTab.IsSelected = true;
+            this.editRibbonTab.IsSelected = false;
             this.editRibbonTab.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.commitRadRibbonBarGroup,
             this.clipboardRadRibbonBarGroup,
@@ -349,7 +361,7 @@ namespace CarsApp.UI
             this.cutRadButtonElement.AccessibleDescription = " Wytnij";
             this.cutRadButtonElement.AccessibleName = " Wytnij";
             this.cutRadButtonElement.Class = "ButtonElement";
-            this.cutRadButtonElement.Image = ((System.Drawing.Image)(resources.GetObject("cutRadButtonElement.Image")));
+            this.cutRadButtonElement.Image = null;
             this.cutRadButtonElement.Name = "cutRadButtonElement";
             this.cutRadButtonElement.ShowBorder = false;
             this.cutRadButtonElement.Text = " Wytnij";
@@ -411,7 +423,8 @@ namespace CarsApp.UI
             ((System.ComponentModel.ISupportInitialize)(this.mainGroupBox)).EndInit();
             this.mainGroupBox.ResumeLayout(false);
             this.mainGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.codeLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryTextBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameTextBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
@@ -448,9 +461,9 @@ namespace CarsApp.UI
         private Telerik.WinControls.UI.RadButtonElement copyRadButtonElement;
         private Telerik.WinControls.UI.RadRibbonBarGroup objectDetailsActionsRadRibbonBarGroup;
         private Telerik.WinControls.UI.RadButtonElement deleteObjectRadButtonElement;
-        private LGBS.MVPFramework.Controls.LGBSLabel codeLabel;
+        private LGBS.MVPFramework.Controls.LGBSLabel countryLabel;
+        private LGBS.MVPFramework.Controls.LGBSTextBox countryTextBox;
         private LGBS.MVPFramework.Controls.LGBSLabel nameLabel;
         private LGBS.MVPFramework.Controls.LGBSTextBox nameTextBox;
-
     }
 }

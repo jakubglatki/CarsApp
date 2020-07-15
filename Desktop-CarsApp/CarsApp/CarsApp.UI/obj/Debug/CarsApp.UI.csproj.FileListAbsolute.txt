@@ -104,4 +104,4 @@ D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Deskto
 D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\Telerik.WinControls.RadMarkupEditor.xml
 D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.csproj.CopyComplete
 D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.CityList.resources
-D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.CityDetails.resources
+D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.Views.Details.CityDetails.resources

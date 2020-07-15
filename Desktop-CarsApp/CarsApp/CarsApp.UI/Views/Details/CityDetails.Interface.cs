@@ -15,6 +15,7 @@ namespace CarsApp.UI
 		/// </summary>
 		City CurrentCity { get; set; }
 
-		#endregion Properties
-	}
+
+        #endregion Properties
+    }
 }

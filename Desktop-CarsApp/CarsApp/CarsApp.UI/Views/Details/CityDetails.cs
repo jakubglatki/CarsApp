@@ -99,6 +99,7 @@ namespace CarsApp.UI
 		private void InitializeValidators()
 		{
 			nameTextBox.InitializeValidator(errorProvider);
+			countryTextBox.InitializeValidator(errorProvider);
 		}
 
 		/// <summary>
@@ -200,6 +201,7 @@ namespace CarsApp.UI
 		private void EnableControls(bool enable)
 		{
 			nameTextBox.ReadOnly = !enable;
+			countryTextBox.ReadOnly = !enable;
 		}
 
 		#endregion Private methods
@@ -379,4 +381,3 @@ namespace CarsApp.UI
 		#endregion Handlers
 	}
 }
-

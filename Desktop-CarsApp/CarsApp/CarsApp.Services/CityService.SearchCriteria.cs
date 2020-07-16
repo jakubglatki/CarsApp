@@ -19,7 +19,7 @@ namespace CarsApp.Services
 		public string Name { get; set; }
 
 		/// <summary>
-		/// Kod.
+		/// Nazwa kraju
 		/// </summary>
 		public string CountryName { get; set; }
 
@@ -38,10 +38,13 @@ namespace CarsApp.Services
 			if (!string.IsNullOrEmpty(Name))
 				filter = filter.And(x => x.Name.Contains(this.Name));
 
-			//if (!string.IsNullOrEmpty(CountryName))
-			//	filter = filter.And(x => x.CountryId.Contains(this.CountryId));
 
-			return filter;
+			/////////
+			if (!string.IsNullOrEmpty(CountryName))
+				filter = filter.And(y => y.Country.Name.Contains(this.CountryName));
+			
+			
+            return filter;
 		}
 
 		#endregion Public methods

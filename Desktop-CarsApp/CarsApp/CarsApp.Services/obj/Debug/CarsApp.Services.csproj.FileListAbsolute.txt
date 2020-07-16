@@ -28,3 +28,8 @@ D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Deskto
 D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.Services\bin\Debug\CarsApp.Data.pdb
 D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.Services\bin\Debug\CarsApp.Data.dll.config
 D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.Services\obj\Debug\CarsApp.Services.csproj.CopyComplete
+D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.Services\bin\Debug\CarsApp.Services.dll.config
+D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.Services\bin\Debug\EntityFramework.dll
+D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.Services\bin\Debug\EntityFramework.SqlServer.dll
+D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.Services\bin\Debug\EntityFramework.xml
+D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.Services\bin\Debug\EntityFramework.SqlServer.xml

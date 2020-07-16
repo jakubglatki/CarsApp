@@ -1087,7 +1087,6 @@ namespace CarsApp.Data
         /// No Metadata Documentation available.
         /// </summary>
         [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
         public EntityReference<Country> CountryReference
         {
             get

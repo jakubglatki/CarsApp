@@ -91,19 +91,19 @@ namespace CarsApp.UI
 			set { nameTextBox.Text = value; }
 		}
 
-		/// <summary>
-		/// Kod.
-		/// </summary>
-		public string FilterCode
-		{
-			get { return codeTextBox.Text; }
-			set { codeTextBox.Text = value; }
-		}
+        /// <summary>
+        /// Kod.
+        /// </summary>
+        public string FilterCode
+        {
+            get { return codeTextBox.Text; }
+            set { codeTextBox.Text = value; }
+        }
 
-		/// <summary>
-		/// Filtr (kryteria wyszukiwania).
-		/// </summary>
-		public ICountryListFilter Filter
+        /// <summary>
+        /// Filtr (kryteria wyszukiwania).
+        /// </summary>
+        public ICountryListFilter Filter
 		{
 			get { return this as ICountryListFilter; }
 		}

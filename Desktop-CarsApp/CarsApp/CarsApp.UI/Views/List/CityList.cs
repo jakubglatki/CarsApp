@@ -74,12 +74,13 @@ namespace CarsApp.UI
 			set
 			{
 				CityCollectionBindingSource.DataSource = value;
-
+				
 				if (value != null)
 					SetFilteredElementsCountLabel(value.Count);
 			}
 		}
 
+		
 		#region SearchCriteria
 
 		/// <summary>

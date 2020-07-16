@@ -74,6 +74,8 @@ namespace CarsApp.UI
 			}
 		}
 
+
+
 		/// <summary>
 		/// Ustawia kryteria wyszukiwania.
 		/// </summary>

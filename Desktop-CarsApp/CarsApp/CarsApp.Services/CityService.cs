@@ -4,6 +4,7 @@ using System.Linq;
 using LGBS.MVPFramework.Services;
 using LinqKit;
 using CarsApp.Data;
+using System.Data.Entity;
 
 namespace CarsApp.Services
 {
@@ -110,9 +111,13 @@ namespace CarsApp.Services
 				.Where(searchCriteria.GetFilterExpression())
 				.Count();
 
+			
+
 			return this.DB.Cities
 				.AsExpandable()
-				.Where(searchCriteria.GetFilterExpression())
+                .Include("DB.Countries")
+                .Where(b => b.CountryId.Equals(b.Country.Id))
+                .Where(searchCriteria.GetFilterExpression())
 				.SortBy(sortExpression.GetColumnName(), sortExpression.GetSortDirection())
 				.GetPage(pageIndex, pageSize);
 		}

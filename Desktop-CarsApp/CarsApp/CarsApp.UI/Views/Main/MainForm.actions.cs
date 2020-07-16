@@ -112,6 +112,12 @@ namespace CarsApp.UI
 			ICountryList view = CarsViewFactory.Factory.CreateViewInstance<ICountryList>();
 			view.Show(ViewMode.ReadOnly);
 		}
+
+		/// <summary>
+		/// Obsługa wyświetlania listy miast.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">EventArgs.</param>
 		private void citiesButtonElement_Click(object sender, EventArgs e)
 		{
 			ICityList view = CarsViewFactory.Factory.CreateViewInstance<ICityList>();

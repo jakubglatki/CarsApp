@@ -38,10 +38,10 @@ namespace CarsApp.Services
 			if (!string.IsNullOrEmpty(Name))
 				filter = filter.And(x => x.Name.Contains(this.Name));
 
-			if (!string.IsNullOrEmpty(Code))
-				filter = filter.And(x => x.Code.Contains(this.Code));
+            if (!string.IsNullOrEmpty(Code))
+                filter = filter.And(x => x.Code.Contains(this.Code));
 
-			return filter;
+            return filter;
 		}
 
 		#endregion Public methods

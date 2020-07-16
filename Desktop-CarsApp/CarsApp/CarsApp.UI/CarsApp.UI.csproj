@@ -167,6 +167,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\List\CityList.resx">
       <DependentUpon>CityList.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\List\CountryList.resx">
       <DependentUpon>CountryList.cs</DependentUpon>
@@ -175,6 +176,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\CarsApp.Data.City.datasource" />
+    <None Include="Properties\DataSources\CarsApp.Data.Country.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

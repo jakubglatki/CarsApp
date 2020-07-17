@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CarsApp.Data;
 using CarsApp.UI.Properties;
 using LGBS.MVPFramework.Data;
@@ -61,16 +62,26 @@ namespace CarsApp.UI
 			set { CityBindingSource.DataSource = value; }
 		}
 
-		#endregion View Specific
 
-		#endregion Properties
+		public ICollection<Country> CountryCollection
+		{
+			get { return CountryBindingSource.DataSource as ICollection<Country>; }
+			set
+			{
+				CountryBindingSource.DataSource = value;
+			}
 
-		#region Ctors
+		}
+#endregion View Specific
 
-		/// <summary>
-		/// Tworzy widok CityDetails.
-		/// </summary>
-		public CityDetails()
+#endregion Properties
+
+#region Ctors
+
+/// <summary>
+/// Tworzy widok CityDetails.
+/// </summary>
+public CityDetails()
 			: base(null)
 		{
 		}
@@ -84,6 +95,7 @@ namespace CarsApp.UI
 		{
 			InitializeComponent();
 			AfterInitializeComponent();
+			
 
 			if (!VSDesignMode)
 				this.Presenter = new CityDetailsPresenter(this);
@@ -99,7 +111,6 @@ namespace CarsApp.UI
 		private void InitializeValidators()
 		{
 			nameTextBox.InitializeValidator(errorProvider);
-			countryTextBox.InitializeValidator(errorProvider);
 		}
 
 		/// <summary>
@@ -163,6 +174,13 @@ namespace CarsApp.UI
 
 			// włączenie wszystkich kontrolek w tryb edycji
 			EnableControls(true);
+
+			// ustawienie krajów do wyboru 
+			this.countryComboBox.Items.Clear();
+			foreach(Country c in this.CountryCollection)
+            {
+				this.countryComboBox.Items.Add(c.Name);
+            }
 		}
 
 		/// <summary>
@@ -201,7 +219,10 @@ namespace CarsApp.UI
 		private void EnableControls(bool enable)
 		{
 			nameTextBox.ReadOnly = !enable;
-			countryTextBox.ReadOnly = !enable;
+			if (!enable)
+				countryComboBox.Enabled = false;
+			else
+				countryComboBox.Enabled = true;
 		}
 
 		#endregion Private methods
@@ -372,10 +393,21 @@ namespace CarsApp.UI
 		/// <param name="e">EventArgs.</param>
 		private void CityDetails_Shown(object sender, EventArgs e)
 		{
+			SetComboBoxValue();
 			if (Mode == ViewMode.New)
 				nameTextBox.Focus();
 		}
 
+
+		/// <summary>
+		/// Ustawia kraj pokazywanego miasta.
+		/// </summary>
+		private void SetComboBoxValue()
+        {
+			this.countryComboBox.Items.Add(this.CurrentCity.Country.Name);
+			this.countryComboBox.SelectedIndex = 0;
+			this.countryComboBox.Enabled = false;
+		}
 		#endregion From view
 
 		#endregion Handlers

@@ -1,5 +1,6 @@
 ﻿using CarsApp.Data;
 using LGBS.MVPFramework.UI;
+using System.Collections.Generic;
 
 namespace CarsApp.UI
 {
@@ -16,6 +17,11 @@ namespace CarsApp.UI
 		City CurrentCity { get; set; }
 
 
-        #endregion Properties
-    }
+		/// <summary>
+		/// Lista encji.
+		/// </summary>
+		ICollection<Country> CountryCollection { get; set; }
+
+		#endregion Properties
+	}
 }

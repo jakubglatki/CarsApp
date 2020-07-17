@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.CityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainGroupBox = new LGBS.MVPFramework.Controls.LGBSGroupBox();
+            this.countryComboBox = new System.Windows.Forms.ComboBox();
             this.countryLabel = new LGBS.MVPFramework.Controls.LGBSLabel();
-            this.countryTextBox = new LGBS.MVPFramework.Controls.LGBSTextBox();
             this.nameLabel = new LGBS.MVPFramework.Controls.LGBSLabel();
             this.nameTextBox = new LGBS.MVPFramework.Controls.LGBSTextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
@@ -55,11 +55,11 @@
             this.copyRadButtonElement = new Telerik.WinControls.UI.RadButtonElement();
             this.objectDetailsActionsRadRibbonBarGroup = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.deleteObjectRadButtonElement = new Telerik.WinControls.UI.RadButtonElement();
+            this.CountryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.CityBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainGroupBox)).BeginInit();
             this.mainGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.countryLabel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.countryTextBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameTextBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -67,6 +67,7 @@
             this.downPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainRadRibbonBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CountryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // CityBindingSource
@@ -76,8 +77,8 @@
             // mainGroupBox
             // 
             this.mainGroupBox.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this.mainGroupBox.Controls.Add(this.countryComboBox);
             this.mainGroupBox.Controls.Add(this.countryLabel);
-            this.mainGroupBox.Controls.Add(this.countryTextBox);
             this.mainGroupBox.Controls.Add(this.nameLabel);
             this.mainGroupBox.Controls.Add(this.nameTextBox);
             this.mainGroupBox.FooterImageIndex = -1;
@@ -97,6 +98,14 @@
             this.mainGroupBox.TabIndex = 0;
             this.mainGroupBox.Text = "Miasto";
             // 
+            // countryComboBox
+            // 
+            this.countryComboBox.Enabled = false;
+            this.countryComboBox.Location = new System.Drawing.Point(87, 49);
+            this.countryComboBox.Name = "countryComboBox";
+            this.countryComboBox.Size = new System.Drawing.Size(150, 21);
+            this.countryComboBox.TabIndex = 0;
+            // 
             // countryLabel
             // 
             this.countryLabel.BackColor = System.Drawing.Color.Transparent;
@@ -105,18 +114,6 @@
             this.countryLabel.Size = new System.Drawing.Size(28, 18);
             this.countryLabel.TabIndex = 2;
             this.countryLabel.Text = "Kraj:";
-            // 
-            // countryTextBox
-            // 
-            this.countryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.CityBindingSource, "Country", true));
-            this.countryTextBox.Location = new System.Drawing.Point(87, 49);
-            this.countryTextBox.Message = "Kod nie może być pusty";
-            this.countryTextBox.Name = "countryTextBox";
-            this.countryTextBox.RegularExpressionString = null;
-            this.countryTextBox.Size = new System.Drawing.Size(127, 20);
-            this.countryTextBox.TabIndex = 3;
-            this.countryTextBox.TabStop = false;
-            this.countryTextBox.ValidationType = LGBS.MVPFramework.Controls.TextBoxDataValidator.TextBoxValidationType.NotNullValidation;
             // 
             // nameLabel
             // 
@@ -407,6 +404,10 @@
             this.deleteObjectRadButtonElement.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             this.deleteObjectRadButtonElement.Click += new System.EventHandler(this.deleteRadButtonElement_Click);
             // 
+            // CountryBindingSource
+            // 
+            this.CountryBindingSource.DataSource = typeof(CarsApp.Data.Country);
+            // 
             // CityDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,7 +425,6 @@
             this.mainGroupBox.ResumeLayout(false);
             this.mainGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.countryLabel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.countryTextBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameTextBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
@@ -432,6 +432,7 @@
             this.downPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainRadRibbonBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CountryBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -462,8 +463,9 @@
         private Telerik.WinControls.UI.RadRibbonBarGroup objectDetailsActionsRadRibbonBarGroup;
         private Telerik.WinControls.UI.RadButtonElement deleteObjectRadButtonElement;
         private LGBS.MVPFramework.Controls.LGBSLabel countryLabel;
-        private LGBS.MVPFramework.Controls.LGBSTextBox countryTextBox;
         private LGBS.MVPFramework.Controls.LGBSLabel nameLabel;
         private LGBS.MVPFramework.Controls.LGBSTextBox nameTextBox;
+        private System.Windows.Forms.ComboBox countryComboBox;
+        private System.Windows.Forms.BindingSource CountryBindingSource;
     }
 }

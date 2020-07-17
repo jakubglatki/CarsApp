@@ -22,6 +22,10 @@ namespace CarsApp.UI
 		ICollection<City> CityCollection { get; set; }
 
 		/// <summary>
+		/// Lista encji.
+		/// </summary>
+		ICollection<Country> CountryCollection { get; set; }
+		/// <summary>
 		/// Prezenter widoku.
 		/// </summary>
 		CityListPresenter Presenter { get; }

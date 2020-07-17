@@ -29,6 +29,20 @@ namespace CarsApp.UI
 			}
 		}
 
+		public CountrySearchCriteria CountrySearchCriteria
+		{
+			get
+			{
+				if (BaseSearchCriteria == null)
+					BaseSearchCriteria = new CountrySearchCriteria();
+
+				return BaseSearchCriteria as CountrySearchCriteria;
+			}
+			set
+			{
+				BaseSearchCriteria = value;
+			}
+		}
 		#endregion Properties
 
 		#region Ctors
@@ -64,6 +78,7 @@ namespace CarsApp.UI
 					break;
 				case RefreshDataType.ObjectListData:
 					int allElementCount;
+					View.CountryCollection = Service.GetCountryCollection(View.PageIndex, View.PageSize, CountrySearchCriteria, out allElementCount);
 					View.CityCollection = Service.GetCityCollection(View.PageIndex, View.PageSize, SearchCriteria, out allElementCount);
 					View.RowsCount = allElementCount;
 					break;
@@ -84,6 +99,7 @@ namespace CarsApp.UI
 			SearchCriteria.Name = View.Filter.FilterName;
 			SearchCriteria.CountryName = View.Filter.FilterCountryName;
 			// wyczyszczenie wbudowanych filtrów
+			
 			View.ClearGridFilters();
 		}
 
@@ -101,8 +117,8 @@ namespace CarsApp.UI
 		public override void ClearSearchCriteria()
 		{
 			View.Filter.FilterName = string.Empty;
-			View.Filter.FilterCountryName = "Nazwa kraju";
-
+			View.Filter.FilterCountryName = null;
+			
 			// wyczyszczenie wbudowanych filtrów
 			View.ClearGridFilters();
 		}

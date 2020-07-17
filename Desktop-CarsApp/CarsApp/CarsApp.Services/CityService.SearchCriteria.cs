@@ -38,9 +38,7 @@ namespace CarsApp.Services
 			if (!string.IsNullOrEmpty(Name))
 				filter = filter.And(x => x.Name.Contains(this.Name));
 
-
-			/////////
-			if (!string.IsNullOrEmpty(CountryName))
+			if (!CountryName.Equals(null))
 				filter = filter.And(y => y.Country.Name.Contains(this.CountryName));
 			
 			

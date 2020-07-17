@@ -74,13 +74,25 @@ namespace CarsApp.UI
 			set
 			{
 				CityCollectionBindingSource.DataSource = value;
-				
+
 				if (value != null)
 					SetFilteredElementsCountLabel(value.Count);
 			}
 		}
 
-		
+
+
+		/// <summary>
+		/// Lista obiektów wyświetlanych w combobox.
+		/// </summary>
+		public ICollection<Country> CountryCollection
+		{
+			get { return CountryCollectionBindingSource.DataSource as ICollection<Country>; }
+			set
+			{
+				CountryCollectionBindingSource.DataSource = value;
+			}
+		}
 		#region SearchCriteria
 
 		/// <summary>
@@ -92,6 +104,9 @@ namespace CarsApp.UI
 			set { nameTextBox.Text = value; }
 		}
 
+		/// <summary>
+		/// Nazwa kraju
+		/// </summary>
 		public string FilterCountryName
 		{
 			get { return countryComboBox.Text; }
@@ -285,6 +300,9 @@ namespace CarsApp.UI
 			PageSize = ConfigurationHelper.PageSize;
 		}
 
+
+
+
 		/// <summary>
 		/// Zamykanie widoku.
 		/// </summary>
@@ -349,8 +367,15 @@ namespace CarsApp.UI
 		/// <param name="e">EventArgs.</param>
 		private void searchButton_Click(object sender, EventArgs e)
 		{
-			Presenter.Search();
+			if (this.countryComboBox.SelectedIndex == -1)
+			{
+				Presenter.Search();
+				this.countryComboBox.Text = null;
+			}
+			else
+				Presenter.Search();
 		}
+
 
 		/// <summary>
 		/// Obsługa czyszczenia kryteriów wyszukiwania.
@@ -359,6 +384,7 @@ namespace CarsApp.UI
 		/// <param name="e">EventArgs.</param>
 		private void clearFilterButton_Click(object sender, EventArgs e)
 		{
+			this.countryComboBox.Text = null;
 			Presenter.ClearSearchCriteria();
 		}
 

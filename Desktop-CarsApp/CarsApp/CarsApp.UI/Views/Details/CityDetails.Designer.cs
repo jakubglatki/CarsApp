@@ -1,4 +1,6 @@
-﻿namespace CarsApp.UI
+﻿using System.Windows.Forms;
+
+namespace CarsApp.UI
 {
     partial class CityDetails
     {
@@ -105,6 +107,7 @@
             this.countryComboBox.Name = "countryComboBox";
             this.countryComboBox.Size = new System.Drawing.Size(150, 21);
             this.countryComboBox.TabIndex = 0;
+            this.countryComboBox.DropDownStyle = ComboBoxStyle.DropDownList; 
             // 
             // countryLabel
             // 

@@ -17,6 +17,7 @@ namespace CarsApp.UI
 		public CityDetailsPresenter(ICityDetails view)
 			: base(view, true)
 		{
+			View.CountryCollection = Service.GetAllCountries();
 		}
 
 		#endregion Ctors
@@ -45,10 +46,9 @@ namespace CarsApp.UI
 						case ViewMode.New:
 							View.CurrentCity = Service.AddNew();
 							break;
-						case ViewMode.Edit:
+                        case ViewMode.Edit:
 						case ViewMode.ReadOnly:
 							View.CurrentCity = Service.GetObjectById(this.ObjectId);
-							View.CountryCollection = Service.GetAllCountries();
 
 							break;
 						default:

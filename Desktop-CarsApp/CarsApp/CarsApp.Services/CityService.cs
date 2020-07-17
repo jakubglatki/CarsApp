@@ -181,10 +181,42 @@ namespace CarsApp.Services
 		public ICollection<Country> GetAllCountries()
 		{
 			return this.DB.Countries
-				.AsExpandable()
 				.ToList();
 
 		}
+
+		public void ChangeCitiesCountry(City city, string name, ICollection<Country> countries)
+		{
+			List<Country> listOfCountries = countries.ToList();
+			for (int i = 0; i < countries.Count; i++)
+			{
+				if (name == listOfCountries[i].Name)
+					city.Country = listOfCountries[i];
+			}
+
+		}
+
+		public void ChangeCitiesName(City city, string name)
+        {
+			city.Name = name;
+        }
+
+		public void AddNewCity(string cityName, string countryName, ICollection<Country> countries)
+		{
+			List<Country> listOfCountries = countries.ToList();
+			List<City> cityList = this.GetCityCollection().ToList();
+			long Id = cityList[cityList.Count - 1].Id;
+			for (int i = 0; i < countries.Count; i++)
+			{
+				if (Id+1 == cityList[i].Id)
+					break;
+				if (countryName == listOfCountries[i].Name)
+				{
+					City.CreateCity(Id + 1, cityName, listOfCountries[i].Id);
+				}
+			}
+		}
+
 		#endregion Public methods
 	}
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using CarsApp.Data;
+using CarsApp.Services;
 using CarsApp.UI.Properties;
 using LGBS.MVPFramework.Data;
 using LGBS.MVPFramework.UI;
@@ -95,7 +97,7 @@ public CityDetails()
 		{
 			InitializeComponent();
 			AfterInitializeComponent();
-			
+
 
 			if (!VSDesignMode)
 				this.Presenter = new CityDetailsPresenter(this);
@@ -146,6 +148,9 @@ public CityDetails()
 
 			// włączenie wszystkich kontrolek w tryb edycji
 			EnableControls(true);
+
+			// ustawienie krajów do wyboru 
+			this.SetCountriesInComboBox();
 		}
 
 		/// <summary>
@@ -176,13 +181,18 @@ public CityDetails()
 			EnableControls(true);
 
 			// ustawienie krajów do wyboru 
-			this.countryComboBox.Items.Clear();
-			foreach(Country c in this.CountryCollection)
-            {
-				this.countryComboBox.Items.Add(c.Name);
-            }
+			this.SetCountriesInComboBox();
 		}
 
+
+		private void SetCountriesInComboBox()
+        {
+			this.countryComboBox.Items.Clear();
+			foreach (Country c in this.CountryCollection)
+			{
+				this.countryComboBox.Items.Add(c.Name);
+			}
+		}
 		/// <summary>
 		/// Przygotowuje okno do pracy w trybie ReadOnly.
 		/// </summary>
@@ -303,10 +313,18 @@ public CityDetails()
 		/// <param name="e">EventArgs.</param>
 		private void okRadButtonElement_Click(object sender, EventArgs e)
 		{
+			CityService cityService = new CityService();
 			if (CurrentCity != null)
 			{
-				AcceptAndClose();
-			}
+				this.CurrentCity.Name = this.nameTextBox.Text;
+				cityService.ChangeCitiesCountry(this.CurrentCity, this.countryComboBox.Text, this.CountryCollection);
+                AcceptAndClose();
+            }
+
+            else
+            {
+				cityService.AddNewCity(this.nameTextBox.Text, this.countryComboBox.Text, this.CountryCollection);
+            }
 		}
 
 		/// <summary>
@@ -393,7 +411,10 @@ public CityDetails()
 		/// <param name="e">EventArgs.</param>
 		private void CityDetails_Shown(object sender, EventArgs e)
 		{
-			SetComboBoxValue();
+			if (Mode ==ViewMode.ReadOnly)
+				this.countryComboBox.Enabled = false;
+			if (Mode != ViewMode.New)
+				this.SetComboBoxValue();
 			if (Mode == ViewMode.New)
 				nameTextBox.Focus();
 		}
@@ -404,9 +425,11 @@ public CityDetails()
 		/// </summary>
 		private void SetComboBoxValue()
         {
-			this.countryComboBox.Items.Add(this.CurrentCity.Country.Name);
-			this.countryComboBox.SelectedIndex = 0;
-			this.countryComboBox.Enabled = false;
+			if (this.CurrentCity != null)
+			{
+				this.countryComboBox.Items.Add(this.CurrentCity.Country.Name);
+				this.countryComboBox.SelectedIndex = 0;
+			}
 		}
 		#endregion From view
 

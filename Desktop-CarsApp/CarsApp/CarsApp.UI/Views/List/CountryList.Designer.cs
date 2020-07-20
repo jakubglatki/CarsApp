@@ -118,6 +118,7 @@
             this.CountryCollectionGrid.Size = new System.Drawing.Size(950, 427);
             this.CountryCollectionGrid.TabIndex = 1;
             this.CountryCollectionGrid.FilterChanged += new Telerik.WinControls.UI.GridViewCollectionChangedEventHandler(this.CountryCollectionGrid_FilterChanged);
+            this.CountryCollectionGrid.DoubleClick += new System.EventHandler(this.CountryCollectionGrid_DoubleClick);
             // 
             // filtersGroupBox
             // 

@@ -252,7 +252,11 @@ namespace CarsApp.UI
 
 			base.ChangeMode(mode);
 		}
-		
+
+        public override void ShowSubElements()
+        {
+            Presenter.ShowSubElements();
+        }
         #endregion Overrides
 
         #region View specific
@@ -364,7 +368,11 @@ namespace CarsApp.UI
 		}
 
 
-        #endregion Handlers
+		private void CountryCollectionGrid_DoubleClick(object sender, EventArgs e)
+		{
+			SupportsShowSubElements = true;
+		}
+		#endregion Handlers
 
-    }
+	}
 }

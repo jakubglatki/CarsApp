@@ -105,6 +105,11 @@ namespace CarsApp.UI
 
 		#endregion Overrides
 
+		public void ShowOneCountryCities(Country country)
+        {
+			
+        }
+
 		#endregion Protected methods
 
 		#region Public methods

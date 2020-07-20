@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using CarsApp.Common.Utils;
 using CarsApp.Data;
@@ -198,19 +199,31 @@ namespace CarsApp.UI
 				this.SupportsAddNew = true;
 				this.SupportsEdit = true;
 			}
+
+			if (parentView != null)
+			{
+				CountryList country = new CountryList();
+				if (parentView.GetType() == country.GetType())
+				{
+					country = (CountryList)parentView;
+					this.SetViewForOneCountryMode(country.CurrentCountry);
+				}
+
+			}
 		}
 
-		#endregion Ctors
+        #endregion Ctors
 
-		#region Public methods
+        #region Public methods
 
-		#region Overrides
 
-		/// <summary>
-		/// Zwraca nazwę interfejsu widoku.
-		/// </summary>
-		/// <returns>Nazwa interfejsu widoku.</returns>
-		public override string GetInterfaceName()
+        #region Overrides
+
+        /// <summary>
+        /// Zwraca nazwę interfejsu widoku.
+        /// </summary>
+        /// <returns>Nazwa interfejsu widoku.</returns>
+        public override string GetInterfaceName()
 		{
 			return InterfaceName;
 		}
@@ -256,7 +269,7 @@ namespace CarsApp.UI
 				case ViewMode.Edit:
 					break;
 				case ViewMode.ReadOnly:
-					this.Text = Resources.CaptionCityList;
+					//this.Text = Resources.CaptionCityList;
 					break;
 				case ViewMode.Dictionary:
 					break;
@@ -267,14 +280,15 @@ namespace CarsApp.UI
 			base.ChangeMode(mode);
 		}
 
-		#endregion Overrides
 
-		#region View specific
+        #endregion Overrides
 
-		/// <summary>
-		/// Czyści wbudowane filtry grida.
-		/// </summary>
-		public void ClearGridFilters()
+        #region View specific
+
+        /// <summary>
+        /// Czyści wbudowane filtry grida.
+        /// </summary>
+        public void ClearGridFilters()
 		{
 			base.ClearMainGridViewFilters();
 		}
@@ -336,6 +350,19 @@ namespace CarsApp.UI
 			mainDataPager.SetFilteredElementsCountLabel(count);
 		}
 
+		/// <summary>
+		/// Obsługa listy dla widoku jednego kraju.
+		/// </summary>
+		/// <param name="country">Wyświetlany kraj.</param>
+		private void SetViewForOneCountryMode(Country country)
+        {
+			this.Text = "Miasta kraju: " + country.Name;
+			List<string> countryName = new List<string>();
+			countryName.Add(country.Name);
+			this.countryComboBox.DataSource = countryName;
+			this.countryComboBox.Enabled = false;
+			Presenter.Search();
+		}
 		#endregion Private methods
 
 		#region Handlers
@@ -367,12 +394,6 @@ namespace CarsApp.UI
 		/// <param name="e">EventArgs.</param>
 		private void searchButton_Click(object sender, EventArgs e)
 		{
-			if (this.countryComboBox.SelectedIndex == -1)
-			{
-				Presenter.Search();
-				this.countryComboBox.Text = null;
-			}
-			else
 				Presenter.Search();
 		}
 
@@ -385,6 +406,8 @@ namespace CarsApp.UI
 		private void clearFilterButton_Click(object sender, EventArgs e)
 		{
 			this.countryComboBox.Text = null;
+			this.Text = "Miasta";
+			this.countryComboBox.Enabled = true;
 			Presenter.ClearSearchCriteria();
 		}
 

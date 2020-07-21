@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 using CarsApp.Common.Utils;
 using CarsApp.Data;
@@ -13,16 +12,16 @@ using Telerik.WinControls.UI;
 namespace CarsApp.UI
 {
 	/// <summary>
-	/// Widok lista obiektów typu City.
+	/// Widok lista obiektów typu Factory.
 	/// </summary>
-	public partial class CityList : BaseListWindow, ICityList, ICityListFilter
+	public partial class FactoryList : BaseListWindow, IFactoryList, IFactoryListFilter
 	{
 		#region Consts
 
 		/// <summary>
 		/// Nazwa interfejsu widoku.
 		/// </summary>
-		public const string InterfaceName = "ICityList";
+		public const string InterfaceName = "IFactoryList";
 		#endregion Consts
 
 		#region Properties
@@ -34,15 +33,15 @@ namespace CarsApp.UI
 		/// </summary>
 		public override IObjectWithId CurrentObject
 		{
-			get { return this.CurrentCity; }
+			get { return this.CurrentFactory; }
 		}
 
 		/// <summary>
 		/// Prezenter widoku.
 		/// </summary>
-		public CityListPresenter Presenter
+		public FactoryListPresenter Presenter
 		{
-			get { return BasePresenter as CityListPresenter; }
+			get { return BasePresenter as FactoryListPresenter; }
 			set { BasePresenter = value; }
 		}
 
@@ -53,11 +52,11 @@ namespace CarsApp.UI
 		/// <summary>
 		/// Bieżący obiekt wybrany na liście w poprzednim widoku.
 		/// </summary>
-		public City CurrentCity
+		public Factory CurrentFactory
 		{
 			get
 			{
-				return CityCollectionBindingSource.Current as City;
+				return FactoryCollectionBindingSource.Current as Factory;
 			}
 			set
 			{
@@ -69,31 +68,18 @@ namespace CarsApp.UI
 		/// <summary>
 		/// Lista obiektów wyświetlanych w widoku.
 		/// </summary>
-		public ICollection<City> CityCollection
+		public ICollection<Factory> FactoryCollection
 		{
-			get { return CityCollectionBindingSource.DataSource as ICollection<City>; }
+			get { return FactoryCollectionBindingSource.DataSource as ICollection<Factory>; }
 			set
 			{
-				CityCollectionBindingSource.DataSource = value;
+				FactoryCollectionBindingSource.DataSource = value;
 
 				if (value != null)
 					SetFilteredElementsCountLabel(value.Count);
 			}
 		}
 
-
-
-		/// <summary>
-		/// Lista obiektów wyświetlanych w combobox.
-		/// </summary>
-		public ICollection<Country> CountryCollection
-		{
-			get { return CountryCollectionBindingSource.DataSource as ICollection<Country>; }
-			set
-			{
-				CountryCollectionBindingSource.DataSource = value;
-			}
-		}
 		#region SearchCriteria
 
 		/// <summary>
@@ -106,21 +92,29 @@ namespace CarsApp.UI
 		}
 
 		/// <summary>
-		/// Nazwa kraju
+		/// Kod.
 		/// </summary>
-		public string FilterCountryName
+		public string FilterCity
 		{
-			get { return countryComboBox.Text; }
-			set { countryComboBox.Text = value; }
+			get { return productComboBox.Text; }
+			set { productComboBox.Text = value; }
 		}
 
+		/// <summary>
+		/// Kod.
+		/// </summary>
+		public string FilterProduct
+		{
+			get { return productComboBox.Text; }
+			set { productComboBox.Text = value; }
+		}
 
 		/// <summary>
 		/// Filtr (kryteria wyszukiwania).
 		/// </summary>
-		public ICityListFilter Filter
+		public IFactoryListFilter Filter
 		{
-			get { return this as ICityListFilter; }
+			get { return this as IFactoryListFilter; }
 		}
 
 		#endregion SearchCriteria
@@ -170,9 +164,9 @@ namespace CarsApp.UI
 		#region Ctors
 
 		/// <summary>
-		/// Tworzy widok CityList.
+		/// Tworzy widok FactoryList.
 		/// </summary>
-		public CityList()
+		public FactoryList()
 			: base(null)
 		{
 			SupportsShowSubElements = false;
@@ -180,10 +174,10 @@ namespace CarsApp.UI
 		}
 
 		/// <summary>
-		/// Tworzy widok CityList.
+		/// Tworzy widok FactoryList.
 		/// </summary>
 		/// <param name="parentView">Widok nadrzędny.</param>
-		public CityList(IBaseView parentView)
+		public FactoryList(IBaseView parentView)
 			: base(parentView)
 		{
 			InitializeComponent();
@@ -192,38 +186,26 @@ namespace CarsApp.UI
 
 			if (!VSDesignMode)
 			{
-				this.Presenter = new CityListPresenter(this);
+				this.Presenter = new FactoryListPresenter(this);
 
 				this.SupportsShowDetails = true;
 				this.SupportsDelete = true;
 				this.SupportsAddNew = true;
 				this.SupportsEdit = true;
 			}
-
-			if (parentView != null)
-			{
-				CountryList country = new CountryList();
-				if (parentView.GetType() == country.GetType())
-				{
-					country = (CountryList)parentView;
-					this.SetViewForOneCountryMode(country.CurrentCountry);
-				}
-
-			}
 		}
 
-        #endregion Ctors
+		#endregion Ctors
 
-        #region Public methods
+		#region Public methods
 
+		#region Overrides
 
-        #region Overrides
-
-        /// <summary>
-        /// Zwraca nazwę interfejsu widoku.
-        /// </summary>
-        /// <returns>Nazwa interfejsu widoku.</returns>
-        public override string GetInterfaceName()
+		/// <summary>
+		/// Zwraca nazwę interfejsu widoku.
+		/// </summary>
+		/// <returns>Nazwa interfejsu widoku.</returns>
+		public override string GetInterfaceName()
 		{
 			return InterfaceName;
 		}
@@ -238,7 +220,7 @@ namespace CarsApp.UI
 			{
 				case RefreshViewType.AllObjectsView:
 				case RefreshViewType.CurrentObjectView:
-					CityCollectionBindingSource.ResetBindings(false);
+					FactoryCollectionBindingSource.ResetBindings(false);
 					break;
 				case RefreshViewType.ViewOnly:
 					break;
@@ -269,7 +251,7 @@ namespace CarsApp.UI
 				case ViewMode.Edit:
 					break;
 				case ViewMode.ReadOnly:
-					//this.Text = Resources.CaptionCityList;
+					this.Text = Resources.CaptionFactoryList;
 					break;
 				case ViewMode.Dictionary:
 					break;
@@ -280,15 +262,18 @@ namespace CarsApp.UI
 			base.ChangeMode(mode);
 		}
 
+		public override void ShowSubElements()
+		{
+			Presenter.ShowSubElements();
+		}
+		#endregion Overrides
 
-        #endregion Overrides
+		#region View specific
 
-        #region View specific
-
-        /// <summary>
-        /// Czyści wbudowane filtry grida.
-        /// </summary>
-        public void ClearGridFilters()
+		/// <summary>
+		/// Czyści wbudowane filtry grida.
+		/// </summary>
+		public void ClearGridFilters()
 		{
 			base.ClearMainGridViewFilters();
 		}
@@ -306,16 +291,13 @@ namespace CarsApp.UI
 		/// </summary>
 		protected override void InitializeControls()
 		{
-			this.MainGridView = CityCollectionGrid;
-			this.MainBindingSource = CityCollectionBindingSource;
+			this.MainGridView = FactoryCollectionGrid;
+			this.MainBindingSource = FactoryCollectionBindingSource;
 
 			// paging
 			this.mainDataPager.PageChanged += new EventHandler<PageChangeEventArgs>(mainDataPager_PageChanged);
 			PageSize = ConfigurationHelper.PageSize;
 		}
-
-
-
 
 		/// <summary>
 		/// Zamykanie widoku.
@@ -350,19 +332,6 @@ namespace CarsApp.UI
 			mainDataPager.SetFilteredElementsCountLabel(count);
 		}
 
-		/// <summary>
-		/// Obsługa listy dla widoku jednego kraju.
-		/// </summary>
-		/// <param name="country">Wyświetlany kraj.</param>
-		private void SetViewForOneCountryMode(Country country)
-        {
-			this.Text = Resources.CaptionCityCountryMode + " " +country.Name;
-			List<string> countryName = new List<string>();
-			countryName.Add(country.Name);
-			this.countryComboBox.DataSource = countryName;
-			this.countryComboBox.Enabled = false;
-			Presenter.Search();
-		}
 		#endregion Private methods
 
 		#region Handlers
@@ -382,9 +351,9 @@ namespace CarsApp.UI
 		/// </summary>
 		/// <param name="sender">Sender.</param>
 		/// <param name="e">EventArgs.</param>
-		private void CityCollectionGrid_FilterChanged(object sender, GridViewCollectionChangedEventArgs e)
+		private void FactoryCollectionGrid_FilterChanged(object sender, GridViewCollectionChangedEventArgs e)
 		{
-			SetFilteredElementsCountLabel(CityCollectionGrid.ChildRows.Count);
+			SetFilteredElementsCountLabel(FactoryCollectionGrid.ChildRows.Count);
 		}
 
 		/// <summary>
@@ -394,9 +363,8 @@ namespace CarsApp.UI
 		/// <param name="e">EventArgs.</param>
 		private void searchButton_Click(object sender, EventArgs e)
 		{
-				Presenter.Search();
+			Presenter.Search();
 		}
-
 
 		/// <summary>
 		/// Obsługa czyszczenia kryteriów wyszukiwania.
@@ -406,12 +374,14 @@ namespace CarsApp.UI
 		private void clearFilterButton_Click(object sender, EventArgs e)
 		{
 			Presenter.ClearSearchCriteria();
-			if(this.Text.Contains(Resources.CaptionCityCountryMode))
-				this.countryComboBox.Text = CurrentCity.Country.Name;
 		}
 
 
-		#endregion Handlers
+		private void FactoryCollectionGrid_DoubleClick(object sender, EventArgs e)
+		{
+			SupportsShowSubElements = true;
+		}
+        #endregion Handlers
 
-	}
+    }
 }

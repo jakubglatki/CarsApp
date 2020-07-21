@@ -30,6 +30,8 @@ namespace CarsApp.UI
 					return new CityList(parentView) as VT;
 				case CityDetails.InterfaceName:
 					return new CityDetails(parentView) as VT;
+				case FactoryList.InterfaceName:
+					return new FactoryList(parentView) as VT;
 				default:
 					throw new ArgumentException("Nieobsługiwany typ widoku");
 			}

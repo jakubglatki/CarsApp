@@ -119,6 +119,7 @@
     <Compile Include="Views\Details\CountryDetails.Presenter.cs">
       <DependentUpon>CountryDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Details\FactoryDetails.Interface.cs" />
     <Compile Include="Views\List\CityList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,8 +140,17 @@
     <Compile Include="Views\List\CountryList.Presenter.cs">
       <DependentUpon>CountryList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\List\FactoryList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\List\FactoryList.Designer.cs">
+      <DependentUpon>FactoryList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\List\FactoryList.Interface.cs" />
+    <Compile Include="Views\List\FactoryList.Presenter.cs" />
     <Compile Include="Views\List\Filters\ICityListFilter.cs" />
     <Compile Include="Views\List\Filters\ICountryListFilter.cs" />
+    <Compile Include="Views\List\Filters\IFactoryListFilter.cs" />
     <Compile Include="Views\Main\MainForm.actions.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Form</SubType>
@@ -171,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\List\CountryList.resx">
       <DependentUpon>CountryList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\List\FactoryList.resx">
+      <DependentUpon>FactoryList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Main\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

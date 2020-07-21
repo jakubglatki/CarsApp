@@ -132,7 +132,7 @@ public CityDetails()
 		private void SetWindowStateForNewMode()
 		{
 			// tytuł okna
-			this.Text = Resources.CaptionAddCity;
+			this.Text = Resources.CaptionCityAdd;
 
 			// ukrycie tab'a Zarządzanie
 			managementRibbonTab.Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
@@ -159,7 +159,7 @@ public CityDetails()
 		private void SetWindowStateForEditMode()
 		{
 			// tytuł okna
-			this.Text = Resources.CaptionEditCity;
+			this.Text = Resources.CaptionCityEdit;
 
 			// ukrycie tab'a Zarządzanie
 			managementRibbonTab.Visibility = Telerik.WinControls.ElementVisibility.Collapsed;

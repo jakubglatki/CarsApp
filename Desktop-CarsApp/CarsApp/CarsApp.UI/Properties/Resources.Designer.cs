@@ -72,10 +72,9 @@ namespace CarsApp.UI.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Dodawanie nowego miasta.
         /// </summary>
-        internal static string CaptionAddCity
-        {
+        internal static string CaptionCityAdd {
             get {
-                return ResourceManager.GetString("CaptionAddCity", resourceCulture);
+                return ResourceManager.GetString("CaptionCityAdd", resourceCulture);
             }
         }
         
@@ -100,10 +99,9 @@ namespace CarsApp.UI.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Edycja miasta.
         /// </summary>
-        internal static string CaptionEditCity
-        {
+        internal static string CaptionCityEdit {
             get {
-                return ResourceManager.GetString("CaptionEditCity", resourceCulture);
+                return ResourceManager.GetString("CaptionCityEdit", resourceCulture);
             }
         }
         
@@ -113,6 +111,15 @@ namespace CarsApp.UI.Properties {
         internal static string CaptionCityList {
             get {
                 return ResourceManager.GetString("CaptionCityList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Miasta kraju: .
+        /// </summary>
+        internal static string CaptionCityOneCountryList {
+            get {
+                return ResourceManager.GetString("CaptionCityOneCountryList", resourceCulture);
             }
         }
         
@@ -140,6 +147,15 @@ namespace CarsApp.UI.Properties {
         internal static string CaptionEditCountry {
             get {
                 return ResourceManager.GetString("CaptionEditCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fabryki.
+        /// </summary>
+        internal static string CaptionFactoryList {
+            get {
+                return ResourceManager.GetString("CaptionFactoryList", resourceCulture);
             }
         }
         

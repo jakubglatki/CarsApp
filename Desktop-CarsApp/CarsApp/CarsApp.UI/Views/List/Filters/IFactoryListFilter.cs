@@ -1,27 +1,21 @@
-ï»¿namespace CarsApp.UI
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace CarsApp.UI
 {
-	/// <summary>
-	/// Interfejs okreÅ›lajÄ…cy kryteria wyszukiwania dla widoku FactoryList.
-	/// </summary>
-	public interface IFactoryListFilter
-	{
-		#region Properties
+    /// <summary>
+    /// Interfejs okreœlaj¹cy kryteria wyszukiwania dla widoku FactoryList.
+    /// </summary>
+    public interface IFactoryListFilter
+    {
+        #region Properties
 
-		/// <summary>
-		/// Nazwa.
-		/// </summary>
-		string FilterName { get; set; }
+        // TODO [UITemplate] - optional: SearchCriteria
+        // np.
+        // string FilterName { get; set; }
 
-		/// <summary>
-		/// Kod.
-		/// </summary>
-		string FilterCity { get; set; }
-
-		/// <summary>
-		/// Produkt.
-		/// </summary>
-		string FilterProduct { get; set; }
-
-		#endregion Properties
-	}
+        #endregion Properties
+    }
 }

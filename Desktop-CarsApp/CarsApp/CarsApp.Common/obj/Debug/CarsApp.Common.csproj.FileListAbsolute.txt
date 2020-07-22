@@ -6,3 +6,11 @@ C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Des
 C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.Common\obj\Debug\CarsApp.Common.csproj.CopyComplete
 C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.Common\obj\Debug\CarsApp.Common.dll
 C:\Users\jakub\Desktop\Net Desktop LGBS Framework\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.Common\obj\Debug\CarsApp.Common.pdb
+D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.Common\obj\Debug\CarsApp.Common.csprojAssemblyReference.cache
+D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.Common\obj\Debug\CarsApp.Common.csproj.CoreCompileInputs.cache
+D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.Common\obj\Debug\CarsApp.Common.dll
+D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.Common\obj\Debug\CarsApp.Common.pdb
+D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.Common\bin\Debug\CarsApp.Common.dll
+D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.Common\bin\Debug\CarsApp.Common.pdb
+D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.Common\bin\Debug\LGBS.MVPFramework.Data.dll
+D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.Common\obj\Debug\CarsApp.Common.csproj.CopyComplete

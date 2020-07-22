@@ -1,121 +1,121 @@
-﻿using CarsApp.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using CarsApp.Data;
 using CarsApp.Services;
 using LGBS.MVPFramework.UI;
 
 namespace CarsApp.UI
 {
-	/// <summary>
-	/// Prezenter widoku FactoryList.
-	/// </summary>
-	public class FactoryListPresenter : BaseGenericPresenter<IFactoryList, IFactoryDetails, FactoryService>
-	{
-		#region Properties
+    // TODO [UITemplate] - optional: Zweryfikować
+    // jeśli z widokiem typu lista jest powiązany widok typu details, 
+    // wówczas prezeter musi implementować interfejs IFactoryDetails zamiast INoDetailsView
 
-		/// <summary>
-		/// Kryteria wyszukiwania wykorzystywane przy pobieraniu danych.
-		/// </summary>
-		public FactorySearchCriteria SearchCriteria
-		{
-			get
-			{
-				if (BaseSearchCriteria == null)
-					BaseSearchCriteria = new FactorySearchCriteria();
+    /// <summary>
+    /// Prezenter widoku FactoryList.
+    /// </summary>
+    public class FactoryListPresenter : BaseGenericPresenter<IFactoryList, INoDetailsView, FactoryService>
+    {
+        #region Properties
 
-				return BaseSearchCriteria as FactorySearchCriteria;
-			}
-			set
-			{
-				BaseSearchCriteria = value;
-			}
-		}
+        /// <summary>
+        /// Kryteria wyszukiwania wykorzystywane przy pobieraniu danych.
+        /// </summary>
+        public FactorySearchCriteria SearchCriteria
+        {
+            get
+            {
+                if (BaseSearchCriteria == null)
+                    BaseSearchCriteria = new FactorySearchCriteria();
 
-		#endregion Properties
+                return BaseSearchCriteria as FactorySearchCriteria;
+            }
+            set
+            {
+                BaseSearchCriteria = value;
+            }
+        }
 
-		#region Ctors
+        #endregion Properties
 
-		/// <summary>
-		/// Tworzy presenter widoku FactoryList.
-		/// </summary>
-		/// <param name="view">Obsługiwany widok.</param>
-		public FactoryListPresenter(IFactoryList view)
-			: base(view, true)
-		{
-			// ustawienie widoku jako źródło danych dla widoku typu lista
-			Service.UseViewAsMainDataSource = false;
-		}
+        #region Ctors
 
-		#endregion Ctors
+        /// <summary>
+        /// Tworzy presenter widoku FactoryList.
+        /// </summary>
+        /// <param name="view">Obsługiwany widok.</param>
+        public FactoryListPresenter(IFactoryList view)
+            : base(view, true)
+        {
+            // TODO [UITemplate] - optional: Zweryfikować
+            // ustawienie widoku jako źródło danych dla widoku typu lista
+            Service.UseViewAsMainDataSource = true;
+        }
 
-		#region Protected methods
+        #endregion Ctors
 
-		#region Overrides
+        #region Protected methods
 
-		/// <summary>
-		/// Pobiera dane i wyświetla w widoku.
-		/// </summary>
-		/// <param name="type">Tryb odświeżania danych.</param>
-		protected override void LoadData(RefreshDataType type)
-		{
-			switch (type)
-			{
-				case RefreshDataType.Full:
-					LoadData(RefreshDataType.DictionaryValues);
-					LoadData(RefreshDataType.ObjectListData);
-					break;
-				case RefreshDataType.ObjectListData:
-					int allElementCount;
-					View.FactoryCollection = Service.GetFactoryCollection(View.PageIndex, View.PageSize, SearchCriteria, out allElementCount);
-					View.RowsCount = allElementCount;
-					break;
-				case RefreshDataType.DictionaryValues:
-					break;
-				default:
-					throw new RefreshTypeNotSupportedException();
-			}
-		}
+        #region Overrides
 
-		/// <summary>
-		/// Ustawia kryteria wyszukiwania.
-		/// </summary>
-		protected override void SetSearchCriteria()
-		{
-			SearchCriteria.Name = View.Filter.FilterName;
-			SearchCriteria.CityName = View.Filter.FilterCity;
+        /// <summary>
+        /// Pobiera dane i wyświetla w widoku.
+        /// </summary>
+        /// <param name="type">Tryb odświeżania danych.</param>
+        protected override void LoadData(RefreshDataType type)
+        {
+            switch (type)
+            {
+                case RefreshDataType.Full:
+                    LoadData(RefreshDataType.DictionaryValues);
+                    LoadData(RefreshDataType.ObjectListData);
+                    break;
+                case RefreshDataType.ObjectListData:
+                    View.FactoryCollection = Service.GetFactoryCollection();
+                    break;
+                case RefreshDataType.DictionaryValues:
+                    break;
+                default:
+                    throw new RefreshTypeNotSupportedException();
+            }
+        }
 
-			// wyczyszczenie wbudowanych filtrów
-			View.ClearGridFilters();
-		}
+        /// <summary>
+        /// Ustawia kryteria wyszukiwania.
+        /// </summary>
+        protected override void SetSearchCriteria()
+        {
+            // TODO [UITemplate] - optional: SearchCriteria
+            // np:
+            // SearchCriteria.Name = View.Filter.FilterName;
 
+            // wyczyszczenie wbudowanych filtrów
+            View.ClearGridFilters();
+        }
 
+        #endregion Overrides
 
-		public void ShowSubElements()
-		{
-			ICityList view = CarsViewFactory.Factory.CreateViewInstance<ICityList>(View);
-			view.Show(ViewMode.ReadOnly);
-		}
-		#endregion Overrides
+        #endregion Protected methods
 
-		#endregion Protected methods
+        #region Public methods
 
-		#region Public methods
+        #region Overrides
 
-		#region Overrides
+        /// <summary>
+        /// Czyści parametry wyszukiwania.
+        /// </summary>
+        public override void ClearSearchCriteria()
+        {
+            // TODO [UITemplate] - optional: SearchCriteria
+            // np:
+            // View.Filter.FilterName = string.Empty;
 
-		/// <summary>
-		/// Czyści parametry wyszukiwania.
-		/// </summary>
-		public override void ClearSearchCriteria()
-		{
-			View.Filter.FilterName = string.Empty;
-			View.Filter.FilterCity = string.Empty;
+            // wyczyszczenie wbudowanych filtrów
+            View.ClearGridFilters();
+        }
 
-			// wyczyszczenie wbudowanych filtrów
-			View.ClearGridFilters();
-		}
+        #endregion Overrides
 
-
-		#endregion Overrides
-
-		#endregion Public methods
-	}
+        #endregion Public methods
+    }
 }

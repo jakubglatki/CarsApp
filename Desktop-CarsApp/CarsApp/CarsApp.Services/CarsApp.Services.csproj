@@ -70,8 +70,12 @@
       <DependentUpon>CountryService.cs</DependentUpon>
     </Compile>
     <Compile Include="FactoryService.cs" />
-    <Compile Include="FactoryService.OrderByExpression.cs" />
-    <Compile Include="FactoryService.SearchCriteria.cs" />
+    <Compile Include="FactoryService.OrderByExpression.cs">
+      <DependentUpon>FactoryService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FactoryService.SearchCriteria.cs">
+      <DependentUpon>FactoryService.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

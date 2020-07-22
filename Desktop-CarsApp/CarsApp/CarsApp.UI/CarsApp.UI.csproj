@@ -119,7 +119,6 @@
     <Compile Include="Views\Details\CountryDetails.Presenter.cs">
       <DependentUpon>CountryDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Details\FactoryDetails.Interface.cs" />
     <Compile Include="Views\List\CityList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,8 +145,12 @@
     <Compile Include="Views\List\FactoryList.Designer.cs">
       <DependentUpon>FactoryList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\List\FactoryList.Interface.cs" />
-    <Compile Include="Views\List\FactoryList.Presenter.cs" />
+    <Compile Include="Views\List\FactoryList.Interface.cs">
+      <DependentUpon>FactoryList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\List\FactoryList.Presenter.cs">
+      <DependentUpon>FactoryList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\List\Filters\ICityListFilter.cs" />
     <Compile Include="Views\List\Filters\ICountryListFilter.cs" />
     <Compile Include="Views\List\Filters\IFactoryListFilter.cs" />

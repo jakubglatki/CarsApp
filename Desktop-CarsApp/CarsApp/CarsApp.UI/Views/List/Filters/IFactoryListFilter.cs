@@ -12,9 +12,9 @@ namespace CarsApp.UI
     {
         #region Properties
 
-        // TODO [UITemplate] - optional: SearchCriteria
-        // np.
-        // string FilterName { get; set; }
+        string FilterName { get; set; }
+        string FilterCityName { get; set; }
+        string FilterManufactureName { get; set; }
 
         #endregion Properties
     }

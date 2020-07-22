@@ -71,7 +71,10 @@ namespace CarsApp.UI
                     LoadData(RefreshDataType.ObjectListData);
                     break;
                 case RefreshDataType.ObjectListData:
-                    View.FactoryCollection = Service.GetFactoryCollection();
+                    int allElementCount;
+                    View.CityCollection = Service.GetCityCollection();
+                    View.FactoryCollection = Service.GetFactoryCollection(View.PageIndex, View.PageSize, SearchCriteria, out allElementCount);
+                    View.RowsCount = allElementCount;
                     break;
                 case RefreshDataType.DictionaryValues:
                     break;
@@ -85,9 +88,9 @@ namespace CarsApp.UI
         /// </summary>
         protected override void SetSearchCriteria()
         {
-            // TODO [UITemplate] - optional: SearchCriteria
-            // np:
-            // SearchCriteria.Name = View.Filter.FilterName;
+            SearchCriteria.Name = View.Filter.FilterName;
+            SearchCriteria.CityName = View.Filter.FilterCityName;
+            SearchCriteria.ManufactureName = View.Filter.FilterManufactureName;
 
             // wyczyszczenie wbudowanych filtrów
             View.ClearGridFilters();
@@ -106,9 +109,9 @@ namespace CarsApp.UI
         /// </summary>
         public override void ClearSearchCriteria()
         {
-            // TODO [UITemplate] - optional: SearchCriteria
-            // np:
-            // View.Filter.FilterName = string.Empty;
+            View.Filter.FilterName = string.Empty;
+            View.Filter.FilterCityName = null;
+            View.Filter.FilterManufactureName = string.Empty;
 
             // wyczyszczenie wbudowanych filtrów
             View.ClearGridFilters();

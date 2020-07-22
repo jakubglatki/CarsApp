@@ -78,7 +78,7 @@ namespace CarsApp.UI
 					break;
 				case RefreshDataType.ObjectListData:
 					int allElementCount;
-					View.CountryCollection = Service.GetCountryCollection(View.PageIndex, View.PageSize, CountrySearchCriteria, out allElementCount);
+					View.CountryCollection = Service.GetAllCountries();
 					View.CityCollection = Service.GetCityCollection(View.PageIndex, View.PageSize, SearchCriteria, out allElementCount);
 					View.RowsCount = allElementCount;
 					break;
@@ -105,10 +105,6 @@ namespace CarsApp.UI
 
 		#endregion Overrides
 
-		public void ShowOneCountryCities(Country country)
-        {
-			
-        }
 
 		#endregion Protected methods
 

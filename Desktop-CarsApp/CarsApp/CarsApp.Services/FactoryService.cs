@@ -96,6 +96,14 @@ namespace CarsApp.Services
         }
 
         /// <summary>
+        /// Pobiera listę obiektów typu City.
+        /// </summary>
+        /// <returns>Lista obiektów typu Factory.</returns>
+        public ICollection<City> GetCityCollection()
+        {
+            return this.DB.Cities.ToList();
+        }
+        /// <summary>
         /// Pobiera listę obiektów typu Factory.
         /// </summary>
         /// <param name="pageIndex">Indeks strony (indeksowanie od 0).</param>

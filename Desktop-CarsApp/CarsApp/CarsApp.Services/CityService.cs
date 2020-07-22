@@ -136,45 +136,6 @@ namespace CarsApp.Services
 		}
 
 		/// <summary>
-		/// Pobiera listę obiektów typu Country.
-		/// </summary>
-		/// <param name="pageIndex">Indeks strony (indeksowanie od 0).</param>
-		/// <param name="pageSize">Ilość elementów na stronie.</param>
-		/// <param name="searchCriteria">Kryteria wyszukiwania.</param>
-		/// <param name="sortExpression">Warunek sortowania.</param>
-		/// <param name="allElementCount">Ilość wszystkich obiektów z uwzględnieniem filtrów.</param>
-		/// <returns>Lista obiektów typu Country.</returns>
-		public ICollection<Country> GetCountryCollection(int pageIndex, int pageSize, CountrySearchCriteria searchCriteria, string sortExpression, out int allElementCount)
-		{
-			searchCriteria = searchCriteria ?? new CountrySearchCriteria();
-
-			allElementCount = this.DB.Countries
-				.AsExpandable()
-				.Where(searchCriteria.GetFilterExpression())
-				.Count();
-
-			return this.DB.Countries
-				.AsExpandable()
-				.Where(searchCriteria.GetFilterExpression())
-				.SortBy(sortExpression.GetColumnName(), sortExpression.GetSortDirection())
-				.GetPage(pageIndex, pageSize);
-		}
-
-		/// <summary>
-		/// Pobiera listę obiektów typu Country.
-		/// </summary>
-		/// <param name="pageIndex">Indeks strony (indeksowanie od 0).</param>
-		/// <param name="pageSize">Ilość elementów na stronie.</param>
-		/// <param name="searchCriteria">Kryteria wyszukiwania.</param>
-		/// <param name="allElementCount">Ilość wszystkich obiektów z uwzględnieniem filtrów.</param>
-		/// <returns>Lista obiektów typu Country.</returns>
-		public ICollection<Country> GetCountryCollection(int pageIndex, int pageSize, CountrySearchCriteria searchCriteria, out int allElementCount)
-		{
-			return GetCountryCollection(pageIndex, pageSize, searchCriteria, string.Empty, out allElementCount);
-		}
-
-
-		/// <summary>
 		/// Pobiera listę wszystkich obiektów typu Country.
 		/// </summary>
 		/// <returns>Lista obiektów typu Country.</returns>

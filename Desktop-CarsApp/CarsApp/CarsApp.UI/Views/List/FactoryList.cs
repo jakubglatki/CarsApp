@@ -81,6 +81,18 @@ namespace CarsApp.UI
 			}
 		}
 
+
+		/// <summary>
+		/// Lista obiektów wyświetlanych w combobox.
+		/// </summary>
+		public ICollection<City> CityCollection
+		{
+			get { return CityCollectionBindingSource.DataSource as ICollection<City>; }
+			set
+			{
+				CityCollectionBindingSource.DataSource = value;
+			}
+		}
 		#region SearchCriteria
 
 		/// <summary>
@@ -93,21 +105,21 @@ namespace CarsApp.UI
 		}
 
 		/// <summary>
-		/// Kod.
+		/// Nazwa miasta.
 		/// </summary>
-		public string FilterCity
+		public string FilterCityName
 		{
-			get { return productComboBox.Text; }
-			set { productComboBox.Text = value; }
+			get { return cityComboBox.Text; }
+			set { cityComboBox.Text = value; }
 		}
 
 		/// <summary>
-		/// Kod.
+		/// Nazwa produkcji.
 		/// </summary>
-		public string FilterProduct
+		public string FilterManufactureName
 		{
-			get { return productComboBox.Text; }
-			set { productComboBox.Text = value; }
+			get { return manufactureTextBox.Text; }
+			set { manufactureTextBox.Text = value; }
 		}
 
 		/// <summary>
@@ -371,9 +383,15 @@ namespace CarsApp.UI
 		private void clearFilterButton_Click(object sender, EventArgs e)
 		{
 			Presenter.ClearSearchCriteria();
+			this.cityComboBox.Text = null;
 		}
 
 
+		/// <summary>
+		/// Obsługa czyszczenia kryteriów wyszukiwania.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">CellFormattingEventArgs.</param>
 		private void FactoryCollectionGrid_CellFormatting(object sender, CellFormattingEventArgs e)
 		{
 			if ((FactoryCollectionGrid.Rows[e.RowIndex].DataBoundItem != null) &&
@@ -385,7 +403,7 @@ namespace CarsApp.UI
 							);
 			}
 		}
-#endregion Handlers
+		#endregion Handlers
 
 		private string BindProperty(object property, string propertyName)
 		{

@@ -406,6 +406,7 @@ namespace CarsApp.UI
 		private void clearFilterButton_Click(object sender, EventArgs e)
 		{
 			Presenter.ClearSearchCriteria();
+			this.countryComboBox.Text = null;
 			if(this.Text.Contains(Resources.CaptionCityCountryMode))
 				this.countryComboBox.Text = CurrentCity.Country.Name;
 		}

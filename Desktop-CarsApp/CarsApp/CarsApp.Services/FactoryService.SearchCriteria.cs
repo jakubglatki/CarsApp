@@ -16,6 +16,21 @@ namespace CarsApp.Services
     {
         #region Properties
 
+        /// <summary>
+        /// Nazwa.
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Nazwa miasta.
+        /// </summary>
+        public string CityName { get; set; }
+
+
+        /// <summary>
+        /// Nazwa produkcji.
+        /// </summary>
+        public string ManufactureName { get; set; }
         #endregion Properties
 
         #region Public methods
@@ -28,10 +43,14 @@ namespace CarsApp.Services
         {
             Expression<Func<Factory, bool>> filter = PredicateBuilder.True<Factory>();
 
-            // TODO [ServiceTemplate] - optional: SearchCriteria (dodać składowe wyrażenia filtrującego)
-            //if (!string.IsNullOrEmpty(PropertyName))
-            //    filter = filter.And(x => x.PropertyName.Contains(this.PropertyName));
+            if (!string.IsNullOrEmpty(Name))
+                filter = filter.And(x => x.Name.Contains(this.Name));
 
+            if (!string.IsNullOrEmpty(CityName))
+                filter = filter.And(x => x.City.Name.Contains(this.CityName));
+
+            if (!string.IsNullOrEmpty(ManufactureName))
+                filter = filter.And(x => x.Manufacture.Name.Contains(this.ManufactureName));
             return filter;
         }
 

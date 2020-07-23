@@ -59,6 +59,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CarProductService.cs" />
+    <Compile Include="CarProductService.OrderByExpression.cs">
+      <DependentUpon>CarProductService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CarProductService.SearchCriteria.cs">
+      <DependentUpon>CarProductService.cs</DependentUpon>
+    </Compile>
     <Compile Include="CityService.cs" />
     <Compile Include="CityService.OrderByExpression.cs" />
     <Compile Include="CityService.SearchCriteria.cs" />

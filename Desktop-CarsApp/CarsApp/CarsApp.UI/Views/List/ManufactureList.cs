@@ -13,16 +13,16 @@ using Telerik.WinControls.UI;
 namespace CarsApp.UI
 {
 	/// <summary>
-	/// Widok lista obiektów typu Factory.
+	/// Widok lista obiektów typu Manufacture.
 	/// </summary>
-	public partial class FactoryList : BaseListWindow, IFactoryList, IFactoryListFilter
+	public partial class ManufactureList : BaseListWindow, IManufactureList, IManufactureListFilter
 	{
 		#region Consts
 
 		/// <summary>
 		/// Nazwa interfejsu widoku.
 		/// </summary>
-		public const string InterfaceName = "IFactoryList";
+		public const string InterfaceName = "IManufactureList";
 		#endregion Consts
 
 		#region Properties
@@ -34,15 +34,15 @@ namespace CarsApp.UI
 		/// </summary>
 		public override IObjectWithId CurrentObject
 		{
-			get { return this.CurrentFactory; }
+			get { return this.CurrentManufacture; }
 		}
 
 		/// <summary>
 		/// Prezenter widoku.
 		/// </summary>
-		public FactoryListPresenter Presenter
+		public ManufactureListPresenter Presenter
 		{
-			get { return BasePresenter as FactoryListPresenter; }
+			get { return BasePresenter as ManufactureListPresenter; }
 			set { BasePresenter = value; }
 		}
 
@@ -53,11 +53,11 @@ namespace CarsApp.UI
 		/// <summary>
 		/// Bieżący obiekt wybrany na liście w poprzednim widoku.
 		/// </summary>
-		public Factory CurrentFactory
+		public Manufacture CurrentManufacture
 		{
 			get
 			{
-				return FactoryCollectionBindingSource.Current as Factory;
+				return ManufactureCollectionBindingSource.Current as Manufacture;
 			}
 			set
 			{
@@ -69,12 +69,12 @@ namespace CarsApp.UI
 		/// <summary>
 		/// Lista obiektów wyświetlanych w widoku.
 		/// </summary>
-		public ICollection<Factory> FactoryCollection
+		public ICollection<Manufacture> ManufactureCollection
 		{
-			get { return FactoryCollectionBindingSource.DataSource as ICollection<Factory>; }
+			get { return ManufactureCollectionBindingSource.DataSource as ICollection<Manufacture>; }
 			set
 			{
-				FactoryCollectionBindingSource.DataSource = value;
+				ManufactureCollectionBindingSource.DataSource = value;
 
 				if (value != null)
 					SetFilteredElementsCountLabel(value.Count);
@@ -87,10 +87,10 @@ namespace CarsApp.UI
 		/// </summary>
 		public ICollection<City> CityCollection
 		{
-			get { return CityCollectionBindingSource.DataSource as ICollection<City>; }
+			get { return FactoryCollectionBindingSource.DataSource as ICollection<City>; }
 			set
 			{
-				CityCollectionBindingSource.DataSource = value;
+				FactoryCollectionBindingSource.DataSource = value;
 			}
 		}
 		#region SearchCriteria
@@ -100,8 +100,8 @@ namespace CarsApp.UI
 		/// </summary>
 		public string FilterName
 		{
-			get { return nameTextBox.Text; }
-			set { nameTextBox.Text = value; }
+			get { return VINTextBox.Text; }
+			set { VINTextBox.Text = value; }
 		}
 
 		/// <summary>
@@ -109,8 +109,8 @@ namespace CarsApp.UI
 		/// </summary>
 		public string FilterCityName
 		{
-			get { return cityComboBox.Text; }
-			set { cityComboBox.Text = value; }
+			get { return modelComboBox.Text; }
+			set { modelComboBox.Text = value; }
 		}
 
 		/// <summary>
@@ -125,9 +125,9 @@ namespace CarsApp.UI
 		/// <summary>
 		/// Filtr (kryteria wyszukiwania).
 		/// </summary>
-		public IFactoryListFilter Filter
+		public IManufactureListFilter Filter
 		{
-			get { return this as IFactoryListFilter; }
+			get { return this as IManufactureListFilter; }
 		}
 
 		#endregion SearchCriteria
@@ -177,9 +177,9 @@ namespace CarsApp.UI
 		#region Ctors
 
 		/// <summary>
-		/// Tworzy widok FactoryList.
+		/// Tworzy widok ManufactureList.
 		/// </summary>
-		public FactoryList()
+		public ManufactureList()
 			: base(null)
 		{
 			SupportsShowSubElements = false;
@@ -187,10 +187,10 @@ namespace CarsApp.UI
 		}
 
 		/// <summary>
-		/// Tworzy widok FactoryList.
+		/// Tworzy widok ManufactureList.
 		/// </summary>
 		/// <param name="parentView">Widok nadrzędny.</param>
-		public FactoryList(IBaseView parentView)
+		public ManufactureList(IBaseView parentView)
 			: base(parentView)
 		{
 			InitializeComponent();
@@ -199,7 +199,7 @@ namespace CarsApp.UI
 
 			if (!VSDesignMode)
 			{
-				this.Presenter = new FactoryListPresenter(this);
+				this.Presenter = new ManufactureListPresenter(this);
 
 				this.SupportsShowDetails = true;
 				this.SupportsDelete = true;
@@ -233,7 +233,7 @@ namespace CarsApp.UI
 			{
 				case RefreshViewType.AllObjectsView:
 				case RefreshViewType.CurrentObjectView:
-					FactoryCollectionBindingSource.ResetBindings(false);
+					ManufactureCollectionBindingSource.ResetBindings(false);
 					break;
 				case RefreshViewType.ViewOnly:
 					break;
@@ -264,7 +264,7 @@ namespace CarsApp.UI
 				case ViewMode.Edit:
 					break;
 				case ViewMode.ReadOnly:
-					this.Text = Resources.CaptionFactoryList;
+					this.Text = Resources.CaptionManufactureList;
 					break;
 				case ViewMode.Dictionary:
 					break;
@@ -275,10 +275,6 @@ namespace CarsApp.UI
 			base.ChangeMode(mode);
 		}
 
-		public override void ShowSubElements()
-		{
-			Presenter.ShowSubElements();
-		}
 		#endregion Overrides
 
 		#region View specific
@@ -304,8 +300,8 @@ namespace CarsApp.UI
 		/// </summary>
 		protected override void InitializeControls()
 		{
-			this.MainGridView = FactoryCollectionGrid;
-			this.MainBindingSource = FactoryCollectionBindingSource;
+			this.MainGridView = ManufactureCollectionGrid;
+			this.MainBindingSource = ManufactureCollectionBindingSource;
 
 			// paging
 			this.mainDataPager.PageChanged += new EventHandler<PageChangeEventArgs>(mainDataPager_PageChanged);
@@ -364,9 +360,9 @@ namespace CarsApp.UI
 		/// </summary>
 		/// <param name="sender">Sender.</param>
 		/// <param name="e">EventArgs.</param>
-		private void FactoryCollectionGrid_FilterChanged(object sender, GridViewCollectionChangedEventArgs e)
+		private void ManufactureCollectionGrid_FilterChanged(object sender, GridViewCollectionChangedEventArgs e)
 		{
-			SetFilteredElementsCountLabel(FactoryCollectionGrid.ChildRows.Count);
+			SetFilteredElementsCountLabel(ManufactureCollectionGrid.ChildRows.Count);
 		}
 
 		/// <summary>
@@ -387,7 +383,7 @@ namespace CarsApp.UI
 		private void clearFilterButton_Click(object sender, EventArgs e)
 		{
 			Presenter.ClearSearchCriteria();
-			this.cityComboBox.Text = null;
+			this.modelComboBox.Text = null;
 		}
 
 
@@ -396,14 +392,14 @@ namespace CarsApp.UI
 		/// </summary>
 		/// <param name="sender">Sender.</param>
 		/// <param name="e">CellFormattingEventArgs.</param>
-		private void FactoryCollectionGrid_CellFormatting(object sender, CellFormattingEventArgs e)
+		private void ManufactureCollectionGrid_CellFormatting(object sender, CellFormattingEventArgs e)
 		{
-			if ((FactoryCollectionGrid.Rows[e.RowIndex].DataBoundItem != null) &&
-				(FactoryCollectionGrid.Columns[e.ColumnIndex].FieldName.Contains(".")))
+			if ((ManufactureCollectionGrid.Rows[e.RowIndex].DataBoundItem != null) &&
+				(ManufactureCollectionGrid.Columns[e.ColumnIndex].FieldName.Contains(".")))
 			{
 				e.CellElement.Value = BindProperty(
-							  FactoryCollectionGrid.Rows[e.RowIndex].DataBoundItem,
-							  FactoryCollectionGrid.Columns[e.ColumnIndex].FieldName
+							  ManufactureCollectionGrid.Rows[e.RowIndex].DataBoundItem,
+							  ManufactureCollectionGrid.Columns[e.ColumnIndex].FieldName
 							);
 			}
 		}
@@ -445,9 +441,5 @@ namespace CarsApp.UI
 			return retValue;
 		}
 
-        private void FactoryCollectionGrid_DoubleClick(object sender, EventArgs e)
-        {
-			SupportsShowSubElements = true;
-		}
 	}
 }

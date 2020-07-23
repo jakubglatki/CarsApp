@@ -31,6 +31,7 @@ namespace CarsApp.Services
         /// Nazwa produkcji.
         /// </summary>
         public string ManufactureName { get; set; }
+
         #endregion Properties
 
         #region Public methods

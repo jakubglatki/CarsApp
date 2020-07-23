@@ -119,6 +119,18 @@
     <Compile Include="Views\Details\CountryDetails.Presenter.cs">
       <DependentUpon>CountryDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\List\CarProductList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\List\CarProductList.Designer.cs">
+      <DependentUpon>CarProductList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\List\CarProductList.Interface.cs">
+      <DependentUpon>CarProductList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\List\CarProductList.Presenter.cs">
+      <DependentUpon>CarProductList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\List\CityList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +163,7 @@
     <Compile Include="Views\List\FactoryList.Presenter.cs">
       <DependentUpon>FactoryList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\List\Filters\ICarProductListFilter.cs" />
     <Compile Include="Views\List\Filters\ICityListFilter.cs" />
     <Compile Include="Views\List\Filters\ICountryListFilter.cs" />
     <Compile Include="Views\List\Filters\IFactoryListFilter.cs" />
@@ -177,6 +190,9 @@
     <EmbeddedResource Include="Views\Details\CityDetails.resx" />
     <EmbeddedResource Include="Views\Details\CountryDetails.resx">
       <DependentUpon>CountryDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\List\CarProductList.resx">
+      <DependentUpon>CarProductList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\List\CityList.resx">
       <DependentUpon>CityList.cs</DependentUpon>

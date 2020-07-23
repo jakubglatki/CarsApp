@@ -109,3 +109,4 @@ D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Deskto
 D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\EntityFramework.dll
 D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\bin\Debug\EntityFramework.xml
 D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.FactoryList.resources
+D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.CarProductList.resources

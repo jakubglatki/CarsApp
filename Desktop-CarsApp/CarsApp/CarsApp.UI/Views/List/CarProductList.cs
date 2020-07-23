@@ -13,16 +13,16 @@ using Telerik.WinControls.UI;
 namespace CarsApp.UI
 {
 	/// <summary>
-	/// Widok lista obiektów typu Factory.
+	/// Widok lista obiektów typu CarProduct.
 	/// </summary>
-	public partial class FactoryList : BaseListWindow, IFactoryList, IFactoryListFilter
+	public partial class CarProductList : BaseListWindow, ICarProductList, ICarProductListFilter
 	{
 		#region Consts
 
 		/// <summary>
 		/// Nazwa interfejsu widoku.
 		/// </summary>
-		public const string InterfaceName = "IFactoryList";
+		public const string InterfaceName = "ICarProductList";
 		#endregion Consts
 
 		#region Properties
@@ -34,15 +34,15 @@ namespace CarsApp.UI
 		/// </summary>
 		public override IObjectWithId CurrentObject
 		{
-			get { return this.CurrentFactory; }
+			get { return this.CurrentCarProduct; }
 		}
 
 		/// <summary>
 		/// Prezenter widoku.
 		/// </summary>
-		public FactoryListPresenter Presenter
+		public CarProductListPresenter Presenter
 		{
-			get { return BasePresenter as FactoryListPresenter; }
+			get { return BasePresenter as CarProductListPresenter; }
 			set { BasePresenter = value; }
 		}
 
@@ -53,11 +53,11 @@ namespace CarsApp.UI
 		/// <summary>
 		/// Bieżący obiekt wybrany na liście w poprzednim widoku.
 		/// </summary>
-		public Factory CurrentFactory
+		public CarProduct CurrentCarProduct
 		{
 			get
 			{
-				return FactoryCollectionBindingSource.Current as Factory;
+				return CarProductCollectionBindingSource.Current as CarProduct;
 			}
 			set
 			{
@@ -69,12 +69,12 @@ namespace CarsApp.UI
 		/// <summary>
 		/// Lista obiektów wyświetlanych w widoku.
 		/// </summary>
-		public ICollection<Factory> FactoryCollection
+		public ICollection<CarProduct> CarProductCollection
 		{
-			get { return FactoryCollectionBindingSource.DataSource as ICollection<Factory>; }
+			get { return CarProductCollectionBindingSource.DataSource as ICollection<CarProduct>; }
 			set
 			{
-				FactoryCollectionBindingSource.DataSource = value;
+				CarProductCollectionBindingSource.DataSource = value;
 
 				if (value != null)
 					SetFilteredElementsCountLabel(value.Count);
@@ -85,49 +85,63 @@ namespace CarsApp.UI
 		/// <summary>
 		/// Lista obiektów wyświetlanych w combobox.
 		/// </summary>
-		public ICollection<City> CityCollection
+		public ICollection<CarModel> CarModelCollection
 		{
-			get { return CityCollectionBindingSource.DataSource as ICollection<City>; }
+			get { return ModelCollectionBindingSource.DataSource as ICollection<CarModel>; }
 			set
 			{
-				CityCollectionBindingSource.DataSource = value;
+				ModelCollectionBindingSource.DataSource = value;
 			}
 		}
+
+
+		/// <summary>
+		/// Lista obiektów wyświetlanych w combobox.
+		/// </summary>
+		public ICollection<Factory> FactoryCollection
+		{
+			get { return FactoryCollectionBindingSource.DataSource as ICollection<Factory>; }
+			set
+			{
+				FactoryCollectionBindingSource.DataSource = value;
+			}
+		}
+
 		#region SearchCriteria
 
 		/// <summary>
 		/// Nazwa.
 		/// </summary>
-		public string FilterName
+		public string FilterModel
 		{
-			get { return nameTextBox.Text; }
-			set { nameTextBox.Text = value; }
+			get { return modelComboBox.Text; }
+			set { modelComboBox.Text = value; }
 		}
 
 		/// <summary>
 		/// Nazwa miasta.
 		/// </summary>
-		public string FilterCityName
+		public string FilterVIN
 		{
-			get { return cityComboBox.Text; }
-			set { cityComboBox.Text = value; }
+			get { return VINTextBox.Text; }
+			set { VINTextBox.Text = value; }
 		}
 
 		/// <summary>
 		/// Nazwa produkcji.
 		/// </summary>
-		public string FilterManufactureName
+		public string FilterFactory
 		{
-			get { return manufactureTextBox.Text; }
-			set { manufactureTextBox.Text = value; }
+			get { return factoryComboBox.Text; }
+			set { factoryComboBox.Text = value; }
 		}
 
 		/// <summary>
 		/// Filtr (kryteria wyszukiwania).
 		/// </summary>
-		public IFactoryListFilter Filter
+		public ICarProductListFilter Filter
 		{
-			get { return this as IFactoryListFilter; }
+			get { return this as ICarProductListFilter; }
 		}
 
 		#endregion SearchCriteria
@@ -177,9 +191,9 @@ namespace CarsApp.UI
 		#region Ctors
 
 		/// <summary>
-		/// Tworzy widok FactoryList.
+		/// Tworzy widok CarProductList.
 		/// </summary>
-		public FactoryList()
+		public CarProductList()
 			: base(null)
 		{
 			SupportsShowSubElements = false;
@@ -187,10 +201,10 @@ namespace CarsApp.UI
 		}
 
 		/// <summary>
-		/// Tworzy widok FactoryList.
+		/// Tworzy widok CarProductList.
 		/// </summary>
 		/// <param name="parentView">Widok nadrzędny.</param>
-		public FactoryList(IBaseView parentView)
+		public CarProductList(IBaseView parentView)
 			: base(parentView)
 		{
 			InitializeComponent();
@@ -199,7 +213,7 @@ namespace CarsApp.UI
 
 			if (!VSDesignMode)
 			{
-				this.Presenter = new FactoryListPresenter(this);
+				this.Presenter = new CarProductListPresenter(this);
 
 				this.SupportsShowDetails = true;
 				this.SupportsDelete = true;
@@ -233,7 +247,7 @@ namespace CarsApp.UI
 			{
 				case RefreshViewType.AllObjectsView:
 				case RefreshViewType.CurrentObjectView:
-					FactoryCollectionBindingSource.ResetBindings(false);
+					CarProductCollectionBindingSource.ResetBindings(false);
 					break;
 				case RefreshViewType.ViewOnly:
 					break;
@@ -264,7 +278,7 @@ namespace CarsApp.UI
 				case ViewMode.Edit:
 					break;
 				case ViewMode.ReadOnly:
-					this.Text = Resources.CaptionFactoryList;
+					this.Text = Resources.CaptionCarProductList;
 					break;
 				case ViewMode.Dictionary:
 					break;
@@ -275,10 +289,6 @@ namespace CarsApp.UI
 			base.ChangeMode(mode);
 		}
 
-		public override void ShowSubElements()
-		{
-			Presenter.ShowSubElements();
-		}
 		#endregion Overrides
 
 		#region View specific
@@ -304,8 +314,8 @@ namespace CarsApp.UI
 		/// </summary>
 		protected override void InitializeControls()
 		{
-			this.MainGridView = FactoryCollectionGrid;
-			this.MainBindingSource = FactoryCollectionBindingSource;
+			this.MainGridView = CarProductCollectionGrid;
+			this.MainBindingSource = CarProductCollectionBindingSource;
 
 			// paging
 			this.mainDataPager.PageChanged += new EventHandler<PageChangeEventArgs>(mainDataPager_PageChanged);
@@ -364,9 +374,9 @@ namespace CarsApp.UI
 		/// </summary>
 		/// <param name="sender">Sender.</param>
 		/// <param name="e">EventArgs.</param>
-		private void FactoryCollectionGrid_FilterChanged(object sender, GridViewCollectionChangedEventArgs e)
+		private void CarProductCollectionGrid_FilterChanged(object sender, GridViewCollectionChangedEventArgs e)
 		{
-			SetFilteredElementsCountLabel(FactoryCollectionGrid.ChildRows.Count);
+			SetFilteredElementsCountLabel(CarProductCollectionGrid.ChildRows.Count);
 		}
 
 		/// <summary>
@@ -387,7 +397,7 @@ namespace CarsApp.UI
 		private void clearFilterButton_Click(object sender, EventArgs e)
 		{
 			Presenter.ClearSearchCriteria();
-			this.cityComboBox.Text = null;
+			this.modelComboBox.Text = null;
 		}
 
 
@@ -396,14 +406,14 @@ namespace CarsApp.UI
 		/// </summary>
 		/// <param name="sender">Sender.</param>
 		/// <param name="e">CellFormattingEventArgs.</param>
-		private void FactoryCollectionGrid_CellFormatting(object sender, CellFormattingEventArgs e)
+		private void CarProductCollectionGrid_CellFormatting(object sender, CellFormattingEventArgs e)
 		{
-			if ((FactoryCollectionGrid.Rows[e.RowIndex].DataBoundItem != null) &&
-				(FactoryCollectionGrid.Columns[e.ColumnIndex].FieldName.Contains(".")))
+			if ((CarProductCollectionGrid.Rows[e.RowIndex].DataBoundItem != null) &&
+				(CarProductCollectionGrid.Columns[e.ColumnIndex].FieldName.Contains(".")))
 			{
 				e.CellElement.Value = BindProperty(
-							  FactoryCollectionGrid.Rows[e.RowIndex].DataBoundItem,
-							  FactoryCollectionGrid.Columns[e.ColumnIndex].FieldName
+							  CarProductCollectionGrid.Rows[e.RowIndex].DataBoundItem,
+							  CarProductCollectionGrid.Columns[e.ColumnIndex].FieldName
 							);
 			}
 		}
@@ -445,9 +455,5 @@ namespace CarsApp.UI
 			return retValue;
 		}
 
-        private void FactoryCollectionGrid_DoubleClick(object sender, EventArgs e)
-        {
-			SupportsShowSubElements = true;
-		}
 	}
 }

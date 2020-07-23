@@ -9,26 +9,26 @@ namespace CarsApp.UI
 {
     // TODO [UITemplate] - optional: Zweryfikować
     // jeśli z widokiem typu lista jest powiązany widok typu details, 
-    // wówczas prezeter musi implementować interfejs IFactoryDetails zamiast INoDetailsView
+    // wówczas prezeter musi implementować interfejs IManufactureDetails zamiast INoDetailsView
 
     /// <summary>
-    /// Prezenter widoku FactoryList.
+    /// Prezenter widoku ManufactureList.
     /// </summary>
-    public class FactoryListPresenter : BaseGenericPresenter<IFactoryList, INoDetailsView, FactoryService>
+    public class ManufactureListPresenter : BaseGenericPresenter<IManufactureList, INoDetailsView, ManufactureService>
     {
         #region Properties
 
         /// <summary>
         /// Kryteria wyszukiwania wykorzystywane przy pobieraniu danych.
         /// </summary>
-        public FactorySearchCriteria SearchCriteria
+        public ManufactureSearchCriteria SearchCriteria
         {
             get
             {
                 if (BaseSearchCriteria == null)
-                    BaseSearchCriteria = new FactorySearchCriteria();
+                    BaseSearchCriteria = new ManufactureSearchCriteria();
 
-                return BaseSearchCriteria as FactorySearchCriteria;
+                return BaseSearchCriteria as ManufactureSearchCriteria;
             }
             set
             {
@@ -41,10 +41,10 @@ namespace CarsApp.UI
         #region Ctors
 
         /// <summary>
-        /// Tworzy presenter widoku FactoryList.
+        /// Tworzy presenter widoku ManufactureList.
         /// </summary>
         /// <param name="view">Obsługiwany widok.</param>
-        public FactoryListPresenter(IFactoryList view)
+        public ManufactureListPresenter(IManufactureList view)
             : base(view, true)
         {
             // TODO [UITemplate] - optional: Zweryfikować
@@ -71,10 +71,7 @@ namespace CarsApp.UI
                     LoadData(RefreshDataType.ObjectListData);
                     break;
                 case RefreshDataType.ObjectListData:
-                    int allElementCount;
-                    View.CityCollection = Service.GetCityCollection();
-                    View.FactoryCollection = Service.GetFactoryCollection(View.PageIndex, View.PageSize, SearchCriteria, out allElementCount);
-                    View.RowsCount = allElementCount;
+                    View.ManufactureCollection = Service.GetManufactureCollection();
                     break;
                 case RefreshDataType.DictionaryValues:
                     break;
@@ -88,9 +85,9 @@ namespace CarsApp.UI
         /// </summary>
         protected override void SetSearchCriteria()
         {
-            SearchCriteria.Name = View.Filter.FilterName;
-            SearchCriteria.CityName = View.Filter.FilterCityName;
-            SearchCriteria.ManufactureName = View.Filter.FilterManufactureName;
+            // TODO [UITemplate] - optional: SearchCriteria
+            // np:
+            // SearchCriteria.Name = View.Filter.FilterName;
 
             // wyczyszczenie wbudowanych filtrów
             View.ClearGridFilters();
@@ -109,9 +106,9 @@ namespace CarsApp.UI
         /// </summary>
         public override void ClearSearchCriteria()
         {
-            View.Filter.FilterName = string.Empty;
-            View.Filter.FilterCityName = null;
-            View.Filter.FilterManufactureName = string.Empty;
+            // TODO [UITemplate] - optional: SearchCriteria
+            // np:
+            // View.Filter.FilterName = string.Empty;
 
             // wyczyszczenie wbudowanych filtrów
             View.ClearGridFilters();
@@ -119,14 +116,6 @@ namespace CarsApp.UI
 
         #endregion Overrides
 
-        /// <summary>
-        /// Pokazuje listę typu CarProducts.
-        /// </summary>
-        public void ShowSubElements()
-        {
-            ICarProductList view = CarsViewFactory.Factory.CreateViewInstance<ICarProductList>(View);
-            view.Show(ViewMode.ReadOnly);
-        }
         #endregion Public methods
     }
 }

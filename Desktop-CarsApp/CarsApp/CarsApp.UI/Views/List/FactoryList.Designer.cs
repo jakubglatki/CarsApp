@@ -42,7 +42,7 @@
             this.CityCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productButton = new System.Windows.Forms.Button();
             this.productLabel = new LGBS.MVPFramework.Controls.LGBSLabel();
-            this.manufactureTextBox = new LGBS.MVPFramework.Controls.LGBSTextBox();
+            this.productTextBox = new LGBS.MVPFramework.Controls.LGBSTextBox();
             this.cityLabel = new LGBS.MVPFramework.Controls.LGBSLabel();
             this.clearFilterButton = new LGBS.MVPFramework.Controls.LGBSButton();
             this.searchButton = new LGBS.MVPFramework.Controls.LGBSButton();
@@ -55,7 +55,7 @@
             this.filtersGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CityCollectionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productLabel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.manufactureTextBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productTextBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cityLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clearFilterButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButton)).BeginInit();
@@ -149,7 +149,7 @@
             this.filtersGroupBox.Controls.Add(this.cityComboBox);
             this.filtersGroupBox.Controls.Add(this.productButton);
             this.filtersGroupBox.Controls.Add(this.productLabel);
-            this.filtersGroupBox.Controls.Add(this.manufactureTextBox);
+            this.filtersGroupBox.Controls.Add(this.productTextBox);
             this.filtersGroupBox.Controls.Add(this.cityLabel);
             this.filtersGroupBox.Controls.Add(this.clearFilterButton);
             this.filtersGroupBox.Controls.Add(this.searchButton);
@@ -196,6 +196,7 @@
             this.productButton.Text = "...";
             this.productButton.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.productButton.UseVisualStyleBackColor = true;
+            this.productButton.Click += new System.EventHandler(this.productButton_Click);
             // 
             // productLabel
             // 
@@ -205,15 +206,17 @@
             this.productLabel.TabIndex = 5;
             this.productLabel.Text = "Wyrób:";
             // 
-            // manufactureTextBox
+            // productTextBox
             // 
-            this.manufactureTextBox.Location = new System.Drawing.Point(82, 73);
-            this.manufactureTextBox.Message = null;
-            this.manufactureTextBox.Name = "manufactureTextBox";
-            this.manufactureTextBox.RegularExpressionString = null;
-            this.manufactureTextBox.Size = new System.Drawing.Size(167, 20);
-            this.manufactureTextBox.TabIndex = 5;
-            this.manufactureTextBox.TabStop = false;
+            this.productTextBox.Enabled = false;
+            this.productTextBox.Location = new System.Drawing.Point(82, 73);
+            this.productTextBox.Message = null;
+            this.productTextBox.Name = "productTextBox";
+            this.productTextBox.ReadOnly = true;
+            this.productTextBox.RegularExpressionString = null;
+            this.productTextBox.Size = new System.Drawing.Size(167, 20);
+            this.productTextBox.TabIndex = 5;
+            this.productTextBox.TabStop = false;
             // 
             // cityLabel
             // 
@@ -279,7 +282,7 @@
             this.filtersGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CityCollectionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productLabel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.manufactureTextBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productTextBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cityLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clearFilterButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButton)).EndInit();
@@ -296,7 +299,7 @@
         private LGBS.MVPFramework.Controls.LGBSGridView FactoryCollectionGrid;
         private LGBS.MVPFramework.Controls.LGBSDataPager mainDataPager;
         private LGBS.MVPFramework.Controls.LGBSGroupBox filtersGroupBox;
-        private LGBS.MVPFramework.Controls.LGBSTextBox manufactureTextBox;
+        private LGBS.MVPFramework.Controls.LGBSTextBox productTextBox;
         private LGBS.MVPFramework.Controls.LGBSLabel cityLabel;
         private LGBS.MVPFramework.Controls.LGBSButton clearFilterButton;
         private LGBS.MVPFramework.Controls.LGBSButton searchButton;

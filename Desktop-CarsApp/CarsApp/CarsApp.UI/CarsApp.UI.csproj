@@ -167,6 +167,19 @@
     <Compile Include="Views\List\Filters\ICityListFilter.cs" />
     <Compile Include="Views\List\Filters\ICountryListFilter.cs" />
     <Compile Include="Views\List\Filters\IFactoryListFilter.cs" />
+    <Compile Include="Views\List\Filters\IManufactureListFilter.cs" />
+    <Compile Include="Views\List\ManufactureList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\List\ManufactureList.Designer.cs">
+      <DependentUpon>ManufactureList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\List\ManufactureList.Interface.cs">
+      <DependentUpon>ManufactureList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\List\ManufactureList.Presenter.cs">
+      <DependentUpon>ManufactureList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Main\MainForm.actions.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Form</SubType>
@@ -204,11 +217,15 @@
     <EmbeddedResource Include="Views\List\FactoryList.resx">
       <DependentUpon>FactoryList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\List\ManufactureList.resx">
+      <DependentUpon>ManufactureList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Main\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\CarsApp.Data.City.datasource" />
     <None Include="Properties\DataSources\CarsApp.Data.Country.datasource" />
+    <None Include="Properties\DataSources\CarsApp.Data.Manufacture.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

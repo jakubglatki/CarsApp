@@ -77,6 +77,7 @@ namespace CarsApp.UI
                     View.RowsCount = allElementCount;
                     break;
                 case RefreshDataType.DictionaryValues:
+                    View.Set
                     break;
                 default:
                     throw new RefreshTypeNotSupportedException();

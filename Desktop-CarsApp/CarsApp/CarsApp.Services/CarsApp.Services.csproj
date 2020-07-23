@@ -83,6 +83,13 @@
     <Compile Include="FactoryService.SearchCriteria.cs">
       <DependentUpon>FactoryService.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManufactureService.cs" />
+    <Compile Include="ManufactureService.OrderByExpression.cs">
+      <DependentUpon>ManufactureService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManufactureService.SearchCriteria.cs">
+      <DependentUpon>ManufactureService.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

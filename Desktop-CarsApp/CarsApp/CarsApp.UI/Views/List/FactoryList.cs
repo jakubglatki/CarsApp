@@ -118,8 +118,8 @@ namespace CarsApp.UI
 		/// </summary>
 		public string FilterManufactureName
 		{
-			get { return manufactureTextBox.Text; }
-			set { manufactureTextBox.Text = value; }
+			get { return productTextBox.Text; }
+			set { productTextBox.Text = value; }
 		}
 
 		/// <summary>
@@ -293,6 +293,10 @@ namespace CarsApp.UI
 
 		#endregion View specific
 
+		public void setProductText(string text)
+        {
+			this.productTextBox.Text = text;
+        }
 		#endregion Public methods
 
 		#region Protected methods
@@ -407,6 +411,29 @@ namespace CarsApp.UI
 							);
 			}
 		}
+
+
+		/// <summary>
+		/// Zezwolenie na pokazanie widoku podrzędnego.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">EventArgs.</param>
+		private void FactoryCollectionGrid_DoubleClick(object sender, EventArgs e)
+		{
+			SupportsShowSubElements = true;
+		}
+
+		/// <summary>
+		/// Włączenie słownika Manufacture.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">EventArgs.</param>
+		private void productButton_Click(object sender, EventArgs e)
+		{
+			IManufactureList view = CarsViewFactory.Factory.CreateViewInstance<IManufactureList>();
+			view.Show(ViewMode.Dictionary);
+			productTextBox.Text = view.CurrentManufacture.Name;
+		}
 		#endregion Handlers
 
 		private string BindProperty(object property, string propertyName)
@@ -445,9 +472,5 @@ namespace CarsApp.UI
 			return retValue;
 		}
 
-        private void FactoryCollectionGrid_DoubleClick(object sender, EventArgs e)
-        {
-			SupportsShowSubElements = true;
-		}
-	}
+    }
 }

@@ -34,6 +34,8 @@ namespace CarsApp.UI
 					return new FactoryList(parentView) as VT;
 				case CarProductList.InterfaceName:
 					return new CarProductList(parentView) as VT;
+				case ManufactureList.InterfaceName:
+					return new ManufactureList(parentView) as VT;
 				default:
 					throw new ArgumentException("Nieobsługiwany typ widoku");
 			}

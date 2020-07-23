@@ -220,6 +220,18 @@ namespace CarsApp.UI
 				this.SupportsAddNew = true;
 				this.SupportsEdit = true;
 			}
+
+
+			if (parentView != null)
+			{
+				FactoryList factory = new FactoryList();
+				if (parentView.GetType() == factory.GetType())
+				{
+					factory = (FactoryList)parentView;
+					this.SetViewForOneFactoryMode(factory.CurrentFactory);
+				}
+
+			}
 		}
 
 		#endregion Ctors
@@ -355,6 +367,19 @@ namespace CarsApp.UI
 			mainDataPager.SetFilteredElementsCountLabel(count);
 		}
 
+
+		/// <summary>
+		/// Obsługa listy dla widoku fabryki.
+		/// </summary>
+		/// <param name="factory">Wyświetlana fabryka.</param>
+		private void SetViewForOneFactoryMode(Factory factory)
+		{
+			List<string> factoryName = new List<string>();
+			factoryName.Add(factory.Name);
+		    this.factoryComboBox.DataSource = factoryName;
+			this.modelComboBox.Text = null;
+			Presenter.Search();
+		}
 		#endregion Private methods
 
 		#region Handlers
@@ -417,6 +442,31 @@ namespace CarsApp.UI
 							);
 			}
 		}
+
+
+		/// <summary>
+		/// Odpowiada za powrót do domyślengo DataSource.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">EventArgs.</param>
+		private void factoryComboBox_DropDown(object sender, EventArgs e)
+		{
+			this.factoryComboBox.DataSource = this.FactoryCollectionBindingSource;
+			this.factoryComboBox.DisplayMember = "Name";
+		}
+
+
+		/// <summary>
+		/// Odpowiada za powrót do domyślengo DataSource.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">EventArgs.</param>
+		private void modelComboBox_DropDown(object sender, EventArgs e)
+		{
+
+			this.modelComboBox.DataSource = this.ModelCollectionBindingSource;
+			this.modelComboBox.DisplayMember = "Name";
+		}
 		#endregion Handlers
 
 		private string BindProperty(object property, string propertyName)
@@ -455,5 +505,5 @@ namespace CarsApp.UI
 			return retValue;
 		}
 
-	}
+    }
 }

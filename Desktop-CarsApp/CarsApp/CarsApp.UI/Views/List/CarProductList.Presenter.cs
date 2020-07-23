@@ -89,10 +89,9 @@ namespace CarsApp.UI
         /// </summary>
         protected override void SetSearchCriteria()
         {
-            // TODO [UITemplate] - optional: SearchCriteria
-            // np:
-            // SearchCriteria.Name = View.Filter.FilterName;
-
+            SearchCriteria.Model = View.Filter.FilterModel;
+            SearchCriteria.VIN = View.Filter.FilterVIN;
+            SearchCriteria.Factory = View.Filter.FilterFactory;
             // wyczyszczenie wbudowanych filtrów
             View.ClearGridFilters();
         }
@@ -110,10 +109,9 @@ namespace CarsApp.UI
         /// </summary>
         public override void ClearSearchCriteria()
         {
-            // TODO [UITemplate] - optional: SearchCriteria
-            // np:
-            // View.Filter.FilterName = string.Empty;
-
+            SearchCriteria.Model = null;
+            SearchCriteria.VIN = string.Empty;
+            SearchCriteria.Model = null;
             // wyczyszczenie wbudowanych filtrów
             View.ClearGridFilters();
         }

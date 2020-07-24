@@ -19,7 +19,7 @@ namespace CarsApp.UI.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -70,16 +70,7 @@ namespace CarsApp.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Samochody.
-        /// </summary>
-        internal static string CaptionCarProductList {
-            get {
-                return ResourceManager.GetString("CaptionCarProductList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Dodawanie nowego miasta.
+        ///   Looks up a localized string similar to Dodaj miasto.
         /// </summary>
         internal static string CaptionCityAdd {
             get {
@@ -106,7 +97,7 @@ namespace CarsApp.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edycja miasta.
+        ///   Looks up a localized string similar to Miasto edycja.
         /// </summary>
         internal static string CaptionCityEdit {
             get {
@@ -115,20 +106,11 @@ namespace CarsApp.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Miasta.
+        ///   Looks up a localized string similar to Lista miast.
         /// </summary>
         internal static string CaptionCityList {
             get {
                 return ResourceManager.GetString("CaptionCityList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Miasta kraju: .
-        /// </summary>
-        internal static string CaptionCityOneCountryList {
-            get {
-                return ResourceManager.GetString("CaptionCityOneCountryList", resourceCulture);
             }
         }
         
@@ -156,15 +138,6 @@ namespace CarsApp.UI.Properties {
         internal static string CaptionEditCountry {
             get {
                 return ResourceManager.GetString("CaptionEditCountry", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Fabryki.
-        /// </summary>
-        internal static string CaptionFactoryList {
-            get {
-                return ResourceManager.GetString("CaptionFactoryList", resourceCulture);
             }
         }
         

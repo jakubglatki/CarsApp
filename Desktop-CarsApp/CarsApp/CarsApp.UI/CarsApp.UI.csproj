@@ -99,14 +99,6 @@
     <Compile Include="Managers\CarsViewManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Details\CityDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Details\CityDetails.Designer.cs">
-      <DependentUpon>CityDetails.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Details\CityDetails.Interface.cs" />
-    <Compile Include="Views\Details\CityDetails.Presenter.cs" />
     <Compile Include="Views\Details\CountryDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,26 +111,6 @@
     <Compile Include="Views\Details\CountryDetails.Presenter.cs">
       <DependentUpon>CountryDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\List\CarProductList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\List\CarProductList.Designer.cs">
-      <DependentUpon>CarProductList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\List\CarProductList.Interface.cs">
-      <DependentUpon>CarProductList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\List\CarProductList.Presenter.cs">
-      <DependentUpon>CarProductList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\List\CityList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\List\CityList.Designer.cs">
-      <DependentUpon>CityList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\List\CityList.Interface.cs" />
-    <Compile Include="Views\List\CityList.Presenter.cs" />
     <Compile Include="Views\List\CountryList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,35 +123,7 @@
     <Compile Include="Views\List\CountryList.Presenter.cs">
       <DependentUpon>CountryList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\List\FactoryList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\List\FactoryList.Designer.cs">
-      <DependentUpon>FactoryList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\List\FactoryList.Interface.cs">
-      <DependentUpon>FactoryList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\List\FactoryList.Presenter.cs">
-      <DependentUpon>FactoryList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\List\Filters\ICarProductListFilter.cs" />
-    <Compile Include="Views\List\Filters\ICityListFilter.cs" />
     <Compile Include="Views\List\Filters\ICountryListFilter.cs" />
-    <Compile Include="Views\List\Filters\IFactoryListFilter.cs" />
-    <Compile Include="Views\List\Filters\IManufactureListFilter.cs" />
-    <Compile Include="Views\List\ManufactureList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\List\ManufactureList.Designer.cs">
-      <DependentUpon>ManufactureList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\List\ManufactureList.Interface.cs">
-      <DependentUpon>ManufactureList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\List\ManufactureList.Presenter.cs">
-      <DependentUpon>ManufactureList.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Main\MainForm.actions.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Form</SubType>
@@ -200,32 +144,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\Details\CityDetails.resx" />
     <EmbeddedResource Include="Views\Details\CountryDetails.resx">
       <DependentUpon>CountryDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\List\CarProductList.resx">
-      <DependentUpon>CarProductList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\List\CityList.resx">
-      <DependentUpon>CityList.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\List\CountryList.resx">
       <DependentUpon>CountryList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\List\FactoryList.resx">
-      <DependentUpon>FactoryList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\List\ManufactureList.resx">
-      <DependentUpon>ManufactureList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Main\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\CarsApp.Data.City.datasource" />
-    <None Include="Properties\DataSources\CarsApp.Data.Country.datasource" />
-    <None Include="Properties\DataSources\CarsApp.Data.Manufacture.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

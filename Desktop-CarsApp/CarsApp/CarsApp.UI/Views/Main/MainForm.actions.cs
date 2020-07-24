@@ -1,5 +1,4 @@
 ﻿using System;
-using CarsApp.Data;
 using LGBS.MVPFramework.UI;
 
 namespace CarsApp.UI
@@ -114,27 +113,6 @@ namespace CarsApp.UI
 			view.Show(ViewMode.ReadOnly);
 		}
 
-		/// <summary>
-		/// Obsługa wyświetlania listy miast.
-		/// </summary>
-		/// <param name="sender">Sender.</param>
-		/// <param name="e">EventArgs.</param>
-		private void citiesButtonElement_Click(object sender, EventArgs e)
-		{
-			ICityList view = CarsViewFactory.Factory.CreateViewInstance<ICityList>();
-			view.Show(ViewMode.ReadOnly);
-		}
-
-		/// <summary>
-		/// Obsługa wyświetlania listy fabryk.
-		/// </summary>
-		/// <param name="sender">Sender.</param>
-		/// <param name="e">EventArgs.</param>
-		private void factoriesButtonElement_Click(object sender, EventArgs e)
-		{
-			IFactoryList view = CarsViewFactory.Factory.CreateViewInstance<IFactoryList>();
-			view.Show(ViewMode.ReadOnly);
-		}
-		#endregion Okna
-	}
+        #endregion Okna
+    }
 }

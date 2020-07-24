@@ -953,12 +953,12 @@ namespace CarsApp.Data
     	{
     		get { return Id == -1; }
     	}
-
-        /// <summary>
-        /// Tworzy pusty obiekt (Id = -1).
-        /// </summary>
-        /// <returns></returns>
-        public virtual City CreateEmptyObject()
+    
+    	/// <summary>
+    	/// Tworzy pusty obiekt (Id = -1).
+    	/// </summary>
+    	/// <returns></returns>
+    	public virtual City CreateEmptyObject()
     	{
     		return new City { Id = -1 };
     	}
@@ -1087,6 +1087,7 @@ namespace CarsApp.Data
         /// No Metadata Documentation available.
         /// </summary>
         [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
         public EntityReference<Country> CountryReference
         {
             get

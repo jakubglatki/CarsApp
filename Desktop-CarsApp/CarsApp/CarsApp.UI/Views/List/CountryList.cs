@@ -91,19 +91,19 @@ namespace CarsApp.UI
 			set { nameTextBox.Text = value; }
 		}
 
-        /// <summary>
-        /// Kod.
-        /// </summary>
-        public string FilterCode
-        {
-            get { return codeTextBox.Text; }
-            set { codeTextBox.Text = value; }
-        }
+		/// <summary>
+		/// Kod.
+		/// </summary>
+		public string FilterCode
+		{
+			get { return codeTextBox.Text; }
+			set { codeTextBox.Text = value; }
+		}
 
-        /// <summary>
-        /// Filtr (kryteria wyszukiwania).
-        /// </summary>
-        public ICountryListFilter Filter
+		/// <summary>
+		/// Filtr (kryteria wyszukiwania).
+		/// </summary>
+		public ICountryListFilter Filter
 		{
 			get { return this as ICountryListFilter; }
 		}
@@ -252,11 +252,7 @@ namespace CarsApp.UI
 
 			base.ChangeMode(mode);
 		}
-
-        public override void ShowSubElements()
-        {
-            Presenter.ShowSubElements();
-        }
+		
         #endregion Overrides
 
         #region View specific
@@ -368,11 +364,7 @@ namespace CarsApp.UI
 		}
 
 
-		private void CountryCollectionGrid_DoubleClick(object sender, EventArgs e)
-		{
-			SupportsShowSubElements = true;
-		}
-		#endregion Handlers
+        #endregion Handlers
 
-	}
+    }
 }

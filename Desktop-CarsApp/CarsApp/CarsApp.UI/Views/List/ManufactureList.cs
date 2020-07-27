@@ -75,6 +75,15 @@ namespace CarsApp.UI
             set { ManufactureCollectionBindingSource.DataSource = value; }
         }
 
+        private FactoryList _factoryList;
+        /// <summary>
+        /// Wcześniejszy widok.
+        /// </summary>
+        private FactoryList factoryList
+        {
+            get { return _factoryList; }
+            set { _factoryList = value; }
+        }
         #region SearchCriteria
 
         // TODO [UITemplate] - optional: SearchCriteria
@@ -129,6 +138,13 @@ namespace CarsApp.UI
                 this.SupportsAddNew = false;
                 this.SupportsEdit = false;
             }
+
+            if (parentView != null)
+            {
+                if(parentView.GetType()==typeof(FactoryList))
+                    this.factoryList =(FactoryList)parentView;
+            }
+
         }
 
         #endregion Ctors
@@ -238,7 +254,7 @@ namespace CarsApp.UI
             e.Cancel = false;
 
             base.OnFormClosing(e);
-
+            
             if (!e.Cancel)
             {
                 OnCancel();
@@ -248,5 +264,31 @@ namespace CarsApp.UI
         #endregion Overrides
 
         #endregion Protected methods
+
+        #region EventHandlers
+
+        /// <summary>
+        /// Obsługa wybrania wyrobu.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">GridViewCellEventArgs.</param>
+        private void ManufactureCollectionGrid_CellDoubleClick(object sender, GridViewCellEventArgs e)
+        {
+            factoryList.SetProductTextBoxValue(CurrentManufacture.Name);
+        }
+
+        /// <summary>
+        /// Obsługa wybrania wyrobu.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">KeyEventArgs.</param>
+        private void ManufactureCollectionGrid_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Enter)
+                factoryList.SetProductTextBoxValue(CurrentManufacture.Name);
+
+        }
+
+        #endregion EventHandlers
     }
 }

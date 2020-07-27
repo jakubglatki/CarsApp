@@ -30,6 +30,9 @@ using LGBS.MVPFramework.Data;
 [assembly: EdmRelationshipAttribute("CarsDb.Data", "ManufactureCountry", "Manufacture", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CarsApp.Data.Manufacture), "Country", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CarsApp.Data.Country), true)]
 [assembly: EdmRelationshipAttribute("CarsDb.Data", "FactoryManufacture", "Factory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CarsApp.Data.Factory), "Manufacture", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CarsApp.Data.Manufacture), true)]
 [assembly: EdmRelationshipAttribute("CarsDb.Data", "CarModelManufacture", "CarModel", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CarsApp.Data.CarModel), "Manufacture", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CarsApp.Data.Manufacture), true)]
+[assembly: EdmRelationshipAttribute("CarsDb.Data", "HandledCarProductCarProduct", "CarProduct", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CarsApp.Data.CarProduct), "HandledCarProduct", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CarsApp.Data.HandledCarProduct), true)]
+[assembly: EdmRelationshipAttribute("CarsDb.Data", "CarServiceCity", "City", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CarsApp.Data.City), "CarService", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CarsApp.Data.CarService), true)]
+[assembly: EdmRelationshipAttribute("CarsDb.Data", "HandledCarProductCarService", "CarService", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CarsApp.Data.CarService), "HandledCarProduct", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CarsApp.Data.HandledCarProduct), true)]
 
 #endregion
 
@@ -192,6 +195,38 @@ namespace CarsApp.Data
             }
         }
         private ObjectSet<Manufacture> _Manufactures;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<CarService> CarServices
+        {
+            get
+            {
+                if ((_CarServices == null))
+                {
+                    _CarServices = base.CreateObjectSet<CarService>("CarServices");
+                }
+                return _CarServices;
+            }
+        }
+        private ObjectSet<CarService> _CarServices;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<HandledCarProduct> HandledCarProducts
+        {
+            get
+            {
+                if ((_HandledCarProducts == null))
+                {
+                    _HandledCarProducts = base.CreateObjectSet<HandledCarProduct>("HandledCarProducts");
+                }
+                return _HandledCarProducts;
+            }
+        }
+        private ObjectSet<HandledCarProduct> _HandledCarProducts;
 
         #endregion
 
@@ -251,6 +286,22 @@ namespace CarsApp.Data
         public void AddToManufactures(Manufacture manufacture)
         {
             base.AddObject("Manufactures", manufacture);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the CarServices EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCarServices(CarService carService)
+        {
+            base.AddObject("CarServices", carService);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the HandledCarProducts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToHandledCarProducts(HandledCarProduct handledCarProduct)
+        {
+            base.AddObject("HandledCarProducts", handledCarProduct);
         }
 
         #endregion
@@ -931,6 +982,273 @@ namespace CarsApp.Data
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CarsDb.Data", "HandledCarProductCarProduct", "HandledCarProduct")]
+        public EntityCollection<HandledCarProduct> HandledCarProducts
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<HandledCarProduct>("CarsDb.Data.HandledCarProductCarProduct", "HandledCarProduct");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<HandledCarProduct>("CarsDb.Data.HandledCarProductCarProduct", "HandledCarProduct", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CarsDb.Data", Name="CarService")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class CarService : EntityObject, IEntityObjectWithId, IExtendedObject<CarService>{
+    
+        #region IExtendedObject Methods
+    
+    	/// <summary>
+    	/// Czy obiekt jest pusty (Id = -1).
+    	/// </summary>
+    	public bool IsEmptyObject
+    	{
+    		get { return Id == -1; }
+    	}
+    
+    	/// <summary>
+    	/// Tworzy pusty obiekt (Id = -1).
+    	/// </summary>
+    	/// <returns></returns>
+    	public virtual CarService CreateEmptyObject()
+    	{
+    		return new CarService { Id = -1 };
+    	}
+
+        #endregion
+
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new CarService object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        /// <param name="street">Initial value of the Street property.</param>
+        /// <param name="cityId">Initial value of the CityId property.</param>
+        /// <param name="postCode">Initial value of the PostCode property.</param>
+        public static CarService CreateCarService(global::System.Int64 id, global::System.String name, global::System.String street, global::System.Int64 cityId, global::System.String postCode)
+        {
+            CarService carService = new CarService();
+            carService.Id = id;
+            carService.Name = name;
+            carService.Street = street;
+            carService.CityId = cityId;
+            carService.PostCode = postCode;
+            return carService;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int64 _Id;
+        partial void OnIdChanging(global::System.Int64 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Street
+        {
+            get
+            {
+                return _Street;
+            }
+            set
+            {
+                OnStreetChanging(value);
+                ReportPropertyChanging("Street");
+                _Street = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Street");
+                OnStreetChanged();
+            }
+        }
+        private global::System.String _Street;
+        partial void OnStreetChanging(global::System.String value);
+        partial void OnStreetChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 CityId
+        {
+            get
+            {
+                return _CityId;
+            }
+            set
+            {
+                OnCityIdChanging(value);
+                ReportPropertyChanging("CityId");
+                _CityId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CityId");
+                OnCityIdChanged();
+            }
+        }
+        private global::System.Int64 _CityId;
+        partial void OnCityIdChanging(global::System.Int64 value);
+        partial void OnCityIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String PostCode
+        {
+            get
+            {
+                return _PostCode;
+            }
+            set
+            {
+                OnPostCodeChanging(value);
+                ReportPropertyChanging("PostCode");
+                _PostCode = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("PostCode");
+                OnPostCodeChanged();
+            }
+        }
+        private global::System.String _PostCode;
+        partial void OnPostCodeChanging(global::System.String value);
+        partial void OnPostCodeChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CarsDb.Data", "CarServiceCity", "City")]
+        public City City
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("CarsDb.Data.CarServiceCity", "City").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("CarsDb.Data.CarServiceCity", "City").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<City> CityReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("CarsDb.Data.CarServiceCity", "City");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("CarsDb.Data.CarServiceCity", "City", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CarsDb.Data", "HandledCarProductCarService", "HandledCarProduct")]
+        public EntityCollection<HandledCarProduct> HandledCarProducts
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<HandledCarProduct>("CarsDb.Data.HandledCarProductCarService", "HandledCarProduct");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<HandledCarProduct>("CarsDb.Data.HandledCarProductCarService", "HandledCarProduct", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -1121,6 +1439,28 @@ namespace CarsApp.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Factory>("CarsDb.Data.FactoryCity", "Factory", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CarsDb.Data", "CarServiceCity", "CarService")]
+        public EntityCollection<CarService> CarServices
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CarService>("CarsDb.Data.CarServiceCity", "CarService");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CarService>("CarsDb.Data.CarServiceCity", "CarService", value);
                 }
             }
         }
@@ -1555,6 +1895,271 @@ namespace CarsApp.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Manufacture>("CarsDb.Data.FactoryManufacture", "Manufacture", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CarsDb.Data", Name="HandledCarProduct")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class HandledCarProduct : EntityObject, IExtendedObject<HandledCarProduct>{
+    
+        #region IExtendedObject Methods
+    
+    	/// <summary>
+    	/// Czy obiekt jest pusty (Id = -1).
+    	/// </summary>
+    	public bool IsEmptyObject
+    	{
+    		get { return CarServiceId == -1; }
+    	}
+    
+    	/// <summary>
+    	/// Tworzy pusty obiekt (Id = -1).
+    	/// </summary>
+    	/// <returns></returns>
+    	public virtual HandledCarProduct CreateEmptyObject()
+    	{
+    		return new HandledCarProduct { CarServiceId = -1 };
+    	}
+
+        #endregion
+
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new HandledCarProduct object.
+        /// </summary>
+        /// <param name="carServiceId">Initial value of the CarServiceId property.</param>
+        /// <param name="carProductId">Initial value of the CarProductId property.</param>
+        /// <param name="handleDate">Initial value of the HandleDate property.</param>
+        /// <param name="isFixed">Initial value of the IsFixed property.</param>
+        /// <param name="fixDate">Initial value of the FixDate property.</param>
+        public static HandledCarProduct CreateHandledCarProduct(global::System.Int64 carServiceId, global::System.Int64 carProductId, global::System.DateTime handleDate, global::System.Boolean isFixed, global::System.DateTime fixDate)
+        {
+            HandledCarProduct handledCarProduct = new HandledCarProduct();
+            handledCarProduct.CarServiceId = carServiceId;
+            handledCarProduct.CarProductId = carProductId;
+            handledCarProduct.HandleDate = handleDate;
+            handledCarProduct.IsFixed = isFixed;
+            handledCarProduct.FixDate = fixDate;
+            return handledCarProduct;
+        }
+
+        #endregion
+
+        #region Simple Properties
+
+
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 CarServiceId
+        {
+            get
+            {
+                return _CarServiceId;
+            }
+            set
+            {
+                if (_CarServiceId != value)
+                {
+                    OnCarServiceIdChanging(value);
+                    ReportPropertyChanging("CarServiceId");
+                    _CarServiceId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("CarServiceId");
+                    OnCarServiceIdChanged();
+                }
+            }
+        }
+        private global::System.Int64 _CarServiceId;
+        partial void OnCarServiceIdChanging(global::System.Int64 value);
+        partial void OnCarServiceIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 CarProductId
+        {
+            get
+            {
+                return _CarProductId;
+            }
+            set
+            {
+                if (_CarProductId != value)
+                {
+                    OnCarProductIdChanging(value);
+                    ReportPropertyChanging("CarProductId");
+                    _CarProductId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("CarProductId");
+                    OnCarProductIdChanged();
+                }
+            }
+        }
+        private global::System.Int64 _CarProductId;
+        partial void OnCarProductIdChanging(global::System.Int64 value);
+        partial void OnCarProductIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime HandleDate
+        {
+            get
+            {
+                return _HandleDate;
+            }
+            set
+            {
+                OnHandleDateChanging(value);
+                ReportPropertyChanging("HandleDate");
+                _HandleDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HandleDate");
+                OnHandleDateChanged();
+            }
+        }
+        private global::System.DateTime _HandleDate;
+        partial void OnHandleDateChanging(global::System.DateTime value);
+        partial void OnHandleDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsFixed
+        {
+            get
+            {
+                return _IsFixed;
+            }
+            set
+            {
+                OnIsFixedChanging(value);
+                ReportPropertyChanging("IsFixed");
+                _IsFixed = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsFixed");
+                OnIsFixedChanged();
+            }
+        }
+        private global::System.Boolean _IsFixed;
+        partial void OnIsFixedChanging(global::System.Boolean value);
+        partial void OnIsFixedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FixDate
+        {
+            get
+            {
+                return _FixDate;
+            }
+            set
+            {
+                OnFixDateChanging(value);
+                ReportPropertyChanging("FixDate");
+                _FixDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FixDate");
+                OnFixDateChanged();
+            }
+        }
+        private global::System.DateTime _FixDate;
+        partial void OnFixDateChanging(global::System.DateTime value);
+        partial void OnFixDateChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CarsDb.Data", "HandledCarProductCarProduct", "CarProduct")]
+        public CarProduct CarProduct
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarProduct>("CarsDb.Data.HandledCarProductCarProduct", "CarProduct").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarProduct>("CarsDb.Data.HandledCarProductCarProduct", "CarProduct").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<CarProduct> CarProductReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarProduct>("CarsDb.Data.HandledCarProductCarProduct", "CarProduct");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CarProduct>("CarsDb.Data.HandledCarProductCarProduct", "CarProduct", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CarsDb.Data", "HandledCarProductCarService", "CarService")]
+        public CarService CarService
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarService>("CarsDb.Data.HandledCarProductCarService", "CarService").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarService>("CarsDb.Data.HandledCarProductCarService", "CarService").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<CarService> CarServiceReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarService>("CarsDb.Data.HandledCarProductCarService", "CarService");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CarService>("CarsDb.Data.HandledCarProductCarService", "CarService", value);
                 }
             }
         }

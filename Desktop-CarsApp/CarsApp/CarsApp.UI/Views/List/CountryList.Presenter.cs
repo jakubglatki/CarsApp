@@ -86,11 +86,18 @@ namespace CarsApp.UI
 			View.ClearGridFilters();
 		}
 
-        #endregion Overrides
 
-        #endregion Protected methods
 
-        #region Public methods
+		public void ShowSubElements()
+		{
+			ICityList view = CarsViewFactory.Factory.CreateViewInstance<ICityList>(View);
+			view.Show(ViewMode.ReadOnly);
+		}
+		#endregion Overrides
+
+		#endregion Protected methods
+
+		#region Public methods
 
 		#region Overrides
 
@@ -105,6 +112,7 @@ namespace CarsApp.UI
 			// wyczyszczenie wbudowanych filtrów
 			View.ClearGridFilters();
 		}
+
 
 		#endregion Overrides
 

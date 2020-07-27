@@ -4,6 +4,7 @@ using System.Linq;
 using CarsApp.Data;
 using CarsApp.Services;
 using LGBS.MVPFramework.UI;
+using Telerik.Data.Expressions;
 
 namespace CarsApp.UI
 {
@@ -77,7 +78,6 @@ namespace CarsApp.UI
                     View.RowsCount = allElementCount;
                     break;
                 case RefreshDataType.DictionaryValues:
-                    View.Set
                     break;
                 default:
                     throw new RefreshTypeNotSupportedException();

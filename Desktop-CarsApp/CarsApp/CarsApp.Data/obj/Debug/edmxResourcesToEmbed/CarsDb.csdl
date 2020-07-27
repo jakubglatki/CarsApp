@@ -44,14 +44,28 @@
       <End Role="CarModel" EntitySet="CarModels" />
       <End Role="Manufacture" EntitySet="Manufactures" />
     </AssociationSet>
+    <EntitySet Name="CarServices" EntityType="CarsDb.Data.CarService" />
+    <EntitySet Name="HandledCarProducts" EntityType="CarsDb.Data.HandledCarProduct" />
+    <AssociationSet Name="FK_HandledCarProductCarProduct" Association="CarsDb.Data.FK_HandledCarProductCarProduct">
+      <End Role="CarProduct" EntitySet="CarProducts" />
+      <End Role="HandledCarProduct" EntitySet="HandledCarProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CarServiceCity" Association="CarsDb.Data.FK_CarServiceCity">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="CarService" EntitySet="CarServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HandledCarProductCarService" Association="CarsDb.Data.FK_HandledCarProductCarService">
+      <End Role="CarService" EntitySet="CarServices" />
+      <End Role="HandledCarProduct" EntitySet="HandledCarProducts" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Country">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
-    <Property Type="String" Name="Code" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Cities" Relationship="CarsDb.Data.CityCountry" FromRole="Country" ToRole="City" />
     <NavigationProperty Name="Manufactures" Relationship="CarsDb.Data.ManufactureCountry" FromRole="Country" ToRole="Manufacture" />
   </EntityType>
@@ -60,10 +74,11 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Country" Relationship="CarsDb.Data.CityCountry" FromRole="City" ToRole="Country" />
     <Property Type="Int64" Name="CountryId" Nullable="false" />
     <NavigationProperty Name="Factories" Relationship="CarsDb.Data.FactoryCity" FromRole="City" ToRole="Factory" />
+    <NavigationProperty Name="CarServices" Relationship="CarsDb.Data.FK_CarServiceCity" FromRole="City" ToRole="CarService" />
   </EntityType>
   <Association Name="CityCountry">
     <End Type="CarsDb.Data.City" Role="City" Multiplicity="*" />
@@ -82,7 +97,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="City" Relationship="CarsDb.Data.FactoryCity" FromRole="Factory" ToRole="City" />
     <Property Type="Int64" Name="CityId" Nullable="false" />
     <NavigationProperty Name="CarProducts" Relationship="CarsDb.Data.CarProductFactory" FromRole="Factory" ToRole="CarProduct" />
@@ -106,7 +121,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="CarProducts" Relationship="CarsDb.Data.CarProductCarModel" FromRole="CarModel" ToRole="CarProduct" />
     <NavigationProperty Name="CarFeatures" Relationship="CarsDb.Data.CarFeatureCarModel" FromRole="CarModel" ToRole="CarFeature" />
     <NavigationProperty Name="Manufacture" Relationship="CarsDb.Data.CarModelManufacture" FromRole="CarModel" ToRole="Manufacture" />
@@ -118,12 +133,13 @@
     </Key>
     <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="Int16" Name="Year" Nullable="false" />
-    <Property Type="String" Name="VIN" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="VIN" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="CarModel" Relationship="CarsDb.Data.CarProductCarModel" FromRole="CarProduct" ToRole="CarModel" />
     <Property Type="Int64" Name="CarModelId" Nullable="false" />
     <NavigationProperty Name="Factory" Relationship="CarsDb.Data.CarProductFactory" FromRole="CarProduct" ToRole="Factory" />
     <Property Type="Int64" Name="FactoryId" Nullable="false" />
     <NavigationProperty Name="CarFeatures" Relationship="CarsDb.Data.CarProductCarFeature" FromRole="CarProduct" ToRole="CarFeature" />
+    <NavigationProperty Name="HandledCarProducts" Relationship="CarsDb.Data.FK_HandledCarProductCarProduct" FromRole="CarProduct" ToRole="HandledCarProduct" />
   </EntityType>
   <Association Name="CarProductCarModel">
     <End Type="CarsDb.Data.CarProduct" Role="CarProduct" Multiplicity="*" />
@@ -154,8 +170,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="3" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="CarProducts" Relationship="CarsDb.Data.CarProductCarFeature" FromRole="CarFeature" ToRole="CarProduct" />
     <NavigationProperty Name="CarModels" Relationship="CarsDb.Data.CarFeatureCarModel" FromRole="CarFeature" ToRole="CarModel" />
   </EntityType>
@@ -172,7 +188,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Country" Relationship="CarsDb.Data.ManufactureCountry" FromRole="Manufacture" ToRole="Country" />
     <Property Type="Int64" Name="CountryId" Nullable="false" />
     <NavigationProperty Name="Factories" Relationship="CarsDb.Data.FactoryManufacture" FromRole="Manufacture" ToRole="Factory" />
@@ -211,6 +227,67 @@
       </Principal>
       <Dependent Role="CarModel">
         <PropertyRef Name="ManufactureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CarService">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Street" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CityId" Type="Int64" Nullable="false" />
+    <Property Name="PostCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="City" Relationship="CarsDb.Data.FK_CarServiceCity" FromRole="CarService" ToRole="City" />
+    <NavigationProperty Name="HandledCarProducts" Relationship="CarsDb.Data.FK_HandledCarProductCarService" FromRole="CarService" ToRole="HandledCarProduct" />
+  </EntityType>
+  <EntityType Name="HandledCarProduct">
+    <Key>
+      <PropertyRef Name="CarServiceId" />
+      <PropertyRef Name="CarProductId" />
+    </Key>
+    <Property Name="CarServiceId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CarProductId" Type="Int64" Nullable="false" />
+    <Property Name="HandleDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IsFixed" Type="Boolean" Nullable="false" />
+    <Property Name="FixDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="CarProduct" Relationship="CarsDb.Data.FK_HandledCarProductCarProduct" FromRole="HandledCarProduct" ToRole="CarProduct" />
+    <NavigationProperty Name="CarService" Relationship="CarsDb.Data.FK_HandledCarProductCarService" FromRole="HandledCarProduct" ToRole="CarService" />
+  </EntityType>
+  <Association Name="FK_HandledCarProductCarProduct">
+    <End Type="CarsDb.Data.CarProduct" Role="CarProduct" Multiplicity="1" />
+    <End Type="CarsDb.Data.HandledCarProduct" Role="HandledCarProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarProduct">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HandledCarProduct">
+        <PropertyRef Name="CarProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CarServiceCity">
+    <End Type="CarsDb.Data.City" Role="City" Multiplicity="1" />
+    <End Type="CarsDb.Data.CarService" Role="CarService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CarService">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HandledCarProductCarService">
+    <End Type="CarsDb.Data.CarService" Role="CarService" Multiplicity="1" />
+    <End Type="CarsDb.Data.HandledCarProduct" Role="HandledCarProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarService">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HandledCarProduct">
+        <PropertyRef Name="CarServiceId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

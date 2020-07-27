@@ -120,8 +120,11 @@
   <data name="CaptionAddCountry" xml:space="preserve">
     <value>Dodawanie nowego kraju</value>
   </data>
+  <data name="CaptionCarProductList" xml:space="preserve">
+    <value>Samochody</value>
+  </data>
   <data name="CaptionCityAdd" xml:space="preserve">
-    <value>Dodaj miasto</value>
+    <value>Dodawanie nowego miasta</value>
   </data>
   <data name="CaptionCityCountryMode" xml:space="preserve">
     <value>Miasta kraju:</value>
@@ -130,10 +133,13 @@
     <value>Dane szczegółowe miasta</value>
   </data>
   <data name="CaptionCityEdit" xml:space="preserve">
-    <value>Miasto edycja</value>
+    <value>Edycja miasta</value>
   </data>
   <data name="CaptionCityList" xml:space="preserve">
-    <value>Lista miast</value>
+    <value>Miasta</value>
+  </data>
+  <data name="CaptionCityOneCountryList" xml:space="preserve">
+    <value>Miasta kraju: </value>
   </data>
   <data name="CaptionCountryDetails" xml:space="preserve">
     <value>Dane szczegółowe kraju</value>
@@ -143,6 +149,9 @@
   </data>
   <data name="CaptionEditCountry" xml:space="preserve">
     <value>Edycja kraju</value>
+  </data>
+  <data name="CaptionFactoryList" xml:space="preserve">
+    <value>Fabryki</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ImgAdd" type="System.Resources.ResXFileRef, System.Windows.Forms">

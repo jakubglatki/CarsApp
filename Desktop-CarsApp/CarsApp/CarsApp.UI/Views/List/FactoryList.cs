@@ -201,10 +201,10 @@ namespace CarsApp.UI
 			{
 				this.Presenter = new FactoryListPresenter(this);
 
-				this.SupportsShowDetails = true;
-				this.SupportsDelete = true;
-				this.SupportsAddNew = true;
-				this.SupportsEdit = true;
+				this.SupportsShowDetails = false;
+				this.SupportsDelete = false;
+				this.SupportsAddNew = false;
+				this.SupportsEdit = false;
 			}
 		}
 
@@ -291,12 +291,16 @@ namespace CarsApp.UI
 			base.ClearMainGridViewFilters();
 		}
 
-		#endregion View specific
-
-		public void setProductText(string text)
+		/// <summary>
+		/// Ustawia text productTextBox.
+		/// </summary>
+		/// <param name="text">Ustawiany tekst.</param>
+		public void SetProductTextBoxValue(string text)
         {
 			this.productTextBox.Text = text;
         }
+		#endregion View specific
+
 		#endregion Public methods
 
 		#region Protected methods
@@ -430,9 +434,9 @@ namespace CarsApp.UI
 		/// <param name="e">EventArgs.</param>
 		private void productButton_Click(object sender, EventArgs e)
 		{
-			IManufactureList view = CarsViewFactory.Factory.CreateViewInstance<IManufactureList>();
+			IManufactureList view = CarsViewFactory.Factory.CreateViewInstance<IManufactureList>(this);
 			view.Show(ViewMode.Dictionary);
-			productTextBox.Text = view.CurrentManufacture.Name;
+			
 		}
 		#endregion Handlers
 

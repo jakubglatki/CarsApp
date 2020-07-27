@@ -110,7 +110,7 @@ namespace <#=namespaceName#>
 
 /// <summary>
 /// <#=SummaryComment(container)#>
-/// </summary><#=LongDescriptionCommentElement(container, region.CurrentIndentLevel)#>
+/// </summary><#=DescriptionCommentElement(container, region.CurrentIndentLevel)#>
 <#=Accessibility.ForType(container)#> partial class <#=code.Escape(container)#> : ObjectContext
 {
     #region <#=CodeGenerationTools.GetResourceString("Template_RegionConstructors")#>
@@ -168,7 +168,7 @@ namespace <#=namespaceName#>
 
     /// <summary>
     /// <#=SummaryComment(set)#>
-    /// </summary><#=LongDescriptionCommentElement(set, region.CurrentIndentLevel)#>
+    /// </summary><#=DescriptionCommentElement(set, region.CurrentIndentLevel)#>
     <#=code.SpaceAfter(NewModifier(set))#><#=Accessibility.ForReadOnlyProperty(set)#> ObjectSet<<#=MultiSchemaEscape(set.ElementType, code)#>> <#=code.Escape(set)#>
     {
         get
@@ -188,7 +188,7 @@ namespace <#=namespaceName#>
         ////////
         ////////  Write EntityContainer and ObjectContext AddTo&lt;EntitySet&gt; methods.
         ////////
-        ////////  AddTo methods are no longer necessary since the EntitySet properties return
+        ////////  AddTo methods are no er necessary since the EntitySet properties return
         ////////  an ObjectSet&lt;T&gt; object,  which has already has an Add method.
         ////////
         ////////  AddTo methods are generated here for backwards compatibility reasons only.
@@ -229,7 +229,7 @@ namespace <#=namespaceName#>
 
     /// <summary>
     /// <#=SummaryComment(edmFunction)#>
-    /// </summary><#=LongDescriptionCommentElement(edmFunction, region.CurrentIndentLevel)#><#=ParameterComments(parameters.Select(p => new Tuple<string, string>(p.RawFunctionParameterName, SummaryComment(p.Source))), region.CurrentIndentLevel)#>
+    /// </summary><#=DescriptionCommentElement(edmFunction, region.CurrentIndentLevel)#><#=ParameterComments(parameters.Select(p => new Tuple<string, string>(p.RawFunctionParameterName, SummaryComment(p.Source))), region.CurrentIndentLevel)#>
     [EdmFunction("<#=edmFunction.NamespaceName#>", "<#=edmFunction.Name#>")]
     <#=code.SpaceAfter(NewModifier(edmFunction))#><#=Accessibility.ForMethod(edmFunction)#> <#="IQueryable<" + MultiSchemaEscape(returnType, code) + ">"#> <#=code.Escape(edmFunction)#>(<#=paramList#>)
     {
@@ -246,7 +246,7 @@ namespace <#=namespaceName#>
 
     /// <summary>
     /// <#=SummaryComment(edmFunction)#>
-    /// </summary><#=LongDescriptionCommentElement(edmFunction, region.CurrentIndentLevel)#><#=ParameterComments(parameters.Select(p => new Tuple<string, string>(p.RawFunctionParameterName, SummaryComment(p.Source))), region.CurrentIndentLevel)#>
+    /// </summary><#=DescriptionCommentElement(edmFunction, region.CurrentIndentLevel)#><#=ParameterComments(parameters.Select(p => new Tuple<string, string>(p.RawFunctionParameterName, SummaryComment(p.Source))), region.CurrentIndentLevel)#>
     <#=code.SpaceAfter(NewModifier(edmFunction))#><#=Accessibility.ForMethod(edmFunction)#> <#=returnType == null ? "int" : "ObjectResult<" + MultiSchemaEscape(returnType, code) + ">"#> <#=code.Escape(edmFunction)#>(<#=paramList#>)
     {
 <#
@@ -260,7 +260,7 @@ namespace <#=namespaceName#>
 #>
     /// <summary>
     /// <#=SummaryComment(edmFunction)#>
-    /// </summary><#=LongDescriptionCommentElement(edmFunction, region.CurrentIndentLevel)#>
+    /// </summary><#=DescriptionCommentElement(edmFunction, region.CurrentIndentLevel)#>
     /// <param name="mergeOption"></param><#=ParameterComments(parameters.Select(p => new Tuple<string, string>(p.RawFunctionParameterName, SummaryComment(p.Source))), region.CurrentIndentLevel)#>
     <#=code.SpaceAfter(NewModifier(edmFunction))#><#=Accessibility.ForMethod(edmFunction)#> <#=returnType == null ? "int" : "ObjectResult<" + MultiSchemaEscape(returnType, code) + ">"#> <#=code.Escape(edmFunction)#>(<#=code.StringAfter(paramList, ", ")#>MergeOption mergeOption)
     {
@@ -290,7 +290,7 @@ namespace <#=namespaceName#>
 
 /// <summary>
 /// <#=SummaryComment(entity)#>
-/// </summary><#=LongDescriptionCommentElement(entity, region.CurrentIndentLevel)#>
+/// </summary><#=DescriptionCommentElement(entity, region.CurrentIndentLevel)#>
 [EdmEntityTypeAttribute(NamespaceName="<#=entity.NamespaceName#>", Name="<#=entity.Name#>")]
 [Serializable()]
 [DataContractAttribute(IsReference=true)]
@@ -361,7 +361,7 @@ namespace <#=namespaceName#>
 
     /// <summary>
     /// <#=SummaryComment(navProperty)#>
-    /// </summary><#=LongDescriptionCommentElement(navProperty, region.CurrentIndentLevel)#>
+    /// </summary><#=DescriptionCommentElement(navProperty, region.CurrentIndentLevel)#>
     [XmlIgnoreAttribute()]
     [SoapIgnoreAttribute()]
     [DataMemberAttribute()]
@@ -412,7 +412,7 @@ namespace <#=namespaceName#>
 #>
     /// <summary>
     /// <#=SummaryComment(navProperty)#>
-    /// </summary><#=LongDescriptionCommentElement(navProperty, region.CurrentIndentLevel)#>
+    /// </summary><#=DescriptionCommentElement(navProperty, region.CurrentIndentLevel)#>
     [BrowsableAttribute(false)]
     [DataMemberAttribute()]
     <#=Accessibility.ForProperty(navProperty)#> EntityReference<<#=MultiSchemaEscape(navProperty.ToEndMember.GetEntityType(), code)#>> <#=refPropertyName#>
@@ -449,7 +449,7 @@ namespace <#=namespaceName#>
 
 /// <summary>
 /// <#=SummaryComment(complex)#>
-/// </summary><#=LongDescriptionCommentElement(complex, region.CurrentIndentLevel)#>
+/// </summary><#=DescriptionCommentElement(complex, region.CurrentIndentLevel)#>
 [EdmComplexTypeAttribute(NamespaceName="<#=complex.NamespaceName#>", Name="<#=complex.Name#>")]
 [DataContractAttribute(IsReference=true)]
 [Serializable()]
@@ -488,7 +488,7 @@ namespace <#=namespaceName#>
 
 /// <summary>
 /// <#=SummaryComment(enumType)#>
-/// </summary><#=LongDescriptionCommentElement(enumType, region.CurrentIndentLevel)#>
+/// </summary><#=DescriptionCommentElement(enumType, region.CurrentIndentLevel)#>
 [EdmEnumTypeAttribute(NamespaceName="<#=enumType.NamespaceName#>", Name="<#=enumType.Name#>")]
 [DataContractAttribute()]
 <#
@@ -507,7 +507,7 @@ namespace <#=namespaceName#>
 #>
     /// <summary>
     /// <#=SummaryComment(member)#>
-    /// </summary><#=LongDescriptionCommentElement(member, region.CurrentIndentLevel + 1)#>
+    /// </summary><#=DescriptionCommentElement(member, region.CurrentIndentLevel + 1)#>
     [EnumMemberAttribute()]
     <#=code.Escape(member)#> = <#=member.Value#>,
 
@@ -615,7 +615,7 @@ namespace <#=namespaceName#>
 
     /// <summary>
     /// <#=SummaryComment(simpleProperty)#>
-    /// </summary><#=LongDescriptionCommentElement(simpleProperty, 1)#>
+    /// </summary><#=DescriptionCommentElement(simpleProperty, 1)#>
     [EdmScalarPropertyAttribute(EntityKeyProperty=<#=code.CreateLiteral(ef.IsKey(simpleProperty))#>, IsNullable=<#=code.CreateLiteral(ef.IsNullable(simpleProperty))#>)]
     [DataMemberAttribute()]
     <#=code.SpaceAfter(NewModifier(simpleProperty))#><#=Accessibility.ForProperty(simpleProperty)#> <#=MultiSchemaEscape(simpleProperty.TypeUsage, code)#> <#=code.Escape(simpleProperty)#>
@@ -690,7 +690,7 @@ namespace <#=namespaceName#>
 
     /// <summary>
     /// <#=SummaryComment(complexProperty)#>
-    /// </summary><#=LongDescriptionCommentElement(complexProperty, 1)#>
+    /// </summary><#=DescriptionCommentElement(complexProperty, 1)#>
     [EdmComplexPropertyAttribute()]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
     [XmlElement(IsNullable=true)]
@@ -1181,15 +1181,14 @@ string SummaryComment(MetadataItem item)
     return string.Empty;
 }
 
-string LongDescriptionCommentElement(MetadataItem item, int indentLevel)
+string DescriptionCommentElement(MetadataItem item, int indentLevel)
 {
-    if (item.Documentation != null && !String.IsNullOrEmpty(item.Documentation.LongDescription))
+    if (item.Documentation != null)
     {
         string comment = Environment.NewLine;
         string lineStart = CodeRegion.GetIndent(indentLevel) + XMLCOMMENT_START + " ";
-        comment += lineStart + "<LongDescription>" + Environment.NewLine;
-        comment += lineStart + PrefixLinesOfMultilineComment(lineStart, XmlEntityize(item.Documentation.LongDescription)) + Environment.NewLine;
-        comment += lineStart + "</LongDescription>";
+        comment += lineStart + "<Description>" + Environment.NewLine;
+        comment += lineStart + "</Description>";
         return comment;
     }
     return string.Empty;

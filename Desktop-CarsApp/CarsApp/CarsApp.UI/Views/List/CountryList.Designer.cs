@@ -118,6 +118,7 @@
             this.CountryCollectionGrid.Size = new System.Drawing.Size(950, 427);
             this.CountryCollectionGrid.TabIndex = 1;
             this.CountryCollectionGrid.FilterChanged += new Telerik.WinControls.UI.GridViewCollectionChangedEventHandler(this.CountryCollectionGrid_FilterChanged);
+            this.CountryCollectionGrid.DoubleClick += new System.EventHandler(this.CountryCollectionGrid_DoubleClick);
             // 
             // filtersGroupBox
             // 
@@ -212,7 +213,7 @@
             this.Controls.Add(this.mainDataPager);
             this.Controls.Add(this.CountryCollectionGrid);
             this.Name = "CountryList";
-            this.Text = "Lista TODO: ustawić tytuł";
+            this.Text = "Kraje";
             ((System.ComponentModel.ISupportInitialize)(this.CountryCollectionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CountryCollectionGrid.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CountryCollectionGrid)).EndInit();

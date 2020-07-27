@@ -215,10 +215,10 @@ namespace CarsApp.UI
 			{
 				this.Presenter = new CarProductListPresenter(this);
 
-				this.SupportsShowDetails = true;
-				this.SupportsDelete = true;
-				this.SupportsAddNew = true;
-				this.SupportsEdit = true;
+				this.SupportsShowDetails = false;
+				this.SupportsDelete = false;
+				this.SupportsAddNew = false;
+				this.SupportsEdit = false;
 			}
 
 
@@ -423,6 +423,7 @@ namespace CarsApp.UI
 		{
 			Presenter.ClearSearchCriteria();
 			this.modelComboBox.Text = null;
+			this.factoryComboBox.Text = null;
 		}
 
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using CarsApp.Data;
+using CarsApp.Services;
 using CarsApp.UI.Properties;
 using LGBS.MVPFramework.Data;
 using LGBS.MVPFramework.UI;

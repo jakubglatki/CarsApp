@@ -84,6 +84,8 @@
             this.ManufactureCollectionGrid.ShowNoDataText = false;
             this.ManufactureCollectionGrid.Size = new System.Drawing.Size(950, 510);
             this.ManufactureCollectionGrid.TabIndex = 1;
+            this.ManufactureCollectionGrid.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.ManufactureCollectionGrid_CellDoubleClick);
+            this.ManufactureCollectionGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ManufactureCollectionGrid_KeyDown);
             // 
             // ManufactureList
             // 

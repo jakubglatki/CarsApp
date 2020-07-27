@@ -83,5 +83,27 @@
         <ScalarProperty Name="Id" ColumnName="CarModels_Id" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="CarServices">
+      <EntityTypeMapping TypeName="CarsDb.Data.CarService">
+        <MappingFragment StoreEntitySet="CarServices">
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HandledCarProducts">
+      <EntityTypeMapping TypeName="CarsDb.Data.HandledCarProduct">
+        <MappingFragment StoreEntitySet="HandledCarProducts">
+          <ScalarProperty Name="FixDate" ColumnName="FixDate" />
+          <ScalarProperty Name="IsFixed" ColumnName="IsFixed" />
+          <ScalarProperty Name="HandleDate" ColumnName="HandleDate" />
+          <ScalarProperty Name="CarProductId" ColumnName="CarProductId" />
+          <ScalarProperty Name="CarServiceId" ColumnName="CarServiceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

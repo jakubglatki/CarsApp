@@ -204,8 +204,8 @@ namespace CarsApp.UI
 		{
 		}
 
+
         #endregion Event handlers
 
-       
     }
 }

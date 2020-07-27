@@ -26,7 +26,17 @@ namespace CarsApp.UI
 					return new CountryList(parentView) as VT;
 				case CountryDetails.InterfaceName:
 					return new CountryDetails(parentView) as VT;
-                default:
+				case CityList.InterfaceName:
+					return new CityList(parentView) as VT;
+				case CityDetails.InterfaceName:
+					return new CityDetails(parentView) as VT;
+				case FactoryList.InterfaceName:
+					return new FactoryList(parentView) as VT;
+				case CarProductList.InterfaceName:
+					return new CarProductList(parentView) as VT;
+				case ManufactureList.InterfaceName:
+					return new ManufactureList(parentView) as VT;
+				default:
 					throw new ArgumentException("Nieobsługiwany typ widoku");
 			}
 		}

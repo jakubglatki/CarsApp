@@ -101,6 +101,15 @@
           <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="CountryId" Type="bigint" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CarsDb.dbo.CarServicesView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CarServicesView">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="NumberOfServicedCars" Type="int" />
+        </EntityType>
         <Association Name="FK_CarFeatureCarModel_CarFeature">
           <End Role="CarFeatures" Type="Self.CarFeatures" Multiplicity="1" />
           <End Role="CarFeatureCarModel" Type="Self.CarFeatureCarModel" Multiplicity="*" />
@@ -281,6 +290,12 @@
           <EntitySet Name="Factories" EntityType="Self.Factories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HandledCarProducts" EntityType="Self.HandledCarProducts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Manufactures" EntityType="Self.Manufactures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarServicesView" EntityType="Self.CarServicesView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[CarServicesView].[Name] AS [Name], 
+[CarServicesView].[NumberOfServicedCars] AS [NumberOfServicedCars]
+FROM [dbo].[CarServicesView] AS [CarServicesView]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_CarFeatureCarModel_CarFeature" Association="Self.FK_CarFeatureCarModel_CarFeature">
             <End Role="CarFeatures" EntitySet="CarFeatures" />
             <End Role="CarFeatureCarModel" EntitySet="CarFeatureCarModel" />
@@ -400,6 +415,7 @@
             <End Role="CarService" EntitySet="CarServices" />
             <End Role="HandledCarProduct" EntitySet="HandledCarProducts" />
           </AssociationSet>
+          <EntitySet Name="CarServicesViews" EntityType="CarsDb.Data.CarServicesView" />
         </EntityContainer>
         <EntityType Name="Country">
           <Key>
@@ -633,6 +649,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="CarServicesView">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NumberOfServicedCars" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -740,6 +763,14 @@
                 <ScalarProperty Name="HandleDate" ColumnName="HandleDate" />
                 <ScalarProperty Name="CarProductId" ColumnName="CarProductId" />
                 <ScalarProperty Name="CarServiceId" ColumnName="CarServiceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarServicesViews">
+            <EntityTypeMapping TypeName="CarsDb.Data.CarServicesView">
+              <MappingFragment StoreEntitySet="CarServicesView">
+                <ScalarProperty Name="NumberOfServicedCars" ColumnName="NumberOfServicedCars" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

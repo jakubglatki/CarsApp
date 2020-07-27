@@ -58,6 +58,7 @@
       <End Role="CarService" EntitySet="CarServices" />
       <End Role="HandledCarProduct" EntitySet="HandledCarProducts" />
     </AssociationSet>
+    <EntitySet Name="CarServicesViews" EntityType="CarsDb.Data.CarServicesView" />
   </EntityContainer>
   <EntityType Name="Country">
     <Key>
@@ -291,4 +292,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="CarServicesView">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NumberOfServicedCars" Type="Int32" />
+  </EntityType>
 </Schema>

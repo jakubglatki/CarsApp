@@ -105,5 +105,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CarServicesViews">
+      <EntityTypeMapping TypeName="CarsDb.Data.CarServicesView">
+        <MappingFragment StoreEntitySet="CarServicesView">
+          <ScalarProperty Name="NumberOfServicedCars" ColumnName="NumberOfServicedCars" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

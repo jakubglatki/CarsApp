@@ -46,7 +46,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Street" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="CityId" Type="bigint" Nullable="false" />
@@ -82,11 +82,11 @@
       <PropertyRef Name="CarServiceId" />
       <PropertyRef Name="CarProductId" />
     </Key>
-    <Property Name="CarServiceId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CarServiceId" Type="bigint" Nullable="false" />
     <Property Name="CarProductId" Type="bigint" Nullable="false" />
     <Property Name="HandleDate" Type="date" Nullable="false" />
     <Property Name="IsFixed" Type="bit" Nullable="false" />
-    <Property Name="FixDate" Type="date" Nullable="false" />
+    <Property Name="FixDate" Type="date" />
   </EntityType>
   <EntityType Name="Manufactures">
     <Key>
@@ -103,7 +103,7 @@ warning 6002: The table/view 'CarsDb.dbo.CarServicesView' does not have a primar
       <PropertyRef Name="Name" />
     </Key>
     <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="NumberOfServicedCars" Type="int" />
+    <Property Name="NumberOfServicedCars" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_CarFeatureCarModel_CarFeature">
     <End Role="CarFeatures" Type="Self.CarFeatures" Multiplicity="1" />

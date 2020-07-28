@@ -135,6 +135,18 @@ namespace CarsApp.UI
 			IFactoryList view = CarsViewFactory.Factory.CreateViewInstance<IFactoryList>();
 			view.Show(ViewMode.ReadOnly);
 		}
+
+
+		/// <summary>
+		/// Obsługa wyświetlania listy serwisów.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">EventArgs.</param>
+		private void servicesButtonElement_Click(object sender, EventArgs e)
+		{
+			ICarServicesViewList view = CarsViewFactory.Factory.CreateViewInstance<ICarServicesViewList>();
+			view.Show(ViewMode.ReadOnly);
+		}
 		#endregion Okna
 	}
 }

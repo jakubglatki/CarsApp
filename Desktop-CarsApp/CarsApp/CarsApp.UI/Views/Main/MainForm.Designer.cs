@@ -37,6 +37,7 @@
             this.countriesButtonElement = new Telerik.WinControls.UI.RadButtonElement();
             this.citiesButtonElement = new Telerik.WinControls.UI.RadButtonElement();
             this.factoriesButtonElement = new Telerik.WinControls.UI.RadButtonElement();
+            this.servicesButtonElement = new Telerik.WinControls.UI.RadButtonElement();
             this.managementRibbonTab = new Telerik.WinControls.UI.RibbonTab();
             this.actionsRibbonBarGroup = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.addButtonElement = new Telerik.WinControls.UI.RadButtonElement();
@@ -48,6 +49,8 @@
             this.clearFilterButtonElement = new Telerik.WinControls.UI.RadButtonElement();
             this.managementContextualTabGroup = new Telerik.WinControls.UI.ContextualTabGroup();
             this.radRibbonBarButtonGroup2 = new Telerik.WinControls.UI.RadRibbonBarButtonGroup();
+            this.radButtonElement1 = new Telerik.WinControls.UI.RadButtonElement();
+            this.radButtonElement2 = new Telerik.WinControls.UI.RadButtonElement();
             ((System.ComponentModel.ISupportInitialize)(this.mainDock)).BeginInit();
             this.mainDock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainDocumentContainer)).BeginInit();
@@ -157,7 +160,8 @@
             this.windowsRibbonBarGroup.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.countriesButtonElement,
             this.citiesButtonElement,
-            this.factoriesButtonElement});
+            this.factoriesButtonElement,
+            this.servicesButtonElement});
             this.windowsRibbonBarGroup.Name = "windowsRibbonBarGroup";
             this.windowsRibbonBarGroup.Text = "Okna";
             this.windowsRibbonBarGroup.Visibility = Telerik.WinControls.ElementVisibility.Visible;
@@ -202,6 +206,19 @@
             this.factoriesButtonElement.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
             this.factoriesButtonElement.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             this.factoriesButtonElement.Click += new System.EventHandler(this.factoriesButtonElement_Click);
+            // 
+            // servicesButtonElement
+            // 
+            this.servicesButtonElement.AccessibleDescription = "Serwisy";
+            this.servicesButtonElement.AccessibleName = "Serwisy";
+            this.servicesButtonElement.Class = "ButtonElement";
+            this.servicesButtonElement.Image = global::CarsApp.UI.Properties.Resources.ImgCompany;
+            this.servicesButtonElement.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.servicesButtonElement.Name = "servicesButtonElement";
+            this.servicesButtonElement.Text = "Serwisy";
+            this.servicesButtonElement.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.servicesButtonElement.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.servicesButtonElement.Click += new System.EventHandler(this.servicesButtonElement_Click);
             // 
             // managementRibbonTab
             // 
@@ -340,6 +357,30 @@
             this.radRibbonBarButtonGroup2.Name = "radRibbonBarButtonGroup2";
             this.radRibbonBarButtonGroup2.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
+            // radButtonElement1
+            // 
+            this.radButtonElement1.AccessibleDescription = "Fabryki";
+            this.radButtonElement1.AccessibleName = "Fabryki";
+            this.radButtonElement1.Class = "ButtonElement";
+            this.radButtonElement1.Image = global::CarsApp.UI.Properties.Resources.ImgCompany;
+            this.radButtonElement1.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.radButtonElement1.Name = "radButtonElement1";
+            this.radButtonElement1.Text = "Fabryki";
+            this.radButtonElement1.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.radButtonElement1.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // radButtonElement2
+            // 
+            this.radButtonElement2.AccessibleDescription = "Fabryki";
+            this.radButtonElement2.AccessibleName = "Fabryki";
+            this.radButtonElement2.Class = "ButtonElement";
+            this.radButtonElement2.Image = global::CarsApp.UI.Properties.Resources.ImgCompany;
+            this.radButtonElement2.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.radButtonElement2.Name = "radButtonElement2";
+            this.radButtonElement2.Text = "Fabryki";
+            this.radButtonElement2.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.radButtonElement2.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -382,5 +423,8 @@
         private Telerik.WinControls.UI.ContextualTabGroup managementContextualTabGroup;
         private Telerik.WinControls.UI.RadRibbonBarButtonGroup radRibbonBarButtonGroup2;
         private Telerik.WinControls.UI.RadButtonElement factoriesButtonElement;
+        private Telerik.WinControls.UI.RadButtonElement servicesButtonElement;
+        private Telerik.WinControls.UI.RadButtonElement radButtonElement1;
+        private Telerik.WinControls.UI.RadButtonElement radButtonElement2;
     }
 }

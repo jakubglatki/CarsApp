@@ -256,7 +256,7 @@
     <Property Name="CarProductId" Type="Int64" Nullable="false" />
     <Property Name="HandleDate" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="IsFixed" Type="Boolean" Nullable="false" />
-    <Property Name="FixDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FixDate" Type="DateTime" Precision="0" />
     <NavigationProperty Name="CarProduct" Relationship="CarsDb.Data.FK_HandledCarProductCarProduct" FromRole="HandledCarProduct" ToRole="CarProduct" />
     <NavigationProperty Name="CarService" Relationship="CarsDb.Data.FK_HandledCarProductCarService" FromRole="HandledCarProduct" ToRole="CarService" />
   </EntityType>
@@ -301,6 +301,6 @@
       <PropertyRef Name="Name" />
     </Key>
     <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="NumberOfServicedCars" Type="Int32" />
+    <Property Name="NumberOfServicedCars" Type="Int32" Nullable="false" />
   </EntityType>
 </Schema>

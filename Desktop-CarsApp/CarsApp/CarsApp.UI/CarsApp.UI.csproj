@@ -131,6 +131,18 @@
     <Compile Include="Views\List\CarProductList.Presenter.cs">
       <DependentUpon>CarProductList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\List\CarServicesViewList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\List\CarServicesViewList.Designer.cs">
+      <DependentUpon>CarServicesViewList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\List\CarServicesViewList.Interface.cs">
+      <DependentUpon>CarServicesViewList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\List\CarServicesViewList.Presenter.cs">
+      <DependentUpon>CarServicesViewList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\List\CityList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +176,7 @@
       <DependentUpon>FactoryList.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\List\Filters\ICarProductListFilter.cs" />
+    <Compile Include="Views\List\Filters\ICarServicesViewListFilter.cs" />
     <Compile Include="Views\List\Filters\ICityListFilter.cs" />
     <Compile Include="Views\List\Filters\ICountryListFilter.cs" />
     <Compile Include="Views\List\Filters\IFactoryListFilter.cs" />
@@ -207,6 +220,9 @@
     <EmbeddedResource Include="Views\List\CarProductList.resx">
       <DependentUpon>CarProductList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\List\CarServicesViewList.resx">
+      <DependentUpon>CarServicesViewList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\List\CityList.resx">
       <DependentUpon>CityList.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -223,6 +239,7 @@
     <EmbeddedResource Include="Views\Main\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\CarsApp.Data.CarServicesView.datasource" />
     <None Include="Properties\DataSources\CarsApp.Data.City.datasource" />
     <None Include="Properties\DataSources\CarsApp.Data.Country.datasource" />
     <None Include="Properties\DataSources\CarsApp.Data.Manufacture.datasource" />

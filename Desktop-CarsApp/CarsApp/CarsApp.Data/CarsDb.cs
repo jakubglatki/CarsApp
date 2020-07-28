@@ -1321,12 +1321,12 @@ namespace CarsApp.Data
     [EdmEntityTypeAttribute(NamespaceName = "CarsDb.Data", Name = "CarServicesView")]
     [Serializable()]
     [DataContractAttribute(IsReference = true)]
-    public partial class CarServicesView : EntityObject
+    public partial class CarServicesView : EntityObject, IObjectWithId
     {
 
         #region IExtendedObject Methods
 
-
+        public long Id => -1;
         #endregion
 
         #region Factory Method
@@ -1335,14 +1335,16 @@ namespace CarsApp.Data
         /// Create a new CarServicesView object.
         /// </summary>
         /// <param name="name">Initial value of the Name property.</param>
-        public static CarServicesView CreateCarServicesView(global::System.String name)
+        public static CarServicesView CreateCarServicesView(global::System.String name, global::System.Int32 NumberOfServicedCars)
         {
             CarServicesView carServicesView = new CarServicesView();
+            carServicesView.NumberOfServicedCars = NumberOfServicedCars;
             carServicesView.Name = name;
             return carServicesView;
         }
 
         #endregion
+
 
         #region Simple Properties
 
@@ -1376,9 +1378,9 @@ namespace CarsApp.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> NumberOfServicedCars
+        public global::System.Int32 NumberOfServicedCars
         {
             get
             {
@@ -1393,8 +1395,10 @@ namespace CarsApp.Data
                 OnNumberOfServicedCarsChanged();
             }
         }
-        private Nullable<global::System.Int32> _NumberOfServicedCars;
-        partial void OnNumberOfServicedCarsChanging(Nullable<global::System.Int32> value);
+
+
+        private global::System.Int32 _NumberOfServicedCars;
+        partial void OnNumberOfServicedCarsChanging(global::System.Int32 value);
         partial void OnNumberOfServicedCarsChanged();
 
         #endregion

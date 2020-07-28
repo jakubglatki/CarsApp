@@ -59,6 +59,10 @@
       <End Role="HandledCarProduct" EntitySet="HandledCarProducts" />
     </AssociationSet>
     <EntitySet Name="CarServicesViews" EntityType="CarsDb.Data.CarServicesView" />
+    <FunctionImport Name="FixCarProduct">
+      <Parameter Name="CarServiceId" Mode="In" Type="Int64" />
+      <Parameter Name="CarProductId" Mode="In" Type="Int64" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="Country">
     <Key>

@@ -113,5 +113,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="FixCarProduct" FunctionName="CarsDb.Store.FixCarProduct" />
   </EntityContainerMapping>
 </Mapping>

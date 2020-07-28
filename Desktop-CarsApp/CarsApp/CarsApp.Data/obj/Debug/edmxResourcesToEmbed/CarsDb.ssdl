@@ -273,6 +273,10 @@ warning 6002: The table/view 'CarsDb.dbo.CarServicesView' does not have a primar
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="FixCarProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CarServiceId" Type="bigint" Mode="In" />
+    <Parameter Name="CarProductId" Type="bigint" Mode="In" />
+  </Function>
   <EntityContainer Name="CarsDbStoreContainer">
     <EntitySet Name="CarFeatureCarModel" EntityType="Self.CarFeatureCarModel" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CarFeatures" EntityType="Self.CarFeatures" Schema="dbo" store:Type="Tables" />

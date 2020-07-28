@@ -278,6 +278,10 @@ warning 6002: The table/view 'CarsDb.dbo.CarServicesView' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="FixCarProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarServiceId" Type="bigint" Mode="In" />
+          <Parameter Name="CarProductId" Type="bigint" Mode="In" />
+        </Function>
         <EntityContainer Name="CarsDbStoreContainer">
           <EntitySet Name="CarFeatureCarModel" EntityType="Self.CarFeatureCarModel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CarFeatures" EntityType="Self.CarFeatures" Schema="dbo" store:Type="Tables" />
@@ -416,6 +420,10 @@ FROM [dbo].[CarServicesView] AS [CarServicesView]</DefiningQuery>
             <End Role="HandledCarProduct" EntitySet="HandledCarProducts" />
           </AssociationSet>
           <EntitySet Name="CarServicesViews" EntityType="CarsDb.Data.CarServicesView" />
+          <FunctionImport Name="FixCarProduct">
+            <Parameter Name="CarServiceId" Mode="In" Type="Int64" />
+            <Parameter Name="CarProductId" Mode="In" Type="Int64" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Country">
           <Key>
@@ -774,6 +782,7 @@ FROM [dbo].[CarServicesView] AS [CarServicesView]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="FixCarProduct" FunctionName="CarsDb.Store.FixCarProduct" />
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

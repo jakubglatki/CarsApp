@@ -79,6 +79,15 @@ namespace CarsApp.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Serwisy.
+        /// </summary>
+        internal static string CaptionCarServicesViewList {
+            get {
+                return ResourceManager.GetString("CaptionCarServicesViewList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dodawanie nowego miasta.
         /// </summary>
         internal static string CaptionCityAdd {

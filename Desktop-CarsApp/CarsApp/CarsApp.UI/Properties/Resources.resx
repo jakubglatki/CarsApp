@@ -123,6 +123,9 @@
   <data name="CaptionCarProductList" xml:space="preserve">
     <value>Samochody</value>
   </data>
+  <data name="CaptionCarServicesViewList" xml:space="preserve">
+    <value>Serwisy</value>
+  </data>
   <data name="CaptionCityAdd" xml:space="preserve">
     <value>Dodawanie nowego miasta</value>
   </data>

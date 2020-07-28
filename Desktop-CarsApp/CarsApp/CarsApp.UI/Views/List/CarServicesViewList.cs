@@ -9,6 +9,7 @@ using LGBS.MVPFramework.Controls;
 using LGBS.MVPFramework.UI;
 using LGBS.MVPFramework.Services;
 using Telerik.WinControls.UI;
+using CarsApp.UI.Properties;
 
 namespace CarsApp.UI
 {
@@ -188,8 +189,7 @@ namespace CarsApp.UI
                 case ViewMode.Edit:
                     break;
                 case ViewMode.ReadOnly:
-                    // TODO [UITemplate] - optional: Zmienić tytuł widoku
-                    this.Text = "CarServicesView list";
+                    this.Text = Resources.CaptionCarServicesViewList;
                     break;
                 case ViewMode.Dictionary:
                     break;

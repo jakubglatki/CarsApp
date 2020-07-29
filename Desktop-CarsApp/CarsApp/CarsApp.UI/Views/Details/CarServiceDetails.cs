@@ -90,14 +90,33 @@ namespace CarsApp.UI
         {
             InitializeComponent();
             AfterInitializeComponent();
-
             if (!VSDesignMode)
                 this.Presenter = new CarServiceDetailsPresenter(this);
+
+
+            if (parentView != null)
+            {
+                CarServiceList carService = new CarServiceList();
+                if (parentView.GetType() == carService.GetType())
+                {
+                    carService = (CarServiceList)parentView;
+                    this.SetCurrentCarService(carService.CurrentCarServicesView);
+                }
+
+            }
         }
 
         #endregion Ctors
 
         #region Private methods
+
+        /// <summary>
+        /// Ustawia obecny CarService.
+        /// </summary>
+        private void SetCurrentCarService(CarServicesView view)
+        {
+            Presenter.SetCurrentCarService(view);
+        }
 
         /// <summary>
         /// Inicjalizuje walidatory.
@@ -207,7 +226,13 @@ namespace CarsApp.UI
         /// <param name="enable">True - wszystkie kontrolki są edytowalne.</param>
         private void EnableControls(bool enable)
         {
-            // TODO [UITemplate] - optional: Określić dostępność kontrolek
+            nameTextBox.ReadOnly = !enable;
+            streetTextBox.ReadOnly = !enable;
+            postCodeTextBox.ReadOnly = !enable;
+            if (!enable)
+                cityComboBox.Enabled = false;
+            else
+                cityComboBox.Enabled = true;
         }
 
         #endregion Private methods
@@ -381,10 +406,30 @@ namespace CarsApp.UI
             // TODO [UITemplate] - optional: Ustawić focus na odpowiednią kontrolkę w trybie ViewMode.New
             //if (Mode == ViewMode.New)
             //	textBox.Focus();
+            if (Mode != ViewMode.New)
+                this.SetComboBoxValue();
+        }
+
+
+        /// <summary>
+        /// Ustawia kraj pokazywanego miasta.
+        /// </summary>
+        private void SetComboBoxValue()
+        {
+            if (this.CurrentCarService != null)
+            {
+                this.cityComboBox.Items.Add(this.CurrentCarService.City.Name);
+                this.cityComboBox.SelectedIndex = 0;
+            }
         }
 
         #endregion From view
 
         #endregion Handlers
+
+        private void deleteCarButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

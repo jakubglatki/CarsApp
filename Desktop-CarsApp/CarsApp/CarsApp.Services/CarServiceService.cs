@@ -98,6 +98,14 @@ namespace CarsApp.Services
         /// <summary>
         /// Pobiera listę obiektów typu CarService.
         /// </summary>
+        /// <returns>Lista obiektów typu CarService.</returns>
+        public ICollection<CarServicesView> GetCarServicesViewCollection()
+        {
+            return this.DB.CarServicesViews.ToList();
+        }
+        /// <summary>
+        /// Pobiera listę obiektów typu CarService.
+        /// </summary>
         /// <param name="pageIndex">Indeks strony (indeksowanie od 0).</param>
         /// <param name="pageSize">Ilość elementów na stronie.</param>
         /// <param name="searchCriteria">Kryteria wyszukiwania.</param>

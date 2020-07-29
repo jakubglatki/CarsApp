@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewDecimalColumn gridViewDecimalColumn2 = new Telerik.WinControls.UI.GridViewDecimalColumn();
-            Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn3 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn2 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn4 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
-            Telerik.WinControls.Data.SortDescriptor sortDescriptor2 = new Telerik.WinControls.Data.SortDescriptor();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewDecimalColumn gridViewDecimalColumn1 = new Telerik.WinControls.UI.GridViewDecimalColumn();
+            Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn1 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn1 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn2 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
+            Telerik.WinControls.Data.SortDescriptor sortDescriptor1 = new Telerik.WinControls.Data.SortDescriptor();
             this.CarServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.managementRibbonTab = new Telerik.WinControls.UI.RibbonTab();
@@ -59,18 +59,18 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.CarProductCollectionGrid = new LGBS.MVPFramework.Controls.LGBSGridView();
             this.mainGroupBox = new LGBS.MVPFramework.Controls.LGBSGroupBox();
+            this.cityComboBox = new System.Windows.Forms.ComboBox();
+            this.nameTextBox = new LGBS.MVPFramework.Controls.LGBSTextBox();
+            this.streetTextBox = new LGBS.MVPFramework.Controls.LGBSTextBox();
+            this.postCodeTextBox = new LGBS.MVPFramework.Controls.LGBSTextBox();
+            this.deleteCarButton = new System.Windows.Forms.Button();
+            this.addCarButton = new System.Windows.Forms.Button();
+            this.isFixedCheckBox = new System.Windows.Forms.CheckBox();
             this.postCodeLabel = new LGBS.MVPFramework.Controls.LGBSLabel();
             this.cityLabel = new LGBS.MVPFramework.Controls.LGBSLabel();
             this.streetLabel = new LGBS.MVPFramework.Controls.LGBSLabel();
             this.nameLabel = new LGBS.MVPFramework.Controls.LGBSLabel();
             this.HandledCarBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.isFixedCheckBox = new System.Windows.Forms.CheckBox();
-            this.addCarButton = new System.Windows.Forms.Button();
-            this.deleteCarButton = new System.Windows.Forms.Button();
-            this.postCodeTextBox = new LGBS.MVPFramework.Controls.LGBSTextBox();
-            this.streetTextBox = new LGBS.MVPFramework.Controls.LGBSTextBox();
-            this.nameTextBox = new LGBS.MVPFramework.Controls.LGBSTextBox();
-            this.cityComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.CarServiceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainRadRibbonBar)).BeginInit();
@@ -81,14 +81,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.CarProductCollectionGrid.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainGroupBox)).BeginInit();
             this.mainGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nameTextBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.streetTextBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postCodeTextBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postCodeLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cityLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.streetLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HandledCarBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postCodeTextBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.streetTextBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nameTextBox)).BeginInit();
             this.SuspendLayout();
             // 
             // CarServiceBindingSource
@@ -403,64 +403,64 @@
             this.CarProductCollectionGrid.MasterTemplate.AllowRowResize = false;
             this.CarProductCollectionGrid.MasterTemplate.AutoGenerateColumns = false;
             this.CarProductCollectionGrid.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridViewTextBoxColumn3.EnableExpressionEditor = false;
-            gridViewTextBoxColumn3.FieldName = "CarProduct.CarModel.Name";
-            gridViewTextBoxColumn3.FormatString = "";
-            gridViewTextBoxColumn3.HeaderText = "Model";
-            gridViewTextBoxColumn3.Name = "Model";
-            gridViewTextBoxColumn3.Width = 159;
-            gridViewTextBoxColumn4.EnableExpressionEditor = false;
-            gridViewTextBoxColumn4.FieldName = "CarProduct.VIN";
-            gridViewTextBoxColumn4.FormatString = "";
-            gridViewTextBoxColumn4.HeaderText = "VIN";
-            gridViewTextBoxColumn4.IsAutoGenerated = true;
-            gridViewTextBoxColumn4.Name = "VIN";
-            gridViewTextBoxColumn4.Width = 159;
-            gridViewDecimalColumn2.EnableExpressionEditor = false;
-            gridViewDecimalColumn2.FieldName = "CarProduct.Year";
-            gridViewDecimalColumn2.FormatString = "";
-            gridViewDecimalColumn2.HeaderText = "Rocznik";
-            gridViewDecimalColumn2.IsAutoGenerated = true;
-            gridViewDecimalColumn2.Name = "Year";
-            gridViewDecimalColumn2.SortOrder = Telerik.WinControls.UI.RadSortOrder.Descending;
-            gridViewDecimalColumn2.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            gridViewDecimalColumn2.Width = 159;
-            gridViewDateTimeColumn3.EnableExpressionEditor = false;
-            gridViewDateTimeColumn3.FieldName = "HandleDate";
-            gridViewDateTimeColumn3.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            gridViewDateTimeColumn3.FormatString = "";
-            gridViewDateTimeColumn3.HeaderText = "Data przyjęcia";
-            gridViewDateTimeColumn3.Name = "HandleDate";
-            gridViewDateTimeColumn3.Width = 157;
-            gridViewCheckBoxColumn2.EnableExpressionEditor = false;
-            gridViewCheckBoxColumn2.FieldName = "IsFixed";
-            gridViewCheckBoxColumn2.FormatString = "";
-            gridViewCheckBoxColumn2.HeaderText = "Czy naprawiony";
-            gridViewCheckBoxColumn2.MinWidth = 20;
-            gridViewCheckBoxColumn2.Name = "IsFixed";
-            gridViewCheckBoxColumn2.Width = 157;
-            gridViewDateTimeColumn4.EnableExpressionEditor = false;
-            gridViewDateTimeColumn4.FieldName = "FixDate";
-            gridViewDateTimeColumn4.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            gridViewDateTimeColumn4.FormatString = "";
-            gridViewDateTimeColumn4.HeaderText = "Data naprawienia";
-            gridViewDateTimeColumn4.Name = "FixDate";
-            gridViewDateTimeColumn4.Width = 147;
+            gridViewTextBoxColumn1.EnableExpressionEditor = false;
+            gridViewTextBoxColumn1.FieldName = "CarProduct.CarModel.Name";
+            gridViewTextBoxColumn1.FormatString = "";
+            gridViewTextBoxColumn1.HeaderText = "Model";
+            gridViewTextBoxColumn1.Name = "Model";
+            gridViewTextBoxColumn1.Width = 159;
+            gridViewTextBoxColumn2.EnableExpressionEditor = false;
+            gridViewTextBoxColumn2.FieldName = "CarProduct.VIN";
+            gridViewTextBoxColumn2.FormatString = "";
+            gridViewTextBoxColumn2.HeaderText = "VIN";
+            gridViewTextBoxColumn2.IsAutoGenerated = true;
+            gridViewTextBoxColumn2.Name = "VIN";
+            gridViewTextBoxColumn2.Width = 159;
+            gridViewDecimalColumn1.EnableExpressionEditor = false;
+            gridViewDecimalColumn1.FieldName = "CarProduct.Year";
+            gridViewDecimalColumn1.FormatString = "";
+            gridViewDecimalColumn1.HeaderText = "Rocznik";
+            gridViewDecimalColumn1.IsAutoGenerated = true;
+            gridViewDecimalColumn1.Name = "Year";
+            gridViewDecimalColumn1.SortOrder = Telerik.WinControls.UI.RadSortOrder.Descending;
+            gridViewDecimalColumn1.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            gridViewDecimalColumn1.Width = 159;
+            gridViewDateTimeColumn1.EnableExpressionEditor = false;
+            gridViewDateTimeColumn1.FieldName = "HandleDate";
+            gridViewDateTimeColumn1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            gridViewDateTimeColumn1.FormatString = "";
+            gridViewDateTimeColumn1.HeaderText = "Data przyjęcia";
+            gridViewDateTimeColumn1.Name = "HandleDate";
+            gridViewDateTimeColumn1.Width = 157;
+            gridViewCheckBoxColumn1.EnableExpressionEditor = false;
+            gridViewCheckBoxColumn1.FieldName = "IsFixed";
+            gridViewCheckBoxColumn1.FormatString = "";
+            gridViewCheckBoxColumn1.HeaderText = "Czy naprawiony";
+            gridViewCheckBoxColumn1.MinWidth = 20;
+            gridViewCheckBoxColumn1.Name = "IsFixed";
+            gridViewCheckBoxColumn1.Width = 157;
+            gridViewDateTimeColumn2.EnableExpressionEditor = false;
+            gridViewDateTimeColumn2.FieldName = "FixDate";
+            gridViewDateTimeColumn2.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            gridViewDateTimeColumn2.FormatString = "";
+            gridViewDateTimeColumn2.HeaderText = "Data naprawienia";
+            gridViewDateTimeColumn2.Name = "FixDate";
+            gridViewDateTimeColumn2.Width = 147;
             this.CarProductCollectionGrid.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn3,
-            gridViewTextBoxColumn4,
-            gridViewDecimalColumn2,
-            gridViewDateTimeColumn3,
-            gridViewCheckBoxColumn2,
-            gridViewDateTimeColumn4});
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewDecimalColumn1,
+            gridViewDateTimeColumn1,
+            gridViewCheckBoxColumn1,
+            gridViewDateTimeColumn2});
             this.CarProductCollectionGrid.MasterTemplate.EnableAlternatingRowColor = true;
             this.CarProductCollectionGrid.MasterTemplate.EnableFiltering = true;
             this.CarProductCollectionGrid.MasterTemplate.EnableGrouping = false;
             this.CarProductCollectionGrid.MasterTemplate.ShowRowHeaderColumn = false;
-            sortDescriptor2.Direction = System.ComponentModel.ListSortDirection.Descending;
-            sortDescriptor2.PropertyName = "Year";
+            sortDescriptor1.Direction = System.ComponentModel.ListSortDirection.Descending;
+            sortDescriptor1.PropertyName = "Year";
             this.CarProductCollectionGrid.MasterTemplate.SortDescriptors.AddRange(new Telerik.WinControls.Data.SortDescriptor[] {
-            sortDescriptor2});
+            sortDescriptor1});
             this.CarProductCollectionGrid.Name = "CarProductCollectionGrid";
             this.CarProductCollectionGrid.ReadOnly = true;
             this.CarProductCollectionGrid.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -498,6 +498,80 @@
             this.mainGroupBox.RootElement.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
             this.mainGroupBox.Size = new System.Drawing.Size(931, 106);
             this.mainGroupBox.TabIndex = 0;
+            // 
+            // cityComboBox
+            // 
+            this.cityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cityComboBox.Enabled = false;
+            this.cityComboBox.Location = new System.Drawing.Point(98, 30);
+            this.cityComboBox.Name = "cityComboBox";
+            this.cityComboBox.Size = new System.Drawing.Size(165, 21);
+            this.cityComboBox.TabIndex = 1;
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.CarServiceBindingSource, "Name", true));
+            this.nameTextBox.Location = new System.Drawing.Point(98, 6);
+            this.nameTextBox.Message = "Nazwa miasta nie może być pusta";
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.RegularExpressionString = null;
+            this.nameTextBox.Size = new System.Drawing.Size(343, 20);
+            this.nameTextBox.TabIndex = 2;
+            this.nameTextBox.TabStop = false;
+            this.nameTextBox.ValidationType = LGBS.MVPFramework.Controls.TextBoxDataValidator.TextBoxValidationType.NotNullValidation;
+            // 
+            // streetTextBox
+            // 
+            this.streetTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.CarServiceBindingSource, "Street", true));
+            this.streetTextBox.Location = new System.Drawing.Point(98, 54);
+            this.streetTextBox.Message = "Nazwa miasta nie może być pusta";
+            this.streetTextBox.Name = "streetTextBox";
+            this.streetTextBox.RegularExpressionString = null;
+            this.streetTextBox.Size = new System.Drawing.Size(343, 20);
+            this.streetTextBox.TabIndex = 2;
+            this.streetTextBox.TabStop = false;
+            this.streetTextBox.ValidationType = LGBS.MVPFramework.Controls.TextBoxDataValidator.TextBoxValidationType.NotNullValidation;
+            // 
+            // postCodeTextBox
+            // 
+            this.postCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.CarServiceBindingSource, "PostCode", true));
+            this.postCodeTextBox.Location = new System.Drawing.Point(98, 78);
+            this.postCodeTextBox.Message = "Nazwa miasta nie może być pusta";
+            this.postCodeTextBox.Name = "postCodeTextBox";
+            this.postCodeTextBox.RegularExpressionString = null;
+            this.postCodeTextBox.Size = new System.Drawing.Size(343, 20);
+            this.postCodeTextBox.TabIndex = 6;
+            this.postCodeTextBox.TabStop = false;
+            this.postCodeTextBox.ValidationType = LGBS.MVPFramework.Controls.TextBoxDataValidator.TextBoxValidationType.NotNullValidation;
+            // 
+            // deleteCarButton
+            // 
+            this.deleteCarButton.Location = new System.Drawing.Point(710, 32);
+            this.deleteCarButton.Name = "deleteCarButton";
+            this.deleteCarButton.Size = new System.Drawing.Size(130, 23);
+            this.deleteCarButton.TabIndex = 5;
+            this.deleteCarButton.Text = "Usuń samochód";
+            this.deleteCarButton.UseVisualStyleBackColor = true;
+            this.deleteCarButton.Click += new System.EventHandler(this.deleteCarButton_Click);
+            // 
+            // addCarButton
+            // 
+            this.addCarButton.Location = new System.Drawing.Point(710, 3);
+            this.addCarButton.Name = "addCarButton";
+            this.addCarButton.Size = new System.Drawing.Size(130, 23);
+            this.addCarButton.TabIndex = 4;
+            this.addCarButton.Text = "Dodaj samochód";
+            this.addCarButton.UseVisualStyleBackColor = true;
+            // 
+            // isFixedCheckBox
+            // 
+            this.isFixedCheckBox.AutoSize = true;
+            this.isFixedCheckBox.Location = new System.Drawing.Point(710, 76);
+            this.isFixedCheckBox.Name = "isFixedCheckBox";
+            this.isFixedCheckBox.Size = new System.Drawing.Size(208, 17);
+            this.isFixedCheckBox.TabIndex = 3;
+            this.isFixedCheckBox.Text = "Oznacz samochód jako naprawiony";
+            this.isFixedCheckBox.UseVisualStyleBackColor = true;
             // 
             // postCodeLabel
             // 
@@ -539,76 +613,6 @@
             // 
             this.HandledCarBindingSource.DataSource = typeof(CarsApp.Data.HandledCarProduct);
             // 
-            // isFixedCheckBox
-            // 
-            this.isFixedCheckBox.AutoSize = true;
-            this.isFixedCheckBox.Location = new System.Drawing.Point(710, 7);
-            this.isFixedCheckBox.Name = "isFixedCheckBox";
-            this.isFixedCheckBox.Size = new System.Drawing.Size(208, 17);
-            this.isFixedCheckBox.TabIndex = 3;
-            this.isFixedCheckBox.Text = "Oznacz samochód jako naprawiony";
-            this.isFixedCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // addCarButton
-            // 
-            this.addCarButton.Location = new System.Drawing.Point(710, 41);
-            this.addCarButton.Name = "addCarButton";
-            this.addCarButton.Size = new System.Drawing.Size(130, 23);
-            this.addCarButton.TabIndex = 4;
-            this.addCarButton.Text = "Dodaj samochód";
-            this.addCarButton.UseVisualStyleBackColor = true;
-            // 
-            // deleteCarButton
-            // 
-            this.deleteCarButton.Location = new System.Drawing.Point(710, 70);
-            this.deleteCarButton.Name = "deleteCarButton";
-            this.deleteCarButton.Size = new System.Drawing.Size(130, 23);
-            this.deleteCarButton.TabIndex = 5;
-            this.deleteCarButton.Text = "Usuń samochód";
-            this.deleteCarButton.UseVisualStyleBackColor = true;
-            // 
-            // postCodeTextBox
-            // 
-            this.postCodeTextBox.Location = new System.Drawing.Point(98, 78);
-            this.postCodeTextBox.Message = "Nazwa miasta nie może być pusta";
-            this.postCodeTextBox.Name = "postCodeTextBox";
-            this.postCodeTextBox.RegularExpressionString = null;
-            this.postCodeTextBox.Size = new System.Drawing.Size(343, 20);
-            this.postCodeTextBox.TabIndex = 6;
-            this.postCodeTextBox.TabStop = false;
-            this.postCodeTextBox.ValidationType = LGBS.MVPFramework.Controls.TextBoxDataValidator.TextBoxValidationType.NotNullValidation;
-            // 
-            // streetTextBox
-            // 
-            this.streetTextBox.Location = new System.Drawing.Point(98, 54);
-            this.streetTextBox.Message = "Nazwa miasta nie może być pusta";
-            this.streetTextBox.Name = "streetTextBox";
-            this.streetTextBox.RegularExpressionString = null;
-            this.streetTextBox.Size = new System.Drawing.Size(343, 20);
-            this.streetTextBox.TabIndex = 2;
-            this.streetTextBox.TabStop = false;
-            this.streetTextBox.ValidationType = LGBS.MVPFramework.Controls.TextBoxDataValidator.TextBoxValidationType.NotNullValidation;
-            // 
-            // nameTextBox
-            // 
-            this.nameTextBox.Location = new System.Drawing.Point(98, 6);
-            this.nameTextBox.Message = "Nazwa miasta nie może być pusta";
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.RegularExpressionString = null;
-            this.nameTextBox.Size = new System.Drawing.Size(343, 20);
-            this.nameTextBox.TabIndex = 2;
-            this.nameTextBox.TabStop = false;
-            this.nameTextBox.ValidationType = LGBS.MVPFramework.Controls.TextBoxDataValidator.TextBoxValidationType.NotNullValidation;
-            // 
-            // cityComboBox
-            // 
-            this.cityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cityComboBox.Enabled = false;
-            this.cityComboBox.Location = new System.Drawing.Point(98, 30);
-            this.cityComboBox.Name = "cityComboBox";
-            this.cityComboBox.Size = new System.Drawing.Size(165, 21);
-            this.cityComboBox.TabIndex = 1;
-            // 
             // CarServiceDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -632,14 +636,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.mainGroupBox)).EndInit();
             this.mainGroupBox.ResumeLayout(false);
             this.mainGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nameTextBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.streetTextBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postCodeTextBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postCodeLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cityLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.streetLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HandledCarBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postCodeTextBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.streetTextBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nameTextBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

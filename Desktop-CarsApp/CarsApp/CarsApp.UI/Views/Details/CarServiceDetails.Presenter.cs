@@ -51,7 +51,7 @@ namespace CarsApp.UI
                             break;
                         case ViewMode.Edit:
                         case ViewMode.ReadOnly:
-                            View.CurrentCarService = Service.GetObjectById(this.ObjectId);
+                          //  View.CurrentCarService = Service.GetObjectById(this.ObjectId);
                             break;
                         default:
                             throw new ViewModeNotSupportedException();
@@ -74,5 +74,21 @@ namespace CarsApp.UI
         #endregion Overrides
 
         #endregion Protected methods
+
+        #region Public methods
+
+        public void SetCurrentCarService(CarServicesView view)
+        {
+            foreach (CarService carService in Service.GetCarServiceCollection())
+            {
+                if (carService.Name == view.Name)
+                {
+                    View.CurrentCarService = carService;
+                    break;
+                }
+            }
+
+            #endregion Public methods
+        }
     }
 }

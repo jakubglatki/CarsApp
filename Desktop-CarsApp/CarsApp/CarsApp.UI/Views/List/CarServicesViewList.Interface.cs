@@ -6,33 +6,41 @@ using LGBS.MVPFramework.UI;
 namespace CarsApp.UI
 {
     /// <summary>
-    /// Interfejs widoku CarServicesViewList.
+    /// Interfejs widoku CarServiceList.
     /// </summary>
-    public interface ICarServicesViewList : IBaseWindowView
+    public interface ICarServiceList : IBaseWindowView
     {
         #region Properties
 
         /// <summary>
         /// Aktualnie wyświetlana / edytowana encja.
         /// </summary>
+        CarService CurrentCarService { get; set; }
+
+        /// <summary>
+        /// Aktualnie wyświetlana / edytowana encja.
+        /// </summary>
         CarServicesView CurrentCarServicesView { get; set; }
+        /// <summary>
+        /// Lista encji.
+        /// </summary>
+        ICollection<CarService> CarServiceCollection { get; set; }
 
         /// <summary>
         /// Lista encji.
         /// </summary>
         ICollection<CarServicesView> CarServicesViewCollection { get; set; }
-
         /// <summary>
         /// Prezenter widoku.
         /// </summary>
-        CarServicesViewListPresenter Presenter { get; }
+        CarServiceListPresenter Presenter { get; }
 
         #region Filter	
 
         /// <summary>
         /// Filtr.
         /// </summary>
-        ICarServicesViewListFilter Filter { get; }
+        ICarServiceListFilter Filter { get; }
 
         #endregion Filter
 

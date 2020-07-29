@@ -23,9 +23,9 @@
         <AssociationConnector Association="CarsDb.Data.CarModelManufacture" />
         <EntityTypeShape EntityType="CarsDb.Data.CarService" Width="1.5" PointX="7.125" PointY="5.125" />
         <EntityTypeShape EntityType="CarsDb.Data.HandledCarProduct" Width="1.5" PointX="13.25" PointY="5.5" />
-        <AssociationConnector Association="CarsDb.Data.FK_HandledCarProductCarProduct" />
+        <AssociationConnector Association="CarsDb.Data.HandledCarProductCarProduct" />
         <AssociationConnector Association="CarsDb.Data.FK_CarServiceCity" />
-        <AssociationConnector Association="CarsDb.Data.FK_HandledCarProductCarService" />
+        <AssociationConnector Association="CarsDb.Data.HandledCarProductCarService" />
         <EntityTypeShape EntityType="CarsDb.Data.CarServicesView" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>

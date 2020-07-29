@@ -9,26 +9,26 @@ namespace CarsApp.UI
 {
     // TODO [UITemplate] - optional: Zweryfikować
     // jeśli z widokiem typu lista jest powiązany widok typu details, 
-    // wówczas prezeter musi implementować interfejs ICarServicesViewDetails zamiast INoDetailsView
+    // wówczas prezeter musi implementować interfejs ICarServiceDetails zamiast INoDetail
 
     /// <summary>
-    /// Prezenter widoku CarServicesViewList.
+    /// Prezenter widoku CarServiceList.
     /// </summary>
-    public class CarServicesViewListPresenter : BaseGenericPresenter<ICarServicesViewList, ICarServiceDetails, CarServicesViewService>
+    public class CarServiceListPresenter : BaseGenericPresenter<ICarServiceList, ICarServiceDetails, CarServiceService>
     {
         #region Properties
 
         /// <summary>
         /// Kryteria wyszukiwania wykorzystywane przy pobieraniu danych.
         /// </summary>
-        public CarServicesViewSearchCriteria SearchCriteria
+        public CarServiceSearchCriteria SearchCriteria
         {
             get
             {
                 if (BaseSearchCriteria == null)
-                    BaseSearchCriteria = new CarServicesViewSearchCriteria();
+                    BaseSearchCriteria = new CarServiceSearchCriteria();
 
-                return BaseSearchCriteria as CarServicesViewSearchCriteria;
+                return BaseSearchCriteria as CarServiceSearchCriteria;
             }
             set
             {
@@ -41,10 +41,10 @@ namespace CarsApp.UI
         #region Ctors
 
         /// <summary>
-        /// Tworzy presenter widoku CarServicesViewList.
+        /// Tworzy presenter widoku CarServiceList.
         /// </summary>
         /// <param name="view">Obsługiwany widok.</param>
-        public CarServicesViewListPresenter(ICarServicesViewList view)
+        public CarServiceListPresenter(ICarServiceList view)
             : base(view, true)
         {
             // TODO [UITemplate] - optional: Zweryfikować
@@ -71,6 +71,7 @@ namespace CarsApp.UI
                     LoadData(RefreshDataType.ObjectListData);
                     break;
                 case RefreshDataType.ObjectListData:
+                    View.CarServiceCollection = Service.GetCarServiceCollection();
                     View.CarServicesViewCollection = Service.GetCarServicesViewCollection();
                     break;
                 case RefreshDataType.DictionaryValues:
@@ -98,6 +99,7 @@ namespace CarsApp.UI
         #endregion Protected methods
 
         #region Public methods
+
 
         #region Overrides
 

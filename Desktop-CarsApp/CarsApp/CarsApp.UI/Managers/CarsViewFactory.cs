@@ -36,8 +36,8 @@ namespace CarsApp.UI
 					return new CarProductList(parentView) as VT;
 				case ManufactureList.InterfaceName:
 					return new ManufactureList(parentView) as VT;
-				case CarServicesViewList.InterfaceName:
-					return new CarServicesViewList(parentView) as VT;
+				case CarServiceList.InterfaceName:
+					return new CarServiceList(parentView) as VT;
 				case CarServiceDetails.InterfaceName:
 					return new CarServiceDetails(parentView) as VT;
 				default:

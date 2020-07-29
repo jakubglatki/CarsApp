@@ -17,29 +17,29 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_CityCountry]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Cities] DROP CONSTRAINT [FK_CityCountry];
+IF OBJECT_ID(N'[dbo].[CityCountry]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Cities] DROP CONSTRAINT [CityCountry];
 GO
-IF OBJECT_ID(N'[dbo].[FK_FactoryCity]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Factories] DROP CONSTRAINT [FK_FactoryCity];
+IF OBJECT_ID(N'[dbo].[FactoryCity]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Factories] DROP CONSTRAINT [FactoryCity];
 GO
-IF OBJECT_ID(N'[dbo].[FK_CarProductCarModel]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[CarProducts] DROP CONSTRAINT [FK_CarProductCarModel];
+IF OBJECT_ID(N'[dbo].[CarProductCarModel]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CarProducts] DROP CONSTRAINT [CarProductCarModel];
 GO
-IF OBJECT_ID(N'[dbo].[FK_CarProductFactory]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[CarProducts] DROP CONSTRAINT [FK_CarProductFactory];
+IF OBJECT_ID(N'[dbo].[CarProductFactory]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CarProducts] DROP CONSTRAINT [CarProductFactory];
 GO
-IF OBJECT_ID(N'[dbo].[FK_CarProductCarFeature_CarProduct]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[CarProductCarFeature] DROP CONSTRAINT [FK_CarProductCarFeature_CarProduct];
+IF OBJECT_ID(N'[dbo].[CarProductCarFeature_CarProduct]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CarProductCarFeature] DROP CONSTRAINT [CarProductCarFeature_CarProduct];
 GO
-IF OBJECT_ID(N'[dbo].[FK_CarProductCarFeature_CarFeature]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[CarProductCarFeature] DROP CONSTRAINT [FK_CarProductCarFeature_CarFeature];
+IF OBJECT_ID(N'[dbo].[CarProductCarFeature_CarFeature]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CarProductCarFeature] DROP CONSTRAINT [CarProductCarFeature_CarFeature];
 GO
-IF OBJECT_ID(N'[dbo].[FK_CarFeatureCarModel_CarFeature]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[CarFeatureCarModel] DROP CONSTRAINT [FK_CarFeatureCarModel_CarFeature];
+IF OBJECT_ID(N'[dbo].[CarFeatureCarModel_CarFeature]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CarFeatureCarModel] DROP CONSTRAINT [CarFeatureCarModel_CarFeature];
 GO
-IF OBJECT_ID(N'[dbo].[FK_CarFeatureCarModel_CarModel]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[CarFeatureCarModel] DROP CONSTRAINT [FK_CarFeatureCarModel_CarModel];
+IF OBJECT_ID(N'[dbo].[CarFeatureCarModel_CarModel]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CarFeatureCarModel] DROP CONSTRAINT [CarFeatureCarModel_CarModel];
 GO
 
 -- --------------------------------------------------
@@ -212,63 +212,63 @@ GO
 
 -- Creating foreign key on [CountryId] in table 'Cities'
 ALTER TABLE [dbo].[Cities]
-ADD CONSTRAINT [FK_CityCountry]
+ADD CONSTRAINT [CityCountry]
     FOREIGN KEY ([CountryId])
     REFERENCES [dbo].[Countries]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_CityCountry'
-CREATE INDEX [IX_FK_CityCountry]
+-- Creating non-clustered index for FOREIGN KEY 'CityCountry'
+CREATE INDEX [IX_CityCountry]
 ON [dbo].[Cities]
     ([CountryId]);
 GO
 
 -- Creating foreign key on [CityId] in table 'Factories'
 ALTER TABLE [dbo].[Factories]
-ADD CONSTRAINT [FK_FactoryCity]
+ADD CONSTRAINT [FactoryCity]
     FOREIGN KEY ([CityId])
     REFERENCES [dbo].[Cities]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_FactoryCity'
-CREATE INDEX [IX_FK_FactoryCity]
+-- Creating non-clustered index for FOREIGN KEY 'FactoryCity'
+CREATE INDEX [IX_FactoryCity]
 ON [dbo].[Factories]
     ([CityId]);
 GO
 
 -- Creating foreign key on [CarModelId] in table 'CarProducts'
 ALTER TABLE [dbo].[CarProducts]
-ADD CONSTRAINT [FK_CarProductCarModel]
+ADD CONSTRAINT [CarProductCarModel]
     FOREIGN KEY ([CarModelId])
     REFERENCES [dbo].[CarModels]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_CarProductCarModel'
-CREATE INDEX [IX_FK_CarProductCarModel]
+-- Creating non-clustered index for FOREIGN KEY 'CarProductCarModel'
+CREATE INDEX [IX_CarProductCarModel]
 ON [dbo].[CarProducts]
     ([CarModelId]);
 GO
 
 -- Creating foreign key on [FactoryId] in table 'CarProducts'
 ALTER TABLE [dbo].[CarProducts]
-ADD CONSTRAINT [FK_CarProductFactory]
+ADD CONSTRAINT [CarProductFactory]
     FOREIGN KEY ([FactoryId])
     REFERENCES [dbo].[Factories]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_CarProductFactory'
-CREATE INDEX [IX_FK_CarProductFactory]
+-- Creating non-clustered index for FOREIGN KEY 'CarProductFactory'
+CREATE INDEX [IX_CarProductFactory]
 ON [dbo].[CarProducts]
     ([FactoryId]);
 GO
 
 -- Creating foreign key on [CarProducts_Id] in table 'CarProductCarFeature'
 ALTER TABLE [dbo].[CarProductCarFeature]
-ADD CONSTRAINT [FK_CarProductCarFeature_CarProduct]
+ADD CONSTRAINT [CarProductCarFeature_CarProduct]
     FOREIGN KEY ([CarProducts_Id])
     REFERENCES [dbo].[CarProducts]
         ([Id])
@@ -277,21 +277,21 @@ GO
 
 -- Creating foreign key on [CarFeatures_Id] in table 'CarProductCarFeature'
 ALTER TABLE [dbo].[CarProductCarFeature]
-ADD CONSTRAINT [FK_CarProductCarFeature_CarFeature]
+ADD CONSTRAINT [CarProductCarFeature_CarFeature]
     FOREIGN KEY ([CarFeatures_Id])
     REFERENCES [dbo].[CarFeatures]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_CarProductCarFeature_CarFeature'
-CREATE INDEX [IX_FK_CarProductCarFeature_CarFeature]
+-- Creating non-clustered index for FOREIGN KEY 'CarProductCarFeature_CarFeature'
+CREATE INDEX [IX_CarProductCarFeature_CarFeature]
 ON [dbo].[CarProductCarFeature]
     ([CarFeatures_Id]);
 GO
 
 -- Creating foreign key on [CarFeatures_Id] in table 'CarFeatureCarModel'
 ALTER TABLE [dbo].[CarFeatureCarModel]
-ADD CONSTRAINT [FK_CarFeatureCarModel_CarFeature]
+ADD CONSTRAINT [CarFeatureCarModel_CarFeature]
     FOREIGN KEY ([CarFeatures_Id])
     REFERENCES [dbo].[CarFeatures]
         ([Id])
@@ -300,56 +300,56 @@ GO
 
 -- Creating foreign key on [CarModels_Id] in table 'CarFeatureCarModel'
 ALTER TABLE [dbo].[CarFeatureCarModel]
-ADD CONSTRAINT [FK_CarFeatureCarModel_CarModel]
+ADD CONSTRAINT [CarFeatureCarModel_CarModel]
     FOREIGN KEY ([CarModels_Id])
     REFERENCES [dbo].[CarModels]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_CarFeatureCarModel_CarModel'
-CREATE INDEX [IX_FK_CarFeatureCarModel_CarModel]
+-- Creating non-clustered index for FOREIGN KEY 'CarFeatureCarModel_CarModel'
+CREATE INDEX [IX_CarFeatureCarModel_CarModel]
 ON [dbo].[CarFeatureCarModel]
     ([CarModels_Id]);
 GO
 
 -- Creating foreign key on [CountryId] in table 'Manufactures'
 ALTER TABLE [dbo].[Manufactures]
-ADD CONSTRAINT [FK_ManufactureCountry]
+ADD CONSTRAINT [ManufactureCountry]
     FOREIGN KEY ([CountryId])
     REFERENCES [dbo].[Countries]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_ManufactureCountry'
-CREATE INDEX [IX_FK_ManufactureCountry]
+-- Creating non-clustered index for FOREIGN KEY 'ManufactureCountry'
+CREATE INDEX [IX_ManufactureCountry]
 ON [dbo].[Manufactures]
     ([CountryId]);
 GO
 
 -- Creating foreign key on [ManufactureId] in table 'Factories'
 ALTER TABLE [dbo].[Factories]
-ADD CONSTRAINT [FK_FactoryManufacture]
+ADD CONSTRAINT [FactoryManufacture]
     FOREIGN KEY ([ManufactureId])
     REFERENCES [dbo].[Manufactures]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_FactoryManufacture'
-CREATE INDEX [IX_FK_FactoryManufacture]
+-- Creating non-clustered index for FOREIGN KEY 'FactoryManufacture'
+CREATE INDEX [IX_FactoryManufacture]
 ON [dbo].[Factories]
     ([ManufactureId]);
 GO
 
 -- Creating foreign key on [ManufactureId] in table 'CarModels'
 ALTER TABLE [dbo].[CarModels]
-ADD CONSTRAINT [FK_CarModelManufacture]
+ADD CONSTRAINT [CarModelManufacture]
     FOREIGN KEY ([ManufactureId])
     REFERENCES [dbo].[Manufactures]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_CarModelManufacture'
-CREATE INDEX [IX_FK_CarModelManufacture]
+-- Creating non-clustered index for FOREIGN KEY 'CarModelManufacture'
+CREATE INDEX [IX_CarModelManufacture]
 ON [dbo].[CarModels]
     ([ManufactureId]);
 GO

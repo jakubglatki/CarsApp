@@ -31,7 +31,7 @@ using LGBS.MVPFramework.Data;
 [assembly: EdmRelationshipAttribute("CarsDb.Data", "FactoryManufacture", "Factory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CarsApp.Data.Factory), "Manufacture", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CarsApp.Data.Manufacture), true)]
 [assembly: EdmRelationshipAttribute("CarsDb.Data", "CarModelManufacture", "CarModel", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CarsApp.Data.CarModel), "Manufacture", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CarsApp.Data.Manufacture), true)]
 [assembly: EdmRelationshipAttribute("CarsDb.Data", "HandledCarProductCarProduct", "CarProduct", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CarsApp.Data.CarProduct), "HandledCarProduct", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CarsApp.Data.HandledCarProduct), true)]
-[assembly: EdmRelationshipAttribute("CarsDb.Data", "CarServiceCity", "City", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CarsApp.Data.City), "CarService", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CarsApp.Data.CarService), true)]
+[assembly: EdmRelationshipAttribute("CarsDb.Data", "FK_CarServiceCity", "City", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CarsApp.Data.City), "CarService", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CarsApp.Data.CarService), true)]
 [assembly: EdmRelationshipAttribute("CarsDb.Data", "HandledCarProductCarService", "CarService", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CarsApp.Data.CarService), "HandledCarProduct", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CarsApp.Data.HandledCarProduct), true)]
 
 #endregion
@@ -1257,16 +1257,16 @@ namespace CarsApp.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CarsDb.Data", "CarServiceCity", "City")]
+        [EdmRelationshipNavigationPropertyAttribute("CarsDb.Data", "FK_CarServiceCity", "City")]
         public City City
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("CarsDb.Data.CarServiceCity", "City").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("CarsDb.Data.FK_CarServiceCity", "City").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("CarsDb.Data.CarServiceCity", "City").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("CarsDb.Data.FK_CarServiceCity", "City").Value = value;
             }
         }
         /// <summary>
@@ -1278,13 +1278,13 @@ namespace CarsApp.Data
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("CarsDb.Data.CarServiceCity", "City");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("CarsDb.Data.FK_CarServiceCity", "City");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("CarsDb.Data.CarServiceCity", "City", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("CarsDb.Data.FK_CarServiceCity", "City", value);
                 }
             }
         }
@@ -1601,18 +1601,18 @@ namespace CarsApp.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CarsDb.Data", "CarServiceCity", "CarService")]
+        [EdmRelationshipNavigationPropertyAttribute("CarsDb.Data", "FK_CarServiceCity", "CarService")]
         public EntityCollection<CarService> CarServices
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CarService>("CarsDb.Data.CarServiceCity", "CarService");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CarService>("CarsDb.Data.FK_CarServiceCity", "CarService");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CarService>("CarsDb.Data.CarServiceCity", "CarService", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CarService>("CarsDb.Data.FK_CarServiceCity", "CarService", value);
                 }
             }
         }

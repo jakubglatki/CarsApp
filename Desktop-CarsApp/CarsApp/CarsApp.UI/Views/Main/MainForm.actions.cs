@@ -144,7 +144,7 @@ namespace CarsApp.UI
 		/// <param name="e">EventArgs.</param>
 		private void servicesButtonElement_Click(object sender, EventArgs e)
 		{
-			ICarServicesViewList view = CarsViewFactory.Factory.CreateViewInstance<ICarServicesViewList>();
+			ICarServiceList view = CarsViewFactory.Factory.CreateViewInstance<ICarServiceList>();
 			view.Show(ViewMode.ReadOnly);
 		}
 		#endregion Okna

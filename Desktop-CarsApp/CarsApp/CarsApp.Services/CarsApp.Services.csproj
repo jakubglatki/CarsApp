@@ -66,6 +66,13 @@
     <Compile Include="CarProductService.SearchCriteria.cs">
       <DependentUpon>CarProductService.cs</DependentUpon>
     </Compile>
+    <Compile Include="CarServiceService.cs" />
+    <Compile Include="CarServiceService.OrderByExpression.cs">
+      <DependentUpon>CarServiceService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CarServiceService.SearchCriteria.cs">
+      <DependentUpon>CarServiceService.cs</DependentUpon>
+    </Compile>
     <Compile Include="CarServicesViewService.cs" />
     <Compile Include="CarServicesViewService.OrderByExpression.cs">
       <DependentUpon>CarServicesViewService.cs</DependentUpon>

@@ -125,7 +125,7 @@ namespace CarsApp.UI
                 this.Presenter = new CarServicesViewListPresenter(this);
 
                 // TODO [UITemplate] - optional: Określić możliwe operacje
-                this.SupportsShowDetails = false;
+                this.SupportsShowDetails = true;
                 this.SupportsDelete = false;
                 this.SupportsAddNew = false;
                 this.SupportsEdit = false;

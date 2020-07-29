@@ -14,7 +14,7 @@ namespace CarsApp.UI
     /// <summary>
     /// Prezenter widoku CarServicesViewList.
     /// </summary>
-    public class CarServicesViewListPresenter : BaseGenericPresenter<ICarServicesViewList, INoDetailsView, CarServicesViewService>
+    public class CarServicesViewListPresenter : BaseGenericPresenter<ICarServicesViewList, ICarServiceDetails, CarServicesViewService>
     {
         #region Properties
 

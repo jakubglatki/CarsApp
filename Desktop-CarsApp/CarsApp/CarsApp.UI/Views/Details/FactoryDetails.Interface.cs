@@ -15,6 +15,7 @@ namespace CarsApp.UI
 		/// </summary>
 		Factory CurrentFactory { get; set; }
 
+	
 		#endregion Properties
 	}
 }

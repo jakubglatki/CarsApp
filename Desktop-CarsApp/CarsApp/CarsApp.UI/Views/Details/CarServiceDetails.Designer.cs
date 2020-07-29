@@ -1,0 +1,686 @@
+﻿namespace CarsApp.UI
+{
+    partial class CarServiceDetails
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">True if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewDecimalColumn gridViewDecimalColumn2 = new Telerik.WinControls.UI.GridViewDecimalColumn();
+            Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn3 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn2 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn4 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
+            Telerik.WinControls.Data.SortDescriptor sortDescriptor2 = new Telerik.WinControls.Data.SortDescriptor();
+            this.CarServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.managementRibbonTab = new Telerik.WinControls.UI.RibbonTab();
+            this.actionsRadRibbonBarGroup = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.editRadButtonElement = new Telerik.WinControls.UI.RadButtonElement();
+            this.deleteRadButtonElement = new Telerik.WinControls.UI.RadButtonElement();
+            this.editRibbonTab = new Telerik.WinControls.UI.RibbonTab();
+            this.commitRadRibbonBarGroup = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.okRadButtonElement = new Telerik.WinControls.UI.RadButtonElement();
+            this.cancelRadButtonElement = new Telerik.WinControls.UI.RadButtonElement();
+            this.clipboardRadRibbonBarGroup = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.pasteRadButtonElement = new Telerik.WinControls.UI.RadButtonElement();
+            this.clipboardRadRibbonBarButtonGroup = new Telerik.WinControls.UI.RadRibbonBarButtonGroup();
+            this.cutRadButtonElement = new Telerik.WinControls.UI.RadButtonElement();
+            this.copyRadButtonElement = new Telerik.WinControls.UI.RadButtonElement();
+            this.objectDetailsActionsRadRibbonBarGroup = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.deleteObjectRadButtonElement = new Telerik.WinControls.UI.RadButtonElement();
+            this.mainRadRibbonBar = new Telerik.WinControls.UI.RadRibbonBar();
+            this.closeButton = new LGBS.MVPFramework.Controls.LGBSButton();
+            this.downPanel = new System.Windows.Forms.Panel();
+            this.mainPanel = new System.Windows.Forms.Panel();
+            this.CarProductCollectionGrid = new LGBS.MVPFramework.Controls.LGBSGridView();
+            this.mainGroupBox = new LGBS.MVPFramework.Controls.LGBSGroupBox();
+            this.postCodeLabel = new LGBS.MVPFramework.Controls.LGBSLabel();
+            this.cityLabel = new LGBS.MVPFramework.Controls.LGBSLabel();
+            this.streetLabel = new LGBS.MVPFramework.Controls.LGBSLabel();
+            this.nameLabel = new LGBS.MVPFramework.Controls.LGBSLabel();
+            this.HandledCarBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.isFixedCheckBox = new System.Windows.Forms.CheckBox();
+            this.addCarButton = new System.Windows.Forms.Button();
+            this.deleteCarButton = new System.Windows.Forms.Button();
+            this.postCodeTextBox = new LGBS.MVPFramework.Controls.LGBSTextBox();
+            this.streetTextBox = new LGBS.MVPFramework.Controls.LGBSTextBox();
+            this.nameTextBox = new LGBS.MVPFramework.Controls.LGBSTextBox();
+            this.cityComboBox = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.CarServiceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainRadRibbonBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
+            this.downPanel.SuspendLayout();
+            this.mainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CarProductCollectionGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CarProductCollectionGrid.MasterTemplate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainGroupBox)).BeginInit();
+            this.mainGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.postCodeLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cityLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.streetLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nameLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HandledCarBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postCodeTextBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.streetTextBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nameTextBox)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // CarServiceBindingSource
+            // 
+            this.CarServiceBindingSource.DataSource = typeof(CarsApp.Data.CarService);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
+            // 
+            // managementRibbonTab
+            // 
+            this.managementRibbonTab.AccessibleDescription = "Zarządzanie";
+            this.managementRibbonTab.AccessibleName = "Zarządzanie";
+            this.managementRibbonTab.Alignment = System.Drawing.ContentAlignment.BottomLeft;
+            this.managementRibbonTab.AutoEllipsis = false;
+            this.managementRibbonTab.BorderDrawMode = Telerik.WinControls.BorderDrawModes.HorizontalOverVertical;
+            this.managementRibbonTab.BorderLeftShadowColor = System.Drawing.Color.Empty;
+            this.managementRibbonTab.Class = "RibbonTab";
+            this.managementRibbonTab.IsSelected = true;
+            this.managementRibbonTab.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.actionsRadRibbonBarGroup});
+            this.managementRibbonTab.Name = "managementRibbonTab";
+            this.managementRibbonTab.StretchHorizontally = false;
+            this.managementRibbonTab.Text = "Zarządzanie";
+            this.managementRibbonTab.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // actionsRadRibbonBarGroup
+            // 
+            this.actionsRadRibbonBarGroup.AccessibleDescription = "Akcje";
+            this.actionsRadRibbonBarGroup.AccessibleName = "Akcje";
+            this.actionsRadRibbonBarGroup.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.editRadButtonElement,
+            this.deleteRadButtonElement});
+            this.actionsRadRibbonBarGroup.Margin = new System.Windows.Forms.Padding(0);
+            this.actionsRadRibbonBarGroup.MaxSize = new System.Drawing.Size(0, 0);
+            this.actionsRadRibbonBarGroup.MinSize = new System.Drawing.Size(0, 0);
+            this.actionsRadRibbonBarGroup.Name = "actionsRadRibbonBarGroup";
+            this.actionsRadRibbonBarGroup.Text = "Akcje";
+            this.actionsRadRibbonBarGroup.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // editRadButtonElement
+            // 
+            this.editRadButtonElement.AccessibleDescription = "Edytuj";
+            this.editRadButtonElement.AccessibleName = "Edytuj";
+            this.editRadButtonElement.Class = "RibbonBarButtonElement";
+            this.editRadButtonElement.Image = global::CarsApp.UI.Properties.Resources.ImgEdit;
+            this.editRadButtonElement.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.editRadButtonElement.Name = "editRadButtonElement";
+            this.editRadButtonElement.Text = "Edytuj";
+            this.editRadButtonElement.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.editRadButtonElement.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.editRadButtonElement.Click += new System.EventHandler(this.editRadButtonElement_Click);
+            // 
+            // deleteRadButtonElement
+            // 
+            this.deleteRadButtonElement.AccessibleDescription = "Usuń";
+            this.deleteRadButtonElement.AccessibleName = "Usuń";
+            this.deleteRadButtonElement.Class = "RibbonBarButtonElement";
+            this.deleteRadButtonElement.Image = global::CarsApp.UI.Properties.Resources.ImgDelete;
+            this.deleteRadButtonElement.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.deleteRadButtonElement.Name = "deleteRadButtonElement";
+            this.deleteRadButtonElement.Text = "Usuń";
+            this.deleteRadButtonElement.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.deleteRadButtonElement.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.deleteRadButtonElement.Click += new System.EventHandler(this.deleteRadButtonElement_Click);
+            // 
+            // editRibbonTab
+            // 
+            this.editRibbonTab.AccessibleDescription = "Edycja";
+            this.editRibbonTab.AccessibleName = "Edycja";
+            this.editRibbonTab.Alignment = System.Drawing.ContentAlignment.BottomLeft;
+            this.editRibbonTab.AutoEllipsis = false;
+            this.editRibbonTab.BorderDrawMode = Telerik.WinControls.BorderDrawModes.HorizontalOverVertical;
+            this.editRibbonTab.BorderLeftShadowColor = System.Drawing.Color.Empty;
+            this.editRibbonTab.Class = "RibbonTab";
+            this.editRibbonTab.IsSelected = false;
+            this.editRibbonTab.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.commitRadRibbonBarGroup,
+            this.clipboardRadRibbonBarGroup,
+            this.objectDetailsActionsRadRibbonBarGroup});
+            this.editRibbonTab.Name = "editRibbonTab";
+            this.editRibbonTab.StretchHorizontally = false;
+            this.editRibbonTab.Text = "Edycja";
+            this.editRibbonTab.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // commitRadRibbonBarGroup
+            // 
+            this.commitRadRibbonBarGroup.AccessibleDescription = "Zatwierdzanie";
+            this.commitRadRibbonBarGroup.AccessibleName = "Zatwierdzanie";
+            this.commitRadRibbonBarGroup.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.okRadButtonElement,
+            this.cancelRadButtonElement});
+            this.commitRadRibbonBarGroup.Margin = new System.Windows.Forms.Padding(0);
+            this.commitRadRibbonBarGroup.MaxSize = new System.Drawing.Size(0, 0);
+            this.commitRadRibbonBarGroup.MinSize = new System.Drawing.Size(0, 0);
+            this.commitRadRibbonBarGroup.Name = "commitRadRibbonBarGroup";
+            this.commitRadRibbonBarGroup.Text = "Zatwierdzanie";
+            this.commitRadRibbonBarGroup.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // okRadButtonElement
+            // 
+            this.okRadButtonElement.AccessibleDescription = "OK";
+            this.okRadButtonElement.AccessibleName = "OK";
+            this.okRadButtonElement.Class = "RibbonBarButtonElement";
+            this.okRadButtonElement.Image = global::CarsApp.UI.Properties.Resources.ImgSave;
+            this.okRadButtonElement.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.okRadButtonElement.Name = "okRadButtonElement";
+            this.okRadButtonElement.Text = "OK";
+            this.okRadButtonElement.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.okRadButtonElement.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.okRadButtonElement.Click += new System.EventHandler(this.okRadButtonElement_Click);
+            // 
+            // cancelRadButtonElement
+            // 
+            this.cancelRadButtonElement.AccessibleDescription = "Anuluj";
+            this.cancelRadButtonElement.AccessibleName = "Anuluj";
+            this.cancelRadButtonElement.Class = "RibbonBarButtonElement";
+            this.cancelRadButtonElement.Image = global::CarsApp.UI.Properties.Resources.ImgCancel;
+            this.cancelRadButtonElement.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.cancelRadButtonElement.Name = "cancelRadButtonElement";
+            this.cancelRadButtonElement.Text = "Anuluj";
+            this.cancelRadButtonElement.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.cancelRadButtonElement.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.cancelRadButtonElement.Click += new System.EventHandler(this.cancelRadButtonElement_Click);
+            // 
+            // clipboardRadRibbonBarGroup
+            // 
+            this.clipboardRadRibbonBarGroup.AccessibleDescription = "Schowek";
+            this.clipboardRadRibbonBarGroup.AccessibleName = "Schowek";
+            this.clipboardRadRibbonBarGroup.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.pasteRadButtonElement,
+            this.clipboardRadRibbonBarButtonGroup});
+            this.clipboardRadRibbonBarGroup.Margin = new System.Windows.Forms.Padding(0);
+            this.clipboardRadRibbonBarGroup.MaxSize = new System.Drawing.Size(0, 0);
+            this.clipboardRadRibbonBarGroup.MinSize = new System.Drawing.Size(0, 0);
+            this.clipboardRadRibbonBarGroup.Name = "clipboardRadRibbonBarGroup";
+            this.clipboardRadRibbonBarGroup.Text = "Schowek";
+            this.clipboardRadRibbonBarGroup.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // pasteRadButtonElement
+            // 
+            this.pasteRadButtonElement.AccessibleDescription = "Wklej";
+            this.pasteRadButtonElement.AccessibleName = "Wklej";
+            this.pasteRadButtonElement.Class = "RibbonBarButtonElement";
+            this.pasteRadButtonElement.Image = global::CarsApp.UI.Properties.Resources.ImgPaste;
+            this.pasteRadButtonElement.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.pasteRadButtonElement.Name = "pasteRadButtonElement";
+            this.pasteRadButtonElement.Text = "Wklej";
+            this.pasteRadButtonElement.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.pasteRadButtonElement.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.pasteRadButtonElement.Click += new System.EventHandler(this.pasteRadButtonElement_Click);
+            // 
+            // clipboardRadRibbonBarButtonGroup
+            // 
+            this.clipboardRadRibbonBarButtonGroup.AccessibleDescription = "radRibbonBarButtonGroup1";
+            this.clipboardRadRibbonBarButtonGroup.AccessibleName = "radRibbonBarButtonGroup1";
+            this.clipboardRadRibbonBarButtonGroup.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.cutRadButtonElement,
+            this.copyRadButtonElement});
+            this.clipboardRadRibbonBarButtonGroup.Name = "clipboardRadRibbonBarButtonGroup";
+            this.clipboardRadRibbonBarButtonGroup.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.clipboardRadRibbonBarButtonGroup.Text = "radRibbonBarButtonGroup1";
+            this.clipboardRadRibbonBarButtonGroup.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // cutRadButtonElement
+            // 
+            this.cutRadButtonElement.AccessibleDescription = " Wytnij";
+            this.cutRadButtonElement.AccessibleName = " Wytnij";
+            this.cutRadButtonElement.Class = "ButtonElement";
+            this.cutRadButtonElement.Image = null;
+            this.cutRadButtonElement.Name = "cutRadButtonElement";
+            this.cutRadButtonElement.ShowBorder = false;
+            this.cutRadButtonElement.Text = " Wytnij";
+            this.cutRadButtonElement.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.cutRadButtonElement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cutRadButtonElement.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.cutRadButtonElement.Click += new System.EventHandler(this.cutRadButtonElement_Click);
+            // 
+            // copyRadButtonElement
+            // 
+            this.copyRadButtonElement.AccessibleDescription = " Kopiuj";
+            this.copyRadButtonElement.AccessibleName = " Kopiuj";
+            this.copyRadButtonElement.Class = "ButtonElement";
+            this.copyRadButtonElement.Image = global::CarsApp.UI.Properties.Resources.ImgCopy15x15;
+            this.copyRadButtonElement.Name = "copyRadButtonElement";
+            this.copyRadButtonElement.ShowBorder = false;
+            this.copyRadButtonElement.Text = " Kopiuj";
+            this.copyRadButtonElement.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.copyRadButtonElement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.copyRadButtonElement.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.copyRadButtonElement.Click += new System.EventHandler(this.copyRadButtonElement_Click);
+            // 
+            // objectDetailsActionsRadRibbonBarGroup
+            // 
+            this.objectDetailsActionsRadRibbonBarGroup.AccessibleDescription = "Akcje";
+            this.objectDetailsActionsRadRibbonBarGroup.AccessibleName = "Akcje";
+            this.objectDetailsActionsRadRibbonBarGroup.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.deleteObjectRadButtonElement});
+            this.objectDetailsActionsRadRibbonBarGroup.Margin = new System.Windows.Forms.Padding(0);
+            this.objectDetailsActionsRadRibbonBarGroup.MaxSize = new System.Drawing.Size(0, 0);
+            this.objectDetailsActionsRadRibbonBarGroup.MinSize = new System.Drawing.Size(0, 0);
+            this.objectDetailsActionsRadRibbonBarGroup.Name = "objectDetailsActionsRadRibbonBarGroup";
+            this.objectDetailsActionsRadRibbonBarGroup.Text = "Akcje";
+            this.objectDetailsActionsRadRibbonBarGroup.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // deleteObjectRadButtonElement
+            // 
+            this.deleteObjectRadButtonElement.AccessibleDescription = "Usuń";
+            this.deleteObjectRadButtonElement.AccessibleName = "Usuń";
+            this.deleteObjectRadButtonElement.Class = "RibbonBarButtonElement";
+            this.deleteObjectRadButtonElement.Image = global::CarsApp.UI.Properties.Resources.ImgDelete;
+            this.deleteObjectRadButtonElement.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.deleteObjectRadButtonElement.Name = "deleteObjectRadButtonElement";
+            this.deleteObjectRadButtonElement.Text = "Usuń";
+            this.deleteObjectRadButtonElement.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.deleteObjectRadButtonElement.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.deleteObjectRadButtonElement.Click += new System.EventHandler(this.deleteRadButtonElement_Click);
+            // 
+            // mainRadRibbonBar
+            // 
+            this.mainRadRibbonBar.AutoSize = true;
+            this.mainRadRibbonBar.CommandTabs.AddRange(new Telerik.WinControls.RadItem[] {
+            this.managementRibbonTab,
+            this.editRibbonTab});
+            this.mainRadRibbonBar.Dock = System.Windows.Forms.DockStyle.Top;
+            // 
+            // 
+            // 
+            this.mainRadRibbonBar.ExitButton.AccessibleDescription = "Exit";
+            this.mainRadRibbonBar.ExitButton.AccessibleName = "Exit";
+            // 
+            // 
+            // 
+            this.mainRadRibbonBar.ExitButton.ButtonElement.AccessibleDescription = "Exit";
+            this.mainRadRibbonBar.ExitButton.ButtonElement.AccessibleName = "Exit";
+            this.mainRadRibbonBar.ExitButton.Text = "Exit";
+            this.mainRadRibbonBar.Location = new System.Drawing.Point(0, 0);
+            this.mainRadRibbonBar.Name = "mainRadRibbonBar";
+            // 
+            // 
+            // 
+            this.mainRadRibbonBar.OptionsButton.AccessibleDescription = "Options";
+            this.mainRadRibbonBar.OptionsButton.AccessibleName = "Options";
+            // 
+            // 
+            // 
+            this.mainRadRibbonBar.OptionsButton.ButtonElement.AccessibleDescription = "Options";
+            this.mainRadRibbonBar.OptionsButton.ButtonElement.AccessibleName = "Options";
+            this.mainRadRibbonBar.OptionsButton.Text = "Options";
+            this.mainRadRibbonBar.QuickAccessToolBarHeight = 0;
+            this.mainRadRibbonBar.ShowExpandButton = false;
+            this.mainRadRibbonBar.Size = new System.Drawing.Size(934, 124);
+            this.mainRadRibbonBar.StartButtonImage = null;
+            this.mainRadRibbonBar.TabIndex = 0;
+            ((Telerik.WinControls.UI.RadRibbonBarElement)(this.mainRadRibbonBar.GetChildAt(0))).QuickAccessMenuHeight = 0;
+            ((Telerik.WinControls.UI.RadRibbonBarElement)(this.mainRadRibbonBar.GetChildAt(0))).Text = "";
+            ((Telerik.WinControls.UI.RadRibbonBarElement)(this.mainRadRibbonBar.GetChildAt(0))).AutoSize = true;
+            ((Telerik.WinControls.UI.RadRibbonBarElement)(this.mainRadRibbonBar.GetChildAt(0))).ShouldPaint = false;
+            ((Telerik.WinControls.UI.RadQuickAccessToolBar)(this.mainRadRibbonBar.GetChildAt(0).GetChildAt(0))).Enabled = true;
+            ((Telerik.WinControls.UI.RadQuickAccessToolBar)(this.mainRadRibbonBar.GetChildAt(0).GetChildAt(0))).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
+            ((Telerik.WinControls.UI.RadRibbonBarCaption)(this.mainRadRibbonBar.GetChildAt(0).GetChildAt(1))).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
+            ((Telerik.WinControls.UI.RadApplicationMenuButtonElement)(this.mainRadRibbonBar.GetChildAt(0).GetChildAt(3))).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
+            // 
+            // closeButton
+            // 
+            this.closeButton.Location = new System.Drawing.Point(433, 3);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(75, 24);
+            this.closeButton.TabIndex = 0;
+            this.closeButton.Text = "Zamknij";
+            this.closeButton.Click += new System.EventHandler(this.cancelRadButtonElement_Click);
+            // 
+            // downPanel
+            // 
+            this.downPanel.Controls.Add(this.closeButton);
+            this.downPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.downPanel.Location = new System.Drawing.Point(0, 484);
+            this.downPanel.Name = "downPanel";
+            this.downPanel.Size = new System.Drawing.Size(934, 32);
+            this.downPanel.TabIndex = 2;
+            // 
+            // mainPanel
+            // 
+            this.mainPanel.Controls.Add(this.CarProductCollectionGrid);
+            this.mainPanel.Controls.Add(this.mainGroupBox);
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPanel.Location = new System.Drawing.Point(0, 124);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(934, 392);
+            this.mainPanel.TabIndex = 1;
+            // 
+            // CarProductCollectionGrid
+            // 
+            this.CarProductCollectionGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CarProductCollectionGrid.BackColor = System.Drawing.SystemColors.Control;
+            this.CarProductCollectionGrid.Cursor = System.Windows.Forms.Cursors.Default;
+            this.CarProductCollectionGrid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.CarProductCollectionGrid.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.CarProductCollectionGrid.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.CarProductCollectionGrid.Location = new System.Drawing.Point(0, 112);
+            // 
+            // CarProductCollectionGrid
+            // 
+            this.CarProductCollectionGrid.MasterTemplate.AllowAddNewRow = false;
+            this.CarProductCollectionGrid.MasterTemplate.AllowColumnReorder = false;
+            this.CarProductCollectionGrid.MasterTemplate.AllowDeleteRow = false;
+            this.CarProductCollectionGrid.MasterTemplate.AllowEditRow = false;
+            this.CarProductCollectionGrid.MasterTemplate.AllowRowResize = false;
+            this.CarProductCollectionGrid.MasterTemplate.AutoGenerateColumns = false;
+            this.CarProductCollectionGrid.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            gridViewTextBoxColumn3.EnableExpressionEditor = false;
+            gridViewTextBoxColumn3.FieldName = "CarProduct.CarModel.Name";
+            gridViewTextBoxColumn3.FormatString = "";
+            gridViewTextBoxColumn3.HeaderText = "Model";
+            gridViewTextBoxColumn3.Name = "Model";
+            gridViewTextBoxColumn3.Width = 159;
+            gridViewTextBoxColumn4.EnableExpressionEditor = false;
+            gridViewTextBoxColumn4.FieldName = "CarProduct.VIN";
+            gridViewTextBoxColumn4.FormatString = "";
+            gridViewTextBoxColumn4.HeaderText = "VIN";
+            gridViewTextBoxColumn4.IsAutoGenerated = true;
+            gridViewTextBoxColumn4.Name = "VIN";
+            gridViewTextBoxColumn4.Width = 159;
+            gridViewDecimalColumn2.EnableExpressionEditor = false;
+            gridViewDecimalColumn2.FieldName = "CarProduct.Year";
+            gridViewDecimalColumn2.FormatString = "";
+            gridViewDecimalColumn2.HeaderText = "Rocznik";
+            gridViewDecimalColumn2.IsAutoGenerated = true;
+            gridViewDecimalColumn2.Name = "Year";
+            gridViewDecimalColumn2.SortOrder = Telerik.WinControls.UI.RadSortOrder.Descending;
+            gridViewDecimalColumn2.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            gridViewDecimalColumn2.Width = 159;
+            gridViewDateTimeColumn3.EnableExpressionEditor = false;
+            gridViewDateTimeColumn3.FieldName = "HandleDate";
+            gridViewDateTimeColumn3.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            gridViewDateTimeColumn3.FormatString = "";
+            gridViewDateTimeColumn3.HeaderText = "Data przyjęcia";
+            gridViewDateTimeColumn3.Name = "HandleDate";
+            gridViewDateTimeColumn3.Width = 157;
+            gridViewCheckBoxColumn2.EnableExpressionEditor = false;
+            gridViewCheckBoxColumn2.FieldName = "IsFixed";
+            gridViewCheckBoxColumn2.FormatString = "";
+            gridViewCheckBoxColumn2.HeaderText = "Czy naprawiony";
+            gridViewCheckBoxColumn2.MinWidth = 20;
+            gridViewCheckBoxColumn2.Name = "IsFixed";
+            gridViewCheckBoxColumn2.Width = 157;
+            gridViewDateTimeColumn4.EnableExpressionEditor = false;
+            gridViewDateTimeColumn4.FieldName = "FixDate";
+            gridViewDateTimeColumn4.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            gridViewDateTimeColumn4.FormatString = "";
+            gridViewDateTimeColumn4.HeaderText = "Data naprawienia";
+            gridViewDateTimeColumn4.Name = "FixDate";
+            gridViewDateTimeColumn4.Width = 147;
+            this.CarProductCollectionGrid.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewTextBoxColumn3,
+            gridViewTextBoxColumn4,
+            gridViewDecimalColumn2,
+            gridViewDateTimeColumn3,
+            gridViewCheckBoxColumn2,
+            gridViewDateTimeColumn4});
+            this.CarProductCollectionGrid.MasterTemplate.EnableAlternatingRowColor = true;
+            this.CarProductCollectionGrid.MasterTemplate.EnableFiltering = true;
+            this.CarProductCollectionGrid.MasterTemplate.EnableGrouping = false;
+            this.CarProductCollectionGrid.MasterTemplate.ShowRowHeaderColumn = false;
+            sortDescriptor2.Direction = System.ComponentModel.ListSortDirection.Descending;
+            sortDescriptor2.PropertyName = "Year";
+            this.CarProductCollectionGrid.MasterTemplate.SortDescriptors.AddRange(new Telerik.WinControls.Data.SortDescriptor[] {
+            sortDescriptor2});
+            this.CarProductCollectionGrid.Name = "CarProductCollectionGrid";
+            this.CarProductCollectionGrid.ReadOnly = true;
+            this.CarProductCollectionGrid.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.CarProductCollectionGrid.ShowGroupPanel = false;
+            this.CarProductCollectionGrid.ShowNoDataText = false;
+            this.CarProductCollectionGrid.Size = new System.Drawing.Size(934, 255);
+            this.CarProductCollectionGrid.TabIndex = 2;
+            // 
+            // mainGroupBox
+            // 
+            this.mainGroupBox.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this.mainGroupBox.Controls.Add(this.cityComboBox);
+            this.mainGroupBox.Controls.Add(this.nameTextBox);
+            this.mainGroupBox.Controls.Add(this.streetTextBox);
+            this.mainGroupBox.Controls.Add(this.postCodeTextBox);
+            this.mainGroupBox.Controls.Add(this.deleteCarButton);
+            this.mainGroupBox.Controls.Add(this.addCarButton);
+            this.mainGroupBox.Controls.Add(this.isFixedCheckBox);
+            this.mainGroupBox.Controls.Add(this.postCodeLabel);
+            this.mainGroupBox.Controls.Add(this.cityLabel);
+            this.mainGroupBox.Controls.Add(this.streetLabel);
+            this.mainGroupBox.Controls.Add(this.nameLabel);
+            this.mainGroupBox.FooterImageIndex = -1;
+            this.mainGroupBox.FooterImageKey = "";
+            this.mainGroupBox.HeaderImageIndex = -1;
+            this.mainGroupBox.HeaderImageKey = "";
+            this.mainGroupBox.HeaderMargin = new System.Windows.Forms.Padding(0);
+            this.mainGroupBox.HeaderText = "";
+            this.mainGroupBox.Location = new System.Drawing.Point(0, 0);
+            this.mainGroupBox.Name = "mainGroupBox";
+            this.mainGroupBox.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
+            // 
+            // 
+            // 
+            this.mainGroupBox.RootElement.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
+            this.mainGroupBox.Size = new System.Drawing.Size(931, 106);
+            this.mainGroupBox.TabIndex = 0;
+            // 
+            // postCodeLabel
+            // 
+            this.postCodeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.postCodeLabel.Location = new System.Drawing.Point(13, 78);
+            this.postCodeLabel.Name = "postCodeLabel";
+            this.postCodeLabel.Size = new System.Drawing.Size(79, 18);
+            this.postCodeLabel.TabIndex = 1;
+            this.postCodeLabel.Text = "Kod pocztowy:";
+            // 
+            // cityLabel
+            // 
+            this.cityLabel.BackColor = System.Drawing.Color.Transparent;
+            this.cityLabel.Location = new System.Drawing.Point(13, 30);
+            this.cityLabel.Name = "cityLabel";
+            this.cityLabel.Size = new System.Drawing.Size(43, 18);
+            this.cityLabel.TabIndex = 1;
+            this.cityLabel.Text = "Miasto:";
+            // 
+            // streetLabel
+            // 
+            this.streetLabel.BackColor = System.Drawing.Color.Transparent;
+            this.streetLabel.Location = new System.Drawing.Point(13, 54);
+            this.streetLabel.Name = "streetLabel";
+            this.streetLabel.Size = new System.Drawing.Size(33, 18);
+            this.streetLabel.TabIndex = 1;
+            this.streetLabel.Text = "Ulica:";
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.nameLabel.Location = new System.Drawing.Point(13, 6);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(42, 18);
+            this.nameLabel.TabIndex = 1;
+            this.nameLabel.Text = "Nazwa:";
+            // 
+            // HandledCarBindingSource
+            // 
+            this.HandledCarBindingSource.DataSource = typeof(CarsApp.Data.HandledCarProduct);
+            // 
+            // isFixedCheckBox
+            // 
+            this.isFixedCheckBox.AutoSize = true;
+            this.isFixedCheckBox.Location = new System.Drawing.Point(710, 7);
+            this.isFixedCheckBox.Name = "isFixedCheckBox";
+            this.isFixedCheckBox.Size = new System.Drawing.Size(208, 17);
+            this.isFixedCheckBox.TabIndex = 3;
+            this.isFixedCheckBox.Text = "Oznacz samochód jako naprawiony";
+            this.isFixedCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // addCarButton
+            // 
+            this.addCarButton.Location = new System.Drawing.Point(710, 41);
+            this.addCarButton.Name = "addCarButton";
+            this.addCarButton.Size = new System.Drawing.Size(130, 23);
+            this.addCarButton.TabIndex = 4;
+            this.addCarButton.Text = "Dodaj samochód";
+            this.addCarButton.UseVisualStyleBackColor = true;
+            // 
+            // deleteCarButton
+            // 
+            this.deleteCarButton.Location = new System.Drawing.Point(710, 70);
+            this.deleteCarButton.Name = "deleteCarButton";
+            this.deleteCarButton.Size = new System.Drawing.Size(130, 23);
+            this.deleteCarButton.TabIndex = 5;
+            this.deleteCarButton.Text = "Usuń samochód";
+            this.deleteCarButton.UseVisualStyleBackColor = true;
+            // 
+            // postCodeTextBox
+            // 
+            this.postCodeTextBox.Location = new System.Drawing.Point(98, 78);
+            this.postCodeTextBox.Message = "Nazwa miasta nie może być pusta";
+            this.postCodeTextBox.Name = "postCodeTextBox";
+            this.postCodeTextBox.RegularExpressionString = null;
+            this.postCodeTextBox.Size = new System.Drawing.Size(343, 20);
+            this.postCodeTextBox.TabIndex = 6;
+            this.postCodeTextBox.TabStop = false;
+            this.postCodeTextBox.ValidationType = LGBS.MVPFramework.Controls.TextBoxDataValidator.TextBoxValidationType.NotNullValidation;
+            // 
+            // streetTextBox
+            // 
+            this.streetTextBox.Location = new System.Drawing.Point(98, 54);
+            this.streetTextBox.Message = "Nazwa miasta nie może być pusta";
+            this.streetTextBox.Name = "streetTextBox";
+            this.streetTextBox.RegularExpressionString = null;
+            this.streetTextBox.Size = new System.Drawing.Size(343, 20);
+            this.streetTextBox.TabIndex = 2;
+            this.streetTextBox.TabStop = false;
+            this.streetTextBox.ValidationType = LGBS.MVPFramework.Controls.TextBoxDataValidator.TextBoxValidationType.NotNullValidation;
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Location = new System.Drawing.Point(98, 6);
+            this.nameTextBox.Message = "Nazwa miasta nie może być pusta";
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.RegularExpressionString = null;
+            this.nameTextBox.Size = new System.Drawing.Size(343, 20);
+            this.nameTextBox.TabIndex = 2;
+            this.nameTextBox.TabStop = false;
+            this.nameTextBox.ValidationType = LGBS.MVPFramework.Controls.TextBoxDataValidator.TextBoxValidationType.NotNullValidation;
+            // 
+            // cityComboBox
+            // 
+            this.cityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cityComboBox.Enabled = false;
+            this.cityComboBox.Location = new System.Drawing.Point(98, 30);
+            this.cityComboBox.Name = "cityComboBox";
+            this.cityComboBox.Size = new System.Drawing.Size(165, 21);
+            this.cityComboBox.TabIndex = 1;
+            // 
+            // CarServiceDetails
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(934, 516);
+            this.Controls.Add(this.downPanel);
+            this.Controls.Add(this.mainPanel);
+            this.Controls.Add(this.mainRadRibbonBar);
+            this.EnableDataValidation = true;
+            this.Name = "CarServiceDetails";
+            this.ShowInTaskbar = false;
+            this.Shown += new System.EventHandler(this.CarServiceDetails_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.CarServiceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainRadRibbonBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();
+            this.downPanel.ResumeLayout(false);
+            this.mainPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CarProductCollectionGrid.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CarProductCollectionGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainGroupBox)).EndInit();
+            this.mainGroupBox.ResumeLayout(false);
+            this.mainGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.postCodeLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cityLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.streetLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nameLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HandledCarBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postCodeTextBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.streetTextBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nameTextBox)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.BindingSource CarServiceBindingSource;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Panel downPanel;
+        private LGBS.MVPFramework.Controls.LGBSButton closeButton;
+        private System.Windows.Forms.Panel mainPanel;
+        private LGBS.MVPFramework.Controls.LGBSGridView CarProductCollectionGrid;
+        private LGBS.MVPFramework.Controls.LGBSGroupBox mainGroupBox;
+        private LGBS.MVPFramework.Controls.LGBSLabel postCodeLabel;
+        private LGBS.MVPFramework.Controls.LGBSLabel cityLabel;
+        private LGBS.MVPFramework.Controls.LGBSLabel streetLabel;
+        private LGBS.MVPFramework.Controls.LGBSLabel nameLabel;
+        private Telerik.WinControls.UI.RadRibbonBar mainRadRibbonBar;
+        private Telerik.WinControls.UI.RibbonTab managementRibbonTab;
+        private Telerik.WinControls.UI.RadRibbonBarGroup actionsRadRibbonBarGroup;
+        private Telerik.WinControls.UI.RadButtonElement editRadButtonElement;
+        private Telerik.WinControls.UI.RadButtonElement deleteRadButtonElement;
+        private Telerik.WinControls.UI.RibbonTab editRibbonTab;
+        private Telerik.WinControls.UI.RadRibbonBarGroup commitRadRibbonBarGroup;
+        private Telerik.WinControls.UI.RadButtonElement okRadButtonElement;
+        private Telerik.WinControls.UI.RadButtonElement cancelRadButtonElement;
+        private Telerik.WinControls.UI.RadRibbonBarGroup clipboardRadRibbonBarGroup;
+        private Telerik.WinControls.UI.RadButtonElement pasteRadButtonElement;
+        private Telerik.WinControls.UI.RadRibbonBarButtonGroup clipboardRadRibbonBarButtonGroup;
+        private Telerik.WinControls.UI.RadButtonElement cutRadButtonElement;
+        private Telerik.WinControls.UI.RadButtonElement copyRadButtonElement;
+        private Telerik.WinControls.UI.RadRibbonBarGroup objectDetailsActionsRadRibbonBarGroup;
+        private Telerik.WinControls.UI.RadButtonElement deleteObjectRadButtonElement;
+        private System.Windows.Forms.BindingSource HandledCarBindingSource;
+        private System.Windows.Forms.Button deleteCarButton;
+        private System.Windows.Forms.Button addCarButton;
+        private System.Windows.Forms.CheckBox isFixedCheckBox;
+        private LGBS.MVPFramework.Controls.LGBSTextBox nameTextBox;
+        private LGBS.MVPFramework.Controls.LGBSTextBox streetTextBox;
+        private LGBS.MVPFramework.Controls.LGBSTextBox postCodeTextBox;
+        private System.Windows.Forms.ComboBox cityComboBox;
+    }
+}

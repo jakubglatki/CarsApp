@@ -155,3 +155,4 @@ D:\Program Files\GitHub\jnet-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-
 D:\Program Files\GitHub\jnet-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.exe
 D:\Program Files\GitHub\jnet-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.pdb
 D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.CarServicesViewList.resources
+D:\Program Files\GitHub\jakgla-net-desktop_mvp\Net Desktop LGBS Framework\Desktop\MVP-Desktop\Desktop-CarsApp\CarsApp\CarsApp.UI\obj\Debug\CarsApp.UI.CarServiceDetails.resources

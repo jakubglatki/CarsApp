@@ -51,7 +51,8 @@ namespace CarsApp.UI
                             break;
                         case ViewMode.Edit:
                         case ViewMode.ReadOnly:
-                          //  View.CurrentCarService = Service.GetObjectById(this.ObjectId);
+                            //  View.CurrentCarService = Service.GetObjectById(this.ObjectId);
+                            View.HandledCarProductsCollection = Service.GetHandledCarProductCollection(View.CurrentCarService);
                             break;
                         default:
                             throw new ViewModeNotSupportedException();

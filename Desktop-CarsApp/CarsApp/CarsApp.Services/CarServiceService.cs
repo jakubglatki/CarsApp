@@ -141,6 +141,15 @@ namespace CarsApp.Services
             return GetCarServiceCollection(pageIndex, pageSize, searchCriteria, string.Empty, out allElementCount);
         }
 
+        public ICollection<HandledCarProduct> GetHandledCarProductCollection(CarService carService)
+        {
+            CarServiceSearchCriteria searchCriteria = new CarServiceSearchCriteria();
+            return this.DB.HandledCarProducts
+                .AsExpandable()
+                .Where(searchCriteria.GetFilterExpressionForHandledCarProduct(carService))
+                .ToList();
+                
+        }
         #endregion Public methods
     }
 }

@@ -6,6 +6,7 @@ using LGBS.MVPFramework.Data;
 using LGBS.MVPFramework.Controls;
 using LGBS.MVPFramework.UI;
 using Telerik.WinControls.UI;
+using CarsApp.UI.Managers;
 
 namespace CarsApp.UI
 {
@@ -65,6 +66,15 @@ namespace CarsApp.UI
         {
             get { return CarServiceBindingSource.DataSource as CarService; }
             set { CarServiceBindingSource.DataSource = value; }
+        }
+
+        /// <summary>
+        /// Bieżący obiekt wyświetlany w widoku.
+        /// </summary>
+        public ICollection<HandledCarProduct> HandledCarProductsCollection
+        {
+            get { return HandledCarBindingSource.DataSource as ICollection<HandledCarProduct>; }
+            set { HandledCarBindingSource.DataSource = value; }
         }
 
         #endregion View Specific
@@ -430,6 +440,18 @@ namespace CarsApp.UI
         private void deleteCarButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void CarProductCollectionGrid_CellFormating(object sender, CellFormattingEventArgs e)
+        {
+            if ((CarProductCollectionGrid.Rows[e.RowIndex].DataBoundItem != null) &&
+                (CarProductCollectionGrid.Columns[e.ColumnIndex].FieldName.Contains(".")))
+            {
+                e.CellElement.Value = PropertyBindingManager.BindProperty(
+                              CarProductCollectionGrid.Rows[e.RowIndex].DataBoundItem,
+                              CarProductCollectionGrid.Columns[e.ColumnIndex].FieldName
+                            );
+            }
         }
     }
 }

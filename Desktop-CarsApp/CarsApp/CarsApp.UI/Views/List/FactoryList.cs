@@ -401,7 +401,7 @@ namespace CarsApp.UI
 
 
         /// <summary>
-        /// Obsługa czyszczenia kryteriów wyszukiwania.
+        /// Obsługa wyznaczania atrybutów tabeli.
         /// </summary>
         /// <param name="sender">Sender.</param>
         /// <param name="e">CellFormattingEventArgs.</param>

@@ -26,23 +26,30 @@ namespace CarsApp.UI.Managers
 
 			if (propertyName.Contains("."))
 			{
-				PropertyInfo[] arrayProperties;
-				string leftPropertyName;
+				if (property == null)
+					return retValue;
 
-				leftPropertyName = propertyName.Substring(0, propertyName.IndexOf("."));
-				arrayProperties = property.GetType().GetProperties();
+					PropertyInfo[] arrayProperties;
+					string leftPropertyName;
 
-				foreach (PropertyInfo propertyInfo in arrayProperties)
-				{
-					if (propertyInfo.Name == leftPropertyName)
+					leftPropertyName = propertyName.Substring(0, propertyName.IndexOf("."));
+					arrayProperties = property.GetType().GetProperties();
+
+					foreach (PropertyInfo propertyInfo in arrayProperties)
 					{
-						retValue = BindProperty(propertyInfo.GetValue(property, null), propertyName.Substring(propertyName.IndexOf(".") + 1));
-						break;
+						if (propertyInfo.Name == leftPropertyName)
+						{
+							retValue = BindProperty(propertyInfo.GetValue(property, null), propertyName.Substring(propertyName.IndexOf(".") + 1));
+							break;
+						}
 					}
-				}
+				
 			}
 			else
 			{
+				if (property == null)
+					return retValue;
+
 				Type propertyType;
 				PropertyInfo propertyInfo;
 
@@ -51,7 +58,8 @@ namespace CarsApp.UI.Managers
 				retValue = propertyInfo.GetValue(property, null).ToString();
 			}
 
-			return retValue;
+				return retValue;
+			
 		}
 
 		#endregion Protected methods

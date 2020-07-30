@@ -7,6 +7,7 @@ using LGBS.MVPFramework.Controls;
 using LGBS.MVPFramework.UI;
 using Telerik.WinControls.UI;
 using CarsApp.UI.Managers;
+using System.Windows.Forms;
 
 namespace CarsApp.UI
 {
@@ -66,6 +67,15 @@ namespace CarsApp.UI
         {
             get { return CarServiceBindingSource.DataSource as CarService; }
             set { CarServiceBindingSource.DataSource = value; }
+        }
+
+        /// <summary>
+        /// Bieżący obiekt wyświetlany w widoku.
+        /// </summary>
+        public HandledCarProduct CurrentHandledCarProduct
+        {
+            get { return HandledCarBindingSource.Current as HandledCarProduct; }
+            set { HandledCarBindingSource.DataSource = value; }
         }
 
         /// <summary>
@@ -207,7 +217,7 @@ namespace CarsApp.UI
         {
             // tytuł okna
             // TODO [UITemplate] - optional: Zmienić tytuł widoku
-            this.Text = "CarService - details";
+            this.Text = "Szczegóły serwisu";
 
             // pokazanie tab'a Zarządzanie
             managementRibbonTab.Visibility = Telerik.WinControls.ElementVisibility.Visible;
@@ -439,19 +449,54 @@ namespace CarsApp.UI
 
         private void deleteCarButton_Click(object sender, EventArgs e)
         {
-
+            Presenter.DeleteHandledCarProduct(CurrentHandledCarProduct);
         }
 
         private void CarProductCollectionGrid_CellFormating(object sender, CellFormattingEventArgs e)
         {
-            if ((CarProductCollectionGrid.Rows[e.RowIndex].DataBoundItem != null) &&
-                (CarProductCollectionGrid.Columns[e.ColumnIndex].FieldName.Contains(".")))
+            if (e.CellElement.Value != null)
             {
-                e.CellElement.Value = PropertyBindingManager.BindProperty(
-                              CarProductCollectionGrid.Rows[e.RowIndex].DataBoundItem,
-                              CarProductCollectionGrid.Columns[e.ColumnIndex].FieldName
-                            );
+                if ((CarProductCollectionGrid.Rows[e.RowIndex].DataBoundItem != null) &&
+                    (CarProductCollectionGrid.Columns[e.ColumnIndex].FieldName.Contains(".")))
+                {
+                    e.CellElement.Value = PropertyBindingManager.BindProperty(
+                                  CarProductCollectionGrid.Rows[e.RowIndex].DataBoundItem,
+                                  CarProductCollectionGrid.Columns[e.ColumnIndex].FieldName
+                                );
+                }
             }
+        }
+
+        private void CarProductCollectionGrid_SelectionChanged(object sender, EventArgs e)
+        {
+
+            if (CurrentHandledCarProduct.IsFixed == false)
+                this.isFixedCheckBox.Checked = false;
+
+            else if (CurrentHandledCarProduct.IsFixed == true)
+                this.isFixedCheckBox.Checked = true;
+        }
+
+        private void isFixedCheckBox_Click(object sender, EventArgs e)
+        {
+            if (CurrentHandledCarProduct.IsFixed == false)
+            {
+                CurrentHandledCarProduct.IsFixed = true;
+                CurrentHandledCarProduct.FixDate = DateTime.Now;
+                Presenter.SaveData();
+            }
+            else if (CurrentHandledCarProduct.IsFixed == true)
+            {
+                CurrentHandledCarProduct.IsFixed = false;
+                CurrentHandledCarProduct.FixDate = DateTime.MaxValue;
+                Presenter.SaveData();
+            }
+        }
+
+        private void addCarButton_Click(object sender, EventArgs e)
+        {
+            Presenter.ShowCarProductsInDictionaryMode();
+            this.Hide();
         }
     }
 }

@@ -17,8 +17,14 @@ namespace CarsApp.UI
         /// </summary>
         CarService CurrentCarService { get; set; }
 
+
         /// <summary>
         /// Aktualnie wyświetlana / edytowana encja.
+        /// </summary>
+        HandledCarProduct CurrentHandledCarProduct { get; set; }
+
+        /// <summary>
+        /// Lista HandledCarProduct
         /// </summary>
         ICollection<HandledCarProduct> HandledCarProductsCollection { get; set; }
         #endregion Properties

@@ -232,6 +232,7 @@ namespace CarsApp.UI
 					this.SetViewForOneFactoryMode(factory.CurrentFactory);
 				}
 
+				
 			}
 		}
 
@@ -469,7 +470,17 @@ namespace CarsApp.UI
 			this.modelComboBox.DataSource = this.ModelCollectionBindingSource;
 			this.modelComboBox.DisplayMember = "Name";
 		}
-		#endregion Handlers
+        #endregion Handlers
 
+
+        private void CarProductCollectionGrid_CellDoubleClick(object sender, GridViewCellEventArgs e)
+        {
+
+			CarServiceDetails carService = new CarServiceDetails();
+			if (ParentView.GetType() == carService.GetType())
+			{
+				ParentView.Show();
+			}
+		}
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CarsApp.Data;
 using CarsApp.Services;
+using LGBS.MVPFramework.Data;
 using LGBS.MVPFramework.UI;
 
 namespace CarsApp.UI
@@ -72,11 +73,31 @@ namespace CarsApp.UI
         {
         }
 
+        protected override void DeleteObject(IObjectWithId obj)
+        {
+            if (obj != null)
+            {
+                base.DeleteObject(obj);
+                View.RefreshData();
+            }
+        }
         #endregion Overrides
 
         #endregion Protected methods
 
         #region Public methods
+
+        public void DeleteHandledCarProduct(HandledCarProduct handledCarProduct)
+        {
+            this.DeleteObject(handledCarProduct);
+        }
+
+
+        public void ShowCarProductsInDictionaryMode()
+        {
+            ICarProductList view = CarsViewFactory.Factory.CreateViewInstance<ICarProductList>(View);
+            view.Show(ViewMode.Dictionary);
+        }
 
         public void SetCurrentCarService(CarServicesView view)
         {

@@ -78,6 +78,24 @@ namespace CarsApp.UI
             set { HandledCarBindingSource.DataSource = value; }
         }
 
+
+        private CarProduct _carProductToAdd;
+        /// <summary>
+        /// CarProduct do dodania.
+        /// </summary>
+        public CarProduct CarProductToAdd
+        {
+            get
+            {
+                return this._carProductToAdd;
+            }
+            set 
+            {
+                _carProductToAdd = value;
+              Presenter.AddCarProduct();
+            }
+        }
+
         /// <summary>
         /// Bieżący obiekt wyświetlany w widoku.
         /// </summary>

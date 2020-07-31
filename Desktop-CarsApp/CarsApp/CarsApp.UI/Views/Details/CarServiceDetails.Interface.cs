@@ -23,6 +23,12 @@ namespace CarsApp.UI
         /// </summary>
         HandledCarProduct CurrentHandledCarProduct { get; set; }
 
+
+        /// <summary>
+        /// CarProduct do dodania.
+        /// </summary>
+        CarProduct CarProductToAdd { get; set; }
+
         /// <summary>
         /// Lista HandledCarProduct
         /// </summary>

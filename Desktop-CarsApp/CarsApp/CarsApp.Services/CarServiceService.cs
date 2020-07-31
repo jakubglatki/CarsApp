@@ -150,6 +150,13 @@ namespace CarsApp.Services
                 .ToList();
                 
         }
+
+        public void AddToHandledCarProductCollection(CarService carService, CarProduct carProduct)
+        {
+            HandledCarProduct handledCarProduct = HandledCarProduct.CreateHandledCarProduct(carService.Id, carProduct.Id, DateTime.Now, false, DateTime.MaxValue);
+            this.DB.HandledCarProducts.AddObject(handledCarProduct);
+            this.DB.SaveChanges();
+        }
         #endregion Public methods
     }
 }

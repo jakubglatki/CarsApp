@@ -220,6 +220,8 @@ namespace CarsApp.UI
 				this.SupportsDelete = false;
 				this.SupportsAddNew = false;
 				this.SupportsEdit = false;
+
+				this.TopMost = true;
 			}
 
 
@@ -231,8 +233,6 @@ namespace CarsApp.UI
 					factory = (FactoryList)parentView;
 					this.SetViewForOneFactoryMode(factory.CurrentFactory);
 				}
-
-				
 			}
 		}
 
@@ -475,10 +475,11 @@ namespace CarsApp.UI
 
         private void CarProductCollectionGrid_CellDoubleClick(object sender, GridViewCellEventArgs e)
         {
-
 			CarServiceDetails carService = new CarServiceDetails();
 			if (ParentView.GetType() == carService.GetType())
 			{
+				carService = (CarServiceDetails)ParentView;
+				carService.CarProductToAdd = this.CurrentCarProduct;
 				ParentView.Show();
 			}
 		}

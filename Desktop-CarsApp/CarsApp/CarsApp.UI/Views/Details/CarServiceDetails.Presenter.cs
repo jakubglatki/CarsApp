@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 using CarsApp.Data;
 using CarsApp.Services;
 using LGBS.MVPFramework.Data;
@@ -99,6 +100,21 @@ namespace CarsApp.UI
             view.Show(ViewMode.Dictionary);
         }
 
+        public void AddCarProduct()
+        {
+            foreach (HandledCarProduct carProduct in View.HandledCarProductsCollection)
+            {
+                if (carProduct.CarServiceId == View.CurrentCarService.Id && carProduct.CarProductId == View.CarProductToAdd.Id)
+                {
+                    this.ShowCarInServiceMessageWindow();
+                    return;
+                }
+            }
+           Service.AddToHandledCarProductCollection(View.CurrentCarService, View.CarProductToAdd);
+           View.RefreshData();
+            
+        }
+
         public void SetCurrentCarService(CarServicesView view)
         {
             foreach (CarService carService in Service.GetCarServiceCollection())
@@ -109,8 +125,23 @@ namespace CarsApp.UI
                     break;
                 }
             }
-
-            #endregion Public methods
         }
+            #endregion Public methods
+
+            #region Private methods
+
+        private void ShowCarInServiceMessageWindow()
+        {
+
+            string message = "Wybrany samochód już się znajduje w tym serwisie";
+            string caption = "Błąd";
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+
+            System.Windows.Forms.DialogResult result;
+            result = MessageBox.Show(message, caption, buttons);
+        }
+
+            #endregion Private methods
+        
     }
 }

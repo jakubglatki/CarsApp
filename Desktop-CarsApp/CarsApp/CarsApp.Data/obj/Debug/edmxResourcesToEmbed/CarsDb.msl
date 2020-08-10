@@ -41,6 +41,7 @@
     <EntitySetMapping Name="CarProducts">
       <EntityTypeMapping TypeName="IsTypeOf(CarsDb.Data.CarProduct)">
         <MappingFragment StoreEntitySet="CarProducts">
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Year" ColumnName="Year" />
           <ScalarProperty Name="VIN" ColumnName="VIN" />
@@ -114,5 +115,25 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="FixCarProduct" FunctionName="CarsDb.Store.FixCarProduct" />
+    <EntitySetMapping Name="CarServicesCars">
+      <EntityTypeMapping TypeName="CarsDb.Data.CarServicesCar">
+        <MappingFragment StoreEntitySet="CarServicesCar">
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+          <ScalarProperty Name="LoanDate" ColumnName="LoanDate" />
+          <ScalarProperty Name="CarServiceId" ColumnName="CarServiceId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="CarsDb.Data.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

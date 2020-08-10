@@ -27,6 +27,11 @@
         <AssociationConnector Association="CarsDb.Data.FK_CarServiceCity" />
         <AssociationConnector Association="CarsDb.Data.HandledCarProductCarService" />
         <EntityTypeShape EntityType="CarsDb.Data.CarServicesView" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarsDb.Data.CarServicesCar" Width="1.5" PointX="11" PointY="9.875" />
+        <EntityTypeShape EntityType="CarsDb.Data.Person" Width="1.5" PointX="8.75" PointY="9.125" />
+        <AssociationConnector Association="CarsDb.Data.FK_CarProductPerson" />
+        <AssociationConnector Association="CarsDb.Data.FK_CarServicesCarCarService" />
+        <AssociationConnector Association="CarsDb.Data.FK_CarServicesCarPerson" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

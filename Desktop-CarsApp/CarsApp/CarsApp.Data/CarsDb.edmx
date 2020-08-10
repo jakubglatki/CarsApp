@@ -46,6 +46,7 @@
           <Property Name="VIN" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="CarModelId" Type="bigint" Nullable="false" />
           <Property Name="FactoryId" Type="bigint" Nullable="false" />
+          <Property Name="PersonId" Type="bigint" />
         </EntityType>
         <EntityType Name="CarServices">
           <Key>
@@ -56,6 +57,16 @@
           <Property Name="Street" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="CityId" Type="bigint" Nullable="false" />
           <Property Name="PostCode" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarServicesCar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="CarServiceId" Type="bigint" Nullable="false" />
+          <Property Name="LoanDate" Type="datetime" />
+          <Property Name="ReturnDate" Type="datetime" />
+          <Property Name="PersonId" Type="bigint" />
         </EntityType>
         <EntityType Name="Cities">
           <Key>
@@ -89,9 +100,9 @@
           </Key>
           <Property Name="CarServiceId" Type="bigint" Nullable="false" />
           <Property Name="CarProductId" Type="bigint" Nullable="false" />
-          <Property Name="HandleDate" Type="date" Nullable="false" />
+          <Property Name="HandleDate" Type="datetime" Nullable="false" />
           <Property Name="IsFixed" Type="bit" Nullable="false" />
-          <Property Name="FixDate" Type="date" />
+          <Property Name="FixDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Manufactures">
           <Key>
@@ -101,6 +112,14 @@
           <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="CountryId" Type="bigint" Nullable="false" />
         </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CarsDb.dbo.CarServicesView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="CarServicesView">
@@ -108,7 +127,7 @@ warning 6002: The table/view 'CarsDb.dbo.CarServicesView' does not have a primar
             <PropertyRef Name="Name" />
           </Key>
           <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="NumberOfServicedCars" Type="int" Nullable="false" />
+          <Property Name="NumberOfServicedCars" Type="int" />
         </EntityType>
         <Association Name="FK_CarFeatureCarModel_CarFeature">
           <End Role="CarFeatures" Type="Self.CarFeatures" Multiplicity="1" />
@@ -194,6 +213,18 @@ warning 6002: The table/view 'CarsDb.dbo.CarServicesView' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_CarProductPerson">
+          <End Role="Person" Type="Self.Person" Multiplicity="0..1" />
+          <End Role="CarProducts" Type="Self.CarProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarProducts">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CarServiceCity">
           <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
           <End Role="CarServices" Type="Self.CarServices" Multiplicity="*" />
@@ -203,6 +234,30 @@ warning 6002: The table/view 'CarsDb.dbo.CarServicesView' does not have a primar
             </Principal>
             <Dependent Role="CarServices">
               <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarServicesCarCarService">
+          <End Role="CarServices" Type="Self.CarServices" Multiplicity="1" />
+          <End Role="CarServicesCar" Type="Self.CarServicesCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarServices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarServicesCar">
+              <PropertyRef Name="CarServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarServicesCarPerson">
+          <End Role="Person" Type="Self.Person" Multiplicity="0..1" />
+          <End Role="CarServicesCar" Type="Self.CarServicesCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarServicesCar">
+              <PropertyRef Name="PersonId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -289,11 +344,13 @@ warning 6002: The table/view 'CarsDb.dbo.CarServicesView' does not have a primar
           <EntitySet Name="CarProductCarFeature" EntityType="Self.CarProductCarFeature" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CarProducts" EntityType="Self.CarProducts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CarServices" EntityType="Self.CarServices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarServicesCar" EntityType="Self.CarServicesCar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Factories" EntityType="Self.Factories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HandledCarProducts" EntityType="Self.HandledCarProducts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Manufactures" EntityType="Self.Manufactures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CarServicesView" EntityType="Self.CarServicesView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [CarServicesView].[Name] AS [Name], 
@@ -328,9 +385,21 @@ FROM [dbo].[CarServicesView] AS [CarServicesView]</DefiningQuery>
             <End Role="Factories" EntitySet="Factories" />
             <End Role="CarProducts" EntitySet="CarProducts" />
           </AssociationSet>
+          <AssociationSet Name="FK_CarProductPerson" Association="Self.FK_CarProductPerson">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="CarProducts" EntitySet="CarProducts" />
+          </AssociationSet>
           <AssociationSet Name="FK_CarServiceCity" Association="Self.FK_CarServiceCity">
             <End Role="Cities" EntitySet="Cities" />
             <End Role="CarServices" EntitySet="CarServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarServicesCarCarService" Association="Self.FK_CarServicesCarCarService">
+            <End Role="CarServices" EntitySet="CarServices" />
+            <End Role="CarServicesCar" EntitySet="CarServicesCar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarServicesCarPerson" Association="Self.FK_CarServicesCarPerson">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="CarServicesCar" EntitySet="CarServicesCar" />
           </AssociationSet>
           <AssociationSet Name="FK_CityCountry" Association="Self.FK_CityCountry">
             <End Role="Countries" EntitySet="Countries" />
@@ -424,6 +493,20 @@ FROM [dbo].[CarServicesView] AS [CarServicesView]</DefiningQuery>
             <Parameter Name="CarServiceId" Mode="In" Type="Int64" />
             <Parameter Name="CarProductId" Mode="In" Type="Int64" />
           </FunctionImport>
+          <EntitySet Name="CarServicesCars" EntityType="CarsDb.Data.CarServicesCar" />
+          <EntitySet Name="People" EntityType="CarsDb.Data.Person" />
+          <AssociationSet Name="FK_CarProductPerson" Association="CarsDb.Data.FK_CarProductPerson">
+            <End Role="Person" EntitySet="People" />
+            <End Role="CarProduct" EntitySet="CarProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarServicesCarCarService" Association="CarsDb.Data.FK_CarServicesCarCarService">
+            <End Role="CarService" EntitySet="CarServices" />
+            <End Role="CarServicesCar" EntitySet="CarServicesCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarServicesCarPerson" Association="CarsDb.Data.FK_CarServicesCarPerson">
+            <End Role="Person" EntitySet="People" />
+            <End Role="CarServicesCar" EntitySet="CarServicesCars" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Country">
           <Key>
@@ -506,6 +589,8 @@ FROM [dbo].[CarServicesView] AS [CarServicesView]</DefiningQuery>
           <Property Type="Int64" Name="FactoryId" Nullable="false" />
           <NavigationProperty Name="CarFeatures" Relationship="CarsDb.Data.CarProductCarFeature" FromRole="CarProduct" ToRole="CarFeature" />
           <NavigationProperty Name="HandledCarProducts" Relationship="CarsDb.Data.FK_HandledCarProductCarProduct" FromRole="CarProduct" ToRole="HandledCarProduct" />
+          <Property Name="PersonId" Type="Int64" />
+          <NavigationProperty Name="Person" Relationship="CarsDb.Data.FK_CarProductPerson" FromRole="CarProduct" ToRole="Person" />
         </EntityType>
         <Association Name="CarProductCarModel">
           <End Type="CarsDb.Data.CarProduct" Role="CarProduct" Multiplicity="*" />
@@ -607,6 +692,7 @@ FROM [dbo].[CarServicesView] AS [CarServicesView]</DefiningQuery>
           <Property Name="PostCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="City" Relationship="CarsDb.Data.FK_CarServiceCity" FromRole="CarService" ToRole="City" />
           <NavigationProperty Name="HandledCarProducts" Relationship="CarsDb.Data.FK_HandledCarProductCarService" FromRole="CarService" ToRole="HandledCarProduct" />
+          <NavigationProperty Name="CarServicesCars" Relationship="CarsDb.Data.FK_CarServicesCarCarService" FromRole="CarService" ToRole="CarServicesCar" />
         </EntityType>
         <EntityType Name="HandledCarProduct">
           <Key>
@@ -615,9 +701,9 @@ FROM [dbo].[CarServicesView] AS [CarServicesView]</DefiningQuery>
           </Key>
           <Property Name="CarServiceId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CarProductId" Type="Int64" Nullable="false" />
-          <Property Name="HandleDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="HandleDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsFixed" Type="Boolean" Nullable="false" />
-          <Property Name="FixDate" Type="DateTime" Precision="0" />
+          <Property Name="FixDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="CarProduct" Relationship="CarsDb.Data.FK_HandledCarProductCarProduct" FromRole="HandledCarProduct" ToRole="CarProduct" />
           <NavigationProperty Name="CarService" Relationship="CarsDb.Data.FK_HandledCarProductCarService" FromRole="HandledCarProduct" ToRole="CarService" />
         </EntityType>
@@ -662,8 +748,66 @@ FROM [dbo].[CarServicesView] AS [CarServicesView]</DefiningQuery>
             <PropertyRef Name="Name" />
           </Key>
           <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="NumberOfServicedCars" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfServicedCars" Type="Int32" />
         </EntityType>
+        <EntityType Name="CarServicesCar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="CarServiceId" Type="Int64" Nullable="false" />
+          <Property Name="LoanDate" Type="DateTime" Precision="3" />
+          <Property Name="ReturnDate" Type="DateTime" Precision="3" />
+          <Property Name="PersonId" Type="Int64" />
+          <NavigationProperty Name="CarService" Relationship="CarsDb.Data.FK_CarServicesCarCarService" FromRole="CarServicesCar" ToRole="CarService" />
+          <NavigationProperty Name="Person" Relationship="CarsDb.Data.FK_CarServicesCarPerson" FromRole="CarServicesCar" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CarProducts" Relationship="CarsDb.Data.FK_CarProductPerson" FromRole="Person" ToRole="CarProduct" />
+          <NavigationProperty Name="CarServicesCars" Relationship="CarsDb.Data.FK_CarServicesCarPerson" FromRole="Person" ToRole="CarServicesCar" />
+        </EntityType>
+        <Association Name="FK_CarProductPerson">
+          <End Type="CarsDb.Data.Person" Role="Person" Multiplicity="0..1" />
+          <End Type="CarsDb.Data.CarProduct" Role="CarProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarProduct">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarServicesCarCarService">
+          <End Type="CarsDb.Data.CarService" Role="CarService" Multiplicity="1" />
+          <End Type="CarsDb.Data.CarServicesCar" Role="CarServicesCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarService">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarServicesCar">
+              <PropertyRef Name="CarServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarServicesCarPerson">
+          <End Type="CarsDb.Data.Person" Role="Person" Multiplicity="0..1" />
+          <End Type="CarsDb.Data.CarServicesCar" Role="CarServicesCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarServicesCar">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -710,7 +854,8 @@ FROM [dbo].[CarServicesView] AS [CarServicesView]</DefiningQuery>
     <EntitySetMapping Name="CarProducts">
       <EntityTypeMapping TypeName="IsTypeOf(CarsDb.Data.CarProduct)">
         <MappingFragment StoreEntitySet="CarProducts">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Year" ColumnName="Year" />
           <ScalarProperty Name="VIN" ColumnName="VIN" />
           <ScalarProperty Name="CarModelId" ColumnName="CarModelId" />
@@ -783,6 +928,26 @@ FROM [dbo].[CarServicesView] AS [CarServicesView]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="FixCarProduct" FunctionName="CarsDb.Store.FixCarProduct" />
+          <EntitySetMapping Name="CarServicesCars">
+            <EntityTypeMapping TypeName="CarsDb.Data.CarServicesCar">
+              <MappingFragment StoreEntitySet="CarServicesCar">
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+                <ScalarProperty Name="LoanDate" ColumnName="LoanDate" />
+                <ScalarProperty Name="CarServiceId" ColumnName="CarServiceId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="People">
+            <EntityTypeMapping TypeName="CarsDb.Data.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

@@ -151,7 +151,6 @@ namespace CarsApp.UI
                     this.SetCurrentCarService(carService.CurrentCarServicesView);
                 }
             }
-            this.CarProductCollectionGrid.DataSource = HandledCarBindingSource;
         }
 
         #endregion Ctors
@@ -519,8 +518,7 @@ namespace CarsApp.UI
             if (CurrentHandledCarProduct.IsFixed == false)
             {
                 Presenter.FixCarProduct();
-                HandledCarBindingSource.DataSource = null;
-                HandledCarBindingSource.DataSource = Presenter.GetHandledCarProductsDataSource();
+                
             }
             else if (CurrentHandledCarProduct.IsFixed == true)
             {

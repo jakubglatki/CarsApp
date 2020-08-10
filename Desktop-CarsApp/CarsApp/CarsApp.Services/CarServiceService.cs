@@ -144,18 +144,25 @@ namespace CarsApp.Services
         public ICollection<HandledCarProduct> GetHandledCarProductCollection(CarService carService)
         {
             CarServiceSearchCriteria searchCriteria = new CarServiceSearchCriteria();
-            return this.DB.HandledCarProducts
+            List<HandledCarProduct> HCP= this.DB.HandledCarProducts
                 .AsExpandable()
                 .Where(searchCriteria.GetFilterExpressionForHandledCarProduct(carService))
                 .ToList();
-                
+
+            return HCP;
         }
 
         public void AddToHandledCarProductCollection(CarService carService, CarProduct carProduct)
         {
-            HandledCarProduct handledCarProduct = HandledCarProduct.CreateHandledCarProduct(carService.Id, carProduct.Id, DateTime.Now, false, DateTime.MaxValue);
+            HandledCarProduct handledCarProduct = HandledCarProduct.CreateHandledCarProduct(carService.Id, carProduct.Id, DateTime.Now, false);
             this.DB.HandledCarProducts.AddObject(handledCarProduct);
             this.DB.SaveChanges();
+        }
+
+        public void CallFixCarProductProcedure(CarService carService, CarProduct carProduct)
+        {
+            this.DB.FixCarProduct(carService.Id, carProduct.Id);
+            this.DB.Refresh( RefreshMode.StoreWins, this.DB.HandledCarProducts);
         }
         #endregion Public methods
     }

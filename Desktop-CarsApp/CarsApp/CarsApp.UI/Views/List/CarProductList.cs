@@ -479,8 +479,12 @@ namespace CarsApp.UI
 			if (ParentView.GetType() == carService.GetType())
 			{
 				carService = (CarServiceDetails)ParentView;
-				carService.CarProductToAdd = this.CurrentCarProduct;
-				ParentView.Show();
+				if (ParentView.CurrentObject != null)
+				{
+					carService.CarProductList = this;
+					carService.CarProductToAdd = this.CurrentCarProduct;
+					ParentView.ShowDialog();
+				}
 			}
 		}
     }

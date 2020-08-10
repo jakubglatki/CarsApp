@@ -30,6 +30,11 @@ namespace CarsApp.UI
         CarProduct CarProductToAdd { get; set; }
 
         /// <summary>
+        /// CarProduct do dodania.
+        /// </summary>
+        CarProductList CarProductList { get; set; }
+
+        /// <summary>
         /// Lista HandledCarProduct
         /// </summary>
         ICollection<HandledCarProduct> HandledCarProductsCollection { get; set; }

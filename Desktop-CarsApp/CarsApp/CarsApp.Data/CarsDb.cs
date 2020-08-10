@@ -2108,6 +2108,24 @@ namespace CarsApp.Data
             return handledCarProduct;
         }
 
+        /// <summary>
+        /// Create a new HandledCarProduct object.
+        /// </summary>
+        /// <param name="carServiceId">Initial value of the CarServiceId property.</param>
+        /// <param name="carProductId">Initial value of the CarProductId property.</param>
+        /// <param name="handleDate">Initial value of the HandleDate property.</param>
+        /// <param name="isFixed">Initial value of the IsFixed property.</param>
+        public static HandledCarProduct CreateHandledCarProduct(global::System.Int64 carServiceId, global::System.Int64 carProductId, global::System.DateTime handleDate, global::System.Boolean isFixed)
+        {
+            HandledCarProduct handledCarProduct = new HandledCarProduct();
+            handledCarProduct.CarServiceId = carServiceId;
+            handledCarProduct.CarProductId = carProductId;
+            handledCarProduct.HandleDate = handleDate;
+            handledCarProduct.IsFixed = isFixed;
+            handledCarProduct.FixDate = null;
+
+            return handledCarProduct;
+        }
         #endregion
 
         #region Simple Properties
@@ -2217,9 +2235,9 @@ namespace CarsApp.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
-        public global::System.DateTime FixDate
+        public global::System.DateTime? FixDate
         {
             get
             {
@@ -2234,8 +2252,8 @@ namespace CarsApp.Data
                 OnFixDateChanged();
             }
         }
-        private global::System.DateTime _FixDate;
-        partial void OnFixDateChanging(global::System.DateTime value);
+        private global::System.DateTime? _FixDate;
+        partial void OnFixDateChanging(global::System.DateTime? value);
         partial void OnFixDateChanged();
 
         #endregion

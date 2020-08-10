@@ -80,6 +80,7 @@ namespace CarsApp.UI
 
 
         private CarProduct _carProductToAdd;
+
         /// <summary>
         /// CarProduct do dodania.
         /// </summary>
@@ -94,6 +95,15 @@ namespace CarsApp.UI
                 _carProductToAdd = value;
               Presenter.AddCarProduct();
             }
+        }
+
+
+        /// <summary>
+        /// CarProductList.
+        /// </summary>
+        public CarProductList CarProductList
+        {
+            get; set;
         }
 
         /// <summary>
@@ -140,8 +150,8 @@ namespace CarsApp.UI
                     carService = (CarServiceList)parentView;
                     this.SetCurrentCarService(carService.CurrentCarServicesView);
                 }
-
             }
+            this.CarProductCollectionGrid.DataSource = HandledCarBindingSource;
         }
 
         #endregion Ctors
@@ -364,6 +374,8 @@ namespace CarsApp.UI
         /// <param name="e">EventArgs.</param>
         private void cancelRadButtonElement_Click(object sender, EventArgs e)
         {
+            if (ParentView.GetType() == typeof(CarProductList))
+                ParentView.Hide();
             base.CancelAndClose();
         }
 
@@ -495,26 +507,27 @@ namespace CarsApp.UI
                 this.isFixedCheckBox.Checked = true;
         }
 
+        private void addCarButton_Click(object sender, EventArgs e)
+        {
+                Presenter.ShowCarProductsInDictionaryMode();
+                this.Hide();
+        }
+
         private void isFixedCheckBox_Click(object sender, EventArgs e)
         {
+
             if (CurrentHandledCarProduct.IsFixed == false)
             {
-                CurrentHandledCarProduct.IsFixed = true;
-                CurrentHandledCarProduct.FixDate = DateTime.Now;
-                Presenter.SaveData();
+                Presenter.FixCarProduct();
+                HandledCarBindingSource.DataSource = null;
+                HandledCarBindingSource.DataSource = Presenter.GetHandledCarProductsDataSource();
             }
             else if (CurrentHandledCarProduct.IsFixed == true)
             {
                 CurrentHandledCarProduct.IsFixed = false;
-                CurrentHandledCarProduct.FixDate = DateTime.MaxValue;
+                CurrentHandledCarProduct.FixDate = null;
                 Presenter.SaveData();
             }
-        }
-
-        private void addCarButton_Click(object sender, EventArgs e)
-        {
-            Presenter.ShowCarProductsInDictionaryMode();
-            this.Hide();
         }
     }
 }

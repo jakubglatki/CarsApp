@@ -102,17 +102,22 @@ namespace CarsApp.UI
 
         public void AddCarProduct()
         {
-            foreach (HandledCarProduct carProduct in View.HandledCarProductsCollection)
+            if (View.CurrentObject == null)
+                return;
+            if (View.HandledCarProductsCollection != null)
             {
-                if (carProduct.CarServiceId == View.CurrentCarService.Id && carProduct.CarProductId == View.CarProductToAdd.Id)
+                foreach (HandledCarProduct carProduct in View.HandledCarProductsCollection)
                 {
-                    this.ShowCarInServiceMessageWindow();
-                    return;
+                    if (carProduct.CarServiceId == View.CurrentCarService.Id && carProduct.CarProductId == View.CarProductToAdd.Id)
+                    {
+                        View.CarProductList.Close();
+                        this.ShowCarInServiceMessageWindow();
+                        return;
+                    }
                 }
+                Service.AddToHandledCarProductCollection(View.CurrentCarService, View.CarProductToAdd);
+                View.RefreshData();
             }
-           Service.AddToHandledCarProductCollection(View.CurrentCarService, View.CarProductToAdd);
-           View.RefreshData();
-            
         }
 
         public void SetCurrentCarService(CarServicesView view)
@@ -125,6 +130,17 @@ namespace CarsApp.UI
                     break;
                 }
             }
+        }
+
+        public void FixCarProduct()
+        {
+            Service.CallFixCarProductProcedure(View.CurrentCarService, View.CurrentHandledCarProduct.CarProduct);
+            
+        }
+
+        public List<HandledCarProduct> GetHandledCarProductsDataSource()
+        {
+            return  Service.GetHandledCarProductCollection(View.CurrentCarService).ToList();
         }
             #endregion Public methods
 

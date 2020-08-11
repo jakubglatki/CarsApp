@@ -144,14 +144,21 @@ namespace CarsApp.Services
         public ICollection<HandledCarProduct> GetHandledCarProductCollection(CarService carService)
         {
             CarServiceSearchCriteria searchCriteria = new CarServiceSearchCriteria();
-            List<HandledCarProduct> HCP= this.DB.HandledCarProducts
+            return  this.DB.HandledCarProducts
                 .AsExpandable()
                 .Where(searchCriteria.GetFilterExpressionForHandledCarProduct(carService))
                 .ToList();
-
-            return HCP;
         }
+        public ICollection<CarServicesCar> GetCarServicesCarCollection(CarService carService)
+        {
+            CarServiceSearchCriteria searchCriteria = new CarServiceSearchCriteria();
 
+            return this.DB.CarServicesCars
+                .AsExpandable()
+                .Where(searchCriteria.GetFilterExpressionForCarServicesCar(carService))
+                .ToList();
+
+        }
         public void AddToHandledCarProductCollection(CarService carService, CarProduct carProduct)
         {
             HandledCarProduct handledCarProduct = HandledCarProduct.CreateHandledCarProduct(carService.Id, carProduct.Id, DateTime.Now, false);

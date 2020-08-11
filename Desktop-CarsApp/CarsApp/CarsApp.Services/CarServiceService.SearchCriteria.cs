@@ -49,6 +49,22 @@ namespace CarsApp.Services
 
             return filter;
         }
+
+
+        /// <summary>
+        /// Tworzy Expression na podstawie danych search criteria.
+        /// </summary>
+        /// <returns>Expression.</returns>
+        public Expression<Func<CarServicesCar, bool>> GetFilterExpressionForCarServicesCar(CarService carService)
+        {
+            Expression<Func<CarServicesCar, bool>> filter = PredicateBuilder.True<CarServicesCar>();
+
+            // TODO [ServiceTemplate] - optional: SearchCriteria (dodać składowe wyrażenia filtrującego)
+            filter = filter.And(x => x.CarServiceId.Equals(carService.Id));
+
+            return filter;
+        }
+
         #endregion Public methods
     }
 }

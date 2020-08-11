@@ -115,6 +115,15 @@ namespace CarsApp.UI
             set { HandledCarBindingSource.DataSource = value; }
         }
 
+        /// <summary>
+        /// Bieżący obiekt wyświetlany w widoku.
+        /// </summary>
+        public ICollection<CarServicesCar> CarServicesCarsCollection
+        {
+            get { return CarServicesCarBindingSource.DataSource as ICollection<CarServicesCar>; }
+            set { CarServicesCarBindingSource.DataSource = value; }
+        }
+
         #endregion View Specific
 
         #endregion Properties
@@ -140,7 +149,6 @@ namespace CarsApp.UI
             AfterInitializeComponent();
             if (!VSDesignMode)
                 this.Presenter = new CarServiceDetailsPresenter(this);
-
 
             if (parentView != null)
             {
@@ -525,6 +533,39 @@ namespace CarsApp.UI
                 CurrentHandledCarProduct.IsFixed = false;
                 CurrentHandledCarProduct.FixDate = null;
                 Presenter.SaveData();
+            }
+        }
+
+        private void loanButton_Click(object sender, EventArgs e)
+        {
+            if (loanButton.Text.Contains("wypożyczenia"))
+            {
+                loanButton.Text = "Pokaż serwisowane auta";
+                CarProductCollectionGrid.Visible = false;
+                CarServicesCarCollectionGrid.Visible = true;
+            }
+            else
+            {
+                loanButton.Text = "Pokaż auta do wypożyczenia";
+                CarServicesCarCollectionGrid.Visible = false;
+                CarProductCollectionGrid.Visible = true;
+            }
+        }
+
+
+        private void CarServicesCarCollectionGrid_CellFormatting(object sender, CellFormattingEventArgs e)
+        {
+
+            if (e.CellElement.Value != null)
+            {
+                if ((CarServicesCarCollectionGrid.Rows[e.RowIndex].DataBoundItem != null) &&
+                    (CarServicesCarCollectionGrid.Columns[e.ColumnIndex].FieldName.Contains(".")))
+                {
+                    e.CellElement.Value = PropertyBindingManager.BindProperty(
+                                  CarServicesCarCollectionGrid.Rows[e.RowIndex].DataBoundItem,
+                                  CarServicesCarCollectionGrid.Columns[e.ColumnIndex].FieldName
+                                );
+                }
             }
         }
     }

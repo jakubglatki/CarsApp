@@ -38,6 +38,11 @@ namespace CarsApp.UI
         /// Lista HandledCarProduct
         /// </summary>
         ICollection<HandledCarProduct> HandledCarProductsCollection { get; set; }
+
+        /// <summary>
+        /// Lista CarServicesCar
+        /// </summary>
+        ICollection<CarServicesCar> CarServicesCarsCollection { get; set; }
         #endregion Properties
     }
 }

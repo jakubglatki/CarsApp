@@ -53,8 +53,8 @@ namespace CarsApp.UI
                             break;
                         case ViewMode.Edit:
                         case ViewMode.ReadOnly:
-                            //  View.CurrentCarService = Service.GetObjectById(this.ObjectId);
                             View.HandledCarProductsCollection = Service.GetHandledCarProductCollection(View.CurrentCarService);
+                            View.CarServicesCarsCollection = Service.GetCarServicesCarCollection(View.CurrentCarService);
                             break;
                         default:
                             throw new ViewModeNotSupportedException();
@@ -135,12 +135,11 @@ namespace CarsApp.UI
         public void FixCarProduct()
         {
             Service.CallFixCarProductProcedure(View.CurrentCarService, View.CurrentHandledCarProduct.CarProduct);
-            
         }
 
-        public List<HandledCarProduct> GetHandledCarProductsDataSource()
+        public void ShowCarServicesCarDictionary()
         {
-            return  Service.GetHandledCarProductCollection(View.CurrentCarService).ToList();
+            
         }
             #endregion Public methods
 

@@ -32,6 +32,7 @@
         <AssociationConnector Association="CarsDb.Data.FK_CarProductPerson" />
         <AssociationConnector Association="CarsDb.Data.FK_CarServicesCarCarService" />
         <AssociationConnector Association="CarsDb.Data.FK_CarServicesCarPerson" />
+        <AssociationConnector Association="CarsDb.Data.FK_CarServicesCarCarProduct" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -36,6 +36,7 @@ using LGBS.MVPFramework.Data;
 [assembly: EdmRelationshipAttribute("CarsDb.Data", "FK_CarProductPerson", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CarsApp.Data.Person), "CarProduct", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CarsApp.Data.CarProduct), true)]
 [assembly: EdmRelationshipAttribute("CarsDb.Data", "FK_CarServicesCarCarService", "CarService", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CarsApp.Data.CarService), "CarServicesCar", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CarsApp.Data.CarServicesCar), true)]
 [assembly: EdmRelationshipAttribute("CarsDb.Data", "FK_CarServicesCarPerson", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CarsApp.Data.Person), "CarServicesCar", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CarsApp.Data.CarServicesCar), true)]
+[assembly: EdmRelationshipAttribute("CarsDb.Data", "FK_CarServicesCarCarProduct", "CarProduct", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CarsApp.Data.CarProduct), "CarServicesCar", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CarsApp.Data.CarServicesCar), true)]
 
 #endregion
 
@@ -1175,6 +1176,28 @@ namespace CarsApp.Data
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CarsDb.Data", "FK_CarServicesCarCarProduct", "CarServicesCar")]
+        public EntityCollection<CarServicesCar> CarServicesCars
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CarServicesCar>("CarsDb.Data.FK_CarServicesCarCarProduct", "CarServicesCar");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CarServicesCar>("CarsDb.Data.FK_CarServicesCarCarProduct", "CarServicesCar", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -1483,11 +1506,13 @@ namespace CarsApp.Data
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="carServiceId">Initial value of the CarServiceId property.</param>
-        public static CarServicesCar CreateCarServicesCar(global::System.Int64 id, global::System.Int64 carServiceId)
+        /// <param name="carProductId">Initial value of the CarProductId property.</param>
+        public static CarServicesCar CreateCarServicesCar(global::System.Int64 id, global::System.Int64 carServiceId, global::System.Int64 carProductId)
         {
             CarServicesCar carServicesCar = new CarServicesCar();
             carServicesCar.Id = id;
             carServicesCar.CarServiceId = carServiceId;
+            carServicesCar.CarProductId = carProductId;
             return carServicesCar;
         }
 
@@ -1617,6 +1642,30 @@ namespace CarsApp.Data
         private Nullable<global::System.Int64> _PersonId;
         partial void OnPersonIdChanging(Nullable<global::System.Int64> value);
         partial void OnPersonIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 CarProductId
+        {
+            get
+            {
+                return _CarProductId;
+            }
+            set
+            {
+                OnCarProductIdChanging(value);
+                ReportPropertyChanging("CarProductId");
+                _CarProductId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CarProductId");
+                OnCarProductIdChanged();
+            }
+        }
+        private global::System.Int64 _CarProductId;
+        partial void OnCarProductIdChanging(global::System.Int64 value);
+        partial void OnCarProductIdChanged();
 
         #endregion
 
@@ -1697,10 +1746,49 @@ namespace CarsApp.Data
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CarsDb.Data", "FK_CarServicesCarCarProduct", "CarProduct")]
+        public CarProduct CarProduct
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarProduct>("CarsDb.Data.FK_CarServicesCarCarProduct", "CarProduct").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarProduct>("CarsDb.Data.FK_CarServicesCarCarProduct", "CarProduct").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<CarProduct> CarProductReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarProduct>("CarsDb.Data.FK_CarServicesCarCarProduct", "CarProduct");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CarProduct>("CarsDb.Data.FK_CarServicesCarCarProduct", "CarProduct", value);
+                }
+            }
+        }
 
         #endregion
 
     }
+
 
     /// <summary>
     /// No Metadata Documentation available.
@@ -1733,12 +1821,27 @@ namespace CarsApp.Data
         #endregion
 
 
-        #region Simple Properties
+        #region Factory Method
 
+        /// <summary>
+        /// Create a new CarServicesView object.
+        /// </summary>
+        /// <param name="name">Initial value of the Name property.</param>
+        public static CarServicesView CreateCarServicesView(global::System.String name)
+        {
+            CarServicesView carServicesView = new CarServicesView();
+            carServicesView.Name = name;
+            return carServicesView;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -1761,13 +1864,13 @@ namespace CarsApp.Data
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 NumberOfServicedCars
+        public Nullable<global::System.Int32> NumberOfServicedCars
         {
             get
             {
@@ -1782,17 +1885,14 @@ namespace CarsApp.Data
                 OnNumberOfServicedCarsChanged();
             }
         }
-
-
-        private global::System.Int32 _NumberOfServicedCars;
-        partial void OnNumberOfServicedCarsChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _NumberOfServicedCars;
+        partial void OnNumberOfServicedCarsChanging(Nullable<global::System.Int32> value);
         partial void OnNumberOfServicedCarsChanged();
 
         #endregion
 
     }
-
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
@@ -2518,7 +2618,7 @@ namespace CarsApp.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int64 CarServiceId
         {
@@ -2541,11 +2641,11 @@ namespace CarsApp.Data
         private global::System.Int64 _CarServiceId;
         partial void OnCarServiceIdChanging(global::System.Int64 value);
         partial void OnCarServiceIdChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int64 CarProductId
         {
@@ -2568,11 +2668,11 @@ namespace CarsApp.Data
         private global::System.Int64 _CarProductId;
         partial void OnCarProductIdChanging(global::System.Int64 value);
         partial void OnCarProductIdChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime HandleDate
         {
@@ -2592,11 +2692,11 @@ namespace CarsApp.Data
         private global::System.DateTime _HandleDate;
         partial void OnHandleDateChanging(global::System.DateTime value);
         partial void OnHandleDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsFixed
         {
@@ -2616,13 +2716,13 @@ namespace CarsApp.Data
         private global::System.Boolean _IsFixed;
         partial void OnIsFixedChanging(global::System.Boolean value);
         partial void OnIsFixedChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime? FixDate
+        public Nullable<global::System.DateTime> FixDate
         {
             get
             {
@@ -2637,14 +2737,14 @@ namespace CarsApp.Data
                 OnFixDateChanged();
             }
         }
-        private global::System.DateTime? _FixDate;
-        partial void OnFixDateChanging(global::System.DateTime? value);
+        private Nullable<global::System.DateTime> _FixDate;
+        partial void OnFixDateChanging(Nullable<global::System.DateTime> value);
         partial void OnFixDateChanged();
 
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2682,7 +2782,7 @@ namespace CarsApp.Data
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2726,7 +2826,7 @@ namespace CarsApp.Data
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>

@@ -77,6 +77,10 @@
       <End Role="Person" EntitySet="People" />
       <End Role="CarServicesCar" EntitySet="CarServicesCars" />
     </AssociationSet>
+    <AssociationSet Name="FK_CarServicesCarCarProduct" Association="CarsDb.Data.FK_CarServicesCarCarProduct">
+      <End Role="CarProduct" EntitySet="CarProducts" />
+      <End Role="CarServicesCar" EntitySet="CarServicesCars" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Country">
     <Key>
@@ -161,6 +165,7 @@
     <NavigationProperty Name="HandledCarProducts" Relationship="CarsDb.Data.FK_HandledCarProductCarProduct" FromRole="CarProduct" ToRole="HandledCarProduct" />
     <Property Name="PersonId" Type="Int64" />
     <NavigationProperty Name="Person" Relationship="CarsDb.Data.FK_CarProductPerson" FromRole="CarProduct" ToRole="Person" />
+    <NavigationProperty Name="CarServicesCars" Relationship="CarsDb.Data.FK_CarServicesCarCarProduct" FromRole="CarProduct" ToRole="CarServicesCar" />
   </EntityType>
   <Association Name="CarProductCarModel">
     <End Type="CarsDb.Data.CarProduct" Role="CarProduct" Multiplicity="*" />
@@ -331,6 +336,8 @@
     <Property Name="PersonId" Type="Int64" />
     <NavigationProperty Name="CarService" Relationship="CarsDb.Data.FK_CarServicesCarCarService" FromRole="CarServicesCar" ToRole="CarService" />
     <NavigationProperty Name="Person" Relationship="CarsDb.Data.FK_CarServicesCarPerson" FromRole="CarServicesCar" ToRole="Person" />
+    <Property Name="CarProductId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="CarProduct" Relationship="CarsDb.Data.FK_CarServicesCarCarProduct" FromRole="CarServicesCar" ToRole="CarProduct" />
   </EntityType>
   <EntityType Name="Person">
     <Key>
@@ -375,6 +382,18 @@
       </Principal>
       <Dependent Role="CarServicesCar">
         <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CarServicesCarCarProduct">
+    <End Type="CarsDb.Data.CarProduct" Role="CarProduct" Multiplicity="1" />
+    <End Type="CarsDb.Data.CarServicesCar" Role="CarServicesCar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarProduct">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CarServicesCar">
+        <PropertyRef Name="CarProductId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

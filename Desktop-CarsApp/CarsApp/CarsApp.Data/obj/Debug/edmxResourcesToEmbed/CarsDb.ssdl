@@ -57,11 +57,12 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CarServiceId" Type="bigint" Nullable="false" />
     <Property Name="LoanDate" Type="datetime" />
     <Property Name="ReturnDate" Type="datetime" />
     <Property Name="PersonId" Type="bigint" />
+    <Property Name="CarProductId" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="Cities">
     <Key>
@@ -232,6 +233,18 @@ warning 6002: The table/view 'CarsDb.dbo.CarServicesView' does not have a primar
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_CarServicesCarCarProduct">
+    <End Role="CarProducts" Type="Self.CarProducts" Multiplicity="1" />
+    <End Role="CarServicesCar" Type="Self.CarServicesCar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarProducts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CarServicesCar">
+        <PropertyRef Name="CarProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_CarServicesCarCarService">
     <End Role="CarServices" Type="Self.CarServices" Multiplicity="1" />
     <End Role="CarServicesCar" Type="Self.CarServicesCar" Multiplicity="*" />
@@ -387,6 +400,10 @@ FROM [dbo].[CarServicesView] AS [CarServicesView]</DefiningQuery>
     <AssociationSet Name="FK_CarServiceCity" Association="Self.FK_CarServiceCity">
       <End Role="Cities" EntitySet="Cities" />
       <End Role="CarServices" EntitySet="CarServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CarServicesCarCarProduct" Association="Self.FK_CarServicesCarCarProduct">
+      <End Role="CarProducts" EntitySet="CarProducts" />
+      <End Role="CarServicesCar" EntitySet="CarServicesCar" />
     </AssociationSet>
     <AssociationSet Name="FK_CarServicesCarCarService" Association="Self.FK_CarServicesCarCarService">
       <End Role="CarServices" EntitySet="CarServices" />

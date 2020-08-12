@@ -8,6 +8,10 @@ using LGBS.MVPFramework.UI;
 using Telerik.WinControls.UI;
 using CarsApp.UI.Managers;
 using System.Windows.Forms;
+using System.Web.UI.WebControls;
+using System.Data.Common.CommandTrees.ExpressionBuilder;
+using System.Drawing;
+using Telerik.WinControls;
 
 namespace CarsApp.UI
 {
@@ -90,10 +94,10 @@ namespace CarsApp.UI
             {
                 return this._carProductToAdd;
             }
-            set 
+            set
             {
                 _carProductToAdd = value;
-              Presenter.AddCarProduct();
+                Presenter.AddCarProduct();
             }
         }
 
@@ -516,8 +520,8 @@ namespace CarsApp.UI
 
         private void addCarButton_Click(object sender, EventArgs e)
         {
-                Presenter.ShowCarProductsInDictionaryMode();
-                this.Hide();
+            Presenter.ShowCarProductsInDictionaryMode();
+            this.Hide();
         }
 
         private void isFixedCheckBox_Click(object sender, EventArgs e)
@@ -526,7 +530,7 @@ namespace CarsApp.UI
             if (CurrentHandledCarProduct.IsFixed == false)
             {
                 Presenter.FixCarProduct();
-                
+
             }
             else if (CurrentHandledCarProduct.IsFixed == true)
             {
@@ -541,17 +545,23 @@ namespace CarsApp.UI
             if (loanButton.Text.Contains("wypożyczenia"))
             {
                 loanButton.Text = "Pokaż serwisowane auta";
-                CarProductCollectionGrid.Visible = false;
-                CarServicesCarCollectionGrid.Visible = true;
+                SetVisibility(false);
             }
             else
             {
                 loanButton.Text = "Pokaż auta do wypożyczenia";
-                CarServicesCarCollectionGrid.Visible = false;
-                CarProductCollectionGrid.Visible = true;
+                SetVisibility(true);
             }
         }
 
+        private void SetVisibility(bool isVisiblie)
+        {
+
+            CarServicesCarCollectionGrid.Visible = !isVisiblie;
+            CarProductCollectionGrid.Visible = isVisiblie;
+            isFixedCheckBox.Visible = isVisiblie;
+            checkBoxLabel.Visible = isVisiblie;
+        }
 
         private void CarServicesCarCollectionGrid_CellFormatting(object sender, CellFormattingEventArgs e)
         {
@@ -566,6 +576,22 @@ namespace CarsApp.UI
                                   CarServicesCarCollectionGrid.Columns[e.ColumnIndex].FieldName
                                 );
                 }
+            }
+
+        }
+
+
+        private void CarServicesCarCollectionGrid_SelectionChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void CarServicesCarCollectionGrid_RowFormatting(object sender, RowFormattingEventArgs e)
+        {
+            if (e.RowElement.RowInfo.Cells[CarServicesCarCollectionGrid.ColumnCount-1].Value != null)
+            {
+                e.RowElement.DrawFill = true;
+                e.RowElement.GradientStyle = GradientStyles.Solid;
+                e.RowElement.BackColor = Color.Gray;
             }
         }
     }

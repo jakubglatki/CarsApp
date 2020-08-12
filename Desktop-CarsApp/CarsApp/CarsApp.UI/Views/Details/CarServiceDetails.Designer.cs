@@ -39,6 +39,8 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn8 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn9 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn10 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn11 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn12 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn1 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
             Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn1 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
             Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn2 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
@@ -65,6 +67,7 @@
             this.downPanel = new System.Windows.Forms.Panel();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.CarServicesCarCollectionGrid = new LGBS.MVPFramework.Controls.LGBSGridView();
+            this.CarServicesCarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.CarProductCollectionGrid = new LGBS.MVPFramework.Controls.LGBSGridView();
             this.HandledCarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainGroupBox = new LGBS.MVPFramework.Controls.LGBSGroupBox();
@@ -82,7 +85,6 @@
             this.streetLabel = new LGBS.MVPFramework.Controls.LGBSLabel();
             this.nameLabel = new LGBS.MVPFramework.Controls.LGBSLabel();
             this.object_ec0e62eb_29ba_48fe_9aca_9f9e6d21d11e = new Telerik.WinControls.RootRadElement();
-            this.CarServicesCarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.CarServiceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainRadRibbonBar)).BeginInit();
@@ -91,6 +93,7 @@
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CarServicesCarCollectionGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CarServicesCarCollectionGrid.MasterTemplate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CarServicesCarBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CarProductCollectionGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CarProductCollectionGrid.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HandledCarBindingSource)).BeginInit();
@@ -103,7 +106,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cityLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.streetLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameLabel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CarServicesCarBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // CarServiceBindingSource
@@ -453,7 +455,7 @@
             gridViewTextBoxColumn5.Name = "returnDate";
             gridViewTextBoxColumn5.Width = 133;
             gridViewTextBoxColumn6.EnableExpressionEditor = false;
-            gridViewTextBoxColumn6.FieldName = "PersonI.Name";
+            gridViewTextBoxColumn6.FieldName = "Person.Name";
             gridViewTextBoxColumn6.FormatString = "";
             gridViewTextBoxColumn6.HeaderText = "Imię wypożyczającego";
             gridViewTextBoxColumn6.Name = "personName";
@@ -485,7 +487,13 @@
             this.CarServicesCarCollectionGrid.Size = new System.Drawing.Size(931, 244);
             this.CarServicesCarCollectionGrid.TabIndex = 0;
             this.CarServicesCarCollectionGrid.Visible = false;
+            this.CarServicesCarCollectionGrid.RowFormatting += new Telerik.WinControls.UI.RowFormattingEventHandler(this.CarServicesCarCollectionGrid_RowFormatting);
             this.CarServicesCarCollectionGrid.CellFormatting += new Telerik.WinControls.UI.CellFormattingEventHandler(this.CarServicesCarCollectionGrid_CellFormatting);
+            this.CarServicesCarCollectionGrid.SelectionChanged += new System.EventHandler(this.CarServicesCarCollectionGrid_SelectionChanged);
+            // 
+            // CarServicesCarBindingSource
+            // 
+            this.CarServicesCarBindingSource.DataSource = typeof(CarsApp.Data.CarServicesCar);
             // 
             // CarProductCollectionGrid
             // 
@@ -512,18 +520,28 @@
             gridViewTextBoxColumn8.FormatString = "";
             gridViewTextBoxColumn8.HeaderText = "Model";
             gridViewTextBoxColumn8.Name = "Model";
-            gridViewTextBoxColumn8.Width = 155;
+            gridViewTextBoxColumn8.Width = 117;
             gridViewTextBoxColumn9.FieldName = "CarProduct.VIN";
             gridViewTextBoxColumn9.FormatString = "";
             gridViewTextBoxColumn9.HeaderText = "VIN";
             gridViewTextBoxColumn9.Name = "VIN";
-            gridViewTextBoxColumn9.Width = 155;
+            gridViewTextBoxColumn9.Width = 117;
             gridViewTextBoxColumn10.DataType = typeof(short);
             gridViewTextBoxColumn10.FieldName = "CarProduct.Year";
             gridViewTextBoxColumn10.FormatString = "";
             gridViewTextBoxColumn10.HeaderText = "Rocznik";
             gridViewTextBoxColumn10.Name = "Year";
-            gridViewTextBoxColumn10.Width = 155;
+            gridViewTextBoxColumn10.Width = 117;
+            gridViewTextBoxColumn11.FieldName = "CarProduct.Person.Name";
+            gridViewTextBoxColumn11.FormatString = "";
+            gridViewTextBoxColumn11.HeaderText = "Imię właściciela";
+            gridViewTextBoxColumn11.Name = "ownerName";
+            gridViewTextBoxColumn11.Width = 117;
+            gridViewTextBoxColumn12.FieldName = "CarProduct.Person.Surname";
+            gridViewTextBoxColumn12.FormatString = "";
+            gridViewTextBoxColumn12.HeaderText = "Nazwisko właściciela";
+            gridViewTextBoxColumn12.Name = "ownerSurname";
+            gridViewTextBoxColumn12.Width = 118;
             gridViewDateTimeColumn1.EnableExpressionEditor = false;
             gridViewDateTimeColumn1.FieldName = "HandleDate";
             gridViewDateTimeColumn1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
@@ -531,14 +549,14 @@
             gridViewDateTimeColumn1.HeaderText = "Data przyjęcia";
             gridViewDateTimeColumn1.Name = "HandleDate";
             gridViewDateTimeColumn1.SortOrder = Telerik.WinControls.UI.RadSortOrder.Descending;
-            gridViewDateTimeColumn1.Width = 155;
+            gridViewDateTimeColumn1.Width = 117;
             gridViewCheckBoxColumn1.EnableExpressionEditor = false;
             gridViewCheckBoxColumn1.FieldName = "IsFixed";
             gridViewCheckBoxColumn1.FormatString = "";
             gridViewCheckBoxColumn1.HeaderText = "Czy naprawiony";
             gridViewCheckBoxColumn1.MinWidth = 20;
             gridViewCheckBoxColumn1.Name = "IsFixed";
-            gridViewCheckBoxColumn1.Width = 155;
+            gridViewCheckBoxColumn1.Width = 117;
             gridViewDateTimeColumn2.DataType = typeof(System.Nullable<System.DateTime>);
             gridViewDateTimeColumn2.EnableExpressionEditor = false;
             gridViewDateTimeColumn2.FieldName = "FixDate";
@@ -546,11 +564,13 @@
             gridViewDateTimeColumn2.FormatString = "";
             gridViewDateTimeColumn2.HeaderText = "Data naprawienia";
             gridViewDateTimeColumn2.Name = "FixDate";
-            gridViewDateTimeColumn2.Width = 160;
+            gridViewDateTimeColumn2.Width = 117;
             this.CarProductCollectionGrid.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn8,
             gridViewTextBoxColumn9,
             gridViewTextBoxColumn10,
+            gridViewTextBoxColumn11,
+            gridViewTextBoxColumn12,
             gridViewDateTimeColumn1,
             gridViewCheckBoxColumn1,
             gridViewDateTimeColumn2});
@@ -747,10 +767,6 @@
             this.object_ec0e62eb_29ba_48fe_9aca_9f9e6d21d11e.StretchVertically = true;
             this.object_ec0e62eb_29ba_48fe_9aca_9f9e6d21d11e.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
-            // CarServicesCarBindingSource
-            // 
-            this.CarServicesCarBindingSource.DataSource = typeof(CarsApp.Data.CarServicesCar);
-            // 
             // CarServiceDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -771,6 +787,7 @@
             this.mainPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CarServicesCarCollectionGrid.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CarServicesCarCollectionGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CarServicesCarBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CarProductCollectionGrid.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CarProductCollectionGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HandledCarBindingSource)).EndInit();
@@ -784,7 +801,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cityLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.streetLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameLabel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CarServicesCarBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

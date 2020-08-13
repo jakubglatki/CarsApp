@@ -489,7 +489,6 @@
             this.CarServicesCarCollectionGrid.Visible = false;
             this.CarServicesCarCollectionGrid.RowFormatting += new Telerik.WinControls.UI.RowFormattingEventHandler(this.CarServicesCarCollectionGrid_RowFormatting);
             this.CarServicesCarCollectionGrid.CellFormatting += new Telerik.WinControls.UI.CellFormattingEventHandler(this.CarServicesCarCollectionGrid_CellFormatting);
-            this.CarServicesCarCollectionGrid.SelectionChanged += new System.EventHandler(this.CarServicesCarCollectionGrid_SelectionChanged);
             // 
             // CarServicesCarBindingSource
             // 

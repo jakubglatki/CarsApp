@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using CarsApp.Data;
 using CarsApp.Services;
+using LGBS.MVPFramework.Controls;
 using LGBS.MVPFramework.Data;
 using LGBS.MVPFramework.UI;
 
@@ -116,6 +117,7 @@ namespace CarsApp.UI
                     }
                 }
                 Service.AddToHandledCarProductCollection(View.CurrentCarService, View.CarProductToAdd);
+                this.ShowCarToLoanMessageWindow();
                 View.RefreshData();
             }
         }
@@ -153,9 +155,22 @@ namespace CarsApp.UI
             MessageBoxButtons buttons = MessageBoxButtons.OK;
 
             System.Windows.Forms.DialogResult result;
-            result = MessageBox.Show(message, caption, buttons);
+            result = LGBSMessageBox.Show(message, caption, buttons);
         }
 
+        private void ShowCarToLoanMessageWindow()
+        {
+            string message = "Czy klient dostał auto zastępcze?";
+            string caption = "Auto zastępcze";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+
+            System.Windows.Forms.DialogResult result;
+            result = LGBSMessageBox.Show(message, caption, buttons);
+
+            if(result== System.Windows.Forms.DialogResult.Yes)
+            {
+            }
+        }
             #endregion Private methods
         
     }

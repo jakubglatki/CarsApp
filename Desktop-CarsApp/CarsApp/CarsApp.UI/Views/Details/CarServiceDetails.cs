@@ -581,10 +581,6 @@ namespace CarsApp.UI
         }
 
 
-        private void CarServicesCarCollectionGrid_SelectionChanged(object sender, EventArgs e)
-        {
-        }
-
         private void CarServicesCarCollectionGrid_RowFormatting(object sender, RowFormattingEventArgs e)
         {
             if (e.RowElement.RowInfo.Cells[CarServicesCarCollectionGrid.ColumnCount-1].Value != null)

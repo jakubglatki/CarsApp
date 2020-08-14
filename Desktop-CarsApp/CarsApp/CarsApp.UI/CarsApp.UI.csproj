@@ -151,6 +151,18 @@
     <Compile Include="Views\List\CarServiceList.Designer.cs">
       <DependentUpon>CarServiceList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\List\CarServicesCarList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\List\CarServicesCarList.Designer.cs">
+      <DependentUpon>CarServicesCarList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\List\CarServicesCarList.Interface.cs">
+      <DependentUpon>CarServicesCarList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\List\CarServicesCarList.Presenter.cs">
+      <DependentUpon>CarServicesCarList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\List\CarServicesViewList.Interface.cs">
       <DependentUpon>CarServiceList.cs</DependentUpon>
     </Compile>
@@ -191,6 +203,7 @@
     </Compile>
     <Compile Include="Views\List\Filters\ICarProductListFilter.cs" />
     <Compile Include="Views\List\Filters\ICarServiceListFilter.cs" />
+    <Compile Include="Views\List\Filters\ICarServicesCarListFilter.cs" />
     <Compile Include="Views\List\Filters\ICityListFilter.cs" />
     <Compile Include="Views\List\Filters\ICountryListFilter.cs" />
     <Compile Include="Views\List\Filters\IFactoryListFilter.cs" />
@@ -240,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\List\CarServiceList.resx">
       <DependentUpon>CarServiceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\List\CarServicesCarList.resx">
+      <DependentUpon>CarServicesCarList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\List\CityList.resx">
       <DependentUpon>CityList.cs</DependentUpon>

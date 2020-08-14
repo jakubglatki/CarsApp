@@ -40,6 +40,8 @@ namespace CarsApp.UI
 					return new CarServiceList(parentView) as VT;
 				case CarServiceDetails.InterfaceName:
 					return new CarServiceDetails(parentView) as VT;
+				case CarServicesCarList.InterfaceName:
+					return new CarServicesCarList(parentView) as VT;
 				default:
 					throw new ArgumentException("Nieobsługiwany typ widoku");
 			}

@@ -73,6 +73,9 @@ namespace CarsApp.UI
             set { CarServiceBindingSource.DataSource = value; }
         }
 
+
+
+
         /// <summary>
         /// Bieżący obiekt wyświetlany w widoku.
         /// </summary>

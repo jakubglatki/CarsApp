@@ -169,6 +169,26 @@ namespace CarsApp.UI
 
             if(result== System.Windows.Forms.DialogResult.Yes)
             {
+                GiveClientTempCar();
+            }
+        }
+
+        private void GiveClientTempCar()
+        {
+            ICarServicesCarList dict = CarsViewFactory.Factory.CreateViewInstance<ICarServicesCarList>(View);
+            LGBS.MVPFramework.UI.DialogResult dialogResult = dict.ShowDialog(ViewMode.Dictionary);
+            if (dialogResult == LGBS.MVPFramework.UI.DialogResult.OK)
+            {
+                foreach (CarServicesCar car in View.CarServicesCarsCollection)
+                {
+                    if (car.CarProductId == dict.CurrentCarServicesCar.CarProductId)
+                    {
+                        car.PersonId = View.CarProductToAdd.PersonId;
+                        car.LoanDate = DateTime.Now;
+                        View.RefreshData();
+                        break;
+                    }
+                }
             }
         }
             #endregion Private methods

@@ -394,7 +394,8 @@ namespace CarsApp.UI
 		/// <param name="e">EventArgs.</param>
 		private void searchButton_Click(object sender, EventArgs e)
 		{
-				Presenter.Search();
+			Presenter.Search();
+			this.countryComboBox.DataSource = null;
 		}
 
 
@@ -412,6 +413,10 @@ namespace CarsApp.UI
 		}
 
 
+		private void countryComboBox_DropDown(object sender, EventArgs e)
+		{
+			this.countryComboBox.DataSource = this.CountryCollectionBindingSource;
+		}
 		#endregion Handlers
 
 	}

@@ -174,7 +174,6 @@
             // 
             // cityComboBox
             // 
-            this.cityComboBox.DataSource = this.CityCollectionBindingSource;
             this.cityComboBox.DisplayMember = "Name";
             this.cityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cityComboBox.Location = new System.Drawing.Point(82, 49);
@@ -182,6 +181,7 @@
             this.cityComboBox.Size = new System.Drawing.Size(233, 21);
             this.cityComboBox.TabIndex = 7;
             this.cityComboBox.ValueMember = "Id";
+            this.cityComboBox.DropDown += new System.EventHandler(this.cityComboBox_DropDown);
             // 
             // CityCollectionBindingSource
             // 

@@ -439,7 +439,19 @@ namespace CarsApp.UI
             view.Show(ViewMode.Dictionary);
 
         }
+
+        /// <summary>
+        /// Ustawia DataSource cityComboBox.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">EventArgs.</param>
+        private void cityComboBox_DropDown(object sender, EventArgs e)
+        {
+            this.cityComboBox.DataSource = this.CityCollectionBindingSource;
+        }
+
         #endregion Handlers
+
 
     }
 }

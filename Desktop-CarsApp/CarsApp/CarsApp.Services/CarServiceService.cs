@@ -166,6 +166,15 @@ namespace CarsApp.Services
             this.DB.SaveChanges();
         }
 
+        public void AddToCarServicesCarCollection(CarService carService, CarProduct carProduct)
+        {
+            ICollection<CarServicesCar> carServicesCarsList = GetCarServicesCarCollection(carService);
+            long Id = carServicesCarsList.OrderByDescending(x => x.Id).First().Id + 1;
+            CarServicesCar carServicesCar = CarServicesCar.CreateCarServicesCar(Id, carService.Id, carProduct.Id);
+            this.DB.CarServicesCars.AddObject(carServicesCar);
+            this.DB.SaveChanges();
+        }
+
         public void CallFixCarProductProcedure(CarService carService, CarProduct carProduct)
         {
             this.DB.FixCarProduct(carService.Id, carProduct.Id);

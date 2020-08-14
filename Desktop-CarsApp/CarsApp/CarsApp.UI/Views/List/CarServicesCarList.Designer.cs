@@ -39,6 +39,7 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             this.CarServicesCarCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.CarServicesCarGridView = new LGBS.MVPFramework.Controls.LGBSGridView();
+            this.CloseButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CarServicesCarCollectionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CarServicesCarGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CarServicesCarGridView.MasterTemplate)).BeginInit();
@@ -134,14 +135,25 @@
             this.CarServicesCarGridView.ShowNoDataText = false;
             this.CarServicesCarGridView.Size = new System.Drawing.Size(952, 506);
             this.CarServicesCarGridView.TabIndex = 1;
-            this.CarServicesCarGridView.CellFormatting += new Telerik.WinControls.UI.CellFormattingEventHandler(this.CarServicesCarGridView_CellFormatting);
             this.CarServicesCarGridView.RowFormatting += new Telerik.WinControls.UI.RowFormattingEventHandler(this.CarServicesCarGridView_RowFormatting);
+            this.CarServicesCarGridView.CellFormatting += new Telerik.WinControls.UI.CellFormattingEventHandler(this.CarServicesCarGridView_CellFormatting);
+            // 
+            // CloseButton
+            // 
+            this.CloseButton.Location = new System.Drawing.Point(456, 512);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(75, 23);
+            this.CloseButton.TabIndex = 2;
+            this.CloseButton.Text = "Zamknij";
+            this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // CarServicesCarList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(951, 537);
+            this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.CarServicesCarGridView);
             this.Name = "CarServicesCarList";
             this.Text = "Auta do wypożycznia";
@@ -156,5 +168,6 @@
 
         private System.Windows.Forms.BindingSource CarServicesCarCollectionBindingSource;
         private LGBS.MVPFramework.Controls.LGBSGridView CarServicesCarGridView;
+        private System.Windows.Forms.Button CloseButton;
     }
 }

@@ -289,8 +289,14 @@ namespace CarsApp.UI
             {
                 e.RowElement.DrawFill = true;
                 e.RowElement.GradientStyle = GradientStyles.Solid;
-                e.RowElement.BackColor = Color.Gray;
+                e.RowElement.BackColor = Color.LightGray;
+                e.RowElement.Enabled = false;
             }
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            this.CancelAndClose();
         }
     }
 }

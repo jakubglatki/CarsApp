@@ -487,7 +487,6 @@
             this.CarServicesCarCollectionGrid.Size = new System.Drawing.Size(931, 244);
             this.CarServicesCarCollectionGrid.TabIndex = 0;
             this.CarServicesCarCollectionGrid.Visible = false;
-            this.CarServicesCarCollectionGrid.RowFormatting += new Telerik.WinControls.UI.RowFormattingEventHandler(this.CarServicesCarCollectionGrid_RowFormatting);
             this.CarServicesCarCollectionGrid.CellFormatting += new Telerik.WinControls.UI.CellFormattingEventHandler(this.CarServicesCarCollectionGrid_CellFormatting);
             // 
             // CarServicesCarBindingSource

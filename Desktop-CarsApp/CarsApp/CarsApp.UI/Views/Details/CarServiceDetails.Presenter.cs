@@ -93,6 +93,11 @@ namespace CarsApp.UI
         {
             this.DeleteObject(handledCarProduct);
         }
+        
+        public void DeleteCarServicesCar(CarServicesCar carServicesCar)
+        {
+            this.DeleteObject(carServicesCar);
+        }
 
 
         public void ShowCarProductsInDictionaryMode()
@@ -101,25 +106,16 @@ namespace CarsApp.UI
             view.Show(ViewMode.Dictionary);
         }
 
-        public void AddCarProduct()
+        public void AddCarProduct(bool addToHandledCarCollection)
         {
             if (View.CurrentObject == null)
                 return;
-            if (View.HandledCarProductsCollection != null)
-            {
-                foreach (HandledCarProduct carProduct in View.HandledCarProductsCollection)
-                {
-                    if (carProduct.CarServiceId == View.CurrentCarService.Id && carProduct.CarProductId == View.CarProductToAdd.Id)
-                    {
-                        View.CarProductList.Close();
-                        this.ShowCarInServiceMessageWindow();
-                        return;
-                    }
-                }
-                Service.AddToHandledCarProductCollection(View.CurrentCarService, View.CarProductToAdd);
-                this.ShowCarToLoanMessageWindow();
-                View.RefreshData();
-            }
+
+            if (addToHandledCarCollection)
+                this.AddHandledCarProduct();
+
+            else
+                this.AddCarServicesCar();
         }
 
         public void SetCurrentCarService(CarServicesView view)
@@ -137,15 +133,61 @@ namespace CarsApp.UI
         public void FixCarProduct()
         {
             Service.CallFixCarProductProcedure(View.CurrentCarService, View.CurrentHandledCarProduct.CarProduct);
+
+            foreach (CarServicesCar car in View.CarServicesCarsCollection)
+            {
+                if (car.PersonId == View.CurrentHandledCarProduct.CarProduct.PersonId)
+                {
+                    car.PersonId = null;
+                    car.LoanDate = null;
+                    View.RefreshData();
+                    this.SaveChanges();
+                    break;
+                }
+            }
         }
 
-        public void ShowCarServicesCarDictionary()
-        {
-            
-        }
             #endregion Public methods
 
             #region Private methods
+        private void AddHandledCarProduct()
+        {
+            if (View.HandledCarProductsCollection != null)
+            {
+                foreach (HandledCarProduct carProduct in View.HandledCarProductsCollection)
+                {
+                    if (carProduct.CarServiceId == View.CurrentCarService.Id && carProduct.CarProductId == View.CarProductToAdd.Id)
+                    {
+                        View.CarProductList.Close();
+                        this.ShowCarInServiceMessageWindow();
+                        return;
+                    }
+                }
+                    Service.AddToHandledCarProductCollection(View.CurrentCarService, View.CarProductToAdd);
+                    this.ShowCarToLoanMessageWindow();
+                    View.RefreshData();
+            }
+        }
+
+        private void AddCarServicesCar()
+        {
+            if (View.CarServicesCarsCollection != null)
+            {
+                foreach (CarServicesCar car in View.CarServicesCarsCollection)
+                {
+                    if (car.CarServiceId == View.CurrentCarService.Id && car.CarProductId == View.CarProductToAdd.Id)
+                    {
+                        View.CarProductList.Close();
+                        this.ShowCarInServiceMessageWindow();
+                        return;
+                    }
+                }
+
+                    Service.AddToCarServicesCarCollection(View.CurrentCarService, View.CarProductToAdd);
+                
+                View.RefreshData();
+            }
+        }
 
         private void ShowCarInServiceMessageWindow()
         {
@@ -186,6 +228,7 @@ namespace CarsApp.UI
                         car.PersonId = View.CarProductToAdd.PersonId;
                         car.LoanDate = DateTime.Now;
                         View.RefreshData();
+                        this.SaveChanges();
                         break;
                     }
                 }

@@ -86,6 +86,17 @@ namespace CarsApp.UI
         }
 
 
+
+        /// <summary>
+        /// Bieżący obiekt wyświetlany w widoku.
+        /// </summary>
+        public CarServicesCar CurrentCarServicesCar
+        {
+            get { return CarServicesCarBindingSource.Current as CarServicesCar; }
+            set { CarServicesCarBindingSource.DataSource = value; }
+        }
+
+
         private CarProduct _carProductToAdd;
 
         /// <summary>
@@ -100,7 +111,10 @@ namespace CarsApp.UI
             set
             {
                 _carProductToAdd = value;
-                Presenter.AddCarProduct();
+                if (this.loanButton.Text.Contains("wypożyczenia"))
+                    Presenter.AddCarProduct(true);
+                else
+                    Presenter.AddCarProduct(false);
             }
         }
 
@@ -493,32 +507,14 @@ namespace CarsApp.UI
 
         private void deleteCarButton_Click(object sender, EventArgs e)
         {
-            Presenter.DeleteHandledCarProduct(CurrentHandledCarProduct);
-        }
-
-        private void CarProductCollectionGrid_CellFormating(object sender, CellFormattingEventArgs e)
-        {
-            if (e.CellElement.Value != null)
+            if (loanButton.Text.Contains("wypożyczenia"))
             {
-                if ((CarProductCollectionGrid.Rows[e.RowIndex].DataBoundItem != null) &&
-                    (CarProductCollectionGrid.Columns[e.ColumnIndex].FieldName.Contains(".")))
-                {
-                    e.CellElement.Value = PropertyBindingManager.BindProperty(
-                                  CarProductCollectionGrid.Rows[e.RowIndex].DataBoundItem,
-                                  CarProductCollectionGrid.Columns[e.ColumnIndex].FieldName
-                                );
-                }
+                Presenter.DeleteHandledCarProduct(CurrentHandledCarProduct);
             }
-        }
-
-        private void CarProductCollectionGrid_SelectionChanged(object sender, EventArgs e)
-        {
-
-            if (CurrentHandledCarProduct.IsFixed == false)
-                this.isFixedCheckBox.Checked = false;
-
-            else if (CurrentHandledCarProduct.IsFixed == true)
-                this.isFixedCheckBox.Checked = true;
+            else
+            {
+                Presenter.DeleteCarServicesCar(CurrentCarServicesCar);
+            }
         }
 
         private void addCarButton_Click(object sender, EventArgs e)
@@ -556,6 +552,31 @@ namespace CarsApp.UI
                 SetVisibility(true);
             }
         }
+        private void CarProductCollectionGrid_CellFormating(object sender, CellFormattingEventArgs e)
+        {
+            if (e.CellElement.Value != null)
+            {
+                if ((CarProductCollectionGrid.Rows[e.RowIndex].DataBoundItem != null) &&
+                    (CarProductCollectionGrid.Columns[e.ColumnIndex].FieldName.Contains(".")))
+                {
+                    e.CellElement.Value = PropertyBindingManager.BindProperty(
+                                  CarProductCollectionGrid.Rows[e.RowIndex].DataBoundItem,
+                                  CarProductCollectionGrid.Columns[e.ColumnIndex].FieldName
+                                );
+                }
+            }
+        }
+
+        private void CarProductCollectionGrid_SelectionChanged(object sender, EventArgs e)
+        {
+
+            if (CurrentHandledCarProduct.IsFixed == false)
+                this.isFixedCheckBox.Checked = false;
+
+            else if (CurrentHandledCarProduct.IsFixed == true)
+                this.isFixedCheckBox.Checked = true;
+        }
+
 
         private void SetVisibility(bool isVisiblie)
         {
@@ -583,15 +604,5 @@ namespace CarsApp.UI
 
         }
 
-
-        private void CarServicesCarCollectionGrid_RowFormatting(object sender, RowFormattingEventArgs e)
-        {
-            if (e.RowElement.RowInfo.Cells[CarServicesCarCollectionGrid.ColumnCount-1].Value != null)
-            {
-                e.RowElement.DrawFill = true;
-                e.RowElement.GradientStyle = GradientStyles.Solid;
-                e.RowElement.BackColor = Color.Gray;
-            }
-        }
     }
 }

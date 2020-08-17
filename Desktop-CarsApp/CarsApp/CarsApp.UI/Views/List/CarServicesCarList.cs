@@ -83,14 +83,6 @@ namespace CarsApp.UI
 
         #region SearchCriteria
 
-        // TODO [UITemplate] - optional: SearchCriteria
-        // np
-        //public string FilterName
-        //{
-        //    get { return nameTextBox.Text; }
-        //    set { nameTextBox.Text = value; }
-        //}
-
         /// <summary>
         /// Filtr (kryteria wyszukiwania).
         /// </summary>
@@ -267,6 +259,12 @@ namespace CarsApp.UI
 
         #endregion Protected methods
 
+        #region Private methods
+        /// <summary>
+        /// Ustawia komórki grida.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">CellFormattingEventArgs.</param>
         private void CarServicesCarGridView_CellFormatting(object sender, CellFormattingEventArgs e)
         {
 
@@ -283,6 +281,11 @@ namespace CarsApp.UI
             }
         }
 
+        /// <summary>
+        /// Ustawia komórki grida.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">CellFormattingEventArgs.</param>
         private void CarServicesCarGridView_RowFormatting(object sender, RowFormattingEventArgs e)
         {
             if (e.RowElement.RowInfo.Cells[CarServicesCarGridView.ColumnCount - 1].Value != null)
@@ -294,9 +297,16 @@ namespace CarsApp.UI
             }
         }
 
+        /// <summary>
+        /// Zamyka widok.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">EventArgs.</param>
         private void CloseButton_Click(object sender, EventArgs e)
         {
             this.CancelAndClose();
         }
+
+        #endregion Private methods
     }
 }

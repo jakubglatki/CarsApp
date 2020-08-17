@@ -298,6 +298,9 @@ namespace CarsApp.UI
             base.ChangeMode(mode);
         }
 
+        /// <summary>
+        /// Pokazuje SubElements.
+        /// </summary>
         public override void ShowSubElements()
         {
             Presenter.ShowSubElements();

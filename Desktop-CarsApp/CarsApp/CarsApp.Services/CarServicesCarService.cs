@@ -133,6 +133,11 @@ namespace CarsApp.Services
             return GetCarServicesCarCollection(pageIndex, pageSize, searchCriteria, string.Empty, out allElementCount);
         }
 
+
+        /// <summary>
+        /// Pobiera listę obiektów typu CarServicesCar dla określonego serwisu.
+        /// </summary>
+        /// <param name="carService">Szukany serwis.</param>
         public ICollection<CarServicesCar> GetCarServicesCarCollection(CarService carService)
         {
             CarServiceSearchCriteria searchCriteria = new CarServiceSearchCriteria();

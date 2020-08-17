@@ -503,8 +503,11 @@ namespace CarsApp.UI
 
         #endregion From view
 
-        #endregion Handlers
-
+        /// <summary>
+        /// Usuwa dany samochód.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">EventArgs.</param>
         private void deleteCarButton_Click(object sender, EventArgs e)
         {
             if (loanButton.Text.Contains("wypożyczenia"))
@@ -517,12 +520,22 @@ namespace CarsApp.UI
             }
         }
 
+        /// <summary>
+        /// Dodaje nowy samochód.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">EventArgs.</param>
         private void addCarButton_Click(object sender, EventArgs e)
         {
             Presenter.ShowCarProductsInDictionaryMode();
             this.Hide();
         }
 
+        /// <summary>
+        /// Ustawia samochód jako naprawiony/nie naprawiony.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">EventArgs.</param>
         private void isFixedCheckBox_Click(object sender, EventArgs e)
         {
 
@@ -539,6 +552,11 @@ namespace CarsApp.UI
             }
         }
 
+        /// <summary>
+        /// Zmienia tekst przycisku i widoczność.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">EventArgs.</param>
         private void loanButton_Click(object sender, EventArgs e)
         {
             if (loanButton.Text.Contains("wypożyczenia"))
@@ -552,6 +570,13 @@ namespace CarsApp.UI
                 SetVisibility(true);
             }
         }
+
+
+        /// <summary>
+        /// Ustawia komórki grida.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">CellFormattingEventArgs.</param>
         private void CarProductCollectionGrid_CellFormating(object sender, CellFormattingEventArgs e)
         {
             if (e.CellElement.Value != null)
@@ -567,6 +592,11 @@ namespace CarsApp.UI
             }
         }
 
+        /// <summary>
+        /// Zmienia zaznaczenie isFixedCheckBox.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">EventArgs.</param>
         private void CarProductCollectionGrid_SelectionChanged(object sender, EventArgs e)
         {
 
@@ -578,6 +608,13 @@ namespace CarsApp.UI
         }
 
 
+        #endregion Handlers
+
+
+        /// <summary>
+        /// Ustawia widoczność.
+        /// </summary>
+        /// <param name="isVisiblie">Ustawia widoczność.</param>
         private void SetVisibility(bool isVisiblie)
         {
 
@@ -587,6 +624,11 @@ namespace CarsApp.UI
             checkBoxLabel.Visible = isVisiblie;
         }
 
+        /// <summary>
+        /// Ustawia komórki grida.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">CellFormattingEventArgs.</param>
         private void CarServicesCarCollectionGrid_CellFormatting(object sender, CellFormattingEventArgs e)
         {
 

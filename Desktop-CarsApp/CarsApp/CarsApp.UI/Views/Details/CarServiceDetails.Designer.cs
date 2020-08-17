@@ -36,6 +36,7 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.Data.SortDescriptor sortDescriptor1 = new Telerik.WinControls.Data.SortDescriptor();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn8 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn9 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn10 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
@@ -44,7 +45,7 @@
             Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn1 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
             Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn1 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
             Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn2 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
-            Telerik.WinControls.Data.SortDescriptor sortDescriptor1 = new Telerik.WinControls.Data.SortDescriptor();
+            Telerik.WinControls.Data.SortDescriptor sortDescriptor2 = new Telerik.WinControls.Data.SortDescriptor();
             this.CarServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.managementRibbonTab = new Telerik.WinControls.UI.RibbonTab();
@@ -433,7 +434,6 @@
             gridViewTextBoxColumn2.HeaderText = "VIN";
             gridViewTextBoxColumn2.Name = "VIN";
             gridViewTextBoxColumn2.Width = 134;
-            gridViewTextBoxColumn3.DataType = typeof(short);
             gridViewTextBoxColumn3.EnableExpressionEditor = false;
             gridViewTextBoxColumn3.FieldName = "CarProduct.Year";
             gridViewTextBoxColumn3.FormatString = "";
@@ -446,6 +446,7 @@
             gridViewTextBoxColumn4.FormatString = "";
             gridViewTextBoxColumn4.HeaderText = "Data wypożyczenia";
             gridViewTextBoxColumn4.Name = "loanDate";
+            gridViewTextBoxColumn4.SortOrder = Telerik.WinControls.UI.RadSortOrder.Descending;
             gridViewTextBoxColumn4.Width = 134;
             gridViewTextBoxColumn5.DataType = typeof(System.Nullable<System.DateTime>);
             gridViewTextBoxColumn5.EnableExpressionEditor = false;
@@ -479,6 +480,10 @@
             this.CarServicesCarCollectionGrid.MasterTemplate.EnableFiltering = true;
             this.CarServicesCarCollectionGrid.MasterTemplate.EnableGrouping = false;
             this.CarServicesCarCollectionGrid.MasterTemplate.ShowRowHeaderColumn = false;
+            sortDescriptor1.Direction = System.ComponentModel.ListSortDirection.Descending;
+            sortDescriptor1.PropertyName = "loanDate";
+            this.CarServicesCarCollectionGrid.MasterTemplate.SortDescriptors.AddRange(new Telerik.WinControls.Data.SortDescriptor[] {
+            sortDescriptor1});
             this.CarServicesCarCollectionGrid.Name = "CarServicesCarCollectionGrid";
             this.CarServicesCarCollectionGrid.ReadOnly = true;
             this.CarServicesCarCollectionGrid.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -577,10 +582,10 @@
             this.CarProductCollectionGrid.MasterTemplate.EnableFiltering = true;
             this.CarProductCollectionGrid.MasterTemplate.EnableGrouping = false;
             this.CarProductCollectionGrid.MasterTemplate.ShowRowHeaderColumn = false;
-            sortDescriptor1.Direction = System.ComponentModel.ListSortDirection.Descending;
-            sortDescriptor1.PropertyName = "HandleDate";
+            sortDescriptor2.Direction = System.ComponentModel.ListSortDirection.Descending;
+            sortDescriptor2.PropertyName = "HandleDate";
             this.CarProductCollectionGrid.MasterTemplate.SortDescriptors.AddRange(new Telerik.WinControls.Data.SortDescriptor[] {
-            sortDescriptor1});
+            sortDescriptor2});
             this.CarProductCollectionGrid.Name = "CarProductCollectionGrid";
             this.CarProductCollectionGrid.ReadOnly = true;
             this.CarProductCollectionGrid.RightToLeft = System.Windows.Forms.RightToLeft.No;

@@ -146,6 +146,12 @@ namespace CarsApp.Services
 
 		}
 
+		/// <summary>
+		/// Zmienia kraj dla danego miasta.
+		/// </summary>
+		/// <param name="city">Zmieniane miasto.</param>
+		/// <param name="name">Szukane imię zmienianego kraju.</param>
+		/// <param name="countries">Lista obiektów typu Country.</param>
 		public void ChangeCitiesCountry(City city, string name, ICollection<Country> countries)
 		{
 			List<Country> listOfCountries = countries.ToList();
@@ -157,11 +163,13 @@ namespace CarsApp.Services
 
 		}
 
-		public void ChangeCitiesName(City city, string name)
-        {
-			city.Name = name;
-        }
 
+		/// <summary>
+		/// Dodaje nowy obiekt typu city.
+		/// </summary>
+		/// <param name="cityName">Nazwa nowego miasta.</param>
+		/// <param name="countryName">Nazwa kraju nowego miasta.</param>
+		/// <param name="countries">Lista obiektów typu Country.</param>
 		public void AddNewCity(string cityName, string countryName, ICollection<Country> countries)
 		{
 			List<Country> listOfCountries = countries.ToList();

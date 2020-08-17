@@ -470,10 +470,16 @@ namespace CarsApp.UI
 			this.modelComboBox.DataSource = this.ModelCollectionBindingSource;
 			this.modelComboBox.DisplayMember = "Name";
 		}
-        #endregion Handlers
+		#endregion Handlers
 
 
-        private void CarProductCollectionGrid_CellDoubleClick(object sender, GridViewCellEventArgs e)
+
+		/// <summary>
+		/// Odpowiada za powrót do domyślengo DataSource.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">GridViewCellEventArgs.</param>
+		private void CarProductCollectionGrid_CellDoubleClick(object sender, GridViewCellEventArgs e)
         {
 			CarServiceDetails carService = new CarServiceDetails();
 			if (ParentView.GetType() == carService.GetType())

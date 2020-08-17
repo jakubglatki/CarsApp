@@ -7,9 +7,6 @@ using LGBS.MVPFramework.UI;
 
 namespace CarsApp.UI
 {
-    // TODO [UITemplate] - optional: Zweryfikować
-    // jeśli z widokiem typu lista jest powiązany widok typu details, 
-    // wówczas prezeter musi implementować interfejs IManufactureDetails zamiast INoDetailsView
 
     /// <summary>
     /// Prezenter widoku ManufactureList.
@@ -85,9 +82,6 @@ namespace CarsApp.UI
         /// </summary>
         protected override void SetSearchCriteria()
         {
-            // TODO [UITemplate] - optional: SearchCriteria
-            // np:
-            // SearchCriteria.Name = View.Filter.FilterName;
 
             // wyczyszczenie wbudowanych filtrów
             View.ClearGridFilters();
@@ -106,9 +100,6 @@ namespace CarsApp.UI
         /// </summary>
         public override void ClearSearchCriteria()
         {
-            // TODO [UITemplate] - optional: SearchCriteria
-            // np:
-            // View.Filter.FilterName = string.Empty;
 
             // wyczyszczenie wbudowanych filtrów
             View.ClearGridFilters();

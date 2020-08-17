@@ -78,7 +78,7 @@ namespace CarsApp.UI
             }
             set
             {
-               // CarServiceCollectionBindingSource.DataSource = value;
+                throw new InvalidOperationException();
             }
         }
 

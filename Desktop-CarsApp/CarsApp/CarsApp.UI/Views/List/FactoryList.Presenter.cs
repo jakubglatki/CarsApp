@@ -8,9 +8,6 @@ using Telerik.Data.Expressions;
 
 namespace CarsApp.UI
 {
-    // TODO [UITemplate] - optional: Zweryfikować
-    // jeśli z widokiem typu lista jest powiązany widok typu details, 
-    // wówczas prezeter musi implementować interfejs IFactoryDetails zamiast INoDetailsView
 
     /// <summary>
     /// Prezenter widoku FactoryList.

@@ -86,14 +86,6 @@ namespace CarsApp.UI
         }
         #region SearchCriteria
 
-        // TODO [UITemplate] - optional: SearchCriteria
-        // np
-        //public string FilterName
-        //{
-        //    get { return nameTextBox.Text; }
-        //    set { nameTextBox.Text = value; }
-        //}
-
         /// <summary>
         /// Filtr (kryteria wyszukiwania).
         /// </summary>
@@ -186,7 +178,6 @@ namespace CarsApp.UI
         {
             if (CurrentObject != null)
             {
-                // TODO [UITemplate] - optional: W razie potrzeby przekazać do metody własny komunikat
                 base.Delete();
             }
         }

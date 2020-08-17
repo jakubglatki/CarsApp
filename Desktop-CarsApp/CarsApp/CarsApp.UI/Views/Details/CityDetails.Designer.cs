@@ -88,7 +88,7 @@ namespace CarsApp.UI
             this.mainGroupBox.HeaderImageIndex = -1;
             this.mainGroupBox.HeaderImageKey = "";
             this.mainGroupBox.HeaderMargin = new System.Windows.Forms.Padding(0);
-            this.mainGroupBox.HeaderText = "Serwis";
+            this.mainGroupBox.HeaderText = "Miasto";
             this.mainGroupBox.Location = new System.Drawing.Point(3, 3);
             this.mainGroupBox.Name = "mainGroupBox";
             this.mainGroupBox.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
@@ -102,12 +102,13 @@ namespace CarsApp.UI
             // 
             // countryComboBox
             // 
+            this.countryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.countryComboBox.Enabled = false;
             this.countryComboBox.Location = new System.Drawing.Point(87, 49);
             this.countryComboBox.Name = "countryComboBox";
             this.countryComboBox.Size = new System.Drawing.Size(150, 21);
             this.countryComboBox.TabIndex = 0;
-            this.countryComboBox.DropDownStyle = ComboBoxStyle.DropDownList; 
+            this.countryComboBox.DropDown += new System.EventHandler(this.countryComboBox_DropDown);
             // 
             // countryLabel
             // 

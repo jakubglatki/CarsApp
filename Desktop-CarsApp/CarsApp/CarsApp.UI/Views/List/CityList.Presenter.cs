@@ -29,20 +29,6 @@ namespace CarsApp.UI
 			}
 		}
 
-		public CountrySearchCriteria CountrySearchCriteria
-		{
-			get
-			{
-				if (BaseSearchCriteria == null)
-					BaseSearchCriteria = new CountrySearchCriteria();
-
-				return BaseSearchCriteria as CountrySearchCriteria;
-			}
-			set
-			{
-				BaseSearchCriteria = value;
-			}
-		}
 		#endregion Properties
 
 		#region Ctors

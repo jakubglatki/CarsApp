@@ -427,6 +427,11 @@ namespace CarsApp.UI
 		}
 
 
+		/// <summary>
+		/// Ustawia DataSource countryComboBox.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">EventArgs.</param>
 		private void countryComboBox_DropDown(object sender, EventArgs e)
 		{
 			this.countryComboBox.DataSource = this.CountryCollectionBindingSource;

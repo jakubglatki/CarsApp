@@ -141,6 +141,10 @@ namespace CarsApp.Services
             return GetCarServiceCollection(pageIndex, pageSize, searchCriteria, string.Empty, out allElementCount);
         }
 
+        /// <summary>
+        /// Pobiera listę obiektów typu HandledCarProduct dla wybranego serwisu.
+        /// </summary>
+        /// <param name="carService">Szukany serwis.</param>
         public ICollection<HandledCarProduct> GetHandledCarProductCollection(CarService carService)
         {
             CarServiceSearchCriteria searchCriteria = new CarServiceSearchCriteria();
@@ -149,6 +153,11 @@ namespace CarsApp.Services
                 .Where(searchCriteria.GetFilterExpressionForHandledCarProduct(carService))
                 .ToList();
         }
+
+        /// <summary>
+        /// Pobiera listę obiektów typu CarServicesCar dla wybranego serwisu.
+        /// </summary>
+        /// <param name="carService">Szukany serwis.</param>
         public ICollection<CarServicesCar> GetCarServicesCarCollection(CarService carService)
         {
             CarServiceSearchCriteria searchCriteria = new CarServiceSearchCriteria();
@@ -159,6 +168,12 @@ namespace CarsApp.Services
                 .ToList();
 
         }
+
+        /// <summary>
+        /// Dodaje nowy obiekt do HandledCarProduct.
+        /// </summary>
+        /// <param name="carService">Serwis do dodania.</param>
+        /// <param name="carProduct">Samochód do dodania.</param>
         public void AddToHandledCarProductCollection(CarService carService, CarProduct carProduct)
         {
             HandledCarProduct handledCarProduct = HandledCarProduct.CreateHandledCarProduct(carService.Id, carProduct.Id, DateTime.Now, false);
@@ -166,6 +181,11 @@ namespace CarsApp.Services
             this.DB.SaveChanges();
         }
 
+        /// <summary>
+        /// Dodaje nowy obiekt do CarServicesCar.
+        /// </summary>
+        /// <param name="carService">Serwis do dodania.</param>
+        /// <param name="carProduct">Samochód do dodania.</param>
         public void AddToCarServicesCarCollection(CarService carService, CarProduct carProduct)
         {
             ICollection<CarServicesCar> carServicesCarsList = GetCarServicesCarCollection(carService);
@@ -175,6 +195,11 @@ namespace CarsApp.Services
             this.DB.SaveChanges();
         }
 
+        /// <summary>
+        /// Wywołuje procedurę FixCarProduct.
+        /// </summary>
+        /// <param name="carService">Szukany serwis.</param>
+        /// <param name="carProduct">Szukany samochód.</param>
         public void CallFixCarProductProcedure(CarService carService, CarProduct carProduct)
         {
             this.DB.FixCarProduct(carService.Id, carProduct.Id);

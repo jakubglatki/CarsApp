@@ -89,23 +89,39 @@ namespace CarsApp.UI
 
         #region Public methods
 
+
+        /// <summary>
+        /// Usuwa HandledCarProduct.
+        /// </summary>
+        /// <param name="handledCarProduct">Samochód do usunięcia.</param>
         public void DeleteHandledCarProduct(HandledCarProduct handledCarProduct)
         {
             this.DeleteObject(handledCarProduct);
         }
-        
+
+        /// <summary>
+        /// Usuwa CarServicesCar.
+        /// </summary>
+        /// <param name="carServicesCar">Samochód do usunięcia.</param>
         public void DeleteCarServicesCar(CarServicesCar carServicesCar)
         {
             this.DeleteObject(carServicesCar);
         }
 
 
+        /// <summary>
+        /// Włącza CarProduct w DictionaryMode.
+        /// </summary>
         public void ShowCarProductsInDictionaryMode()
         {
             ICarProductList view = CarsViewFactory.Factory.CreateViewInstance<ICarProductList>(View);
             view.Show(ViewMode.Dictionary);
         }
 
+        /// <summary>
+        /// Dodaje CarProduct.
+        /// </summary>
+        /// <param name="addToHandledCarCollection">Czy CarProduct ma być dodany do HandledCarCollection.</param>
         public void AddCarProduct(bool addToHandledCarCollection)
         {
             if (View.CurrentObject == null)
@@ -118,6 +134,10 @@ namespace CarsApp.UI
                 this.AddCarServicesCar();
         }
 
+        /// <summary>
+        /// Ustawia obecny CarService.
+        /// </summary>
+        /// <param name="view">CarServiceView.</param>
         public void SetCurrentCarService(CarServicesView view)
         {
             foreach (CarService carService in Service.GetCarServiceCollection())
@@ -130,6 +150,9 @@ namespace CarsApp.UI
             }
         }
 
+        /// <summary>
+        /// Ustawia samochód jako naprawiony.
+        /// </summary>
         public void FixCarProduct()
         {
             Service.CallFixCarProductProcedure(View.CurrentCarService, View.CurrentHandledCarProduct.CarProduct);
@@ -147,9 +170,13 @@ namespace CarsApp.UI
             }
         }
 
-            #endregion Public methods
+        #endregion Public methods
 
-            #region Private methods
+        #region Private methods
+
+        /// <summary>
+        /// Dodaje HandledCarProduct.
+        /// </summary>
         private void AddHandledCarProduct()
         {
             if (View.HandledCarProductsCollection != null)
@@ -169,6 +196,9 @@ namespace CarsApp.UI
             }
         }
 
+        /// <summary>
+        /// Dodaje CarServicesCar.
+        /// </summary>
         private void AddCarServicesCar()
         {
             if (View.CarServicesCarsCollection != null)
@@ -189,6 +219,9 @@ namespace CarsApp.UI
             }
         }
 
+        /// <summary>
+        /// Pokazuje CarInServiceMessageWindow.
+        /// </summary>
         private void ShowCarInServiceMessageWindow()
         {
 
@@ -200,6 +233,9 @@ namespace CarsApp.UI
             result = LGBSMessageBox.Show(message, caption, buttons);
         }
 
+        /// <summary>
+        /// Pokazuje ShowCarToLoanMessageWindow.
+        /// </summary>
         private void ShowCarToLoanMessageWindow()
         {
             string message = "Czy klient dostał auto zastępcze?";
@@ -215,6 +251,9 @@ namespace CarsApp.UI
             }
         }
 
+        /// <summary>
+        /// Daje klientowi auto zastępcze.
+        /// </summary>
         private void GiveClientTempCar()
         {
             ICarServicesCarList dict = CarsViewFactory.Factory.CreateViewInstance<ICarServicesCarList>(View);

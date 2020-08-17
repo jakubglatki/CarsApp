@@ -65,6 +65,9 @@ namespace CarsApp.UI
 		}
 
 
+		/// <summary>
+		/// Lista obiektów typu Country.
+		/// </summary>
 		public ICollection<Country> CountryCollection
 		{
 			get { return CountryBindingSource.DataSource as ICollection<Country>; }
@@ -184,14 +187,15 @@ public CityDetails()
 			this.SetCountriesInComboBox();
 		}
 
-
+		
+		/// <summary>
+		/// Przygotowuje okno do pracy w trybie ReadOnly.
+		/// </summary>
 		private void SetCountriesInComboBox()
         {
 			this.countryComboBox.Items.Clear();
-			foreach (Country c in this.CountryCollection)
-			{
-				this.countryComboBox.Items.Add(c.Name);
-			}
+			this.countryComboBox.DataSource = CountryBindingSource;
+			this.countryComboBox.DisplayMember = "Name";
 		}
 		/// <summary>
 		/// Przygotowuje okno do pracy w trybie ReadOnly.
@@ -427,12 +431,26 @@ public CityDetails()
         {
 			if (this.CurrentCity != null)
 			{
+				this.countryComboBox.DataSource = null;
 				this.countryComboBox.Items.Add(this.CurrentCity.Country.Name);
 				this.countryComboBox.SelectedIndex = 0;
 			}
 		}
 		#endregion From view
 
+
+		/// <summary>
+		/// Ustawia DataSource countryComboBox.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">EventArgs.</param>
+		private void countryComboBox_DropDown(object sender, EventArgs e)
+		{
+			this.countryComboBox.DataSource = null;
+			this.countryComboBox.DataSource = CountryBindingSource;
+			this.countryComboBox.DisplayMember = "Name";
+		}
 		#endregion Handlers
+
 	}
 }

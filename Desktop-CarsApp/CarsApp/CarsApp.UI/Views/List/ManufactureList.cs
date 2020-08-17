@@ -275,6 +275,7 @@ namespace CarsApp.UI
         private void ManufactureCollectionGrid_CellDoubleClick(object sender, GridViewCellEventArgs e)
         {
             factoryList.SetProductTextBoxValue(CurrentManufacture.Name);
+            factoryList.SearchedManufacture = CurrentManufacture;
         }
 
         /// <summary>
@@ -284,9 +285,11 @@ namespace CarsApp.UI
         /// <param name="e">KeyEventArgs.</param>
         private void ManufactureCollectionGrid_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode==Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
+            {
                 factoryList.SetProductTextBoxValue(CurrentManufacture.Name);
-
+                factoryList.SearchedManufacture = CurrentManufacture;
+            }
         }
 
         #endregion EventHandlers

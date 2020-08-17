@@ -1,4 +1,6 @@
-﻿namespace CarsApp.UI
+﻿using CarsApp.Data;
+
+namespace CarsApp.UI
 {
 	/// <summary>
 	/// Interfejs określający kryteria wyszukiwania dla widoku CountryList.
@@ -15,7 +17,7 @@
 		/// <summary>
 		/// Nazwa kraju
 		/// </summary>
-		string FilterCountryName { get; set; }
+		Country FilterCountry{ get; set; }
 		#endregion Properties
 	}
 }

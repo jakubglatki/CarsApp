@@ -16,6 +16,11 @@ namespace CarsApp.UI
 		/// </summary>
 		City CurrentCity { get; set; }
 
+
+		/// <summary>
+		/// Wyszukiwany kraj.
+		/// </summary>
+		Country SearchedCountry { get; set; }
 		/// <summary>
 		/// Lista encji.
 		/// </summary>

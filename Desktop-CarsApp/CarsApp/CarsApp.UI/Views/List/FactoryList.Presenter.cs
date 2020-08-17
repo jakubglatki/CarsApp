@@ -90,8 +90,8 @@ namespace CarsApp.UI
         protected override void SetSearchCriteria()
         {
             SearchCriteria.Name = View.Filter.FilterName;
-            SearchCriteria.CityName = View.Filter.FilterCityName;
-            SearchCriteria.ManufactureName = View.Filter.FilterManufactureName;
+            SearchCriteria.City = View.Filter.FilterCity;
+            SearchCriteria.Manufacture = View.Filter.FilterManufacture;
 
             // wyczyszczenie wbudowanych filtrów
             View.ClearGridFilters();
@@ -111,8 +111,8 @@ namespace CarsApp.UI
         public override void ClearSearchCriteria()
         {
             View.Filter.FilterName = string.Empty;
-            View.Filter.FilterCityName = null;
-            View.Filter.FilterManufactureName = string.Empty;
+            View.Filter.FilterCity = null;
+            View.Filter.FilterManufacture = null;
 
             // wyczyszczenie wbudowanych filtrów
             View.ClearGridFilters();

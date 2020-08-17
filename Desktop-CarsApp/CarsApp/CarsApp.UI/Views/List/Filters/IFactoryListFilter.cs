@@ -1,3 +1,4 @@
+using CarsApp.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,8 @@ namespace CarsApp.UI
         #region Properties
 
         string FilterName { get; set; }
-        string FilterCityName { get; set; }
-        string FilterManufactureName { get; set; }
-
+        City FilterCity { get; set; }
+        Manufacture FilterManufacture { get; set; }
         #endregion Properties
     }
 }

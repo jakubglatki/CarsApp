@@ -18,6 +18,11 @@ namespace CarsApp.UI
         Factory CurrentFactory { get; set; }
 
         /// <summary>
+        /// Szukany producent.
+        /// </summary>
+        Manufacture SearchedManufacture { get; set; }
+
+        /// <summary>
         /// Lista encji.
         /// </summary>
         ICollection<Factory> FactoryCollection { get; set; }
@@ -26,6 +31,7 @@ namespace CarsApp.UI
         /// Lista encji city.
         /// </summary>
         ICollection<City> CityCollection { get; set; }
+
         /// <summary>
         /// Prezenter widoku.
         /// </summary>

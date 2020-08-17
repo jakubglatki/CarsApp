@@ -22,15 +22,17 @@ namespace CarsApp.Services
         public string Name { get; set; }
 
         /// <summary>
-        /// Nazwa miasta.
+        /// Miasto.
         /// </summary>
-        public string CityName { get; set; }
+        public City City{ get; set; }
+
+
 
 
         /// <summary>
-        /// Nazwa produkcji.
+        /// Produkcja.
         /// </summary>
-        public string ManufactureName { get; set; }
+        public Manufacture Manufacture { get; set; }
 
         #endregion Properties
 
@@ -47,11 +49,13 @@ namespace CarsApp.Services
             if (!string.IsNullOrEmpty(Name))
                 filter = filter.And(x => x.Name.Contains(this.Name));
 
-            if (!string.IsNullOrEmpty(CityName))
-                filter = filter.And(x => x.City.Name.Contains(this.CityName));
+            if (this.City!=null)
+                filter = filter.And(x => x.City.Id.Equals(this.City.Id));
 
-            if (!string.IsNullOrEmpty(ManufactureName))
-                filter = filter.And(x => x.Manufacture.Name.Contains(this.ManufactureName));
+
+            if (this.Manufacture!=null)
+                filter = filter.And(x => x.Manufacture.Id.Equals(this.Manufacture.Id));
+
             return filter;
         }
 

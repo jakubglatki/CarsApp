@@ -21,7 +21,7 @@ namespace CarsApp.Services
 		/// <summary>
 		/// Nazwa kraju
 		/// </summary>
-		public string CountryName { get; set; }
+		public Country Country { get; set; }
 
 		#endregion Properties
 
@@ -38,8 +38,8 @@ namespace CarsApp.Services
 			if (!string.IsNullOrEmpty(Name))
 				filter = filter.And(x => x.Name.Contains(this.Name));
 
-			if (!CountryName.Equals(null))
-				filter = filter.And(y => y.Country.Name.Contains(this.CountryName));
+			if (Country!=null)
+				filter = filter.And(y => y.Country.Id.Equals(this.Country.Id));
 			
 			
             return filter;

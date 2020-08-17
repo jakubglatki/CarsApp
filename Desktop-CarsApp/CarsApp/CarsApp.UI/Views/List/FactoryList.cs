@@ -66,6 +66,15 @@ namespace CarsApp.UI
             }
         }
 
+        /// <summary>
+        /// Szukane miasto.
+        /// </summary>
+        public City SearchedCity { get; set; }
+
+        /// <summary>
+        /// Szukany producent.
+        /// </summary>
+        public Manufacture SearchedManufacture { get; set; }
 
         /// <summary>
         /// Lista obiektów wyświetlanych w widoku.
@@ -108,19 +117,32 @@ namespace CarsApp.UI
         /// <summary>
         /// Nazwa miasta.
         /// </summary>
-        public string FilterCityName
+        public City FilterCity
         {
-            get { return cityComboBox.Text; }
-            set { cityComboBox.Text = value; }
+            get
+            {
+                return (City)this.cityComboBox.SelectedItem;
+            }
+            set
+            {
+                cityComboBox.Text = null;
+                SearchedCity = value;
+            }
+            
         }
 
+
         /// <summary>
-        /// Nazwa produkcji.
+        /// Id produkcji.
         /// </summary>
-        public string FilterManufactureName
+        public Manufacture FilterManufacture
         {
-            get { return productTextBox.Text; }
-            set { productTextBox.Text = value; }
+            get {
+                return SearchedManufacture;
+            }
+            set {
+                 this.SearchedManufacture = value;
+            }
         }
 
         /// <summary>
@@ -300,6 +322,7 @@ namespace CarsApp.UI
         {
             this.productTextBox.Text = text;
         }
+
         #endregion View specific
 
         #endregion Public methods

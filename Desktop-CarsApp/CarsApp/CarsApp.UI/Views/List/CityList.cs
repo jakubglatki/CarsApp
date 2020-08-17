@@ -65,6 +65,10 @@ namespace CarsApp.UI
 			}
 		}
 
+		/// <summary>
+		/// Wyszukiwany kraj.
+		/// </summary>
+		public Country SearchedCountry { get; set; }
 
 		/// <summary>
 		/// Lista obiektów wyświetlanych w widoku.
@@ -108,10 +112,19 @@ namespace CarsApp.UI
 		/// <summary>
 		/// Nazwa kraju
 		/// </summary>
-		public string FilterCountryName
+		public Country FilterCountry
 		{
-			get { return countryComboBox.Text; }
-			set { countryComboBox.Text = value; }
+			get
+			{
+				if (countryComboBox.SelectedItem == null)
+					return null;
+				else return (Country)countryComboBox.SelectedItem;
+			}
+			set
+			{
+				countryComboBox.Text = null;
+				SearchedCountry = value;
+			}
 		}
 
 
@@ -357,9 +370,10 @@ namespace CarsApp.UI
 		private void SetViewForOneCountryMode(Country country)
         {
 			this.Text = Resources.CaptionCityCountryMode + " " +country.Name;
-			List<string> countryName = new List<string>();
-			countryName.Add(country.Name);
-			this.countryComboBox.DataSource = countryName;
+			List<Country> citiesCountry = new List<Country>();
+			citiesCountry.Add(country);
+			this.countryComboBox.DataSource = citiesCountry;
+			this.countryComboBox.DisplayMember = "Name";
 			this.countryComboBox.Enabled = false;
 			Presenter.Search();
 		}
@@ -395,7 +409,7 @@ namespace CarsApp.UI
 		private void searchButton_Click(object sender, EventArgs e)
 		{
 			Presenter.Search();
-			this.countryComboBox.DataSource = null;
+			//this.countryComboBox.DataSource = null;
 		}
 
 

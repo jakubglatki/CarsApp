@@ -23,8 +23,6 @@ namespace CarsApp.Services
             {
                 case "Id":
                     return sortDirection == SortDirection.Ascending ? source.OrderBy(x => x.Id) : source.OrderByDescending(x => x.Id);
-
-                    // TODO [ServiceTemplate] - optional: Sortowanie (określić kolejne warunki)
             }
 
             return source.OrderBy(x => x.Id);

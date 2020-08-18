@@ -7,10 +7,6 @@ using LGBS.MVPFramework.UI;
 
 namespace CarsApp.UI
 {
-    // TODO [UITemplate] - optional: Zweryfikować
-    // jeśli z widokiem typu lista jest powiązany widok typu details, 
-    // wówczas prezeter musi implementować interfejs ICarProductDetails zamiast INoDetailsView
-
     /// <summary>
     /// Prezenter widoku CarProductList.
     /// </summary>
@@ -47,8 +43,6 @@ namespace CarsApp.UI
         public CarProductListPresenter(ICarProductList view)
             : base(view, true)
         {
-            // TODO [UITemplate] - optional: Zweryfikować
-            // ustawienie widoku jako źródło danych dla widoku typu lista
             Service.UseViewAsMainDataSource = true;
         }
 

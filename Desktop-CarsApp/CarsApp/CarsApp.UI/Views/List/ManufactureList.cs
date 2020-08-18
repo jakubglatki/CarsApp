@@ -9,6 +9,7 @@ using LGBS.MVPFramework.Controls;
 using LGBS.MVPFramework.UI;
 using LGBS.MVPFramework.Services;
 using Telerik.WinControls.UI;
+using CarsApp.UI.Properties;
 
 namespace CarsApp.UI
 {
@@ -124,7 +125,6 @@ namespace CarsApp.UI
             {
                 this.Presenter = new ManufactureListPresenter(this);
 
-                // TODO [UITemplate] - optional: Określić możliwe operacje
                 this.SupportsShowDetails = false;
                 this.SupportsDelete = false;
                 this.SupportsAddNew = false;
@@ -195,8 +195,7 @@ namespace CarsApp.UI
                 case ViewMode.Edit:
                     break;
                 case ViewMode.ReadOnly:
-                    // TODO [UITemplate] - optional: Zmienić tytuł widoku
-                    this.Text = "Manufacture list";
+                    this.Text = Resources.CaptionManufactureList;
                     break;
                 case ViewMode.Dictionary:
                     break;

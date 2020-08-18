@@ -79,6 +79,15 @@ namespace CarsApp.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Samochody do wypożyczenia.
+        /// </summary>
+        internal static string CaptionCarServicesCarList {
+            get {
+                return ResourceManager.GetString("CaptionCarServicesCarList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Serwisy.
         /// </summary>
         internal static string CaptionCarServicesViewList {
@@ -174,6 +183,33 @@ namespace CarsApp.UI.Properties {
         internal static string CaptionFactoryList {
             get {
                 return ResourceManager.GetString("CaptionFactoryList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Produkcja.
+        /// </summary>
+        internal static string CaptionManufactureList {
+            get {
+                return ResourceManager.GetString("CaptionManufactureList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pokaż auta do wypożyczenia.
+        /// </summary>
+        internal static string CarServicesCarButton {
+            get {
+                return ResourceManager.GetString("CarServicesCarButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pokaż serwisowane auta.
+        /// </summary>
+        internal static string HandledCarProuctButton {
+            get {
+                return ResourceManager.GetString("HandledCarProuctButton", resourceCulture);
             }
         }
         

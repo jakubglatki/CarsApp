@@ -422,7 +422,8 @@ namespace CarsApp.UI
         private void clearFilterButton_Click(object sender, EventArgs e)
         {
             Presenter.ClearSearchCriteria();
-            this.cityComboBox.Text = null;
+            this.cityComboBox.DataSource = null;
+           
         }
 
 
@@ -474,6 +475,7 @@ namespace CarsApp.UI
         private void cityComboBox_DropDown(object sender, EventArgs e)
         {
             this.cityComboBox.DataSource = this.CityCollectionBindingSource;
+            this.cityComboBox.DisplayMember = "Name";
         }
 
         #endregion Handlers

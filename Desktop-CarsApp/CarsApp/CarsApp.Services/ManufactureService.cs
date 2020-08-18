@@ -52,7 +52,6 @@ namespace CarsApp.Services
         /// </summary>
         protected override void Initialize()
         {
-            // TODO [ServiceTemplate] - optional: Zweryfikuj
             EntitySetName = "CarsDb.Manufactures";
             EntityViewSetName = "CarsDb.ManufactureViewSet";
         }

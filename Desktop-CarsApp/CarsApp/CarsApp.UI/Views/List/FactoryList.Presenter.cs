@@ -45,8 +45,6 @@ namespace CarsApp.UI
         public FactoryListPresenter(IFactoryList view)
             : base(view, true)
         {
-            // TODO [UITemplate] - optional: Zweryfikować
-            // ustawienie widoku jako źródło danych dla widoku typu lista
             Service.UseViewAsMainDataSource = true;
         }
 

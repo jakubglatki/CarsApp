@@ -409,7 +409,6 @@ namespace CarsApp.UI
 		private void searchButton_Click(object sender, EventArgs e)
 		{
 			Presenter.Search();
-			//this.countryComboBox.DataSource = null;
 		}
 
 
@@ -421,7 +420,8 @@ namespace CarsApp.UI
 		private void clearFilterButton_Click(object sender, EventArgs e)
 		{
 			Presenter.ClearSearchCriteria();
-			this.countryComboBox.Text = null;
+			if (!this.Text.Contains(Resources.CaptionCityCountryMode))
+				this.countryComboBox.DataSource = null;
 			if(this.Text.Contains(Resources.CaptionCityCountryMode))
 				this.countryComboBox.Text = CurrentCity.Country.Name;
 		}
@@ -435,6 +435,7 @@ namespace CarsApp.UI
 		private void countryComboBox_DropDown(object sender, EventArgs e)
 		{
 			this.countryComboBox.DataSource = this.CountryCollectionBindingSource;
+			this.countryComboBox.DisplayMember = "Name";
 		}
 		#endregion Handlers
 

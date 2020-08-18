@@ -12,6 +12,7 @@ using System.Web.UI.WebControls;
 using System.Data.Common.CommandTrees.ExpressionBuilder;
 using System.Drawing;
 using Telerik.WinControls;
+using CarsApp.UI.Properties;
 
 namespace CarsApp.UI
 {
@@ -32,9 +33,6 @@ namespace CarsApp.UI
         /// </summary>
         public class WorkModes : BaseWorkModes
         {
-            // TODO [UITemplate] - optional: Zdefiniowanć niestandardowe tryby pracy
-            // np.
-            //public const int SampleWorkMode = 1;
         }
 
         #endregion Consts
@@ -115,6 +113,8 @@ namespace CarsApp.UI
                     Presenter.AddCarProduct(true);
                 else
                     Presenter.AddCarProduct(false);
+
+                ParentView.Close();
             }
         }
 
@@ -206,96 +206,7 @@ namespace CarsApp.UI
         /// </summary>
         private void InitializeRibbonBar()
         {
-            // zablokowanie minimalizacji ribbon bar'a
-            mainRadRibbonBar.CollapseRibbonOnTabDoubleClick = false;
-            // zablokowanie pojawianie się key map po naciśnięciu Alt
-            mainRadRibbonBar.EnableKeyMap = false;
         }
-
-        /// <summary>
-        /// Przygotowuje okno do pracy w trybie New.
-        /// </summary>
-        private void SetWindowStateForNewMode()
-        {
-            // tytuł okna
-            // TODO [UITemplate] - optional: Zmienić tytuł widoku
-            this.Text = "CarService - new";
-
-            // ukrycie tab'a Zarządzanie
-            managementRibbonTab.Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
-            // pokazanie tab'a Edycja
-            editRibbonTab.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // ukrycie grupy z przyciskiem Usuń
-            objectDetailsActionsRadRibbonBarGroup.Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
-            // zaznaczenie tab'a Edycja
-            editRibbonTab.IsSelected = true;
-
-            // ukrycie przycisku Zamknij
-            closeButton.Visible = false;
-
-            // włączenie wszystkich kontrolek w tryb edycji
-            EnableControls(true);
-        }
-
-        /// <summary>
-        /// Przygotowuje okno do pracy w trybie Edit.
-        /// </summary>
-        private void SetWindowStateForEditMode()
-        {
-            // tytuł okna
-            // TODO [UITemplate] - optional: Zmienić tytuł widoku
-            this.Text = "CarService - edit";
-
-            // ukrycie tab'a Zarządzanie
-            managementRibbonTab.Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
-            // pokazanie tab'a Edycja
-            editRibbonTab.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // pokazanie grupy z przyciskiem Usuń
-            objectDetailsActionsRadRibbonBarGroup.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // zaznaczenie tab'a Edycja
-            editRibbonTab.IsSelected = true;
-
-            // ustawienie dostępności btn Usuń
-            if (ParentView != null)
-                deleteObjectRadButtonElement.Enabled = ParentView.SupportsDelete;
-
-            // ukrycie przycisku Zamknij
-            closeButton.Visible = false;
-
-            // włączenie wszystkich kontrolek w tryb edycji
-            EnableControls(true);
-        }
-
-        /// <summary>
-        /// Przygotowuje okno do pracy w trybie ReadOnly.
-        /// </summary>
-        private void SetWindowStateForReadOnlyMode()
-        {
-            // tytuł okna
-            // TODO [UITemplate] - optional: Zmienić tytuł widoku
-            this.Text = "Szczegóły serwisu";
-
-            // pokazanie tab'a Zarządzanie
-            managementRibbonTab.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // ukrycie tab'a Edycja
-            editRibbonTab.Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
-            // zaznaczenie tab'a Zarządzanie
-            managementRibbonTab.IsSelected = true;
-
-            // ustawienie dostępności btn Usuń i Edytuj
-            if (ParentView != null)
-            {
-                deleteRadButtonElement.Enabled = ParentView.SupportsDelete;
-                editRadButtonElement.Enabled = ParentView.SupportsEdit;
-            }
-
-            // pokazanie przycisku Zamknij
-            closeButton.Visible = true;
-
-            // ustawienie wszystkich kontrolek tylko do odczytu
-            EnableControls(false);
-        }
-
         /// <summary>
         /// Aktywuje / deaktywuje wszystkie kontrolki na formatce.
         /// </summary>
@@ -348,29 +259,6 @@ namespace CarsApp.UI
             return InterfaceName;
         }
 
-        /// <summary>
-        /// Zmienia tryb widoku.
-        /// </summary>
-        /// <param name="mode">Tryb widoku.</param>
-        public override void ChangeMode(ViewMode mode)
-        {
-            switch (mode)
-            {
-                case ViewMode.New:
-                    SetWindowStateForNewMode();
-                    break;
-                case ViewMode.Edit:
-                    SetWindowStateForEditMode();
-                    break;
-                case ViewMode.ReadOnly:
-                    SetWindowStateForReadOnlyMode();
-                    break;
-                default:
-                    throw new ViewModeNotSupportedException();
-            }
-
-            base.ChangeMode(mode);
-        }
 
         #endregion Overrides
 
@@ -481,9 +369,6 @@ namespace CarsApp.UI
         /// <param name="e">EventArgs.</param>
         private void CarServiceDetails_Shown(object sender, EventArgs e)
         {
-            // TODO [UITemplate] - optional: Ustawić focus na odpowiednią kontrolkę w trybie ViewMode.New
-            //if (Mode == ViewMode.New)
-            //	textBox.Focus();
             if (Mode != ViewMode.New)
                 this.SetComboBoxValue();
         }
@@ -510,7 +395,7 @@ namespace CarsApp.UI
         /// <param name="e">EventArgs.</param>
         private void deleteCarButton_Click(object sender, EventArgs e)
         {
-            if (loanButton.Text.Contains("wypożyczenia"))
+            if (loanButton.Text.Contains(Resources.CarServicesCarButton))
             {
                 Presenter.DeleteHandledCarProduct(CurrentHandledCarProduct);
             }
@@ -518,6 +403,7 @@ namespace CarsApp.UI
             {
                 Presenter.DeleteCarServicesCar(CurrentCarServicesCar);
             }
+            ParentView.Close();
         }
 
         /// <summary>
@@ -559,14 +445,14 @@ namespace CarsApp.UI
         /// <param name="e">EventArgs.</param>
         private void loanButton_Click(object sender, EventArgs e)
         {
-            if (loanButton.Text.Contains("wypożyczenia"))
+            if (loanButton.Text.Contains(Resources.CarServicesCarButton))
             {
-                loanButton.Text = "Pokaż serwisowane auta";
+                loanButton.Text = Resources.HandledCarProuctButton;
                 SetVisibility(false);
             }
             else
             {
-                loanButton.Text = "Pokaż auta do wypożyczenia";
+                loanButton.Text = Resources.CarServicesCarButton;
                 SetVisibility(true);
             }
         }
@@ -608,22 +494,6 @@ namespace CarsApp.UI
         }
 
 
-        #endregion Handlers
-
-
-        /// <summary>
-        /// Ustawia widoczność.
-        /// </summary>
-        /// <param name="isVisiblie">Ustawia widoczność.</param>
-        private void SetVisibility(bool isVisiblie)
-        {
-
-            CarServicesCarCollectionGrid.Visible = !isVisiblie;
-            CarProductCollectionGrid.Visible = isVisiblie;
-            isFixedCheckBox.Visible = isVisiblie;
-            checkBoxLabel.Visible = isVisiblie;
-        }
-
         /// <summary>
         /// Ustawia komórki grida.
         /// </summary>
@@ -645,6 +515,23 @@ namespace CarsApp.UI
             }
 
         }
+
+        #endregion Handlers
+
+        #region Private methods
+        /// <summary>
+        /// Ustawia widoczność.
+        /// </summary>
+        /// <param name="isVisiblie">Ustawia widoczność.</param>
+        private void SetVisibility(bool isVisiblie)
+        {
+
+            CarServicesCarCollectionGrid.Visible = !isVisiblie;
+            CarProductCollectionGrid.Visible = isVisiblie;
+            isFixedCheckBox.Visible = isVisiblie;
+            checkBoxLabel.Visible = isVisiblie;
+        }
+        #endregion Private methods
 
     }
 }

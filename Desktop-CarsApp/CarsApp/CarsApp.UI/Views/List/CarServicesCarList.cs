@@ -12,6 +12,7 @@ using Telerik.WinControls.UI;
 using CarsApp.UI.Managers;
 using Telerik.WinControls;
 using System.Drawing;
+using CarsApp.UI.Properties;
 
 namespace CarsApp.UI
 {
@@ -131,7 +132,6 @@ namespace CarsApp.UI
 
                 this.Presenter = new CarServicesCarListPresenter(this);
 
-                // TODO [UITemplate] - optional: Określić możliwe operacje
                 this.SupportsShowDetails = false;
                 this.SupportsDelete = false;
                 this.SupportsAddNew = false;
@@ -180,7 +180,6 @@ namespace CarsApp.UI
         {
             if (CurrentObject != null)
             {
-                // TODO [UITemplate] - optional: W razie potrzeby przekazać do metody własny komunikat
                 base.Delete();
             }
         }
@@ -198,8 +197,7 @@ namespace CarsApp.UI
                 case ViewMode.Edit:
                     break;
                 case ViewMode.ReadOnly:
-                    // TODO [UITemplate] - optional: Zmienić tytuł widoku
-                    this.Text = "CarServicesCar list";
+                    this.Text = Resources.CaptionCarServicesCarList;
                     break;
                 case ViewMode.Dictionary:
                     break;

@@ -28,9 +28,6 @@ namespace CarsApp.Services
         {
             Expression<Func<CarService, bool>> filter = PredicateBuilder.True<CarService>();
 
-            // TODO [ServiceTemplate] - optional: SearchCriteria (dodać składowe wyrażenia filtrującego)
-            //if (!string.IsNullOrEmpty(PropertyName))
-            //    filter = filter.And(x => x.PropertyName.Contains(this.PropertyName));
 
             return filter;
         }
@@ -44,7 +41,6 @@ namespace CarsApp.Services
         {
             Expression<Func<HandledCarProduct, bool>> filter = PredicateBuilder.True<HandledCarProduct>();
 
-            // TODO [ServiceTemplate] - optional: SearchCriteria (dodać składowe wyrażenia filtrującego)
                 filter = filter.And(x => x.CarServiceId.Equals(carService.Id));
 
             return filter;
@@ -59,7 +55,6 @@ namespace CarsApp.Services
         {
             Expression<Func<CarServicesCar, bool>> filter = PredicateBuilder.True<CarServicesCar>();
 
-            // TODO [ServiceTemplate] - optional: SearchCriteria (dodać składowe wyrażenia filtrującego)
             filter = filter.And(x => x.CarServiceId.Equals(carService.Id));
 
             return filter;

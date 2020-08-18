@@ -424,13 +424,13 @@ namespace CarsApp.UI
 		private void clearFilterButton_Click(object sender, EventArgs e)
 		{
 			Presenter.ClearSearchCriteria();
-			this.modelComboBox.Text = null;
-			this.factoryComboBox.Text = null;
+			this.modelComboBox.DataSource = null;
+			this.factoryComboBox.DataSource = null;
 		}
 
 
 		/// <summary>
-		/// Obsługa czyszczenia kryteriów wyszukiwania.
+		/// Ustawia prawidłowe wartości komórek.
 		/// </summary>
 		/// <param name="sender">Sender.</param>
 		/// <param name="e">CellFormattingEventArgs.</param>
@@ -446,6 +446,27 @@ namespace CarsApp.UI
 			}
 		}
 
+
+
+		/// <summary>
+		/// Wysyła do ParentView wybrany CarProduct.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">GridViewCellEventArgs.</param>
+		private void CarProductCollectionGrid_CellDoubleClick(object sender, GridViewCellEventArgs e)
+		{
+			CarServiceDetails carService = new CarServiceDetails();
+			if (ParentView.GetType() == carService.GetType())
+			{
+				carService = (CarServiceDetails)ParentView;
+				if (ParentView.CurrentObject != null)
+				{
+					carService.CarProductList = this;
+					carService.CarProductToAdd = this.CurrentCarProduct;
+					ParentView.ShowDialog();
+				}
+			}
+		}
 
 		/// <summary>
 		/// Odpowiada za powrót do domyślengo DataSource.
@@ -473,25 +494,5 @@ namespace CarsApp.UI
 		#endregion Handlers
 
 
-
-		/// <summary>
-		/// Odpowiada za powrót do domyślengo DataSource.
-		/// </summary>
-		/// <param name="sender">Sender.</param>
-		/// <param name="e">GridViewCellEventArgs.</param>
-		private void CarProductCollectionGrid_CellDoubleClick(object sender, GridViewCellEventArgs e)
-        {
-			CarServiceDetails carService = new CarServiceDetails();
-			if (ParentView.GetType() == carService.GetType())
-			{
-				carService = (CarServiceDetails)ParentView;
-				if (ParentView.CurrentObject != null)
-				{
-					carService.CarProductList = this;
-					carService.CarProductToAdd = this.CurrentCarProduct;
-					ParentView.ShowDialog();
-				}
-			}
-		}
     }
 }
